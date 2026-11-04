@@ -11,8 +11,8 @@ Every task must tick:
 - [x] Committed with a Conventional Commit message (hash recorded)
 
 ## Session Status
-- **Current Milestone**: M1 (Common Widgets UI Kit)
-- **Status**: Completed (ready for M2: Home & Drawer)
+- **Current Milestone**: M2 (Home & Navigation Drawer)
+- **Status**: Completed (ready for M3: Camera & Modes)
 
 ## Milestone Checklist
 - [x] **M0: Foundation & UI Gallery** (`4adb380`)
@@ -39,7 +39,12 @@ Every task must tick:
   - [x] Group 4: Overlays and feedback (`lib/core/widgets/sheets/`, `dialogs/`, `feedback/`)
   - [x] Group 5: Camera widgets (`lib/core/widgets/camera/`)
   - [x] Group 6: Components page & integration (`lib/dev/ui_gallery/`, `/dev/components`)
-- [ ] **M2: Home & Drawer**
+- [x] **M2: Home & Drawer** (tagged `m2-home-drawer`)
+  - [x] Models & dummy data: `ScanDocument`, `ScanFolder`, `DrawerUser`, mock repositories (`8b2ba0e`)
+  - [x] Navigation Drawer: `AppDrawer`, signed-in & signed-out headers, accordion sections, preview screen (`d369388`)
+  - [x] Home Screen: `HomeScreen`, `HomeFoldersSection`, `HomeDocumentsSection`, grid mode, empty onboarding state (`2cc7ffa`)
+  - [x] Menus & sheets: `HomeOverflowMenu`, `AddDocumentSheet`, gallery routes integration (`2a01452`)
+  - [x] Tests: 6 widget tests for home and drawer (`e12cff8`)
 - [ ] **M3: Camera & Modes**
 - [ ] **M4: Scan Review & Adjust**
 - [ ] **M5: Document Viewers & Multi-Page Manager**
@@ -61,3 +66,6 @@ Every task must tick:
 | Part B (M1) | `flutter analyze` | 0 issues found | Clean static analysis across all 40+ widgets |
 | Part B (M1) | `flutter test` | All 6 tests passed | Added & verified `test/components_page_test.dart` |
 | Part B (M1) | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); launched Components Page, switched light/dark/camera themes, font scale 1.3 test clean |
+| M2 | `flutter analyze` | 0 issues found | Clean static analysis across models, repository, drawer, and home |
+| M2 | `flutter test` | All 12 tests passed | 6 new tests in `test/home_and_drawer_test.dart`, all project tests green |
+| M2 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); verified 9 states (Home list/grid, empty state, overflow menu, import submenu, add sheet, drawer signed-in/signed-out/tools-other), font scale 1.3 tested with 0 overflows and 0 exceptions |

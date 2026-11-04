@@ -42,6 +42,9 @@ GoogleService-Info.plist
 # Symbolication related
 app.*.symbols
 
+# Verification screenshots
+docs/verification/
+
 # Obfuscation related
 app.*.map.json
 
