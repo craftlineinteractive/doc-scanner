@@ -3,9 +3,11 @@ import 'package:docscanner/core/theme/app_theme.dart';
 import 'package:docscanner/core/theme/doc_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  GoogleFonts.config.allowRuntimeFetching = false;
 
   group('AppTheme Sanity Tests', () {
     test('Light theme builds correctly with required tokens', () {

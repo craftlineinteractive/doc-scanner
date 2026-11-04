@@ -251,11 +251,14 @@ class _AppDrawerState extends ConsumerState<AppDrawer> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
-                    'Doc Scanner v2.4.1',
-                    style: AppTypography.labelSm.copyWith(
-                      color: AppColors.textMuted,
-                      fontSize: 11,
+                  Expanded(
+                    child: Text(
+                      'Doc Scanner v2.4.1',
+                      style: AppTypography.labelSm.copyWith(
+                        color: AppColors.textMuted,
+                        fontSize: 11,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Text(

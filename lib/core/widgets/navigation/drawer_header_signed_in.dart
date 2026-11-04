@@ -152,11 +152,14 @@ class DrawerHeaderSignedIn extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
-                '${AppStrings.backupSizePrefix}$backupSize',
-                style: AppTypography.bodySm.copyWith(
-                  color: AppColors.textMuted,
-                  fontSize: 12,
+              Expanded(
+                child: Text(
+                  '${AppStrings.backupSizePrefix}$backupSize',
+                  style: AppTypography.bodySm.copyWith(
+                    color: AppColors.textMuted,
+                    fontSize: 12,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               if (isSynced)

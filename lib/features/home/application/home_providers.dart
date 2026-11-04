@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../data/mock_empty_home_repository.dart';
 import '../data/mock_home_repository.dart';
 import '../domain/home_repository.dart';
 
@@ -16,6 +17,12 @@ class HomeRepositoryNotifier extends Notifier<HomeRepository> {
   void setRepository(HomeRepository repository) {
     state = repository;
   }
+}
+
+/// Notifier returning an empty repository for first-run empty state.
+class EmptyHomeRepositoryNotifier extends HomeRepositoryNotifier {
+  @override
+  HomeRepository build() => const MockEmptyHomeRepository();
 }
 
 /// Provider exposing the current [HomeRepository].
@@ -39,10 +46,15 @@ class HomeViewModeNotifier extends Notifier<HomeViewMode> {
   }
 }
 
+/// Notifier defaulting to grid mode.
+class GridHomeViewModeNotifier extends HomeViewModeNotifier {
+  @override
+  HomeViewMode build() => HomeViewMode.grid;
+}
+
 /// Provider exposing the current [HomeViewMode].
 final NotifierProvider<HomeViewModeNotifier, HomeViewMode>
     homeViewModeProvider =
     NotifierProvider<HomeViewModeNotifier, HomeViewMode>(
   HomeViewModeNotifier.new,
 );
-

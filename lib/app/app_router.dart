@@ -6,7 +6,6 @@ import '../dev/ui_gallery/components_page.dart';
 import '../dev/ui_gallery/ui_gallery_screen.dart';
 import '../features/drawer/presentation/screens/drawer_preview_screen.dart';
 import '../features/home/application/home_providers.dart';
-import '../features/home/data/mock_empty_home_repository.dart';
 import '../features/home/presentation/screens/home_screen.dart';
 import 'routes.dart';
 
@@ -44,7 +43,7 @@ GoRouter createRouter({String? initialLocation}) {
             overrides: [
               if (mode == 'grid')
                 homeViewModeProvider.overrideWith(
-                  () => HomeViewModeNotifier()..setMode(HomeViewMode.grid),
+                  GridHomeViewModeNotifier.new,
                 ),
             ],
             child: HomeScreen(
@@ -60,8 +59,7 @@ GoRouter createRouter({String? initialLocation}) {
         builder: (context, state) => ProviderScope(
           overrides: [
             homeRepositoryProvider.overrideWith(
-              () => HomeRepositoryNotifier()
-                ..setRepository(const MockEmptyHomeRepository()),
+              EmptyHomeRepositoryNotifier.new,
             ),
           ],
           child: const HomeScreen(),

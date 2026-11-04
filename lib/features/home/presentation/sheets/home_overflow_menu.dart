@@ -109,24 +109,28 @@ class _HomeOverflowMenuState extends ConsumerState<HomeOverflowMenu> {
               vertical: AppSpacing.xs,
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    const Icon(
-                      Symbols.picture_as_pdf_rounded,
-                      size: 20,
-                      color: AppColors.textMuted,
-                    ),
-                    const SizedBox(width: AppSpacing.sm),
-                    Text(
-                      'Export Preset',
-                      style: AppTypography.labelMd.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: Theme.of(context).colorScheme.onSurface,
+                Expanded(
+                  child: Row(
+                    children: <Widget>[
+                      const Icon(
+                        Symbols.picture_as_pdf_rounded,
+                        size: 20,
+                        color: AppColors.textMuted,
                       ),
-                    ),
-                  ],
+                      const SizedBox(width: AppSpacing.sm),
+                      Flexible(
+                        child: Text(
+                          'Export Preset',
+                          style: AppTypography.labelMd.copyWith(
+                            fontWeight: FontWeight.w500,
+                            color: Theme.of(context).colorScheme.onSurface,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 SegmentedPill<String>(
                   items: const <String>['PDF', 'JPG'],
@@ -297,18 +301,24 @@ class _HomeOverflowMenuState extends ConsumerState<HomeOverflowMenu> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Icon(icon, size: 20, color: AppColors.textMuted),
-                const SizedBox(width: AppSpacing.sm),
-                Text(
-                  label,
-                  style: AppTypography.labelMd.copyWith(
-                    fontWeight: FontWeight.w500,
-                    color: Theme.of(context).colorScheme.onSurface,
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Icon(icon, size: 20, color: AppColors.textMuted),
+                  const SizedBox(width: AppSpacing.sm),
+                  Flexible(
+                    child: Text(
+                      label,
+                      style: AppTypography.labelMd.copyWith(
+                        fontWeight: FontWeight.w500,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             ?trailing,
           ],

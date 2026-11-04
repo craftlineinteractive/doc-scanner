@@ -104,3 +104,4 @@ class HomeFoldersSection extends StatelessWidget {
     }
   }
 }
+

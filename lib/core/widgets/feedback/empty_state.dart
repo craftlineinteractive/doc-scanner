@@ -314,7 +314,6 @@ class EmptyState extends StatelessWidget {
       constraints: const BoxConstraints(maxWidth: 280),
       child: Material(
         color: Theme.of(context).cardTheme.color,
-        borderRadius: AppRadii.roundedPill,
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: AppRadii.roundedPill,
