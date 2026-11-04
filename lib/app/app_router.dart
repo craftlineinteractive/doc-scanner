@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../core/widgets/feedback/placeholder_screen.dart';
+import '../dev/ui_gallery/components_page.dart';
 import '../dev/ui_gallery/ui_gallery_screen.dart';
 import 'routes.dart';
 
@@ -23,10 +24,7 @@ GoRouter createRouter({String? initialLocation}) {
       ),
       GoRoute(
         path: AppRoutes.components,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Components Gallery',
-          subtitle: 'Common widgets UI Kit (M1 milestone)',
-        ),
+        builder: (context, state) => const ComponentsPage(),
       ),
 
       // 01 Home
