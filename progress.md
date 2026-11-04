@@ -32,7 +32,7 @@ Every task must tick:
   - [x] A3: Permanent Rule 12 (Emulator testing) in `docs/AI_RULES.md`
   - [x] A4: Definition of Done checklist in `progress.md`
   - [x] A5: Verification & commit (`acfc359`)
-- [x] **M1: Common Widgets UI Kit**
+- [x] **M1: Common Widgets UI Kit** (`9b28d5a`)
   - [x] Group 1: Mock visuals and buttons (`lib/core/widgets/mock/`, `lib/core/widgets/buttons/`)
   - [x] Group 2: Navigation and inputs (`lib/core/widgets/navigation/`, `lib/core/widgets/inputs/`)
   - [x] Group 3: Cards and chips (`lib/core/widgets/cards/`, `lib/core/widgets/chips/`)
