@@ -19,6 +19,8 @@ import '../../../../core/widgets/navigation/app_top_bar.dart';
 import '../../../drawer/presentation/widgets/app_drawer.dart';
 import '../../application/home_providers.dart';
 import '../../domain/home_repository.dart';
+import '../sheets/add_document_sheet.dart';
+import '../sheets/home_overflow_menu.dart';
 import '../widgets/home_documents_section.dart';
 import '../widgets/home_folders_section.dart';
 
@@ -57,13 +59,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   void _openAddDocumentSheet() {
-    // Will be wired to AddDocumentSheet in Step 5
-    showAppSnackbar(context: context, message: 'Add Document sheet');
+    AddDocumentSheet.show(context);
   }
 
   void _openOverflowMenu({bool initialImportExpanded = false}) {
-    // Will be wired to HomeOverflowMenu in Step 4
-    showAppSnackbar(context: context, message: 'Overflow menu');
+    HomeOverflowMenu.show(
+      context: context,
+      initialImportExpanded: initialImportExpanded,
+    );
   }
 
   @override

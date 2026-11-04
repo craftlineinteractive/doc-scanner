@@ -15,6 +15,8 @@ class OptionCard extends StatelessWidget {
     required this.icon,
     this.tag,
     this.tagColor,
+    this.iconColor,
+    this.iconBackgroundColor,
     this.onTap,
   });
 
@@ -23,11 +25,15 @@ class OptionCard extends StatelessWidget {
   final Widget icon;
   final String? tag;
   final Color? tagColor;
+  final Color? iconColor;
+  final Color? iconBackgroundColor;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final DocColors docColors = context.docColors;
+    final Color effectiveIconColor = iconColor ?? AppColors.primary;
+    final Color effectiveIconBg = iconBackgroundColor ?? docColors.primaryTint;
 
     return Material(
       color: Theme.of(context).cardTheme.color,
@@ -46,12 +52,12 @@ class OptionCard extends StatelessWidget {
                 width: 44,
                 height: 44,
                 decoration: BoxDecoration(
-                  color: docColors.primaryTint,
+                  color: effectiveIconBg,
                   borderRadius: AppRadii.roundedInput,
                 ),
                 alignment: Alignment.center,
                 child: IconTheme(
-                  data: const IconThemeData(color: AppColors.primary, size: 22),
+                  data: IconThemeData(color: effectiveIconColor, size: 22),
                   child: icon,
                 ),
               ),
@@ -122,4 +128,3 @@ class OptionCard extends StatelessWidget {
     );
   }
 }
-

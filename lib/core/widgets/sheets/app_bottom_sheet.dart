@@ -6,11 +6,12 @@ import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
 import '../buttons/icon_circle_button.dart';
 
-/// Standard modal bottom sheet container with drag handle, title row, and 28px rounded top corners.
+/// Standard modal bottom sheet container with drag handle, title row, subtitle, and 28px rounded top corners.
 class AppBottomSheet extends StatelessWidget {
   const AppBottomSheet({
     super.key,
     this.title,
+    this.subtitle,
     required this.child,
     this.onClose,
     this.trailing,
@@ -18,6 +19,7 @@ class AppBottomSheet extends StatelessWidget {
   });
 
   final String? title;
+  final String? subtitle;
   final Widget child;
   final VoidCallback? onClose;
   final Widget? trailing;
@@ -27,6 +29,7 @@ class AppBottomSheet extends StatelessWidget {
   static Future<T?> show<T>({
     required BuildContext context,
     String? title,
+    String? subtitle,
     required Widget child,
     bool isScrollControlled = true,
   }) {
@@ -34,8 +37,10 @@ class AppBottomSheet extends StatelessWidget {
       context: context,
       isScrollControlled: isScrollControlled,
       useSafeArea: true,
+      backgroundColor: Colors.transparent,
       builder: (context) => AppBottomSheet(
         title: title,
+        subtitle: subtitle,
         onClose: () => Navigator.of(context).pop(),
         child: child,
       ),
@@ -73,15 +78,30 @@ class AppBottomSheet extends StatelessWidget {
             ),
           if (title != null || onClose != null || trailing != null) ...<Widget>[
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 if (title != null)
                   Expanded(
-                    child: Text(
-                      title!,
-                      style: AppTypography.headlineSm.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: Theme.of(context).colorScheme.onSurface,
-                      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          title!,
+                          style: AppTypography.headlineSm.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: Theme.of(context).colorScheme.onSurface,
+                          ),
+                        ),
+                        if (subtitle != null) ...<Widget>[
+                          const SizedBox(height: 2),
+                          Text(
+                            subtitle!,
+                            style: AppTypography.bodySm.copyWith(
+                              color: AppColors.textMuted,
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
                   )
                 else
@@ -107,4 +127,3 @@ class AppBottomSheet extends StatelessWidget {
     );
   }
 }
-
