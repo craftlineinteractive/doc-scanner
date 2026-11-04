@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Doc Scanner - Saved Document Viewer (5 Frames Suite)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          50: '#EEF0FF',
+          100: '#E0E4FF',
+          500: '#6366F1',
+          600: '#4F46E5',
+          700: '#4338CA'
+        },
+        navy: {
+          900: '#1E2340',
+          800: '#2A3052'
+        },
+        slateText: '#8A90A6',
+        surfaceBg: '#F4F6FA',
+        paperBg: '#E9ECF3'
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0B0F19;
+    color: #1E2340;
+    margin: 0;
+    padding: 0;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .fade-right {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.92) 75%, #ffffff 100%);
+  }
+  .device-frame {
+    width: 390px;
+    min-width: 390px;
+    max-width: 390px;
+    height: 844px;
+    background-color: #F4F6FA;
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body class="min-h-screen text-slate-800 antialiased bg-[#0B0F19]">
+<!-- Header Bar for Suite Presentation -->
+<header class="max-w-[2160px] mx-auto px-8 pt-8 pb-5 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800/80">
+<div>
+<div class="flex items-center gap-2 mb-2.5">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Doc Scanner Design System</span>
+<span class="text-xs text-slate-400 font-medium">Android 390×844 • Light Mode • Inter Typography</span>
+</div>
+<h1 class="text-2xl font-bold text-white tracking-tight">Saved Document Viewer Suite (5 Frames)</h1>
+<p class="text-sm text-slate-400 mt-1">Full interaction states: Default Viewer, Edit Version Dialog, Tool Sub-Rows, Crop Nested Sub-Rows, and PDF Options Sheet</p>
+</div>
+<div class="flex items-center gap-2.5 text-xs font-medium text-slate-300">
+<span class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+<span class="w-2.5 h-2.5 rounded-full bg-[#4F46E5]"></span> Primary: #4F46E5
+      </span>
+<span class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+<span class="w-2.5 h-2.5 rounded-full bg-[#EEF0FF] border border-indigo-400"></span> Pill Tint: #EEF0FF
+      </span>
+<span class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+<span class="w-2.5 h-2.5 rounded-full bg-[#E5484D]"></span> Destructive: #E5484D
+      </span>
+</div>
+</header>
+<!-- Horizontal Scroll Container with All 5 Identical-Sized Frames -->
+<div class="flex flex-row gap-8 overflow-x-auto px-8 py-8 hide-scrollbar">
+<!-- ========================================== -->
+<!-- FRAME 1: VIEWER - DEFAULT -->
+<!-- ========================================== -->
+<div class="flex flex-col items-center shrink-0">
+<div class="mb-3 text-xs font-semibold text-slate-400 tracking-wider uppercase flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-indigo-600/20 text-indigo-400 inline-flex items-center justify-center text-[10px] font-bold">1</span>
+        1 • VIEWER - DEFAULT
+      </div>
+<div class="device-frame flex flex-col justify-between select-none">
+<!-- Top Bar (56px) -->
+<header class="h-14 bg-white border-b border-slate-100 px-4 flex items-center justify-between z-10 shrink-0">
+<div class="flex items-center gap-3 overflow-hidden">
+<button aria-label="Back" class="p-1 -ml-1 text-[#1E2340] active:scale-95 transition-transform">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<span class="text-[15px] font-semibold text-[#1E2340] truncate tracking-tight">Doc Scanner 10 Oct 2026 7-52 pm</span>
+</div>
+<span class="text-[13px] font-medium text-[#8A90A6] shrink-0 pl-2">1 / 5</span>
+</header>
+<!-- Page Area with realistic printed A4 sheet -->
+<main class="flex-1 bg-[#E9ECF3] relative overflow-hidden flex items-center justify-center p-4">
+<!-- Main Scanned A4 Page -->
+<div class="w-[304px] h-[450px] bg-white rounded-lg shadow-[0_10px_28px_rgba(30,35,64,0.08),0_1px_4px_rgba(30,35,64,0.04)] p-5 flex flex-col justify-between relative z-10">
+<div>
+<div class="w-20 h-2 bg-[#1E2340] rounded mb-2"></div>
+<div class="w-48 h-4 bg-[#1E2340] rounded-sm mb-4"></div>
+<div class="space-y-1.5 mb-4">
+<div class="w-full h-2 bg-slate-200 rounded-full"></div>
+<div class="w-[94%] h-2 bg-slate-200 rounded-full"></div>
+<div class="w-[88%] h-2 bg-slate-200 rounded-full"></div>
+<div class="w-[96%] h-2 bg-slate-200 rounded-full"></div>
+</div>
+<div class="space-y-1.5 mb-5">
+<div class="w-[90%] h-2 bg-slate-200 rounded-full"></div>
+<div class="w-[84%] h-2 bg-slate-200 rounded-full"></div>
+<div class="w-[72%] h-2 bg-slate-200 rounded-full"></div>
+</div>
+<!-- Mini Invoice Table -->
+<div class="border border-slate-200 rounded-md overflow-hidden text-[9px] mb-3">
+<div class="bg-slate-50 border-b border-slate-200 px-2 py-1 flex justify-between font-semibold text-slate-600">
+<span>ITEM</span>
+<span>QTY</span>
+<span>RATE</span>
+<span>AMOUNT</span>
+</div>
+<div class="px-2 py-1 flex justify-between text-slate-500 border-b border-slate-100">
+<span>Doc Processing</span>
+<span>1</span>
+<span>$120.00</span>
+<span>$120.00</span>
+</div>
+<div class="px-2 py-1 flex justify-between text-slate-500">
+<span>OCR Edge Engine</span>
+<span>1</span>
+<span>$45.00</span>
+<span>$45.00</span>
+</div>
+</div>
+</div>
+<!-- Page Bottom metadata -->
+<div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[9px] text-[#8A90A6]">
+<span>Doc ID: DL-8849-B</span>
+<span>CONFIDENTIAL</span>
+</div>
+</div>
+<!-- Hint of Next Page on the right -->
+<div class="absolute -right-[274px] w-[304px] h-[430px] bg-white rounded-lg shadow-sm p-5 opacity-60 pointer-events-none border border-slate-200/50">
+<div class="w-32 h-3 bg-slate-300 rounded mb-3"></div>
+<div class="space-y-2">
+<div class="w-full h-2 bg-slate-100 rounded"></div>
+<div class="w-5/6 h-2 bg-slate-100 rounded"></div>
+</div>
+</div>
+<!-- Page badge at bottom center -->
+<div class="absolute bottom-4 bg-[#1E2340]/75 backdrop-blur-sm text-white text-[11px] font-medium px-3.5 py-1 rounded-full shadow-sm z-20">
+            Page 1 of 5
+          </div>
+</main>
+<!-- Bottom Main Tool Row (68px) -->
+<footer class="bg-white border-t border-slate-200 relative z-10 shrink-0">
+<div class="relative">
+<div class="h-[68px] flex items-center overflow-x-auto hide-scrollbar px-2 space-x-1">
+<!-- Edit -->
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340] hover:bg-slate-50 transition-colors">
+<svg class="w-[22px] h-[22px] mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Edit</span>
+</button>
+<!-- Edit All -->
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340] hover:bg-slate-50 transition-colors">
+<svg class="w-[22px] h-[22px] mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0A2.25 2.25 0 004.5 9v8.25A2.25 2.25 0 006.75 19.5h10.5A2.25 2.25 0 0019.5 17.25V9a2.25 2.25 0 00-1.5-2.122m-12 0h12m-9 4.125h6m-6 3h3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Edit All</span>
+</button>
+<!-- Open PDF -->
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340] hover:bg-slate-50 transition-colors">
+<svg class="w-[22px] h-[22px] mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Open PDF</span>
+</button>
+<!-- Share -->
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340] hover:bg-slate-50 transition-colors">
+<svg class="w-[22px] h-[22px] mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Share</span>
+</button>
+<!-- Save -->
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340] hover:bg-slate-50 transition-colors">
+<svg class="w-[22px] h-[22px] mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Save</span>
+</button>
+<!-- Retake -->
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340] hover:bg-slate-50 transition-colors">
+<svg class="w-[22px] h-[22px] mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Retake</span>
+</button>
+</div>
+<div class="absolute right-0 top-0 bottom-0 w-12 fade-right pointer-events-none"></div>
+</div>
+<div class="h-4 bg-white"></div>
+</footer>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- FRAME 2: EDIT CHOICE DIALOG -->
+<!-- ========================================== -->
+<div class="flex flex-col items-center shrink-0">
+<div class="mb-3 text-xs font-semibold text-slate-400 tracking-wider uppercase flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-indigo-600/20 text-indigo-400 inline-flex items-center justify-center text-[10px] font-bold">2</span>
+        2 • EDIT CHOICE DIALOG
+      </div>
+<div class="device-frame flex flex-col justify-between relative select-none">
+<!-- Top Bar (Background) -->
+<header class="h-14 bg-white border-b border-slate-100 px-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<svg class="w-5 h-5 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[15px] font-semibold text-[#1E2340]">Doc Scanner 10 Oct 2026 7-52 pm</span>
+</div>
+<span class="text-[13px] text-[#8A90A6]">1 / 5</span>
+</header>
+<!-- Page Area (Background) -->
+<main class="flex-1 bg-[#E9ECF3] flex items-center justify-center p-4">
+<div class="w-[304px] h-[450px] bg-white rounded-lg shadow-sm p-5 opacity-90"></div>
+</main>
+<!-- Bottom Bar (Background) -->
+<footer class="bg-white border-t border-slate-200">
+<div class="h-[68px] flex items-center px-2 space-x-1">
+<div class="w-16 h-14 bg-brand-50 rounded-xl flex flex-col items-center justify-center text-brand-600">
+<svg class="w-[22px] h-[22px] mb-1" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-semibold">Edit</span>
+</div>
+<div class="w-16 h-14 flex flex-col items-center justify-center text-[#1E2340]">
+<span class="text-[11px]">Edit All</span>
+</div>
+</div>
+<div class="h-4 bg-white"></div>
+</footer>
+<!-- 50% Dark Backdrop Overlay -->
+<div class="absolute inset-0 bg-[#0F1220]/55 z-30 flex items-center justify-center p-5">
+<!-- DIALOG MODAL (24px radius, 342px width, p-6, shadow-2xl) -->
+<div class="w-[342px] bg-white rounded-[24px] shadow-2xl p-6 relative">
+<h3 class="text-[18px] font-bold text-[#1E2340] tracking-tight leading-snug mb-5 text-center">
+              Which version do you want to edit?
+            </h3>
+<!-- Two Selectable Options -->
+<div class="space-y-3 mb-6">
+<!-- Option 1: Original document -->
+<div class="p-3.5 rounded-[16px] border border-slate-200 hover:border-slate-300 cursor-pointer flex items-center gap-3.5 bg-white transition-all">
+<div class="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center shrink-0">
+<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+<div>
+<h4 class="text-[14px] font-semibold text-[#1E2340] leading-tight">Original document</h4>
+<p class="text-[12px] text-[#8A90A6] mt-0.5 leading-snug">Start again from the first scan</p>
+</div>
+</div>
+<!-- Option 2: Last edited document (Pre-selected) -->
+<div class="p-3.5 rounded-[16px] border-2 border-[#4F46E5] bg-[#EEF0FF]/50 cursor-pointer flex items-center gap-3.5 transition-all">
+<div class="w-5 h-5 rounded-full border-2 border-[#4F46E5] flex items-center justify-center shrink-0 bg-[#4F46E5]">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<div>
+<h4 class="text-[14px] font-semibold text-[#4F46E5] leading-tight">Last edited document</h4>
+<p class="text-[12px] text-[#8A90A6] mt-0.5 leading-snug">Continue from your latest changes</p>
+</div>
+</div>
+</div>
+<!-- Footer Buttons -->
+<div class="mt-6 flex items-center justify-end gap-3">
+<button class="px-4 py-2.5 text-sm font-medium text-[#8A90A6] hover:text-[#1E2340] transition-colors">
+                Cancel
+              </button>
+<button class="px-6 py-2.5 rounded-xl bg-[#4F46E5] text-white text-sm font-medium hover:bg-brand-700 shadow-md shadow-indigo-500/20 active:scale-98 transition-all">
+                Continue
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- FRAME 3: EDIT SUB ROW -->
+<!-- ========================================== -->
+<div class="flex flex-col items-center shrink-0">
+<div class="mb-3 text-xs font-semibold text-slate-400 tracking-wider uppercase flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-indigo-600/20 text-indigo-400 inline-flex items-center justify-center text-[10px] font-bold">3</span>
+        3 • EDIT SUB ROW
+      </div>
+<div class="device-frame flex flex-col justify-between select-none">
+<!-- Top Bar -->
+<header class="h-14 bg-white border-b border-slate-100 px-4 flex items-center justify-between z-10 shrink-0">
+<div class="flex items-center gap-3">
+<svg class="w-5 h-5 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[15px] font-semibold text-[#1E2340]">Doc Scanner 10 Oct 2026 7-52 pm</span>
+</div>
+<span class="text-[13px] font-medium text-[#8A90A6]">1 / 5</span>
+</header>
+<!-- Document Canvas -->
+<main class="flex-1 bg-[#E9ECF3] relative overflow-hidden flex items-center justify-center p-4">
+<div class="w-[304px] h-[410px] bg-white rounded-lg shadow-md p-5 flex flex-col justify-between relative z-10">
+<div>
+<div class="w-20 h-2 bg-[#1E2340] rounded mb-2"></div>
+<div class="w-44 h-4 bg-[#1E2340] rounded mb-4"></div>
+<div class="space-y-1.5 mb-4">
+<div class="w-full h-2 bg-slate-200 rounded"></div>
+<div class="w-11/12 h-2 bg-slate-200 rounded"></div>
+<div class="w-4/5 h-2 bg-slate-200 rounded"></div>
+</div>
+<div class="p-2.5 border border-slate-200 rounded bg-slate-50 text-[10px] text-slate-600 font-medium">
+                Summary Table • 2 Line Items Included
+              </div>
+</div>
+<div class="pt-2 border-t border-slate-100 flex justify-between text-[9px] text-[#8A90A6]">
+<span>Doc ID: DL-8849-B</span>
+<span>PAGE 1</span>
+</div>
+</div>
+</main>
+<!-- Toolbars Stack -->
+<div class="flex flex-col z-20 shrink-0 shadow-[0_-8px_20px_rgba(0,0,0,0.05)]">
+<!-- SUB TOOL ROW (64px, rounded-t-2xl, border-t border-slate-200) -->
+<div class="bg-white rounded-t-2xl border-t border-slate-200 relative">
+<div class="h-16 flex items-center overflow-x-auto hide-scrollbar px-3 space-x-1 pr-12">
+<!-- Crop -->
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340] hover:bg-slate-50 transition-colors">
+<svg class="w-5 h-5 mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5m0 0V18A2.25 2.25 0 006 20.25h12A2.25 2.25 0 0020.25 18V7.5m-16.5 0h16.5m-16.5 0h-1.5m18 0h1.5M7.5 3.75v16.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Crop</span>
+</button>
+<!-- Color Filter -->
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340] hover:bg-slate-50 transition-colors">
+<svg class="w-5 h-5 mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Color</span>
+</button>
+<!-- Rotate -->
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340] hover:bg-slate-50 transition-colors">
+<svg class="w-5 h-5 mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Rotate</span>
+</button>
+<!-- Erase -->
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340] hover:bg-slate-50 transition-colors">
+<svg class="w-5 h-5 mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83a1.125 1.125 0 011.59 0l8.16 8.16a1.125 1.125 0 010 1.59l-4.77 4.77a2.25 2.25 0 01-1.59.66H9.75c-.597 0-1.17-.237-1.59-.66z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Erase</span>
+</button>
+<!-- Signature -->
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340] hover:bg-slate-50 transition-colors">
+<svg class="w-5 h-5 mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Sign</span>
+</button>
+<!-- Watermark -->
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-5 h-5 mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Watermark</span>
+</button>
+<!-- Text -->
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-5 h-5 mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M7.5 8.25h9m-9 3H12m-9.75 6.75h19.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H2.25A1.5 1.5 0 00.75 5.25v11.25a1.5 1.5 0 001.5 1.5z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-medium leading-none">Text</span>
+</button>
+</div>
+<!-- Close (✕) Button -->
+<div class="absolute right-0 top-0 bottom-0 flex items-center pr-2 pl-4 bg-gradient-to-l from-white via-white to-transparent">
+<button class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-[#8A90A6] hover:text-[#1E2340] flex items-center justify-center transition-colors">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+</div>
+<!-- MAIN TOOL ROW (Edit selected with #EEF0FF pill and #4F46E5 text/icon) -->
+<div class="bg-white border-t border-slate-200">
+<div class="h-[68px] flex items-center overflow-x-auto hide-scrollbar px-2 space-x-1">
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-2xl bg-[#EEF0FF] text-[#4F46E5] transition-all">
+<svg class="w-[22px] h-[22px] mb-1 text-[#4F46E5]" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-semibold leading-none">Edit</span>
+</button>
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-[22px] h-[22px] mb-1" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0A2.25 2.25 0 004.5 9v8.25A2.25 2.25 0 006.75 19.5h10.5A2.25 2.25 0 0019.5 17.25V9a2.25 2.25 0 00-1.5-2.122m-12 0h12" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium leading-none">Edit All</span>
+</button>
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-[22px] h-[22px] mb-1" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium leading-none">Open PDF</span>
+</button>
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-[22px] h-[22px] mb-1" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium leading-none">Share</span>
+</button>
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-[22px] h-[22px] mb-1" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium leading-none">Save</span>
+</button>
+</div>
+<div class="h-4 bg-white"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- FRAME 4: CROP NESTED SUB ROW -->
+<!-- ========================================== -->
+<div class="flex flex-col items-center shrink-0">
+<div class="mb-3 text-xs font-semibold text-slate-400 tracking-wider uppercase flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-indigo-600/20 text-indigo-400 inline-flex items-center justify-center text-[10px] font-bold">4</span>
+        4 • CROP NESTED SUB ROW
+      </div>
+<div class="device-frame flex flex-col justify-between select-none">
+<!-- Top Bar -->
+<header class="h-14 bg-white border-b border-slate-100 px-4 flex items-center justify-between z-10 shrink-0">
+<div class="flex items-center gap-3">
+<svg class="w-5 h-5 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[15px] font-semibold text-[#1E2340]">Doc Scanner 10 Oct 2026 7-52 pm</span>
+</div>
+<span class="text-[13px] font-medium text-[#8A90A6]">1 / 5</span>
+</header>
+<!-- Page Canvas with Active Crop Quadrilateral Guide & 3x3 Grid -->
+<main class="flex-1 bg-[#E9ECF3] relative overflow-hidden flex items-center justify-center p-4">
+<div class="w-[300px] h-[375px] bg-white rounded-lg shadow-md p-4 relative z-10 overflow-hidden">
+<div class="w-16 h-2 bg-[#1E2340] rounded mb-2"></div>
+<div class="w-36 h-3 bg-[#1E2340] rounded mb-3"></div>
+<div class="space-y-1.5 mb-3">
+<div class="w-full h-1.5 bg-slate-200 rounded"></div>
+<div class="w-11/12 h-1.5 bg-slate-200 rounded"></div>
+<div class="w-4/5 h-1.5 bg-slate-200 rounded"></div>
+</div>
+<!-- Active Crop Quadrilateral Overlay with 3x3 Grid and Corner Handles -->
+<div class="absolute inset-3 border-2 border-[#4F46E5] rounded-sm bg-[#4F46E5]/10 pointer-events-none">
+<!-- 3x3 Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-evenly pointer-events-none">
+<div class="w-full border-b border-indigo-400/40 border-dashed"></div>
+<div class="w-full border-b border-indigo-400/40 border-dashed"></div>
+</div>
+<div class="absolute inset-0 flex justify-evenly pointer-events-none">
+<div class="h-full border-r border-indigo-400/40 border-dashed"></div>
+<div class="h-full border-r border-indigo-400/40 border-dashed"></div>
+</div>
+<!-- Corner handles -->
+<div class="absolute -top-1.5 -left-1.5 w-4 h-4 bg-white border-2 border-[#4F46E5] rounded-full shadow-sm"></div>
+<div class="absolute -top-1.5 -right-1.5 w-4 h-4 bg-white border-2 border-[#4F46E5] rounded-full shadow-sm"></div>
+<div class="absolute -bottom-1.5 -left-1.5 w-4 h-4 bg-white border-2 border-[#4F46E5] rounded-full shadow-sm"></div>
+<div class="absolute -bottom-1.5 -right-1.5 w-4 h-4 bg-white border-2 border-[#4F46E5] rounded-full shadow-sm"></div>
+<!-- Edge Midpoint pill handles -->
+<div class="absolute top-1/2 -left-1.5 -translate-y-1/2 w-2.5 h-4 bg-white border border-[#4F46E5] rounded-full shadow-xs"></div>
+<div class="absolute top-1/2 -right-1.5 -translate-y-1/2 w-2.5 h-4 bg-white border border-[#4F46E5] rounded-full shadow-xs"></div>
+<div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-2.5 bg-white border border-[#4F46E5] rounded-full shadow-xs"></div>
+<div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-4 h-2.5 bg-white border border-[#4F46E5] rounded-full shadow-xs"></div>
+</div>
+</div>
+</main>
+<!-- 3-Tier Toolbars Stack -->
+<div class="flex flex-col z-20 shrink-0 shadow-[0_-10px_25px_rgba(0,0,0,0.06)]">
+<!-- TIER 1: NESTED SUB ROW (56px tall, white, border-t border-slate-200, rounded-t-2xl) -->
+<div class="bg-white rounded-t-2xl border-t border-slate-200 px-4 h-14 flex items-center justify-between">
+<div class="flex items-center space-x-5">
+<!-- Free (selected pill) -->
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#EEF0FF] text-[#4F46E5] font-semibold text-[12px]">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Free</span>
+</button>
+<!-- Auto Detect -->
+<button class="flex items-center gap-1.5 text-[#1E2340] hover:text-[#4F46E5] text-[12px] font-medium transition-colors">
+<svg class="w-4 h-4 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Auto Detect</span>
+</button>
+<!-- Flip -->
+<button class="flex items-center gap-1.5 text-[#1E2340] hover:text-[#4F46E5] text-[12px] font-medium transition-colors">
+<svg class="w-4 h-4 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Flip</span>
+</button>
+</div>
+<!-- Cancel '✕' and Apply '✓' -->
+<div class="flex items-center gap-2">
+<button class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-[#8A90A6] flex items-center justify-center transition-colors">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+<button class="w-7 h-7 rounded-full bg-[#4F46E5] hover:bg-brand-700 text-white flex items-center justify-center shadow-sm transition-colors">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+</div>
+<!-- TIER 2: SUB TOOL ROW (Crop selected) -->
+<div class="bg-white border-t border-slate-100">
+<div class="h-16 flex items-center overflow-x-auto hide-scrollbar px-3 space-x-1 pr-12">
+<!-- Crop (Active) -->
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl bg-[#EEF0FF] text-[#4F46E5]">
+<svg class="w-5 h-5 mb-1 text-[#4F46E5]" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5m0 0V18A2.25 2.25 0 006 20.25h12A2.25 2.25 0 0020.25 18V7.5m-16.5 0h16.5m-16.5 0h-1.5m18 0h1.5M7.5 3.75v16.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[11px] font-semibold leading-none">Crop</span>
+</button>
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-5 h-5 mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium leading-none">Color</span>
+</button>
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-5 h-5 mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium leading-none">Rotate</span>
+</button>
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-5 h-5 mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83a1.125 1.125 0 011.59 0l8.16 8.16a1.125 1.125 0 010 1.59l-4.77 4.77a2.25 2.25 0 01-1.59.66H9.75c-.597 0-1.17-.237-1.59-.66z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium leading-none">Erase</span>
+</button>
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-5 h-5 mb-1 text-[#1E2340]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium leading-none">Sign</span>
+</button>
+</div>
+</div>
+<!-- TIER 3: MAIN TOOL ROW (Edit selected) -->
+<div class="bg-white border-t border-slate-200">
+<div class="h-[68px] flex items-center overflow-x-auto hide-scrollbar px-2 space-x-1">
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-2xl bg-[#EEF0FF] text-[#4F46E5]">
+<svg class="w-[22px] h-[22px] mb-1 text-[#4F46E5]" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-semibold leading-none">Edit</span>
+</button>
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<span class="text-[11px] font-medium">Edit All</span>
+</button>
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<span class="text-[11px] font-medium">Open PDF</span>
+</button>
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<span class="text-[11px] font-medium">Share</span>
+</button>
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<span class="text-[11px] font-medium">Save</span>
+</button>
+</div>
+<div class="h-4 bg-white"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- FRAME 5: OPEN PDF SUB ROW & MORE OPTIONS -->
+<!-- ========================================== -->
+<div class="flex flex-col items-center shrink-0">
+<div class="mb-3 text-xs font-semibold text-slate-400 tracking-wider uppercase flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-indigo-600/20 text-indigo-400 inline-flex items-center justify-center text-[10px] font-bold">5</span>
+        5 • OPEN PDF SUB ROW &amp; MORE OPTIONS
+      </div>
+<div class="device-frame flex flex-col justify-between relative select-none">
+<!-- Top Bar -->
+<header class="h-14 bg-white border-b border-slate-100 px-4 flex items-center justify-between z-10 shrink-0">
+<div class="flex items-center gap-3 overflow-hidden">
+<button aria-label="Back" class="p-1 -ml-1 text-[#1E2340]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<span class="text-[15px] font-semibold text-[#1E2340] truncate tracking-tight">Doc Scanner 10 Oct 2026 7-52 pm</span>
+</div>
+<span class="text-[13px] font-medium text-[#8A90A6]">1 / 5</span>
+</header>
+<!-- Document Canvas (dimmed in background) -->
+<main class="flex-1 bg-[#E9ECF3] relative overflow-hidden flex items-center justify-center p-4">
+<div class="w-[304px] h-[450px] bg-white rounded-lg shadow-sm p-5 opacity-40">
+<div class="w-20 h-2 bg-slate-400 rounded mb-2"></div>
+<div class="w-44 h-4 bg-slate-400 rounded mb-4"></div>
+<div class="space-y-2">
+<div class="w-full h-2 bg-slate-200 rounded"></div>
+<div class="w-5/6 h-2 bg-slate-200 rounded"></div>
+<div class="w-4/5 h-2 bg-slate-200 rounded"></div>
+</div>
+</div>
+</main>
+<!-- Sub Tool Row and Main Row underneath sheet -->
+<div class="flex flex-col bg-white border-t border-slate-200">
+<!-- PDF Sub Tool Row -->
+<div class="h-16 flex items-center overflow-x-auto hide-scrollbar px-3 space-x-1 border-b border-slate-100">
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium">Compress</span>
+</button>
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium">Watermark</span>
+</button>
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium">Fit Type</span>
+</button>
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium">Page Size</span>
+</button>
+<button class="w-[58px] h-[52px] shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-medium">Orientation</span>
+</button>
+</div>
+<!-- Main Row with Open PDF Active -->
+<div class="h-[68px] flex items-center px-2 space-x-1">
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<span class="text-[11px] font-medium">Edit</span>
+</button>
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-2xl bg-[#EEF0FF] text-[#4F46E5]">
+<svg class="w-[22px] h-[22px] mb-1 text-[#4F46E5]" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="text-[11px] font-semibold leading-none">Open PDF</span>
+</button>
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<span class="text-[11px] font-medium">Share</span>
+</button>
+<button class="w-16 h-14 shrink-0 flex flex-col items-center justify-center rounded-xl text-[#1E2340]">
+<span class="text-[11px] font-medium">Save</span>
+</button>
+</div>
+<div class="h-4 bg-white"></div>
+</div>
+<!-- Dim Backdrop Overlay for Bottom Sheet Presentation -->
+<div class="absolute inset-0 bg-[#0F1220]/45 z-20 pointer-events-none"></div>
+<!-- SLEEK WHITE BOTTOM SHEET (24px top radius, 52px action rows) -->
+<div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[24px] shadow-2xl z-30 flex flex-col p-4 pb-7">
+<!-- Drag Handle -->
+<div class="w-9 h-1.5 bg-slate-300 rounded-full mx-auto mb-3"></div>
+<!-- Bottom Sheet Header -->
+<div class="flex items-center justify-between pb-3 mb-1 border-b border-slate-100">
+<h4 class="text-[15px] font-bold text-[#1E2340] tracking-tight">More PDF options</h4>
+<button class="w-6 h-6 rounded-full text-[#8A90A6] hover:text-[#1E2340] flex items-center justify-center">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+<!-- 52px Action Rows with Icons & Chevrons -->
+<div class="divide-y divide-slate-100">
+<!-- Row 1: Header and footer -->
+<div class="h-[52px] flex items-center justify-between px-1 hover:bg-slate-50 cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-indigo-50 text-[#4F46E5] flex items-center justify-center shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M3 4.5h18m-18 15h18M3 9.75h18v4.5H3z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<span class="text-[13px] font-medium text-[#1E2340] leading-tight">Header and footer</span>
+</div>
+<svg class="w-4 h-4 text-[#8A90A6] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<!-- Row 2: Open with... -->
+<div class="h-[52px] flex items-center justify-between px-1 hover:bg-slate-50 cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-slate-100 text-[#1E2340] flex items-center justify-center shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<span class="text-[13px] font-medium text-[#1E2340] leading-tight">Open with...</span>
+</div>
+<svg class="w-4 h-4 text-[#8A90A6] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<!-- Row 3: PDF background color -->
+<div class="h-[52px] flex items-center justify-between px-1 hover:bg-slate-50 cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-slate-100 text-[#1E2340] flex items-center justify-center shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<span class="text-[13px] font-medium text-[#1E2340] leading-tight">PDF background color</span>
+</div>
+<svg class="w-4 h-4 text-[#8A90A6] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<!-- Row 4: Resize -->
+<div class="h-[52px] flex items-center justify-between px-1 hover:bg-slate-50 cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-slate-100 text-[#1E2340] flex items-center justify-center shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<span class="text-[13px] font-medium text-[#1E2340] leading-tight">Resize</span>
+</div>
+<svg class="w-4 h-4 text-[#8A90A6] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Doc Scanner Presentation Showcase</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary":"#ffffff","on-tertiary-fixed-variant":"#783200","primary":"#3525cd","on-surface-variant":"#464555","secondary":"#006c49","surface-dim":"#cbdbf5","inverse-primary":"#c3c0ff","secondary-fixed":"#6ffbbe","surface-container-high":"#dce9ff","on-secondary-fixed-variant":"#005236","on-primary":"#ffffff","primary-container":"#4f46e5","surface-container-lowest":"#ffffff","surface-container-highest":"#d3e4fe","surface-container":"#e5eeff","on-background":"#0b1c30","secondary-fixed-dim":"#4edea3","on-tertiary-fixed":"#341100","on-primary-container":"#dad7ff","secondary-container":"#6cf8bb","outline-variant":"#c7c4d8","on-error":"#ffffff","surface-tint":"#4d44e3","on-error-container":"#93000a","on-primary-fixed":"#0f0069","inverse-surface":"#213145","surface-bright":"#f8f9ff","on-secondary-container":"#00714d","on-primary-fixed-variant":"#3323cc","tertiary-fixed-dim":"#ffb690","primary-fixed-dim":"#c3c0ff","inverse-on-surface":"#eaf1ff","error":"#ba1a1a","tertiary-fixed":"#ffdbca","outline":"#777587","error-container":"#ffdad6","surface-container-low":"#eff4ff","on-secondary":"#ffffff","tertiary":"#7b3300","primary-fixed":"#e2dfff","background":"#f8f9ff","tertiary-container":"#a04500","surface-variant":"#d3e4fe","surface":"#f8f9ff","on-secondary-fixed":"#002113","on-surface":"#0b1c30","on-tertiary-container":"#ffd2bd"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"1rem","space-lg":"1rem","space-md":"0.75rem","space-sm":"0.5rem","space-xl":"1.5rem","space-xs":"0.25rem","gutter":"0.75rem"},"fontFamily":{"headline-sm":["Inter"],"body-sm":["Inter"],"label-sm":["Inter"],"label-md":["Inter"],"headline-md":["Inter"],"headline-xl":["Inter"],"body-md":["Inter"],"headline-lg":["Inter"],"body-lg":["Inter"]},"fontSize":{"headline-sm":["16px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["28px",{"lineHeight":"34px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-lg":["15px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface text-on-surface font-body-md text-body-md"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-margin flex items-center justify-between"><div class="flex items-center gap-space-md"><div class="flex items-center justify-center w-9 h-9 rounded-xl bg-primary text-on-primary shadow-sm"><span class="material-symbols-outlined text-[20px]">description</span></div><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md text-on-surface tracking-tight">Doc Scanner</span><span class="font-label-sm text-label-sm bg-surface-container text-primary font-semibold px-space-xs py-0.5 rounded">SUITE</span></div></div><nav class="hidden md:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold rounded-lg"><a aria-current="page" class="px-space-md py-space-xs transition-all bg-primary-container text-on-primary font-semibold rounded-lg" data-path="overview-showcase" href="#">Overview Showcase</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="scanner-workflow" href="#">Scanner Workflow</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="tools-grid" href="#">Tools Grid</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="document-manager" href="#">Document Manager</a></nav><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded-full"><span class="material-symbols-outlined text-[16px] text-secondary">smartphone</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">390×844 Frame Hub</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Presentation Rig Super-Header -->
+<section class="w-full bg-surface-container-low px-margin py-space-xl">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-2xl">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">picture_as_pdf</span>
+<span>DOC SCANNER PDF SUITE SPECIFICATION</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">
+          PDF Tools &amp; Toolkit Viewport Architecture
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Complete high-fidelity presentation rig detailing core viewer states, modal tool hierarchy, in-page lexical search indexing, and user contextual guidance across 390×844 Android surfaces.
+        </p>
+</div>
+<!-- Quick Inspection Indicators -->
+<div class="flex flex-wrap items-center gap-space-sm bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
+<div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-lg">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Base: #4F46E5</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="font-label-sm text-label-sm text-on-surface">4 Live Viewports</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">390 × 844 px (1:1 Native)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Presentation Canvas -->
+<section class="w-full bg-inverse-surface py-space-xl px-space-md overflow-x-auto">
+<div class="max-w-[1720px] mx-auto min-w-[1400px]">
+<!-- Grid of 4 Viewport Frames -->
+<div class="grid grid-cols-4 gap-space-xl items-start">
+<!-- ========================================== -->
+<!-- FRAME 1: PDF Viewer Default + Tools Bar    -->
+<!-- ========================================== -->
+<div class="flex flex-col gap-space-sm items-center">
+<div class="w-full flex items-center justify-between px-space-xs text-inverse-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">01</span>
+<span class="font-headline-sm text-headline-sm">PDF Viewer Default</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container/20 text-inverse-on-surface">State: Resting</span>
+</div>
+<!-- Phone Viewport Shell -->
+<div class="relative w-[390px] h-[844px] bg-[#E9ECF3] rounded-[32px] shadow-2xl overflow-hidden flex flex-col select-none">
+<!-- Status Bar -->
+<div class="w-full h-10 px-6 flex items-center justify-between text-on-surface font-label-sm text-label-sm z-30 bg-surface-container-lowest">
+<span class="font-semibold tracking-tight">09:41</span>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- Top App Bar -->
+<div class="h-14 w-full bg-surface-container-lowest px-4 flex items-center justify-between shadow-[0_1px_4px_rgba(0,0,0,0.04)] z-20">
+<div class="flex items-center gap-3 min-w-0">
+<button class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate max-w-[190px]">
+                    Annual_Report_2026_Q3.pdf
+                  </h2>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-surface-container text-on-surface transition-colors" title="Search document">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<button class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-surface-container text-on-surface transition-colors" title="Toolkit Help">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+</button>
+</div>
+</div>
+<!-- Document Canvas Area -->
+<div class="flex-1 overflow-hidden relative flex flex-col items-center pt-4 pb-20 px-3">
+<!-- Page 2 Shadow Peek -->
+<div class="w-[336px] h-[480px] bg-surface-container-lowest/80 rounded-lg absolute top-8 shadow-sm"></div>
+<!-- Page 1 Main Document Surface -->
+<div class="w-[342px] h-[580px] bg-surface-container-lowest rounded-lg shadow-[0_4px_20px_rgba(15,23,42,0.08)] p-5 flex flex-col relative z-10">
+<!-- Document Header Content -->
+<div class="flex items-center justify-between pb-3">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">corporate_fare</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Doc Scanner Global</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Financial Highlights</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/30 px-2 py-0.5 rounded-full font-semibold">AUDITED</span>
+</div>
+<!-- Realistic Report Body Simulation -->
+<div class="space-y-3 mt-3">
+<div class="space-y-1">
+<div class="h-2 bg-surface-container-high rounded w-5/6"></div>
+<div class="h-2 bg-surface-container rounded w-full"></div>
+<div class="h-2 bg-surface-container rounded w-4/6"></div>
+</div>
+<!-- Inline SVG Chart: Quarterly Metric -->
+<div class="p-3 bg-surface-container-low rounded-xl flex flex-col gap-2">
+<div class="flex justify-between items-center text-on-surface">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Revenue Growth YoY</span>
+<span class="font-headline-sm text-headline-sm text-secondary">+28.4%</span>
+</div>
+<svg class="w-full h-16 text-primary" fill="none" viewbox="0 0 280 60">
+<path d="M0 48 C 40 45, 60 30, 100 35 C 140 40, 160 15, 200 20 C 240 25, 260 5, 280 4" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M0 48 C 40 45, 60 30, 100 35 C 140 40, 160 15, 200 20 C 240 25, 260 5, 280 4 L280 60 L0 60 Z" fill="currentColor" fill-opacity="0.08"></path>
+<circle cx="100" cy="35" fill="currentColor" r="3"></circle>
+<circle cx="200" cy="20" fill="currentColor" r="3"></circle>
+<circle cx="280" cy="4" fill="currentColor" r="3.5"></circle>
+</svg>
+</div>
+<!-- Tabular Data Rows -->
+<div class="space-y-2 pt-1">
+<div class="flex justify-between text-on-surface font-body-sm text-body-sm pb-1">
+<span class="text-on-surface-variant">Operating Margin</span>
+<span class="font-semibold">$4,821,900</span>
+</div>
+<div class="flex justify-between text-on-surface font-body-sm text-body-sm pb-1">
+<span class="text-on-surface-variant">EBITDA Conversion</span>
+<span class="font-semibold">32.8%</span>
+</div>
+<div class="flex justify-between text-on-surface font-body-sm text-body-sm">
+<span class="text-on-surface-variant">CapEx Allocations</span>
+<span class="font-semibold">$1,240,000</span>
+</div>
+</div>
+<div class="space-y-1 pt-2">
+<div class="h-2 bg-surface-container rounded w-full"></div>
+<div class="h-2 bg-surface-container rounded w-11/12"></div>
+<div class="h-2 bg-surface-container rounded w-3/5"></div>
+</div>
+</div>
+<!-- Floating Page Count Pill -->
+<div class="mt-auto self-center bg-inverse-surface/85 backdrop-blur text-inverse-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm shadow-md">
+                  Page 1 of 6
+                </div>
+</div>
+</div>
+<!-- Fixed Bottom Toolbar (68px) -->
+<div class="absolute bottom-0 inset-x-0 h-[68px] bg-surface-container-lowest shadow-[0_-4px_16px_rgba(0,0,0,0.06)] px-2 flex items-center z-30">
+<div class="flex items-center gap-1.5 overflow-x-auto w-full py-1">
+<!-- 1. PDF Toolkit (Special highlighted pill) -->
+<button class="flex flex-col items-center justify-center min-w-[66px] h-14 bg-primary-fixed text-primary rounded-xl px-1 hover:brightness-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">home_repair_service</span>
+<span class="font-label-sm text-[10px] leading-tight font-semibold mt-0.5">Toolkit</span>
+</button>
+<!-- 2. Share -->
+<button class="flex flex-col items-center justify-center min-w-[58px] h-14 text-on-surface-variant hover:bg-surface-container rounded-xl transition-all">
+<span class="material-symbols-outlined text-[20px]">share</span>
+<span class="font-label-sm text-[10px] leading-tight mt-0.5">Share</span>
+</button>
+<!-- 3. Save -->
+<button class="flex flex-col items-center justify-center min-w-[58px] h-14 text-on-surface-variant hover:bg-surface-container rounded-xl transition-all">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span class="font-label-sm text-[10px] leading-tight mt-0.5">Save</span>
+</button>
+<!-- 4. Watermark -->
+<button class="flex flex-col items-center justify-center min-w-[62px] h-14 text-on-surface-variant hover:bg-surface-container rounded-xl transition-all">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span class="font-label-sm text-[10px] leading-tight mt-0.5">Watermark</span>
+</button>
+<!-- 5. Compress -->
+<button class="flex flex-col items-center justify-center min-w-[60px] h-14 text-on-surface-variant hover:bg-surface-container rounded-xl transition-all">
+<span class="material-symbols-outlined text-[20px]">compress</span>
+<span class="font-label-sm text-[10px] leading-tight mt-0.5">Compress</span>
+</button>
+<!-- 6. Page Adjust -->
+<button class="flex flex-col items-center justify-center min-w-[62px] h-14 text-on-surface-variant hover:bg-surface-container rounded-xl transition-all">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<span class="font-label-sm text-[10px] leading-tight mt-0.5">Adjust</span>
+</button>
+<!-- 7. Edit -->
+<button class="flex flex-col items-center justify-center min-w-[54px] h-14 text-on-surface-variant hover:bg-surface-container rounded-xl transition-all">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+<span class="font-label-sm text-[10px] leading-tight mt-0.5">Edit</span>
+</button>
+<!-- 8. Open With -->
+<button class="flex flex-col items-center justify-center min-w-[62px] h-14 text-on-surface-variant hover:bg-surface-container rounded-xl transition-all">
+<span class="material-symbols-outlined text-[20px]">open_in_new</span>
+<span class="font-label-sm text-[10px] leading-tight mt-0.5">Open In</span>
+</button>
+<!-- 9. Print -->
+<button class="flex flex-col items-center justify-center min-w-[54px] h-14 text-on-surface-variant hover:bg-surface-container rounded-xl transition-all">
+<span class="material-symbols-outlined text-[20px]">print</span>
+<span class="font-label-sm text-[10px] leading-tight mt-0.5">Print</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- FRAME 2: PDF Toolkit Bottom Drawer Opened  -->
+<!-- ========================================== -->
+<div class="flex flex-col gap-space-sm items-center">
+<div class="w-full flex items-center justify-between px-space-xs text-inverse-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">02</span>
+<span class="font-headline-sm text-headline-sm">Toolkit Drawer Opened</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-primary-container text-on-primary">Interactive Hub</span>
+</div>
+<!-- Phone Viewport Shell -->
+<div class="relative w-[390px] h-[844px] bg-[#E9ECF3] rounded-[32px] shadow-2xl overflow-hidden flex flex-col select-none">
+<!-- Simulated Background Page Dimmed -->
+<div class="absolute inset-0 bg-on-background/50 z-20 backdrop-blur-[2px]"></div>
+<!-- Status Bar Under Dim -->
+<div class="w-full h-10 px-6 flex items-center justify-between text-on-surface font-label-sm text-label-sm bg-surface-container-lowest/50">
+<span class="font-semibold tracking-tight">09:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- Bottom Sheet / Drawer Elevated (Max Height ~88%) -->
+<div class="absolute inset-x-0 bottom-0 max-h-[88%] bg-surface-container-lowest rounded-t-[28px] shadow-[0_-12px_32px_rgba(0,0,0,0.22)] z-30 flex flex-col overflow-hidden">
+<!-- Drag Handle Bar -->
+<div class="w-full pt-3 pb-1 flex justify-center items-center">
+<div class="w-12 h-1.5 bg-outline-variant rounded-full"></div>
+</div>
+<!-- Drawer Header -->
+<div class="px-5 py-3 flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">PDF Toolkit</h3>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-primary px-2 py-0.5 rounded-full font-semibold">14 TOOLS</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manage, convert, and secure your PDF documents</p>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Scrollable Tools Hierarchy -->
+<div class="flex-1 overflow-y-auto px-4 pb-8 space-y-4">
+<!-- SECTION 1: PDF Tools (9 items, 4-col grid) -->
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold mb-2 flex items-center justify-between">
+<span>PDF Document Tools</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm font-normal">9 actions</span>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<!-- Tool 1 -->
+<div class="bg-surface-container-low rounded-xl p-2 flex flex-col items-center text-center hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[19px]">file_open</span>
+</div>
+<span class="font-label-sm text-[10px] leading-tight text-on-surface mt-1.5 font-medium">Open PDF</span>
+</div>
+<!-- Tool 2 -->
+<div class="bg-surface-container-low rounded-xl p-2 flex flex-col items-center text-center hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[19px]">merge_type</span>
+</div>
+<span class="font-label-sm text-[10px] leading-tight text-on-surface mt-1.5 font-medium">Merge Files</span>
+</div>
+<!-- Tool 3 -->
+<div class="bg-surface-container-low rounded-xl p-2 flex flex-col items-center text-center hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[19px]">add_photo_alternate</span>
+</div>
+<span class="font-label-sm text-[10px] leading-tight text-on-surface mt-1.5 font-medium">Add Gallery</span>
+</div>
+<!-- Tool 4 -->
+<div class="bg-surface-container-low rounded-xl p-2 flex flex-col items-center text-center hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[19px]">content_cut</span>
+</div>
+<span class="font-label-sm text-[10px] leading-tight text-on-surface mt-1.5 font-medium">Split PDF</span>
+</div>
+<!-- Tool 5 -->
+<div class="bg-surface-container-low rounded-xl p-2 flex flex-col items-center text-center hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[19px]">aspect_ratio</span>
+</div>
+<span class="font-label-sm text-[10px] leading-tight text-on-surface mt-1.5 font-medium">Page Size</span>
+</div>
+<!-- Tool 6 -->
+<div class="bg-surface-container-low rounded-xl p-2 flex flex-col items-center text-center hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[19px]">rotate_right</span>
+</div>
+<span class="font-label-sm text-[10px] leading-tight text-on-surface mt-1.5 font-medium">Rotate/Del</span>
+</div>
+<!-- Tool 7 -->
+<div class="bg-surface-container-low rounded-xl p-2 flex flex-col items-center text-center hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[19px]">lock</span>
+</div>
+<span class="font-label-sm text-[10px] leading-tight text-on-surface mt-1.5 font-medium">Add Pass</span>
+</div>
+<!-- Tool 8 -->
+<div class="bg-surface-container-low rounded-xl p-2 flex flex-col items-center text-center hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[19px]">lock_open</span>
+</div>
+<span class="font-label-sm text-[10px] leading-tight text-on-surface mt-1.5 font-medium">Unlock</span>
+</div>
+<!-- Tool 9 (Spans into next row) -->
+<div class="bg-surface-container-low rounded-xl p-2 flex flex-col items-center text-center hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[19px]">draw</span>
+</div>
+<span class="font-label-sm text-[10px] leading-tight text-on-surface mt-1.5 font-medium">Signature</span>
+</div>
+</div>
+</div>
+<!-- SECTION 2: PDF to Other Format (3 cols) -->
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold mb-2">PDF to Other Format</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-surface-container-low rounded-xl p-2.5 flex items-center gap-2 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">image</span>
+</div>
+<div class="text-left">
+<div class="font-label-sm text-[11px] font-semibold text-on-surface">To Image</div>
+<div class="font-body-sm text-[9px] text-on-surface-variant">JPG, PNG</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-2.5 flex items-center gap-2 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">text_fields</span>
+</div>
+<div class="text-left">
+<div class="font-label-sm text-[11px] font-semibold text-on-surface">To Text</div>
+<div class="font-body-sm text-[9px] text-on-surface-variant">OCR TXT</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-2.5 flex items-center gap-2 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">folder_zip</span>
+</div>
+<div class="text-left">
+<div class="font-label-sm text-[11px] font-semibold text-on-surface">To ZIP</div>
+<div class="font-body-sm text-[9px] text-on-surface-variant">Archive</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: Other Format to PDF (2 cols) -->
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold mb-2">Other Format to PDF</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center gap-2.5 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm font-semibold text-on-surface">Image to PDF</div>
+<div class="font-body-sm text-[10px] text-on-surface-variant">Convert photos to PDF</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center gap-2.5 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">notes</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm font-semibold text-on-surface">Text to PDF</div>
+<div class="font-body-sm text-[10px] text-on-surface-variant">Convert documents</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 4: More Options (Rows) -->
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold mb-1">More Options</div>
+<div class="space-y-1">
+<div class="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">panorama_horizontal</span>
+<span class="font-body-md text-body-md text-on-surface">Share as Long Image</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">chevron_right</span>
+</div>
+<div class="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">cloud_sync</span>
+<span class="font-body-md text-body-md text-on-surface">Share via Secure Doc Scanner Link</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- FRAME 3: PDF In-Document Text Search Mode  -->
+<!-- ========================================== -->
+<div class="flex flex-col gap-space-sm items-center">
+<div class="w-full flex items-center justify-between px-space-xs text-inverse-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">03</span>
+<span class="font-headline-sm text-headline-sm">In-Doc Text Search</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-tertiary-fixed text-tertiary">Active Filter</span>
+</div>
+<!-- Phone Viewport Shell -->
+<div class="relative w-[390px] h-[844px] bg-[#E9ECF3] rounded-[32px] shadow-2xl overflow-hidden flex flex-col select-none">
+<!-- Status Bar -->
+<div class="w-full h-10 px-6 flex items-center justify-between text-on-surface font-label-sm text-label-sm z-30 bg-surface-container-lowest">
+<span class="font-semibold tracking-tight">09:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- Transformed Live PDF Search Header -->
+<div class="h-16 w-full bg-surface-container-lowest px-3 flex items-center justify-between shadow-sm z-20 gap-2">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<!-- Search Input Well -->
+<div class="flex-1 bg-surface-container-low rounded-xl px-3 py-1.5 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">search</span>
+<span class="font-body-md text-body-md text-on-surface font-medium flex-1">Financial</span>
+<button class="w-5 h-5 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<!-- Up/Down Stepper & Matches Badge -->
+<div class="flex items-center gap-1">
+<div class="px-2 py-0.5 rounded bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold">
+                  1 / 3
+                </div>
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_up</span>
+</button>
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+<!-- Document Stage with Active Highlights -->
+<div class="flex-1 overflow-hidden relative flex flex-col items-center pt-4 pb-24 px-3">
+<div class="w-[342px] h-[610px] bg-surface-container-lowest rounded-lg shadow-[0_4px_20px_rgba(15,23,42,0.08)] p-5 flex flex-col relative z-10">
+<!-- Header with Target Highlight #1 (Active Match) -->
+<div class="flex items-center justify-between pb-3">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">corporate_fare</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">Doc Scanner Global</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">
+<!-- Active match 1 styled in bold contrast orange -->
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-1 py-0.5 rounded">Financial</span> Highlights
+                      </div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/30 px-2 py-0.5 rounded-full font-semibold">PAGE 1</span>
+</div>
+<!-- Body Paragraph with Highlights -->
+<div class="space-y-3 mt-2 text-on-surface font-body-sm text-body-sm leading-relaxed">
+<p class="text-on-surface-variant">
+                    During the fiscal period, the company consolidated its core balance sheet across digital assets. We achieved record performance in our 
+                    <span class="bg-surface-container-highest text-on-surface font-medium px-1 py-0.5 rounded">Financial</span> Year 2026 forecast models.
+                  </p>
+<div class="p-3 bg-surface-container-low rounded-xl space-y-2">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Total Revenue Asset Base</span>
+<span class="font-headline-sm text-headline-sm text-primary">$18.9M</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full w-4/5"></div>
+</div>
+</div>
+<p class="text-on-surface-variant">
+                    Operating expenses decreased by 8.4% through systematic document pipeline automation. Key 
+                    <span class="bg-surface-container-highest text-on-surface font-medium px-1 py-0.5 rounded">Financial</span> operations remain compliant across ISO 27001 standards.
+                  </p>
+</div>
+<!-- Page indicator pill -->
+<div class="mt-auto self-center bg-inverse-surface/85 backdrop-blur text-inverse-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm shadow-md">
+                  Page 1 of 6 • 3 Matches
+                </div>
+</div>
+<!-- Floating Result Snippet Action Bar -->
+<div class="absolute bottom-4 inset-x-5 bg-inverse-surface text-inverse-on-surface rounded-2xl p-3 shadow-xl z-30 flex items-center justify-between">
+<div class="min-w-0 pr-2">
+<div class="font-label-sm text-label-sm text-primary-fixed-dim font-semibold">Match 1 of 3 (Page 1)</div>
+<div class="font-body-sm text-[12px] truncate opacity-85">"...demonstrated strong financial growth..."</div>
+</div>
+<button class="bg-primary text-on-primary px-3 py-1.5 rounded-xl font-label-sm text-label-sm font-semibold hover:bg-primary/90 shrink-0">
+                  Jump
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- FRAME 4: ? How to Use PDF Tools Help Modal -->
+<!-- ========================================== -->
+<div class="flex flex-col gap-space-sm items-center">
+<div class="w-full flex items-center justify-between px-space-xs text-inverse-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">04</span>
+<span class="font-headline-sm text-headline-sm">Contextual Help Modal</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-secondary-fixed text-secondary">Guidance</span>
+</div>
+<!-- Phone Viewport Shell -->
+<div class="relative w-[390px] h-[844px] bg-[#E9ECF3] rounded-[32px] shadow-2xl overflow-hidden flex flex-col select-none">
+<!-- Simulated Background Page Dimmed -->
+<div class="absolute inset-0 bg-on-background/60 backdrop-blur-sm z-20"></div>
+<!-- Status Bar Under Dim -->
+<div class="w-full h-10 px-6 flex items-center justify-between text-on-surface font-label-sm text-label-sm bg-surface-container-lowest/40">
+<span class="font-semibold tracking-tight">09:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- Centered Modal Popup Dialog -->
+<div class="relative z-30 flex-1 flex items-center justify-center px-4">
+<div class="w-full bg-surface-container-lowest rounded-3xl p-6 shadow-2xl flex flex-col max-h-[740px]">
+<!-- Modal Top Icon -->
+<div class="self-center w-14 h-14 rounded-2xl bg-primary-fixed text-primary flex items-center justify-center shadow-inner mb-3">
+<span class="material-symbols-outlined text-[30px]">help_center</span>
+</div>
+<!-- Modal Title & Intro -->
+<div class="text-center mb-5">
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">How to Use PDF Tools</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Master key operations in your Doc Scanner mobile suite</p>
+</div>
+<!-- 5 Informational Feature Items -->
+<div class="space-y-3.5 overflow-y-auto pr-1">
+<!-- Item 1 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-primary font-label-sm text-label-sm font-bold shrink-0 mt-0.5">
+                      1
+                    </div>
+<div>
+<div class="font-headline-sm text-[13px] text-on-surface font-semibold">View &amp; Navigate</div>
+<div class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Swipe pages smoothly or pinch with two fingers to zoom up to 400%.</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-primary font-label-sm text-label-sm font-bold shrink-0 mt-0.5">
+                      2
+                    </div>
+<div>
+<div class="font-headline-sm text-[13px] text-on-surface font-semibold">PDF Toolkit Hub</div>
+<div class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Tap ‘Toolkit’ on the bottom dock to merge multiple PDFs, extract pages, or reorder sheets.</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-primary font-label-sm text-label-sm font-bold shrink-0 mt-0.5">
+                      3
+                    </div>
+<div>
+<div class="font-headline-sm text-[13px] text-on-surface font-semibold">Convert &amp; Export</div>
+<div class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Transform PDFs to high-res PNGs or raw OCR text, or package entire books into ZIP files.</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-primary font-label-sm text-label-sm font-bold shrink-0 mt-0.5">
+                      4
+                    </div>
+<div>
+<div class="font-headline-sm text-[13px] text-on-surface font-semibold">Search in Document</div>
+<div class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Tap the magnifying glass on top to highlight text occurrences with forward/backward jumps.</div>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-primary font-label-sm text-label-sm font-bold shrink-0 mt-0.5">
+                      5
+                    </div>
+<div>
+<div class="font-headline-sm text-[13px] text-on-surface font-semibold">256-Bit Encryption</div>
+<div class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Protect proprietary contracts by tapping ‘Add Password’ before distributing externally.</div>
+</div>
+</div>
+</div>
+<!-- Got It Action Button -->
+<div class="mt-6 pt-3">
+<button class="w-full bg-primary-container text-on-primary font-label-md text-label-md py-3.5 rounded-xl shadow-md hover:brightness-110 active:scale-[0.98] transition-all">
+                    Got It, Let’s Start
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Spec & Implementation Summary Footer Section -->
+<section class="w-full bg-surface px-margin py-space-xl">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<div class="bg-surface-container-low p-space-md rounded-2xl space-y-space-xs">
+<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">touch_app</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Ergonomic One-Hand Reach</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          68px persistent bottom toolbar stays within the thumb sweep zone. Primary actions like Toolkit drawer opening and fast export trigger without reaching the upper quadrant.
+        </p>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-2xl space-y-space-xs">
+<div class="w-10 h-10 rounded-xl bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">layers</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Deep Tool Matrix</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          14 categorized tool endpoints grouped cleanly into native PDF operations, bidirectional format conversions (Image, Text OCR, ZIP), and long-image export facilities.
+        </p>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-2xl space-y-space-xs">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">security</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Local Hardware Security</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          All document manipulation occurs client-side on Android device storage, ensuring sensitive financial statements and identity scans never leak during encryption or merge operations.
+        </p>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low py-space-lg shadow-[0_-1px_6px_rgba(0,0,0,0.02)]"><div class="w-full px-margin flex flex-col md:flex-row items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span class="font-label-md text-label-md text-on-surface font-semibold">Doc Scanner Mobile Suite</span><span>•</span><span>Multi-state 390×844 Android Viewport Presentation Rig</span></div><div class="text-on-surface-variant font-body-sm text-body-sm">© 2025 Doc Scanner Systems. All rights reserved.</div></div></footer></body></html>
