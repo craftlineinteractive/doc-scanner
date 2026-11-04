@@ -4,6 +4,10 @@ import 'package:go_router/go_router.dart';
 import '../core/widgets/feedback/placeholder_screen.dart';
 import '../dev/ui_gallery/components_page.dart';
 import '../dev/ui_gallery/ui_gallery_screen.dart';
+import '../features/drawer/presentation/screens/drawer_preview_screen.dart';
+import '../features/home/application/home_providers.dart';
+import '../features/home/data/mock_empty_home_repository.dart';
+import '../features/home/presentation/screens/home_screen.dart';
 import 'routes.dart';
 
 /// Provider for application GoRouter instance.
@@ -30,16 +34,53 @@ GoRouter createRouter({String? initialLocation}) {
       // 01 Home
       GoRoute(
         path: AppRoutes.home,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Home Screen',
-          subtitle: '01_home_screen source of truth',
-        ),
+        builder: (context, state) {
+          final String? mode = state.uri.queryParameters['mode'];
+          final bool showOverflow = state.uri.queryParameters['overflow'] == 'true';
+          final bool importExpanded = state.uri.queryParameters['importExpanded'] == 'true';
+          final bool showAddSheet = state.uri.queryParameters['addSheet'] == 'true';
+
+          return ProviderScope(
+            overrides: [
+              if (mode == 'grid')
+                homeViewModeProvider.overrideWith(
+                  () => HomeViewModeNotifier()..setMode(HomeViewMode.grid),
+                ),
+            ],
+            child: HomeScreen(
+              initialShowOverflowMenu: showOverflow,
+              initialShowImportExpanded: importExpanded,
+              initialShowAddSheet: showAddSheet,
+            ),
+          );
+        },
       ),
       GoRoute(
         path: AppRoutes.homeEmpty,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Home Empty State',
-          subtitle: '03_home_empty_state onboarding layout',
+        builder: (context, state) => ProviderScope(
+          overrides: [
+            homeRepositoryProvider.overrideWith(
+              () => HomeRepositoryNotifier()
+                ..setRepository(const MockEmptyHomeRepository()),
+            ),
+          ],
+          child: const HomeScreen(),
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.drawerSignedIn,
+        builder: (context, state) => const DrawerPreviewScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.drawerSignedOut,
+        builder: (context, state) =>
+            const DrawerPreviewScreen(initialSignedOut: true),
+      ),
+      GoRoute(
+        path: AppRoutes.drawerToolsOther,
+        builder: (context, state) => const DrawerPreviewScreen(
+          initialToolsExpanded: true,
+          initialOtherExpanded: true,
         ),
       ),
 

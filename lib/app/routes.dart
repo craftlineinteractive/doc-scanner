@@ -21,5 +21,8 @@ class AppRoutes {
   // Developer & preview routes
   static const String gallery = '/dev/gallery';
   static const String components = '/dev/components';
+  static const String drawerSignedIn = '/drawer/signed-in';
+  static const String drawerSignedOut = '/drawer/signed-out';
+  static const String drawerToolsOther = '/drawer/tools-other';
 }
 
