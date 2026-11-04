@@ -18,12 +18,14 @@ class MockDocumentPage extends StatelessWidget {
     this.aspectRatio = 0.707, // Standard ISO A4 ratio (1 / sqrt(2))
     this.backgroundColor = Colors.white,
     this.showBorder = true,
+    this.showPdfBadge = false,
   });
 
   final MockDocumentVariant variant;
   final double aspectRatio;
   final Color backgroundColor;
   final bool showBorder;
+  final bool showPdfBadge;
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +47,27 @@ class MockDocumentPage extends StatelessWidget {
           ],
         ),
         clipBehavior: Clip.antiAlias,
-        child: CustomPaint(
-          painter: _DocumentPagePainter(variant: variant),
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            CustomPaint(
+              painter: _DocumentPagePainter(variant: variant),
+            ),
+            if (showPdfBadge)
+              Positioned(
+                bottom: 2,
+                right: 3,
+                child: Text(
+                  'PDF',
+                  style: TextStyle(
+                    fontSize: 8,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.primary,
+                    letterSpacing: 0.2,
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );
