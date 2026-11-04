@@ -45,7 +45,7 @@ class DrawerHeaderSignedIn extends StatelessWidget {
         AppSpacing.lg,
         AppSpacing.xl,
         AppSpacing.lg,
-        AppSpacing.lg,
+        AppSpacing.md,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,60 +118,71 @@ class DrawerHeaderSignedIn extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
+                    const SizedBox(height: 6),
+                    Row(
+                      children: <Widget>[
+                        const Icon(
+                          Symbols.add_to_drive_rounded,
+                          color: AppColors.primary,
+                          size: 16,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          'Google Drive',
+                          style: AppTypography.labelSm.copyWith(
+                            color: AppColors.primary,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
             ],
           ),
           const SizedBox(height: AppSpacing.md),
-          // Google Drive sync status pill row
+          // Divider
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            decoration: BoxDecoration(
-              color: Theme.of(context).cardTheme.color,
-              borderRadius: AppRadii.roundedInput,
-              border: Border.all(color: docColors.hairline),
-            ),
-            child: Row(
-              children: <Widget>[
-                const Icon(
-                  Symbols.cloud_sync_rounded,
-                  color: AppColors.primary,
-                  size: 18,
+            height: 1,
+            color: AppColors.primary.withValues(alpha: 0.12),
+          ),
+          const SizedBox(height: 10),
+          // Backup size text and Synced chip
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                '${AppStrings.backupSizePrefix}$backupSize',
+                style: AppTypography.bodySm.copyWith(
+                  color: AppColors.textMuted,
+                  fontSize: 12,
                 ),
-                const SizedBox(width: AppSpacing.xs),
-                Expanded(
+              ),
+              if (isSynced)
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: docColors.successTint,
+                    borderRadius: AppRadii.roundedPill,
+                    border: Border.all(
+                      color: docColors.success.withValues(alpha: 0.2),
+                    ),
+                  ),
                   child: Text(
-                    '${AppStrings.backupSizePrefix}$backupSize',
+                    AppStrings.synced,
                     style: AppTypography.labelSm.copyWith(
-                      color: AppColors.textMuted,
-                      fontWeight: FontWeight.w500,
+                      color: docColors.success,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 11,
                     ),
-                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                if (isSynced)
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                    decoration: BoxDecoration(
-                      color: docColors.successTint,
-                      borderRadius: AppRadii.roundedPill,
-                    ),
-                    child: Text(
-                      AppStrings.synced,
-                      style: AppTypography.labelSm.copyWith(
-                        color: docColors.success,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-              ],
-            ),
+            ],
           ),
         ],
       ),
     );
   }
 }
-

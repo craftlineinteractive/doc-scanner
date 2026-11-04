@@ -80,7 +80,24 @@ class DrawerHeaderSignedOut extends StatelessWidget {
             width: double.infinity,
             child: PrimaryButton(
               label: AppStrings.signInWithGoogle,
-              icon: const Icon(Symbols.login_rounded),
+              icon: Container(
+                width: 20,
+                height: 20,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+                alignment: Alignment.center,
+                child: const Text(
+                  'G',
+                  style: TextStyle(
+                    color: Color(0xFF4285F4),
+                    fontWeight: FontWeight.w900,
+                    fontSize: 13,
+                    fontFamily: 'Inter',
+                  ),
+                ),
+              ),
               onPressed: onSignInTap,
             ),
           ),
@@ -89,4 +106,3 @@ class DrawerHeaderSignedOut extends StatelessWidget {
     );
   }
 }
-

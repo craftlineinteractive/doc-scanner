@@ -42,6 +42,8 @@ class AppStrings {
   static const String onDeviceProcessing = 'ON-DEVICE EDGE PROCESSING';
 
   // Trash
+  static const String trash = 'Trash';
+  static const String settings = 'Settings';
   static const String trashRetentionNotice =
       'Items in Trash are permanently deleted after 30 days';
   static const String emptyTrash = 'Empty Trash';
@@ -57,7 +59,6 @@ class AppStrings {
   static const String otherSection = 'OTHER';
   static const String moreSection = 'MORE';
   static const String signInWithGoogle = 'Sign in with Google';
-  static const String signInSubtitle =
-      'Back up your documents and sync across devices';
+  static const String signInSubtitle = 'Sign in to sync with Google Drive';
 }
 
