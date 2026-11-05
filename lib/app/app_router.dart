@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../core/widgets/feedback/placeholder_screen.dart';
 import '../dev/ui_gallery/components_page.dart';
 import '../dev/ui_gallery/ui_gallery_screen.dart';
+import '../features/camera/presentation/screens/camera_screen.dart';
 import '../features/drawer/presentation/screens/drawer_preview_screen.dart';
 import '../features/home/application/home_providers.dart';
 import '../features/home/presentation/screens/home_screen.dart';
@@ -85,10 +86,16 @@ GoRouter createRouter({String? initialLocation}) {
       // 03 Camera
       GoRoute(
         path: AppRoutes.camera,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Camera Screen',
-          subtitle: '03_camera dark camera viewfinder',
-        ),
+        builder: (context, state) {
+          final mode = state.uri.queryParameters['mode'];
+          final panel = state.uri.queryParameters['panel'];
+          final dialog = state.uri.queryParameters['dialog'];
+          return CameraScreen(
+            initialMode: mode,
+            initialPanel: panel,
+            initialDialog: dialog,
+          );
+        },
       ),
 
       // 04 Scan Review

@@ -14,6 +14,7 @@ class AppColors {
   static const Color cameraAccentLight = Color(0xFF818CF8);
   static const Color cameraBackground = Color(0xFF0F1220);
   static const Color cameraSheet = Color(0xFF1A1D2E);
+  static const Color cameraDetection = Color(0xFF34D399);
 
   // Neutral - Light mode
   static const Color textPrimary = Color(0xFF1E2340);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import '../../theme/app_colors.dart';
 import '../buttons/icon_circle_button.dart';
 
 /// Flash states available for camera capture.
@@ -14,12 +15,13 @@ class CameraTopBar extends StatelessWidget implements PreferredSizeWidget {
   const CameraTopBar({
     super.key,
     this.onBack,
-    this.flashMode = CameraFlashMode.auto,
+    this.flashMode = CameraFlashMode.off,
     this.onFlashCycle,
     this.isGridEnabled = false,
     this.onGridToggle,
     this.onFlipCamera,
     this.onSettingsTap,
+    this.isSettingsOpen = false,
   });
 
   final VoidCallback? onBack;
@@ -29,6 +31,7 @@ class CameraTopBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? onGridToggle;
   final VoidCallback? onFlipCamera;
   final VoidCallback? onSettingsTap;
+  final bool isSettingsOpen;
 
   @override
   Size get preferredSize => const Size.fromHeight(56.0);
@@ -41,6 +44,17 @@ class CameraTopBar extends StatelessWidget implements PreferredSizeWidget {
         return Symbols.flash_on_rounded;
       case CameraFlashMode.auto:
         return Symbols.flash_auto_rounded;
+    }
+  }
+
+  Color get _flashColor {
+    switch (flashMode) {
+      case CameraFlashMode.off:
+        return Colors.white70;
+      case CameraFlashMode.on:
+        return AppColors.cameraAccent;
+      case CameraFlashMode.auto:
+        return Colors.white;
     }
   }
 
@@ -66,11 +80,9 @@ class CameraTopBar extends StatelessWidget implements PreferredSizeWidget {
                 children: <Widget>[
                   IconCircleButton(
                     icon: Icon(_flashIcon),
-                    iconColor: flashMode == CameraFlashMode.off
-                        ? Colors.white70
-                        : Colors.white,
+                    iconColor: _flashColor,
                     onPressed: onFlashCycle,
-                    tooltip: 'Flash',
+                    tooltip: 'Flash (${flashMode.name})',
                   ),
                   IconCircleButton(
                     icon: Icon(
@@ -79,7 +91,7 @@ class CameraTopBar extends StatelessWidget implements PreferredSizeWidget {
                           : Symbols.grid_off_rounded,
                     ),
                     iconColor:
-                        isGridEnabled ? Colors.white : Colors.white60,
+                        isGridEnabled ? AppColors.cameraAccent : Colors.white60,
                     onPressed: onGridToggle,
                     tooltip: 'Grid',
                   ),
@@ -91,7 +103,9 @@ class CameraTopBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                   IconCircleButton(
                     icon: const Icon(Symbols.settings_rounded),
-                    iconColor: Colors.white,
+                    iconColor: isSettingsOpen
+                        ? AppColors.cameraAccent
+                        : Colors.white,
                     onPressed: onSettingsTap,
                     tooltip: 'Settings',
                   ),
