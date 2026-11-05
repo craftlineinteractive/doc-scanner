@@ -13,6 +13,7 @@ class CropOverlay extends StatefulWidget {
     this.strokeColor = AppColors.cameraAccent,
     this.handleColor = Colors.white,
     this.onDragStateChanged,
+    this.onQuadChanged,
   });
 
   final Offset initialTopLeft;
@@ -22,6 +23,7 @@ class CropOverlay extends StatefulWidget {
   final Color strokeColor;
   final Color handleColor;
   final void Function(Offset position, bool isDragging)? onDragStateChanged;
+  final void Function(Offset tl, Offset tr, Offset br, Offset bl)? onQuadChanged;
 
   @override
   State<CropOverlay> createState() => _CropOverlayState();
@@ -42,6 +44,20 @@ class _CropOverlayState extends State<CropOverlay> {
     _tr = widget.initialTopRight;
     _br = widget.initialBottomRight;
     _bl = widget.initialBottomLeft;
+  }
+
+  @override
+  void didUpdateWidget(covariant CropOverlay oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.initialTopLeft != widget.initialTopLeft ||
+        oldWidget.initialTopRight != widget.initialTopRight ||
+        oldWidget.initialBottomRight != widget.initialBottomRight ||
+        oldWidget.initialBottomLeft != widget.initialBottomLeft) {
+      _tl = widget.initialTopLeft;
+      _tr = widget.initialTopRight;
+      _br = widget.initialBottomRight;
+      _bl = widget.initialBottomLeft;
+    }
   }
 
   void _onPanUpdate(DragUpdateDetails details, Size size) {
@@ -69,6 +85,7 @@ class _CropOverlayState extends State<CropOverlay> {
       }
     });
 
+    widget.onQuadChanged?.call(_tl, _tr, _br, _bl);
     widget.onDragStateChanged?.call(details.localPosition, true);
   }
 

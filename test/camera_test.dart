@@ -203,7 +203,7 @@ void main() {
     await tester.pumpAndSettle();
 
     // Verify adjust screen is opened
-    expect(find.text('Adjust / Crop Screen'), findsAtLeastNWidgets(1));
+    expect(find.text('Adjust'), findsAtLeastNWidgets(1));
   });
 
   testWidgets('In QR mode, there is no shutter button',

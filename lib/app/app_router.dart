@@ -8,6 +8,7 @@ import '../features/camera/presentation/screens/camera_screen.dart';
 import '../features/drawer/presentation/screens/drawer_preview_screen.dart';
 import '../features/home/application/home_providers.dart';
 import '../features/home/presentation/screens/home_screen.dart';
+import '../features/scan_review/presentation/screens/adjust_screen.dart';
 import 'routes.dart';
 
 /// Provider for application GoRouter instance.
@@ -103,10 +104,29 @@ GoRouter createRouter({String? initialLocation}) {
       // 04 Scan Review
       GoRoute(
         path: AppRoutes.adjust,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Adjust / Crop Screen',
-          subtitle: '01_adjust_crop_default with 4 corner handles',
-        ),
+        builder: (context, state) {
+          final sheet = state.uri.queryParameters['sheet'];
+          final dialog = state.uri.queryParameters['dialog'];
+          final drag = state.uri.queryParameters['drag'];
+          return AdjustScreen(
+            initialSheet: sheet,
+            initialDialog: dialog,
+            initialDrag: drag,
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.adjustShort,
+        builder: (context, state) {
+          final sheet = state.uri.queryParameters['sheet'];
+          final dialog = state.uri.queryParameters['dialog'];
+          final drag = state.uri.queryParameters['drag'];
+          return AdjustScreen(
+            initialSheet: sheet,
+            initialDialog: dialog,
+            initialDrag: drag,
+          );
+        },
       ),
       GoRoute(
         path: AppRoutes.reviewScan,

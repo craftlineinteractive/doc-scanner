@@ -7,8 +7,11 @@ class AppRoutes {
   static const String homeEmpty = '/home/empty';
   static const String camera = '/camera';
   static const String adjust = '/scan/adjust';
+  static const String adjustShort = '/adjust';
   static const String reviewScan = '/scan/review';
+  static const String reviewScanShort = '/review-scan';
   static const String arrangePages = '/scan/arrange';
+  static const String arrangePagesShort = '/arrange-pages';
   static const String postScanViewer = '/viewer/post-scan';
   static const String savedViewer = '/viewer/saved';
   static const String pageManager = '/viewer/pages';
