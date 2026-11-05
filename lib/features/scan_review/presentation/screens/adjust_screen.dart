@@ -4,6 +4,9 @@ import 'package:go_router/go_router.dart';
 import '../../../../app/routes.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../application/scan_session_provider.dart';
+import '../dialogs/doc_name_dialog.dart';
+import '../sheets/crop_shape_sheet.dart';
+import '../sheets/filter_bottom_sheet.dart';
 import '../widgets/adjust_canvas.dart';
 import '../widgets/adjust_controls.dart';
 
@@ -46,15 +49,42 @@ class _AdjustScreenState extends ConsumerState<AdjustScreen> {
   }
 
   void _showFilterSheet() {
-    // Replaced with full FilterBottomSheet in Step 3
+    final session = ref.read(scanSessionProvider);
+    final activePage = session.currentPage ?? session.pages.first;
+    FilterBottomSheet.show(
+      context,
+      currentFilter: activePage.filter,
+      onFilterChanged: (filter) {
+        ref
+            .read(scanSessionProvider.notifier)
+            .setFilter(session.currentIndex, filter);
+      },
+    );
   }
 
   void _showCropShapeSheet() {
-    // Replaced with full CropShapeSheet in Step 3
+    final session = ref.read(scanSessionProvider);
+    final activePage = session.currentPage ?? session.pages.first;
+    CropShapeSheet.show(
+      context,
+      currentShape: activePage.shape,
+      onShapeSelected: (shape) {
+        ref
+            .read(scanSessionProvider.notifier)
+            .setShape(session.currentIndex, shape);
+      },
+    );
   }
 
   void _showDocNameDialog() {
-    // Replaced with full DocNameDialog in Step 3
+    final session = ref.read(scanSessionProvider);
+    DocNameDialog.show(
+      context,
+      initialName: session.docName,
+      onSave: (name) {
+        ref.read(scanSessionProvider.notifier).rename(name);
+      },
+    );
   }
 
   @override
