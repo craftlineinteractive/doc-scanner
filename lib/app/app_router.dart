@@ -9,6 +9,7 @@ import '../features/drawer/presentation/screens/drawer_preview_screen.dart';
 import '../features/home/application/home_providers.dart';
 import '../features/home/presentation/screens/home_screen.dart';
 import '../features/scan_review/presentation/screens/adjust_screen.dart';
+import '../features/scan_review/presentation/screens/review_scan_screen.dart';
 import 'routes.dart';
 
 /// Provider for application GoRouter instance.
@@ -130,10 +131,25 @@ GoRouter createRouter({String? initialLocation}) {
       ),
       GoRoute(
         path: AppRoutes.reviewScan,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Review Scan Screen',
-          subtitle: '05_review_scan_suite multi-page review',
-        ),
+        builder: (context, state) {
+          final mode = state.uri.queryParameters['mode'];
+          final dialog = state.uri.queryParameters['dialog'];
+          return ReviewScanScreen(
+            initialMode: mode,
+            initialDialog: dialog,
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.reviewScanShort,
+        builder: (context, state) {
+          final mode = state.uri.queryParameters['mode'];
+          final dialog = state.uri.queryParameters['dialog'];
+          return ReviewScanScreen(
+            initialMode: mode,
+            initialDialog: dialog,
+          );
+        },
       ),
       GoRoute(
         path: AppRoutes.arrangePages,
