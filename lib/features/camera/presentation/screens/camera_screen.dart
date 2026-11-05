@@ -14,7 +14,9 @@ import '../../application/flash_mode.dart';
 import '../../application/flash_provider.dart';
 import '../../application/id_scan_sides.dart';
 import '../../application/id_scan_sides_provider.dart';
+import '../sheets/scan_quality_sheet.dart';
 import '../widgets/camera_bottom_controls.dart';
+import '../widgets/camera_settings_panel.dart';
 import '../widgets/camera_viewfinder.dart';
 
 /// Fullscreen dark camera screen supporting multiple scan modes, live overlays, and settings.
@@ -56,6 +58,12 @@ class _CameraScreenState extends ConsumerState<CameraScreen> {
     }
     if (widget.initialPanel == 'settings') {
       setState(() => _isSettingsOpen = true);
+    } else if (widget.initialPanel == 'quality') {
+      ScanQualitySheet.show(
+        context,
+        initialQuality: ref.read(cameraSettingsProvider).scanQuality,
+        onSelected: ref.read(cameraSettingsProvider.notifier).setScanQuality,
+      );
     }
   }
 
@@ -176,6 +184,18 @@ class _CameraScreenState extends ConsumerState<CameraScreen> {
                   },
                 ),
               ),
+
+              // 4. Settings Panel Overlay
+              if (_isSettingsOpen)
+                Positioned(
+                  top: 56 + MediaQuery.paddingOf(context).top,
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: CameraSettingsPanel(
+                    onClose: () => setState(() => _isSettingsOpen = false),
+                  ),
+                ),
             ],
           ),
         ),

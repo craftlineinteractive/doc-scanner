@@ -10,6 +10,7 @@ import '../../core/widgets/camera/corner_brackets_overlay.dart';
 import '../../core/widgets/camera/crop_magnifier.dart';
 import '../../core/widgets/camera/crop_overlay.dart';
 import '../../core/widgets/camera/scan_line.dart';
+import '../../core/widgets/camera/setting_tile.dart';
 import '../../core/widgets/dialogs/confirm_dialog.dart';
 import '../../core/widgets/dialogs/radio_dialog.dart';
 import '../../core/widgets/feedback/empty_state.dart';
@@ -111,6 +112,39 @@ class _ComponentsCameraSectionState extends State<ComponentsCameraSection> {
               ),
             ),
           ],
+        ),
+        const SizedBox(height: AppSpacing.lg),
+        Text('Camera Setting Tiles', style: AppTypography.labelMd),
+        const SizedBox(height: AppSpacing.sm),
+        Container(
+          padding: const EdgeInsets.all(AppSpacing.md),
+          decoration: BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              SettingTile(
+                icon: Icons.volume_up_rounded,
+                label: 'Capture Sound',
+                value: 'On',
+                isActive: true,
+              ),
+              SettingTile(
+                icon: Icons.tune_rounded,
+                label: 'Spirit Level',
+                value: 'Off',
+                isActive: false,
+              ),
+              SettingTile(
+                icon: Icons.high_quality_rounded,
+                label: 'Scan Quality',
+                value: 'High',
+                isActive: false,
+              ),
+            ],
+          ),
         ),
         const SizedBox(height: AppSpacing.lg),
         Text('Modal Trigger Demos', style: AppTypography.labelMd),
