@@ -14,6 +14,11 @@ import '../../application/flash_mode.dart';
 import '../../application/flash_provider.dart';
 import '../../application/id_scan_sides.dart';
 import '../../application/id_scan_sides_provider.dart';
+import '../../application/photo_size_provider.dart';
+import '../dialogs/book_mode_dialog.dart';
+import '../dialogs/id_card_mode_dialog.dart';
+import '../dialogs/ocr_mode_dialog.dart';
+import '../dialogs/photo_size_dialog.dart';
 import '../sheets/scan_quality_sheet.dart';
 import '../widgets/camera_bottom_controls.dart';
 import '../widgets/camera_settings_panel.dart';
@@ -26,11 +31,13 @@ class CameraScreen extends ConsumerStatefulWidget {
     this.initialMode,
     this.initialPanel,
     this.initialDialog,
+    this.initialFlash,
   });
 
   final String? initialMode;
   final String? initialPanel;
   final String? initialDialog;
+  final String? initialFlash;
 
   @override
   ConsumerState<CameraScreen> createState() => _CameraScreenState();
@@ -56,6 +63,16 @@ class _CameraScreenState extends ConsumerState<CameraScreen> {
       );
       ref.read(cameraModeProvider.notifier).setMode(mode);
     }
+    if (widget.initialFlash != null) {
+      final f = widget.initialFlash!.toLowerCase();
+      if (f == 'auto') {
+        ref.read(flashModeProvider.notifier).setMode(FlashMode.auto);
+      } else if (f == 'on') {
+        ref.read(flashModeProvider.notifier).setMode(FlashMode.on);
+      } else if (f == 'off') {
+        ref.read(flashModeProvider.notifier).setMode(FlashMode.off);
+      }
+    }
     if (widget.initialPanel == 'settings') {
       setState(() => _isSettingsOpen = true);
     } else if (widget.initialPanel == 'quality') {
@@ -65,11 +82,58 @@ class _CameraScreenState extends ConsumerState<CameraScreen> {
         onSelected: ref.read(cameraSettingsProvider.notifier).setScanQuality,
       );
     }
+    if (widget.initialDialog != null) {
+      final d = widget.initialDialog!.toLowerCase();
+      if (d == 'idcard' || d == 'id_card') {
+        _openDialogForMode(CameraMode.idCard);
+      } else if (d == 'book') {
+        _openDialogForMode(CameraMode.book);
+      } else if (d == 'photo') {
+        _openDialogForMode(CameraMode.photo);
+      } else if (d == 'ocr' || d == 'ocrtext' || d == 'ocr_text') {
+        _openDialogForMode(CameraMode.ocrText);
+      }
+    }
+  }
+
+  void _openDialogForMode(CameraMode mode) {
+    switch (mode) {
+      case CameraMode.idCard:
+        IdCardModeDialog.show(
+          context,
+          currentSides: ref.read(idScanSidesProvider),
+          onSelected: ref.read(idScanSidesProvider.notifier).setSides,
+        );
+        break;
+      case CameraMode.book:
+        BookModeDialog.show(
+          context,
+          currentType: ref.read(bookScanTypeProvider),
+          onSelected: ref.read(bookScanTypeProvider.notifier).setType,
+        );
+        break;
+      case CameraMode.photo:
+        final photoState = ref.read(photoSizeProvider);
+        PhotoSizeDialog.show(
+          context,
+          initialSelectedSize: photoState.selectedSize,
+          initialSizes: photoState.sizes,
+          onSizeSelected: ref.read(photoSizeProvider.notifier).selectSize,
+          onSizesUpdated: ref.read(photoSizeProvider.notifier).setSizes,
+        );
+        break;
+      case CameraMode.ocrText:
+        OcrModeDialog.show(context);
+        break;
+      default:
+        break;
+    }
   }
 
   void _onModeSelected(CameraMode mode) {
     ref.read(cameraModeProvider.notifier).setMode(mode);
     setState(() => _idCardFlipped = false);
+    _openDialogForMode(mode);
   }
 
   void _onShutterTap() {

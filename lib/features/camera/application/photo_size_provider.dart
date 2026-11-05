@@ -37,6 +37,10 @@ class PhotoSizeNotifier extends Notifier<PhotoSizeState> {
     state = state.copyWith(selectedSize: size);
   }
 
+  void setSizes(List<PhotoSize> sizes) {
+    state = state.copyWith(sizes: List<PhotoSize>.from(sizes));
+  }
+
   void removeSize(String id) {
     final updatedList = state.sizes.where((s) => s.id != id).toList();
     PhotoSize newSelected = state.selectedSize;

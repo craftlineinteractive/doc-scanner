@@ -90,10 +90,12 @@ GoRouter createRouter({String? initialLocation}) {
           final mode = state.uri.queryParameters['mode'];
           final panel = state.uri.queryParameters['panel'];
           final dialog = state.uri.queryParameters['dialog'];
+          final flash = state.uri.queryParameters['flash'];
           return CameraScreen(
             initialMode: mode,
             initialPanel: panel,
             initialDialog: dialog,
+            initialFlash: flash,
           );
         },
       ),
