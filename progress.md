@@ -11,8 +11,8 @@ Every task must tick:
 - [x] Committed with a Conventional Commit message (hash recorded)
 
 ## Session Status
-- **Current Milestone**: M3 (Camera & Modes)
-- **Status**: Completed (ready for M4: Scan Review & Adjust)
+- **Current Milestone**: M4 (Scan Review & Adjust)
+- **Status**: Completed (ready for M5: Document Viewers & Multi-Page Manager)
 
 ## Milestone Checklist
 - [x] **M0: Foundation & UI Gallery** (`4adb380`)
@@ -52,7 +52,14 @@ Every task must tick:
   - [x] Mode dialogs: `IdCardModeDialog`, `BookModeDialog`, `PhotoSizeDialog`, `OcrModeDialog`, route params & UI Gallery entries (`78f7a40`)
   - [x] Tests: 7 widget tests in `test/camera_test.dart`, total 19 tests all passing (`5aba597`)
   - [x] Verification: Android emulator verification on `emulator-5554` (API 36), font scale 1.3 tested with 0 overflows, 0 unhandled exceptions
-- [ ] **M4: Scan Review & Adjust**
+- [x] **M4: Scan Review & Adjust** (tagged `m4-scan-review`)
+  - [x] Step 1: Session models & providers: `ScanPage`, `CropQuad`, `CropShape`, `ScanFilter`, `ScanSessionNotifier`, `ReviewUiNotifier` (`6fc4112`)
+  - [x] Step 2: Adjust screen: `AdjustScreen`, `AdjustCanvas`, `AdjustControls`, `CropOverlay`, `CropMagnifier` (`c475438`)
+  - [x] Step 3: Sheets & dialogs: `FilterBottomSheet`, `DocNameDialog`, `CropShapeSheet` (`4556a02`)
+  - [x] Step 4: Review screen: `ReviewScanScreen`, `ReviewTopBar`, `ReviewBottomBar`, `ReviewCropBar`, `ReviewColorBar` (`efe9244`)
+  - [x] Step 5: Arrange pages & dialogs: `ArrangePagesScreen`, `DeletePageDialog`, `DiscardScanDialog` (`69229f4`)
+  - [x] Step 6: Tests: 7 widget tests in `test/scan_review_test.dart`, 26 total passing tests (`74535c1`)
+  - [x] Step 7: Android emulator verification on `emulator-5554` (API 36), font scale 1.3 tested with 0 overflows, 0 unhandled exceptions
 - [ ] **M5: Document Viewers & Multi-Page Manager**
 - [ ] **M6: PDF Tools & Viewer**
 - [ ] **M7: OCR Result**
@@ -78,3 +85,6 @@ Every task must tick:
 | M3 | `flutter analyze` | 0 issues found | Clean static analysis across camera domain, application, presentation, dialogs, sheets, and router |
 | M3 | `flutter test` | All 19 tests passed | 7 new tests in `test/camera_test.dart`, 19/19 project tests green |
 | M3 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); tested all 11 gallery states (Document default, Photo layout, Settings panel, Scan Quality sheet, Flash cycle, ID Card dialog + flip back side, Book dialog + 2-page split, Photo size dialog + reorder/add/select, Signature mode, QR Scanner mode + scan line, OCR dialog), font scale 1.3 tested with 0 overflows and 0 unhandled exceptions |
+| M4 | `flutter analyze` | 0 issues found | Clean static analysis across scan review domain, application, presentation, sheets, dialogs, and router |
+| M4 | `flutter test` | All 26 tests passed | 7 new tests in `test/scan_review_test.dart`, 26/26 project tests green |
+| M4 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); tested all 11 gallery states (Adjust default, Dragging corner + 2.5x loupe, Filter bottom sheet, Doc Name dialog, Crop Shape sheet, Review default, Crop open, Color open, Arrange pages grid, Delete page dialog, Discard scan dialog), font scale 1.3 tested with 0 overflows and 0 unhandled exceptions |

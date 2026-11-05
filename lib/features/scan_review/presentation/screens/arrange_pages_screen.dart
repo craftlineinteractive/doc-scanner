@@ -261,3 +261,4 @@ class _ArrangeThumbnailCard extends StatelessWidget {
     );
   }
 }
+

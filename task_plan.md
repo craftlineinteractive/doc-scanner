@@ -86,18 +86,28 @@ Goal: Build the complete UI of the Flutter "Doc Scanner" app with realistic dumm
 - `lib/features/camera/presentation/dialogs/photo_size_dialog.dart`
 - `lib/features/camera/presentation/dialogs/ocr_mode_dialog.dart`
 
-### M4: Scan Review & Adjust (`lib/features/scan_review/`)
-- `lib/features/scan_review/domain/scan_review_repository.dart`
-- `lib/features/scan_review/data/mock_scan_review_repository.dart`
+### [x] M4: Scan Review & Adjust (`m4-scan-review`)
+- `lib/features/scan_review/domain/crop_quad.dart`
+- `lib/features/scan_review/domain/crop_shape.dart`
+- `lib/features/scan_review/domain/scan_filter.dart`
+- `lib/features/scan_review/domain/scan_page.dart`
+- `lib/features/scan_review/application/scan_session_provider.dart`
+- `lib/features/scan_review/application/review_ui_provider.dart`
 - `lib/features/scan_review/presentation/screens/adjust_screen.dart`
 - `lib/features/scan_review/presentation/screens/review_scan_screen.dart`
 - `lib/features/scan_review/presentation/screens/arrange_pages_screen.dart`
-- `lib/features/scan_review/presentation/widgets/crop_overlay.dart`
-- `lib/features/scan_review/presentation/widgets/crop_magnifier.dart`
-- `lib/features/scan_review/presentation/widgets/review_toolbar.dart`
-- `lib/features/scan_review/presentation/sheets/filter_sheet.dart`
+- `lib/features/scan_review/presentation/widgets/adjust_canvas.dart`
+- `lib/features/scan_review/presentation/widgets/adjust_controls.dart`
+- `lib/features/scan_review/presentation/widgets/review_top_bar.dart`
+- `lib/features/scan_review/presentation/widgets/review_bottom_bar.dart`
+- `lib/features/scan_review/presentation/widgets/review_crop_bar.dart`
+- `lib/features/scan_review/presentation/widgets/review_color_bar.dart`
+- `lib/features/scan_review/presentation/sheets/filter_bottom_sheet.dart`
 - `lib/features/scan_review/presentation/sheets/crop_shape_sheet.dart`
 - `lib/features/scan_review/presentation/dialogs/doc_name_dialog.dart`
+- `lib/features/scan_review/presentation/dialogs/delete_page_dialog.dart`
+- `lib/features/scan_review/presentation/dialogs/discard_scan_dialog.dart`
+- `test/scan_review_test.dart`
 
 ### M5: Document Viewers & Multi-Page Manager (`lib/features/document_viewer/`)
 - `lib/features/document_viewer/domain/document_viewer_repository.dart`
