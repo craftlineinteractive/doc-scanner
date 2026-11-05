@@ -4,7 +4,7 @@ Goal: Build the complete UI of the Flutter "Doc Scanner" app with realistic dumm
 
 ## Milestones & File Roadmap
 
-### M0: Project Setup, Theme, Router & UI Gallery (Current Phase)
+### [x] M0: Project Setup, Theme, Router & UI Gallery (`4adb380`)
 - `docs/AI_RULES.md`
 - `lib/core/constants/app_strings.dart`
 - `lib/core/constants/app_assets.dart`
@@ -25,7 +25,7 @@ Goal: Build the complete UI of the Flutter "Doc Scanner" app with realistic dumm
 - `test/theme_test.dart`
 - `test/app_smoke_test.dart`
 
-### M1: Common Widgets UI Kit (`lib/core/widgets/`)
+### [x] M1: Common Widgets UI Kit (`9b28d5a`)
 - `lib/core/widgets/buttons/primary_button.dart`
 - `lib/core/widgets/buttons/secondary_button.dart`
 - `lib/core/widgets/buttons/text_action_button.dart`
@@ -49,7 +49,7 @@ Goal: Build the complete UI of the Flutter "Doc Scanner" app with realistic dumm
 - `lib/core/widgets/feedback/empty_state.dart`
 - `lib/dev/ui_gallery/components_gallery_screen.dart`
 
-### M2: Home & Drawer (`lib/features/home/` & `lib/features/drawer/`)
+### [x] M2: Home & Drawer (`m2-home-drawer`)
 - `lib/features/home/domain/home_repository.dart`
 - `lib/features/home/data/mock_home_repository.dart`
 - `lib/features/home/presentation/screens/home_screen.dart`
@@ -65,15 +65,21 @@ Goal: Build the complete UI of the Flutter "Doc Scanner" app with realistic dumm
 - `lib/features/drawer/presentation/widgets/expandable_section.dart`
 - `lib/features/drawer/presentation/widgets/premium_upsell_card.dart`
 
-### M3: Camera & Modes (`lib/features/camera/`)
-- `lib/features/camera/domain/camera_repository.dart`
-- `lib/features/camera/data/mock_camera_repository.dart`
+### [x] M3: Camera & Modes (`m3-camera`)
+- `lib/features/camera/domain/photo_size.dart`
+- `lib/features/camera/data/mock_photo_sizes.dart`
+- `lib/features/camera/application/camera_mode.dart`
+- `lib/features/camera/application/flash_mode.dart`
+- `lib/features/camera/application/camera_settings.dart`
+- `lib/features/camera/application/id_scan_sides.dart`
+- `lib/features/camera/application/book_scan_type.dart`
+- `lib/features/camera/application/photo_size_provider.dart`
 - `lib/features/camera/presentation/screens/camera_screen.dart`
-- `lib/features/camera/presentation/widgets/camera_top_bar.dart`
-- `lib/features/camera/presentation/widgets/mode_selector.dart`
-- `lib/features/camera/presentation/widgets/camera_settings_grid.dart`
-- `lib/features/camera/presentation/widgets/signature_viewfinder.dart`
-- `lib/features/camera/presentation/widgets/qr_viewfinder.dart`
+- `lib/features/camera/presentation/widgets/camera_viewfinder.dart`
+- `lib/features/camera/presentation/widgets/camera_bottom_controls.dart`
+- `lib/features/camera/presentation/widgets/camera_settings_panel.dart`
+- `lib/features/camera/presentation/widgets/spirit_level_widget.dart`
+- `lib/features/camera/presentation/widgets/camera_grid_overlay.dart`
 - `lib/features/camera/presentation/sheets/scan_quality_sheet.dart`
 - `lib/features/camera/presentation/dialogs/id_card_mode_dialog.dart`
 - `lib/features/camera/presentation/dialogs/book_mode_dialog.dart`

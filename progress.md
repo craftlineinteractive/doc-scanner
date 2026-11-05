@@ -11,8 +11,8 @@ Every task must tick:
 - [x] Committed with a Conventional Commit message (hash recorded)
 
 ## Session Status
-- **Current Milestone**: M2 (Home & Navigation Drawer)
-- **Status**: Completed (ready for M3: Camera & Modes)
+- **Current Milestone**: M3 (Camera & Modes)
+- **Status**: Completed (ready for M4: Scan Review & Adjust)
 
 ## Milestone Checklist
 - [x] **M0: Foundation & UI Gallery** (`4adb380`)
@@ -45,7 +45,13 @@ Every task must tick:
   - [x] Home Screen: `HomeScreen`, `HomeFoldersSection`, `HomeDocumentsSection`, grid mode, empty onboarding state (`2cc7ffa`)
   - [x] Menus & sheets: `HomeOverflowMenu`, `AddDocumentSheet`, gallery routes integration (`2a01452`)
   - [x] Tests: 6 widget tests for home and drawer (`e12cff8`)
-- [ ] **M3: Camera & Modes**
+- [x] **M3: Camera & Modes** (tagged `m3-camera`)
+  - [x] Models & state: `PhotoSize`, mock sizes, `CameraMode`, `FlashMode`, `CameraSettings`, `IdScanSides`, `BookScanType`, `photoSizeProvider` (`df88ae3`)
+  - [x] Camera screen: `CameraScreen`, `CameraViewfinder`, `CameraBottomControls`, `CameraTopBar`, `SpiritLevelWidget`, `CameraGridOverlay`, `MockCameraBackground` (`a62fc9c`)
+  - [x] Settings panel & sheets: `CameraSettingsPanel`, `SettingTile`, `ScanQualitySheet`, flash cycling (`2214a5f`)
+  - [x] Mode dialogs: `IdCardModeDialog`, `BookModeDialog`, `PhotoSizeDialog`, `OcrModeDialog`, route params & UI Gallery entries (`78f7a40`)
+  - [x] Tests: 7 widget tests in `test/camera_test.dart`, total 19 tests all passing (`5aba597`)
+  - [x] Verification: Android emulator verification on `emulator-5554` (API 36), font scale 1.3 tested with 0 overflows, 0 unhandled exceptions
 - [ ] **M4: Scan Review & Adjust**
 - [ ] **M5: Document Viewers & Multi-Page Manager**
 - [ ] **M6: PDF Tools & Viewer**
@@ -69,3 +75,6 @@ Every task must tick:
 | M2 | `flutter analyze` | 0 issues found | Clean static analysis across models, repository, drawer, and home |
 | M2 | `flutter test` | All 12 tests passed | 6 new tests in `test/home_and_drawer_test.dart`, all project tests green |
 | M2 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); verified 9 states (Home list/grid, empty state, overflow menu, import submenu, add sheet, drawer signed-in/signed-out/tools-other), font scale 1.3 tested with 0 overflows and 0 exceptions |
+| M3 | `flutter analyze` | 0 issues found | Clean static analysis across camera domain, application, presentation, dialogs, sheets, and router |
+| M3 | `flutter test` | All 19 tests passed | 7 new tests in `test/camera_test.dart`, 19/19 project tests green |
+| M3 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); tested all 11 gallery states (Document default, Photo layout, Settings panel, Scan Quality sheet, Flash cycle, ID Card dialog + flip back side, Book dialog + 2-page split, Photo size dialog + reorder/add/select, Signature mode, QR Scanner mode + scan line, OCR dialog), font scale 1.3 tested with 0 overflows and 0 unhandled exceptions |
