@@ -8,6 +8,8 @@ import '../../../../core/widgets/mock/mock_document_page.dart';
 import '../../application/review_ui_provider.dart';
 import '../../application/scan_session_provider.dart';
 import '../../domain/scan_page.dart';
+import '../dialogs/delete_page_dialog.dart';
+import '../dialogs/discard_scan_dialog.dart';
 import '../dialogs/doc_name_dialog.dart';
 import '../sheets/crop_shape_sheet.dart';
 import '../widgets/review_bottom_bar.dart';
@@ -79,11 +81,34 @@ class _ReviewScanScreenState extends ConsumerState<ReviewScanScreen> {
   }
 
   void _showDeleteDialog() {
-    // Fully connected in Step 5
+    final session = ref.read(scanSessionProvider);
+    final pageNum = session.currentIndex + 1;
+    DeletePageDialog.show(
+      context,
+      pageNumber: pageNum,
+      onConfirmDelete: () {
+        ref.read(scanSessionProvider.notifier).deletePage(session.currentIndex);
+        if (ref.read(scanSessionProvider).pageCount == 0) {
+          context.go(AppRoutes.home);
+        }
+      },
+    );
   }
 
   void _showDiscardDialog() {
-    // Fully connected in Step 5
+    final session = ref.read(scanSessionProvider);
+    DiscardScanDialog.show(
+      context,
+      pageCount: session.pageCount,
+      onConfirmDiscard: () {
+        ref.read(scanSessionProvider.notifier).reset();
+        if (context.canPop()) {
+          context.pop();
+        } else {
+          context.go(AppRoutes.home);
+        }
+      },
+    );
   }
 
   void _handleBack() {

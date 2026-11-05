@@ -9,6 +9,7 @@ import '../features/drawer/presentation/screens/drawer_preview_screen.dart';
 import '../features/home/application/home_providers.dart';
 import '../features/home/presentation/screens/home_screen.dart';
 import '../features/scan_review/presentation/screens/adjust_screen.dart';
+import '../features/scan_review/presentation/screens/arrange_pages_screen.dart';
 import '../features/scan_review/presentation/screens/review_scan_screen.dart';
 import 'routes.dart';
 
@@ -153,10 +154,11 @@ GoRouter createRouter({String? initialLocation}) {
       ),
       GoRoute(
         path: AppRoutes.arrangePages,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Arrange Pages Screen',
-          subtitle: 'Reorder pages grid view',
-        ),
+        builder: (context, state) => const ArrangePagesScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.arrangePagesShort,
+        builder: (context, state) => const ArrangePagesScreen(),
       ),
 
       // 05 Document Viewer
