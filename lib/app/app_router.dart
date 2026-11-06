@@ -6,6 +6,7 @@ import '../dev/ui_gallery/components_page.dart';
 import '../dev/ui_gallery/ui_gallery_screen.dart';
 import '../features/camera/presentation/screens/camera_screen.dart';
 import '../features/drawer/presentation/screens/drawer_preview_screen.dart';
+import '../features/document_viewer/presentation/screens/post_scan_viewer_screen.dart';
 import '../features/home/application/home_providers.dart';
 import '../features/home/presentation/screens/home_screen.dart';
 import '../features/scan_review/presentation/screens/adjust_screen.dart';
@@ -164,10 +165,20 @@ GoRouter createRouter({String? initialLocation}) {
       // 05 Document Viewer
       GoRoute(
         path: AppRoutes.postScanViewer,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Post-Scan Viewer Screen',
-          subtitle: '01_post_scan_viewer_suite with edit tools',
-        ),
+        builder: (context, state) {
+          final String docId =
+              state.uri.queryParameters['id'] ?? 'doc_post_scan';
+          final String? tier = state.uri.queryParameters['tier'];
+          final String? panel = state.uri.queryParameters['panel'];
+          final int page =
+              int.tryParse(state.uri.queryParameters['page'] ?? '0') ?? 0;
+          return PostScanViewerScreen(
+            initialDocId: docId,
+            initialTier: tier,
+            initialPanel: panel,
+            initialPageIndex: page,
+          );
+        },
       ),
       GoRoute(
         path: AppRoutes.savedViewer,
