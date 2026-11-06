@@ -8,6 +8,7 @@ import '../features/camera/presentation/screens/camera_screen.dart';
 import '../features/drawer/presentation/screens/drawer_preview_screen.dart';
 import '../features/document_viewer/presentation/screens/post_scan_viewer_screen.dart';
 import '../features/document_viewer/presentation/screens/saved_document_viewer_screen.dart';
+import '../features/document_viewer/presentation/screens/page_manager_screen.dart';
 import '../features/home/application/home_providers.dart';
 import '../features/home/presentation/screens/home_screen.dart';
 import '../features/scan_review/presentation/screens/adjust_screen.dart';
@@ -199,10 +200,17 @@ GoRouter createRouter({String? initialLocation}) {
       ),
       GoRoute(
         path: AppRoutes.pageManager,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Multi-Page Manager Screen',
-          subtitle: '03_multi_page_manager_suite with search & action drawer',
-        ),
+        builder: (context, state) {
+          final String docId =
+              state.uri.queryParameters['id'] ?? 'doc_multi_4';
+          final String st = state.uri.queryParameters['state'] ?? 'grid';
+          final String q = state.uri.queryParameters['q'] ?? 'Invoice';
+          return PageManagerScreen(
+            initialDocId: docId,
+            initialState: st,
+            initialQuery: q,
+          );
+        },
       ),
 
       // 06 PDF Tools

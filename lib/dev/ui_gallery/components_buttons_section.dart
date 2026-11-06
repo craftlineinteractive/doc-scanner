@@ -3,6 +3,7 @@ import 'package:material_symbols_icons/symbols.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/theme/app_typography.dart';
 import '../../core/widgets/buttons/dual_pill_fab.dart';
+import '../../core/widgets/buttons/labelled_dual_pill_fab.dart';
 import '../../core/widgets/buttons/icon_circle_button.dart';
 import '../../core/widgets/buttons/primary_button.dart';
 import '../../core/widgets/buttons/secondary_button.dart';
@@ -113,6 +114,19 @@ class _ComponentsButtonsSectionState extends State<ComponentsButtonsSection> {
               ),
             ),
           ],
+        ),
+        const SizedBox(height: AppSpacing.md),
+        Center(
+          child: LabelledDualPillFab(
+            onScanPageTap: () => showAppSnackbar(
+              context: context,
+              message: 'Scan Page tapped!',
+            ),
+            onImportTap: () => showAppSnackbar(
+              context: context,
+              message: 'Import tapped!',
+            ),
+          ),
         ),
       ],
     );
