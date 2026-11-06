@@ -14,6 +14,13 @@ class CropQuad {
   final Offset bottomRight;
   final Offset bottomLeft;
 
+  /// Standard inset crop box suitable for const initialization.
+  const CropQuad.standard()
+      : topLeft = const Offset(0.06, 0.06),
+        topRight = const Offset(0.94, 0.06),
+        bottomRight = const Offset(0.94, 0.94),
+        bottomLeft = const Offset(0.06, 0.94);
+
   static const double minSize = 0.15;
 
   factory CropQuad.full() {
