@@ -7,6 +7,7 @@ import '../dev/ui_gallery/ui_gallery_screen.dart';
 import '../features/camera/presentation/screens/camera_screen.dart';
 import '../features/drawer/presentation/screens/drawer_preview_screen.dart';
 import '../features/document_viewer/presentation/screens/post_scan_viewer_screen.dart';
+import '../features/document_viewer/presentation/screens/saved_document_viewer_screen.dart';
 import '../features/home/application/home_providers.dart';
 import '../features/home/presentation/screens/home_screen.dart';
 import '../features/scan_review/presentation/screens/adjust_screen.dart';
@@ -182,10 +183,19 @@ GoRouter createRouter({String? initialLocation}) {
       ),
       GoRoute(
         path: AppRoutes.savedViewer,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Saved Document Viewer Screen',
-          subtitle: '02_saved_document_viewer_suite',
-        ),
+        builder: (context, state) {
+          final String docId =
+              state.uri.queryParameters['id'] ?? 'doc_saved_5';
+          final int? frame =
+              int.tryParse(state.uri.queryParameters['frame'] ?? '');
+          final int page =
+              int.tryParse(state.uri.queryParameters['page'] ?? '0') ?? 0;
+          return SavedDocumentViewerScreen(
+            initialDocId: docId,
+            initialFrame: frame,
+            initialPageIndex: page,
+          );
+        },
       ),
       GoRoute(
         path: AppRoutes.pageManager,
