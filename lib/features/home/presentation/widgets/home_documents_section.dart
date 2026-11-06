@@ -114,7 +114,8 @@ class HomeDocumentsSection extends StatelessWidget {
                   variant: doc.thumbnailVariant,
                   showPdfBadge: true,
                 ),
-                onTap: () => context.push(AppRoutes.savedViewer),
+                onTap: () =>
+                    context.push('${AppRoutes.pageManager}?id=${doc.id}'),
                 onMoreTap: () => showAppSnackbar(
                   context: context,
                   message: 'Document options are coming later',
@@ -144,7 +145,8 @@ class HomeDocumentsSection extends StatelessWidget {
                   variant: doc.thumbnailVariant,
                   showPdfBadge: true,
                 ),
-                onTap: () => context.push(AppRoutes.savedViewer),
+                onTap: () =>
+                    context.push('${AppRoutes.pageManager}?id=${doc.id}'),
                 onMoreTap: () => showAppSnackbar(
                   context: context,
                   message: 'Document options are coming later',
