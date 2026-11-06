@@ -153,16 +153,20 @@ class _PanelChip extends StatelessWidget {
               children: <Widget>[
                 Icon(
                   icon,
-                  size: 14,
+                  size: 13,
                   color: isPrimary ? Colors.white : AppColors.textPrimary,
                 ),
-                const SizedBox(width: 4),
-                Text(
-                  label,
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w600,
-                    color: isPrimary ? Colors.white : AppColors.textPrimary,
+                const SizedBox(width: 3),
+                Flexible(
+                  child: Text(
+                    label,
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                      color: isPrimary ? Colors.white : AppColors.textPrimary,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],

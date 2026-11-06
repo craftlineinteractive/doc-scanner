@@ -90,6 +90,52 @@ class PostScanTopBar extends StatelessWidget implements PreferredSizeWidget {
       );
     }
 
+    if (isOcrActive) {
+      return AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        leading: IconButton(
+          icon: const Icon(Symbols.arrow_back_rounded, color: AppColors.textPrimary),
+          onPressed: onBack,
+        ),
+        centerTitle: true,
+        title: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+          decoration: BoxDecoration(
+            color: AppColors.successTint,
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: const Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Icon(Symbols.verified_rounded, size: 16, color: AppColors.success),
+              SizedBox(width: 4),
+              Flexible(
+                child: Text(
+                  'OCR Extracted • 98% accuracy',
+                  style: TextStyle(
+                    color: AppColors.success,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            tooltip: 'More options',
+            icon: const Icon(Symbols.more_vert_rounded, color: AppColors.textPrimary),
+            onPressed: onMoreTap,
+          ),
+        ],
+      );
+    }
+
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
@@ -129,40 +175,22 @@ class PostScanTopBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: <Widget>[
-        if (isOcrActive)
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            margin: const EdgeInsets.only(right: 6),
-            decoration: BoxDecoration(
-              color: AppColors.successTint,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: const Text(
-              'OCR Extracted • 98%',
-              style: TextStyle(
-                color: AppColors.success,
-                fontSize: 11,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          )
-        else
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            margin: const EdgeInsets.only(right: 4),
-            decoration: BoxDecoration(
-              color: AppColors.canvas,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Text(
-              '$currentPage / $totalPages',
-              style: const TextStyle(
-                color: AppColors.textMuted,
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          margin: const EdgeInsets.only(right: 4),
+          decoration: BoxDecoration(
+            color: AppColors.canvas,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Text(
+            '$currentPage / $totalPages',
+            style: const TextStyle(
+              color: AppColors.textMuted,
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
             ),
           ),
+        ),
         IconButton(
           icon: Icon(
             isFavorite ? Symbols.star_rounded : Symbols.star_outline_rounded,
@@ -171,6 +199,7 @@ class PostScanTopBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: onFavoriteToggle,
         ),
         IconButton(
+          tooltip: 'More options',
           icon: const Icon(Symbols.more_vert_rounded, color: AppColors.textPrimary),
           onPressed: onMoreTap,
         ),

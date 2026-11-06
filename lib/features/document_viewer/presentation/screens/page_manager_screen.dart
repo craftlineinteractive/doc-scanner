@@ -210,23 +210,29 @@ class _PageManagerScreenState extends ConsumerState<PageManagerScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            const Icon(
-                              Symbols.folder_open_rounded,
-                              size: 16,
-                              color: AppColors.primary,
-                            ),
-                            const SizedBox(width: 6),
-                            Text(
-                              '${doc.pageCount} Pages • ${doc.sizeMb.toStringAsFixed(1)} MB • ${doc.scannedLabel}',
-                              style: const TextStyle(
-                                fontSize: 12,
-                                color: AppColors.textMuted,
+                        Expanded(
+                          child: Row(
+                            children: <Widget>[
+                              const Icon(
+                                Symbols.folder_open_rounded,
+                                size: 16,
+                                color: AppColors.primary,
                               ),
-                            ),
-                          ],
+                              const SizedBox(width: 6),
+                              Flexible(
+                                child: Text(
+                                  '${doc.pageCount} Pages • ${doc.sizeMb.toStringAsFixed(1)} MB • ${doc.scannedLabel}',
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: AppColors.textMuted,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
+                        const SizedBox(width: 8),
                         Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 8, vertical: 3),

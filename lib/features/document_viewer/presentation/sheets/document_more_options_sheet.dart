@@ -28,9 +28,10 @@ class DocumentMoreOptionsSheet extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       padding: const EdgeInsets.only(top: 12, bottom: 24),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
           // Drag handle
           Container(
             width: 36,
@@ -168,6 +169,7 @@ class DocumentMoreOptionsSheet extends StatelessWidget {
             },
           ),
         ],
+      ),
       ),
     );
   }
