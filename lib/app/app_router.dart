@@ -8,6 +8,7 @@ import '../features/camera/presentation/screens/camera_screen.dart';
 import '../features/drawer/presentation/screens/drawer_preview_screen.dart';
 import '../features/document_viewer/presentation/screens/post_scan_viewer_screen.dart';
 import '../features/document_viewer/presentation/screens/saved_document_viewer_screen.dart';
+import '../features/pdf_tools/presentation/screens/pdf_viewer_screen.dart';
 import '../features/document_viewer/presentation/screens/page_manager_screen.dart';
 import '../features/home/application/home_providers.dart';
 import '../features/home/presentation/screens/home_screen.dart';
@@ -216,10 +217,17 @@ GoRouter createRouter({String? initialLocation}) {
       // 06 PDF Tools
       GoRoute(
         path: AppRoutes.pdfViewer,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'PDF Viewer & Toolkit',
-          subtitle: '01_pdf_tools_toolkit_suite (14 tools)',
-        ),
+        builder: (context, state) {
+          final String st = state.uri.queryParameters['state'] ?? 'default';
+          final String q = state.uri.queryParameters['q'] ?? 'Financial';
+          final int page =
+              int.tryParse(state.uri.queryParameters['page'] ?? '0') ?? 0;
+          return PdfViewerScreen(
+            initialState: st,
+            initialQuery: q,
+            initialPage: page,
+          );
+        },
       ),
 
       // 07 OCR
