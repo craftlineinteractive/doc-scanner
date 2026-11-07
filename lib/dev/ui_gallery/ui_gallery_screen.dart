@@ -351,9 +351,34 @@ class UiGalleryScreen extends StatelessWidget {
       title: '06_pdf_tools',
       items: <_GalleryItem>[
         _GalleryItem(
-          title: '01 PDF Tools Toolkit Suite (4 Frames)',
-          subtitle: 'PDF viewer, 14-tool drawer, text search, help modal',
-          route: AppRoutes.pdfViewer,
+          title: '01 PDF Viewer Default',
+          subtitle: 'Resting viewer, 6 pages, 68px bottom dock & page pill',
+          route: '${AppRoutes.pdfViewer}?state=default',
+          badge: 'Default',
+        ),
+        _GalleryItem(
+          title: '02 PDF Toolkit Drawer Open',
+          subtitle: '14 tools categorized, 9 document actions, conversions',
+          route: '${AppRoutes.pdfViewer}?state=toolkit',
+          badge: 'Toolkit',
+        ),
+        _GalleryItem(
+          title: '03 In-Document Search',
+          subtitle: 'Lexical search "Financial", 1/3 match counter & jump card',
+          route: '${AppRoutes.pdfViewer}?state=search&q=Financial',
+          badge: 'Search',
+        ),
+        _GalleryItem(
+          title: '04 Contextual Help Modal',
+          subtitle: 'How to Use PDF Tools, 5 numbered tips & Got It CTA',
+          route: '${AppRoutes.pdfViewer}?state=help',
+          badge: 'Help',
+        ),
+        _GalleryItem(
+          title: '05 Add Password Dialog',
+          subtitle: 'AES-256 encryption password dialog with visibility toggle',
+          route: '${AppRoutes.pdfViewer}?state=password',
+          badge: 'Dialog',
         ),
       ],
     ),
@@ -362,9 +387,22 @@ class UiGalleryScreen extends StatelessWidget {
       title: '07_ocr',
       items: <_GalleryItem>[
         _GalleryItem(
-          title: '01 OCR Result Screen',
-          subtitle: 'Accuracy badge, extracted text viewer, Copy & Share actions',
-          route: AppRoutes.ocrResult,
+          title: '01 OCR Result Default',
+          subtitle: '99.4% accuracy badge, consulting agreement, Copy/Share bar',
+          route: '${AppRoutes.ocrResult}?state=default',
+          badge: 'Default',
+        ),
+        _GalleryItem(
+          title: '02 OCR Editing Text',
+          subtitle: 'Inline multiline text editor with Done action',
+          route: '${AppRoutes.ocrResult}?state=editing',
+          badge: 'Edit',
+        ),
+        _GalleryItem(
+          title: '03 OCR Original Preview Expanded',
+          subtitle: 'Thumbnail expand toggle showing original document',
+          route: '${AppRoutes.ocrResult}?state=preview',
+          badge: 'Preview',
         ),
       ],
     ),

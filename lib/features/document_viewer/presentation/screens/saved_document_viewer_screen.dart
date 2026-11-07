@@ -214,27 +214,12 @@ class _SavedDocumentViewerScreenState
           // PDF Sub-tool Tier
           if (_toolTier == ViewerToolTier.pdf)
             SavedViewerPdfSubToolbar(
-              onCompress: () => showAppSnackbar(
-                context: context,
-                message: 'Compressed PDF size by 40%',
-              ),
-              onWatermark: () => showAppSnackbar(
-                context: context,
-                message: 'Watermark applied to all PDF pages',
-              ),
-              onFitType: () => showAppSnackbar(
-                context: context,
-                message: 'Fit Type changed: Fit to Printable Margin',
-              ),
-              onPageSize: () => showAppSnackbar(
-                context: context,
-                message: 'PDF page standard: A4 (210 × 297 mm)',
-              ),
-              onOrientation: () => showAppSnackbar(
-                context: context,
-                message: 'Orientation: Portrait',
-              ),
-              onMore: () => PdfMoreOptionsSheet.show(context),
+              onCompress: () => context.push(AppRoutes.pdfViewer),
+              onWatermark: () => context.push(AppRoutes.pdfViewer),
+              onFitType: () => context.push(AppRoutes.pdfViewer),
+              onPageSize: () => context.push(AppRoutes.pdfViewer),
+              onOrientation: () => context.push(AppRoutes.pdfViewer),
+              onMore: () => context.push(AppRoutes.pdfViewer),
             ),
 
           // Main 6-Tool Row
@@ -242,13 +227,7 @@ class _SavedDocumentViewerScreenState
             currentTier: _toolTier,
             onEditTap: _showEditChoiceDialog,
             onEditAllTap: () => context.push(AppRoutes.arrangePages),
-            onOpenPdfTap: () {
-              setState(() {
-                _toolTier = _toolTier == ViewerToolTier.pdf
-                    ? ViewerToolTier.main
-                    : ViewerToolTier.pdf;
-              });
-            },
+            onOpenPdfTap: () => context.push(AppRoutes.pdfViewer),
             onShareTap: () => showAppSnackbar(
               context: context,
               message: 'Preparing document for sharing...',

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import '../../../../app/routes.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_radii.dart';
 import '../../../../core/theme/app_shadows.dart';
@@ -210,7 +212,10 @@ class _HomeOverflowMenuState extends ConsumerState<HomeOverflowMenu> {
               label: 'OCR Ready',
               variant: StatusChipVariant.success,
             ),
-            onTap: () => _closeAndNotify('PDF Tools is coming later'),
+            onTap: () {
+              Navigator.of(context).pop();
+              context.push(AppRoutes.pdfViewer);
+            },
           ),
           _buildDivider(),
 

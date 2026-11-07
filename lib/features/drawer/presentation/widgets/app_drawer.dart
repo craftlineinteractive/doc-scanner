@@ -144,7 +144,10 @@ class _AppDrawerState extends ConsumerState<AppDrawer> {
                         label: 'PDF Tools',
                         iconColor: const Color(0xFFE5484D),
                         backgroundColor: const Color(0xFFFFECEB),
-                        onTap: () => _onAction('PDF Tools'),
+                        onTap: () => _onAction(
+                          'PDF Tools',
+                          customAction: () => context.push(AppRoutes.pdfViewer),
+                        ),
                       ),
                       DrawerItem(
                         icon: const Icon(Symbols.edit_document_rounded),

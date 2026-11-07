@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import '../../../../app/routes.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/feedback/app_snackbar.dart';
 import '../../domain/saved_document.dart';
@@ -280,7 +282,7 @@ class PageManagerActionDrawer extends StatelessWidget {
                     label: 'OCR Extract All Text',
                     onTap: () {
                       Navigator.of(context).pop();
-                      showAppSnackbar(context: context, message: 'OCR Extracted all 4 pages');
+                      context.push(AppRoutes.ocrResult);
                     },
                   ),
                   _DrawerListTile(
