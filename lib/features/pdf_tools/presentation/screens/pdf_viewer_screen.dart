@@ -6,6 +6,8 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/feedback/app_snackbar.dart';
 import '../../application/pdf_viewer_providers.dart';
 import '../../data/mock_pdf_document.dart';
+import '../dialogs/add_password_dialog.dart';
+import '../sheets/pdf_toolkit_drawer.dart';
 import '../widgets/pdf_bottom_dock.dart';
 import '../widgets/pdf_page_card.dart';
 import '../widgets/pdf_top_bar.dart';
@@ -44,8 +46,30 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
               true,
               defaultQuery: widget.initialQuery,
             );
+      } else if (widget.initialState == 'toolkit') {
+        _openToolkitDrawer();
+      } else if (widget.initialState == 'password') {
+        AddPasswordDialog.show(context);
       }
     });
+  }
+
+  void _openToolkitDrawer() {
+    PdfToolkitDrawer.show(
+      context,
+      onToolSelected: (String tool) {
+        showAppSnackbar(
+          context: context,
+          message: '$tool is coming later',
+        );
+      },
+      onNavigateToOcr: () {
+        context.push(AppRoutes.ocrResult);
+      },
+      onShowAddPassword: () {
+        AddPasswordDialog.show(context);
+      },
+    );
   }
 
   void _onScroll() {
@@ -143,9 +167,7 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
               right: 0,
               bottom: 0,
               child: PdfBottomDock(
-                onToolkitTap: () {
-                  ref.read(pdfViewerProvider.notifier).setToolkitOpen(true);
-                },
+                onToolkitTap: _openToolkitDrawer,
                 onToolTap: (String tool) {
                   showAppSnackbar(
                     context: context,
