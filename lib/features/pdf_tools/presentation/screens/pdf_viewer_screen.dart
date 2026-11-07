@@ -7,9 +7,12 @@ import '../../../../core/widgets/feedback/app_snackbar.dart';
 import '../../application/pdf_viewer_providers.dart';
 import '../../data/mock_pdf_document.dart';
 import '../dialogs/add_password_dialog.dart';
+import '../dialogs/pdf_help_dialog.dart';
 import '../sheets/pdf_toolkit_drawer.dart';
 import '../widgets/pdf_bottom_dock.dart';
 import '../widgets/pdf_page_card.dart';
+import '../widgets/pdf_search_bar.dart';
+import '../widgets/pdf_search_jump_card.dart';
 import '../widgets/pdf_top_bar.dart';
 
 /// Interactive PDF Viewer screen implementing Frame 1 of Suite 06.
@@ -50,8 +53,32 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
         _openToolkitDrawer();
       } else if (widget.initialState == 'password') {
         AddPasswordDialog.show(context);
+      } else if (widget.initialState == 'help') {
+        _openHelpDialog();
       }
     });
+  }
+
+  void _openHelpDialog() {
+    PdfHelpDialog.show(
+      context,
+      onGotIt: () {
+        ref.read(pdfViewerProvider.notifier).setHelpShown(true);
+      },
+    );
+  }
+
+  void _scrollToPage(int pageIndex) {
+    if (!_scrollController.hasClients) return;
+    final double targetOffset = (pageIndex * 640.0).clamp(
+      0.0,
+      _scrollController.position.maxScrollExtent,
+    );
+    _scrollController.animateTo(
+      targetOffset,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
   }
 
   void _openToolkitDrawer() {
@@ -94,18 +121,53 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
   Widget build(BuildContext context) {
     final PdfViewerState state = ref.watch(pdfViewerProvider);
 
+    final PreferredSizeWidget topBar = state.searchActive
+        ? PdfSearchBar(
+            initialQuery: state.searchQuery,
+            totalMatches: state.matches.length,
+            currentMatchIndex: state.matchIndex,
+            onQueryChanged: (String q) {
+              ref.read(pdfViewerProvider.notifier).setSearchQuery(q);
+            },
+            onPreviousMatch: () {
+              ref.read(pdfViewerProvider.notifier).previousMatch();
+              final match = ref.read(pdfViewerProvider).currentMatch;
+              if (match != null) _scrollToPage(match.pageIndex);
+            },
+            onNextMatch: () {
+              ref.read(pdfViewerProvider.notifier).nextMatch();
+              final match = ref.read(pdfViewerProvider).currentMatch;
+              if (match != null) _scrollToPage(match.pageIndex);
+            },
+            onClose: () {
+              ref.read(pdfViewerProvider.notifier).setSearchActive(false);
+            },
+          )
+        : PdfTopBar(
+            fileName: MockPdfDocument.fileName,
+            onBack: () =>
+                context.canPop() ? context.pop() : context.go(AppRoutes.home),
+            onSearchTap: () {
+              ref.read(pdfViewerProvider.notifier).setSearchActive(true);
+            },
+            onHelpTap: _openHelpDialog,
+          );
+
+    final String pillText;
+    if (state.searchActive) {
+      if (state.matches.isNotEmpty) {
+        pillText =
+            'Page ${_visiblePage + 1} of ${MockPdfDocument.pages.length} • ${state.matches.length} Matches';
+      } else {
+        pillText = 'No matches';
+      }
+    } else {
+      pillText = 'Page ${_visiblePage + 1} of ${MockPdfDocument.pages.length}';
+    }
+
     return Scaffold(
       backgroundColor: const Color(0xFFE9ECF3),
-      appBar: PdfTopBar(
-        fileName: MockPdfDocument.fileName,
-        onBack: () => context.canPop() ? context.pop() : context.go(AppRoutes.home),
-        onSearchTap: () {
-          ref.read(pdfViewerProvider.notifier).setSearchActive(true);
-        },
-        onHelpTap: () {
-          ref.read(pdfViewerProvider.notifier).setHelpShown(true);
-        },
-      ),
+      appBar: topBar,
       body: SafeArea(
         child: Stack(
           children: <Widget>[
@@ -129,7 +191,7 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
 
             // Floating Page Count Pill
             Positioned(
-              bottom: 84,
+              bottom: state.searchActive ? 84 : 84,
               left: 0,
               right: 0,
               child: Center(
@@ -150,7 +212,7 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
                     ],
                   ),
                   child: Text(
-                    'Page ${_visiblePage + 1} of ${MockPdfDocument.pages.length}',
+                    pillText,
                     style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
@@ -161,20 +223,29 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
               ),
             ),
 
-            // Fixed Bottom Dock (68px)
+            // Fixed Bottom Area: Search Jump Card or Dock
             Positioned(
               left: 0,
               right: 0,
-              bottom: 0,
-              child: PdfBottomDock(
-                onToolkitTap: _openToolkitDrawer,
-                onToolTap: (String tool) {
-                  showAppSnackbar(
-                    context: context,
-                    message: '$tool is coming later',
-                  );
-                },
-              ),
+              bottom: state.searchActive ? 16 : 0,
+              child: state.searchActive
+                  ? (state.currentMatch != null
+                      ? PdfSearchJumpCard(
+                          match: state.currentMatch!,
+                          totalMatches: state.matches.length,
+                          onJump: () =>
+                              _scrollToPage(state.currentMatch!.pageIndex),
+                        )
+                      : const SizedBox.shrink())
+                  : PdfBottomDock(
+                      onToolkitTap: _openToolkitDrawer,
+                      onToolTap: (String tool) {
+                        showAppSnackbar(
+                          context: context,
+                          message: '$tool is coming later',
+                        );
+                      },
+                    ),
             ),
           ],
         ),
