@@ -126,17 +126,28 @@ Goal: Build the complete UI of the Flutter "Doc Scanner" app with realistic dumm
 - `lib/features/document_viewer/presentation/widgets/page_manager_search_view.dart`
 - `test/document_viewer_test.dart`
 
-### M6: PDF Tools & Viewer (`lib/features/pdf_tools/`)
-- `lib/features/pdf_tools/domain/pdf_tools_repository.dart`
-- `lib/features/pdf_tools/data/mock_pdf_tools_repository.dart`
+### [x] M6: PDF Tools & OCR Result (tagged `m6-pdf-ocr`)
+- `lib/features/pdf_tools/domain/pdf_tool.dart`
+- `lib/features/pdf_tools/domain/pdf_page_content.dart`
+- `lib/features/pdf_tools/domain/pdf_search_match.dart`
+- `lib/features/pdf_tools/data/mock_pdf_tools.dart`
+- `lib/features/pdf_tools/data/mock_pdf_document.dart`
+- `lib/features/pdf_tools/application/pdf_viewer_providers.dart`
 - `lib/features/pdf_tools/presentation/screens/pdf_viewer_screen.dart`
-- `lib/features/pdf_tools/presentation/sheets/toolkit_drawer_sheet.dart`
+- `lib/features/pdf_tools/presentation/widgets/pdf_page_card.dart`
+- `lib/features/pdf_tools/presentation/widgets/pdf_bottom_dock.dart`
+- `lib/features/pdf_tools/presentation/widgets/pdf_search_bar.dart`
+- `lib/features/pdf_tools/presentation/widgets/pdf_search_jump_card.dart`
+- `lib/features/pdf_tools/presentation/sheets/pdf_toolkit_drawer.dart`
 - `lib/features/pdf_tools/presentation/dialogs/pdf_help_dialog.dart`
-
-### M7: OCR Result (`lib/features/ocr/`)
-- `lib/features/ocr/domain/ocr_repository.dart`
-- `lib/features/ocr/data/mock_ocr_repository.dart`
+- `lib/features/pdf_tools/presentation/dialogs/add_password_dialog.dart`
+- `lib/features/ocr/domain/ocr_result.dart`
+- `lib/features/ocr/data/mock_ocr_result.dart`
+- `lib/features/ocr/application/ocr_provider.dart`
 - `lib/features/ocr/presentation/screens/ocr_result_screen.dart`
+- `lib/features/ocr/presentation/widgets/ocr_summary_card.dart`
+- `lib/features/ocr/presentation/widgets/ocr_content_card.dart`
+- `test/pdf_tools_and_ocr_test.dart`
 
 ### M8: Trash (`lib/features/trash/`)
 - `lib/features/trash/domain/trash_repository.dart`

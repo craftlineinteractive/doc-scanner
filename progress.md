@@ -11,8 +11,8 @@ Every task must tick:
 - [x] Committed with a Conventional Commit message (hash recorded)
 
 ## Session Status
-- **Current Milestone**: M5 (Document Viewers & Multi-Page Manager)
-- **Status**: Completed (ready for M6: PDF Tools & Viewer)
+- **Current Milestone**: M6 (PDF Tools & OCR Result)
+- **Status**: Completed (ready for M8: Trash)
 
 ## Milestone Checklist
 - [x] **M0: Foundation & UI Gallery** (`4adb380`)
@@ -70,8 +70,14 @@ Every task must tick:
   - [x] Step 7: Tests: 9 comprehensive widget tests in `test/document_viewer_test.dart`, 35 total project tests green (`8cc14d8`)
   - [x] Step 8: Refinement: Fixed search view flex constraints, custom `_ThumbnailPreview`, search dismiss navigation (`0b4f9c8`)
   - [x] Step 9: Android emulator verification on `emulator-5554` (API 36), font scale 1.3 tested with 0 overflows, 0 unhandled exceptions
-- [ ] **M6: PDF Tools & Viewer**
-- [ ] **M7: OCR Result**
+- [x] **M6: PDF Tools & OCR Result** (tagged `m6-pdf-ocr`)
+  - [x] Step 1: Models & mock data: `PdfTool`, `PdfToolGroup`, 14 mock tools across 3 groups + 2 extra options, `PdfPageContent`, 6-page mock report `Annual_Report_2026_Q3.pdf`, `OcrResult`, `mockConsultingAgreementResult` (`105e252`)
+  - [x] Step 2: PDF Viewer screen: 6-page horizontal swipe `PageView`, resting viewer with 68px bottom dock (Tools, Share, Print, More), top title bar with back, search, help, more menu, and page counter pill (`dfa1f1e`)
+  - [x] Step 3: Toolkit drawer: 14 tools in responsive grid cards, header chip "14 TOOLS", group labels, "9 actions", and extra share options (`a5d58c5`)
+  - [x] Step 4: Search & Help: In-document search bar, dynamic highlighting, previous/next jump card, contextual help modal (`8471047`)
+  - [x] Step 5: OCR Result screen: Extracted Text header, copy action, summary card with 99.4% badge and collapsible original document preview, recognized text editor card, copy & share bottom actions (`3fa8268`)
+  - [x] Step 6: Navigation updates: Connected PDF Tools entry in drawer, OCR navigation from toolkit drawer and viewer (`b40bbb2`)
+  - [x] Step 7: Tests & responsiveness: 8 widget tests in `test/pdf_tools_and_ocr_test.dart` (43 total passing tests), resolved all RenderFlex overflow constraints across cards and headers (`b9b07c7`)
 - [ ] **M8: Trash**
 - [ ] **M9: Settings**
 - [ ] **M10: Premium Paywall**
@@ -99,4 +105,7 @@ Every task must tick:
 | M4 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); tested all 11 gallery states (Adjust default, Dragging corner + 2.5x loupe, Filter bottom sheet, Doc Name dialog, Crop Shape sheet, Review default, Crop open, Color open, Arrange pages grid, Delete page dialog, Discard scan dialog), font scale 1.3 tested with 0 overflows and 0 unhandled exceptions |
 | M5 | `flutter analyze` | 0 issues found | Clean static analysis across viewer domain, application, presentation, sheets, and widgets |
 | M5 | `flutter test` | All 35 tests passed | 9 new tests in `test/document_viewer_test.dart`, 35/35 project tests green |
-| M5 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); tested Post-Scan Viewer (main, edit, crop tiers, OCR preview panel, More Options sheet), Saved Document Viewer (Edit version dialog, edit sub-toolbar, PDF sub-toolbar, More PDF options sheet), Multi-Page Manager (2-column page grid, Action drawer, search view with OCR highlights and instant PDF banner), font scale 1.3 tested with 0 overflows and 0 unhandled exceptions |
+| M5 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); tested Post-Scan Viewer, Saved Document Viewer, Multi-Page Manager, font scale 1.3 tested with 0 overflows |
+| M6 | `flutter analyze` | 0 issues found | Clean static analysis across PDF tools and OCR domains, application, presentation, dialogs, sheets, and widgets |
+| M6 | `flutter test` | All 43 tests passed | 8 new tests in `test/pdf_tools_and_ocr_test.dart`, 43/43 project tests green |
+| M6 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); PDF Viewer resting/dock/tools drawer/search/help modal, OCR Result default/edit/expand preview, font scale 1.3 verified clean with 0 overflows |
