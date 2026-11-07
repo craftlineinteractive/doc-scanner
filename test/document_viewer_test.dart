@@ -8,6 +8,7 @@ import 'package:docscanner/features/document_viewer/presentation/screens/post_sc
 import 'package:docscanner/features/document_viewer/presentation/screens/saved_document_viewer_screen.dart';
 import 'package:docscanner/features/document_viewer/presentation/sheets/document_more_options_sheet.dart';
 import 'package:docscanner/features/document_viewer/presentation/sheets/pdf_more_options_sheet.dart';
+import 'package:docscanner/features/document_viewer/presentation/widgets/page_manager_search_view.dart';
 import 'package:docscanner/features/document_viewer/presentation/widgets/post_scan_ocr_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -261,6 +262,22 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.byType(SavedDocumentViewerScreen), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      '9. page_manager_search_direct_route_renders_results',
+      (WidgetTester tester) async {
+        setTestViewport(tester);
+        await tester.pumpWidget(
+          buildApp('${AppRoutes.pageManager}?state=search&q=Invoice'),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(PageManagerSearchView), findsOneWidget);
+        expect(find.text('PDF Ready (1.8 MB)'), findsOneWidget);
+        expect(find.text('Page 1 Match'), findsOneWidget);
+        expect(find.text('Page 3 Match'), findsOneWidget);
       },
     );
   });

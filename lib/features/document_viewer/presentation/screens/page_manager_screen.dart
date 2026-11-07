@@ -79,6 +79,30 @@ class _PageManagerScreenState extends ConsumerState<PageManagerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (_isSearchActive) {
+      return PageManagerSearchView(
+        initialQuery: widget.initialQuery,
+        onClose: () {
+          if (_isSearchActive && widget.initialState != 'search') {
+            setState(() => _isSearchActive = false);
+          } else if (context.canPop()) {
+            context.pop();
+          } else {
+            setState(() => _isSearchActive = false);
+          }
+        },
+        onJumpToPage: (int pageIndex) {
+          context.push(
+            '${AppRoutes.savedViewer}?id=${widget.initialDocId}&page=$pageIndex',
+          );
+        },
+        onOpenPdf: () => showAppSnackbar(
+          context: context,
+          message: 'Opening PDF document...',
+        ),
+      );
+    }
+
     ref.watch(savedDocumentsProvider);
     final SavedDocument doc = ref
         .read(savedDocumentsProvider.notifier)
@@ -86,9 +110,7 @@ class _PageManagerScreenState extends ConsumerState<PageManagerScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.canvas,
-      appBar: _isSearchActive
-          ? null
-          : AppBar(
+      appBar: AppBar(
               backgroundColor: Colors.white,
               elevation: 1,
               scrolledUnderElevation: 1,
@@ -185,129 +207,114 @@ class _PageManagerScreenState extends ConsumerState<PageManagerScreen> {
       body: SafeArea(
         child: Stack(
           children: <Widget>[
-            if (_isSearchActive)
-              PageManagerSearchView(
-                initialQuery: widget.initialQuery,
-                onClose: () => setState(() => _isSearchActive = false),
-                onJumpToPage: (int pageIndex) {
-                  context.push(
-                    '${AppRoutes.savedViewer}?id=${widget.initialDocId}&page=$pageIndex',
-                  );
-                },
-                onOpenPdf: () => showAppSnackbar(
-                  context: context,
-                  message: 'Opening PDF document...',
-                ),
-              )
-            else
-              Column(
-                children: <Widget>[
-                  // Sub-metadata bar
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    color: AppColors.surfaceSubdued,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Expanded(
-                          child: Row(
-                            children: <Widget>[
-                              const Icon(
-                                Symbols.folder_open_rounded,
-                                size: 16,
-                                color: AppColors.primary,
-                              ),
-                              const SizedBox(width: 6),
-                              Flexible(
-                                child: Text(
-                                  '${doc.pageCount} Pages • ${doc.sizeMb.toStringAsFixed(1)} MB • ${doc.scannedLabel}',
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    color: AppColors.textMuted,
+                  Column(
+                    children: <Widget>[
+                      // Sub-metadata bar
+                      Container(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        color: AppColors.surfaceSubdued,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Expanded(
+                              child: Row(
+                                children: <Widget>[
+                                  const Icon(
+                                    Symbols.folder_open_rounded,
+                                    size: 16,
+                                    color: AppColors.primary,
                                   ),
-                                  overflow: TextOverflow.ellipsis,
+                                  const SizedBox(width: 6),
+                                  Flexible(
+                                    child: Text(
+                                      '${doc.pageCount} Pages • ${doc.sizeMb.toStringAsFixed(1)} MB • ${doc.scannedLabel}',
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                        color: AppColors.textMuted,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 3),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(color: AppColors.hairline),
+                              ),
+                              child: Text(
+                                'Pg 1-${doc.pageCount}',
+                                style: const TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.textPrimary,
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 3),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: AppColors.hairline),
-                          ),
-                          child: Text(
-                            'Pg 1-${doc.pageCount}',
-                            style: const TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.textPrimary,
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+
+                      // 2-Column Grid
+                      Expanded(
+                        child: GridView.builder(
+                          padding: const EdgeInsets.fromLTRB(16, 12, 16, 96),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 12,
+                            mainAxisSpacing: 12,
+                            childAspectRatio: 0.68,
+                          ),
+                          itemCount: doc.pages.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return PageManagerGridCard(
+                              page: doc.pages[index],
+                              pageNumber: index + 1,
+                              onTap: () {
+                                context.push(
+                                  '${AppRoutes.savedViewer}?id=${widget.initialDocId}&page=$index',
+                                );
+                              },
+                              onMoreTap: () {
+                                ref
+                                    .read(savedDocumentsProvider.notifier)
+                                    .rotatePage(widget.initialDocId, index);
+                                showAppSnackbar(
+                                  context: context,
+                                  message: 'Rotated Page ${index + 1}',
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
 
-                  // 2-Column Grid
-                  Expanded(
-                    child: GridView.builder(
-                      padding: const EdgeInsets.fromLTRB(16, 12, 16, 96),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 12,
-                        mainAxisSpacing: 12,
-                        childAspectRatio: 0.68,
+                  // Persistent Floating Dual Pill Capsule
+                  Positioned(
+                    bottom: 24,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: LabelledDualPillFab(
+                        onScanPageTap: () => context.push(AppRoutes.camera),
+                        onImportTap: () => showAppSnackbar(
+                          context: context,
+                          message: 'Select image or document to import',
+                        ),
                       ),
-                      itemCount: doc.pages.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return PageManagerGridCard(
-                          page: doc.pages[index],
-                          pageNumber: index + 1,
-                          onTap: () {
-                            context.push(
-                              '${AppRoutes.savedViewer}?id=${widget.initialDocId}&page=$index',
-                            );
-                          },
-                          onMoreTap: () {
-                            ref
-                                .read(savedDocumentsProvider.notifier)
-                                .rotatePage(widget.initialDocId, index);
-                            showAppSnackbar(
-                              context: context,
-                              message: 'Rotated Page ${index + 1}',
-                            );
-                          },
-                        );
-                      },
                     ),
                   ),
                 ],
               ),
-
-            // Persistent Floating Dual Pill Capsule
-            Positioned(
-              bottom: 24,
-              left: 0,
-              right: 0,
-              child: Center(
-                child: LabelledDualPillFab(
-                  onScanPageTap: () => context.push(AppRoutes.camera),
-                  onImportTap: () => showAppSnackbar(
-                    context: context,
-                    message: 'Select image or document to import',
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
