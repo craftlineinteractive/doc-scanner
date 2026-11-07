@@ -88,50 +88,53 @@ class PdfToolkitDrawer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        const Text(
-                          'PDF Toolkit',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.textPrimary,
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 3,
-                          ),
-                          decoration: BoxDecoration(
-                            color: AppColors.primaryTint,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: const Text(
-                            '14 TOOLS',
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          const Text(
+                            'PDF Toolkit',
                             style: TextStyle(
-                              fontSize: 10,
+                              fontSize: 18,
                               fontWeight: FontWeight.w700,
-                              color: AppColors.primary,
+                              color: AppColors.textPrimary,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 3),
-                    const Text(
-                      'Manage, convert, and secure your PDF documents',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: AppColors.textMuted,
+                          const SizedBox(width: 8),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 3,
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppColors.primaryTint,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: const Text(
+                              '14 TOOLS',
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w700,
+                                color: AppColors.primary,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 3),
+                      const Text(
+                        'Manage, convert, and secure your PDF documents',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: AppColors.textMuted,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+                const SizedBox(width: 8),
                 IconButton(
                   icon: const Icon(Symbols.close_rounded, size: 20),
                   color: AppColors.textMuted,
@@ -441,3 +444,4 @@ class PdfToolkitDrawer extends StatelessWidget {
     );
   }
 }
+

@@ -199,3 +199,4 @@ class _OcrResultScreenState extends ConsumerState<OcrResultScreen> {
     );
   }
 }
+

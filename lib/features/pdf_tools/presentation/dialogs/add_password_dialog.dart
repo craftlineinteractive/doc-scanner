@@ -88,3 +88,4 @@ class _AddPasswordDialogState extends State<AddPasswordDialog> {
     );
   }
 }
+

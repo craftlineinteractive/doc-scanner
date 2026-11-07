@@ -36,10 +36,6 @@ class _OcrContentCardState extends State<OcrContentCard> {
     if (widget.text != oldWidget.text && widget.text != _controller.text) {
       _controller.text = widget.text;
     }
-    // Save when leaving edit mode
-    if (oldWidget.isEditing && !widget.isEditing) {
-      widget.onSaveText(_controller.text);
-    }
   }
 
   @override
@@ -73,15 +69,19 @@ class _OcrContentCardState extends State<OcrContentCard> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              const Text(
-                'RECOGNIZED TEXT CONTENT',
-                style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.textMuted,
-                  letterSpacing: 0.8,
+              const Expanded(
+                child: Text(
+                  'RECOGNIZED TEXT CONTENT',
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.textMuted,
+                    letterSpacing: 0.8,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
+              const SizedBox(width: 8),
               InkWell(
                 onTap: () {
                   if (widget.isEditing) {
@@ -179,3 +179,4 @@ class _OcrContentCardState extends State<OcrContentCard> {
     );
   }
 }
+

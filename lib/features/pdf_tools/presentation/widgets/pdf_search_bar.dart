@@ -163,3 +163,4 @@ class _PdfSearchBarState extends State<PdfSearchBar> {
     );
   }
 }
+

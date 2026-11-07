@@ -120,12 +120,15 @@ class OcrSummaryCard extends StatelessWidget {
                       children: <Widget>[
                         Row(
                           children: <Widget>[
-                            Text(
-                              result.title,
-                              style: const TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.textPrimary,
+                            Flexible(
+                              child: Text(
+                                result.title,
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.textPrimary,
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                             const SizedBox(width: 6),
@@ -156,6 +159,8 @@ class OcrSummaryCard extends StatelessWidget {
                             fontSize: 11,
                             color: AppColors.textMuted,
                           ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ],
                     ),

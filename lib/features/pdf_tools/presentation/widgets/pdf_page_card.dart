@@ -41,46 +41,51 @@ class PdfPageCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Container(
-                    width: 28,
-                    height: 28,
-                    decoration: BoxDecoration(
-                      color: AppColors.primary,
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: const Icon(
-                      Symbols.corporate_fare_rounded,
-                      color: Colors.white,
-                      size: 16,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        content.company.toUpperCase(),
-                        style: const TextStyle(
-                          fontSize: 9,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.textMuted,
-                          letterSpacing: 0.8,
-                        ),
+              Expanded(
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: 28,
+                      height: 28,
+                      decoration: BoxDecoration(
+                        color: AppColors.primary,
+                        borderRadius: BorderRadius.circular(6),
                       ),
-                      _buildHighlightedText(
-                        text: content.title,
-                        baseStyle: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.textPrimary,
-                        ),
+                      child: const Icon(
+                        Symbols.corporate_fare_rounded,
+                        color: Colors.white,
+                        size: 16,
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            content.company.toUpperCase(),
+                            style: const TextStyle(
+                              fontSize: 9,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.textMuted,
+                              letterSpacing: 0.8,
+                            ),
+                          ),
+                          _buildHighlightedText(
+                            text: content.title,
+                            baseStyle: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.textPrimary,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
+              const SizedBox(width: 8),
               Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 2.5),
@@ -157,13 +162,17 @@ class PdfPageCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      entry.key,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: AppColors.textMuted,
+                    Expanded(
+                      child: Text(
+                        entry.key,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: AppColors.textMuted,
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
+                    const SizedBox(width: 8),
                     Text(
                       entry.value,
                       style: const TextStyle(
