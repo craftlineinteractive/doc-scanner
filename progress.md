@@ -11,8 +11,8 @@ Every task must tick:
 - [x] Committed with a Conventional Commit message (hash recorded)
 
 ## Session Status
-- **Current Milestone**: M4 (Scan Review & Adjust)
-- **Status**: Completed (ready for M5: Document Viewers & Multi-Page Manager)
+- **Current Milestone**: M5 (Document Viewers & Multi-Page Manager)
+- **Status**: Completed (ready for M6: PDF Tools & Viewer)
 
 ## Milestone Checklist
 - [x] **M0: Foundation & UI Gallery** (`4adb380`)
@@ -60,7 +60,16 @@ Every task must tick:
   - [x] Step 5: Arrange pages & dialogs: `ArrangePagesScreen`, `DeletePageDialog`, `DiscardScanDialog` (`69229f4`)
   - [x] Step 6: Tests: 7 widget tests in `test/scan_review_test.dart`, 26 total passing tests (`74535c1`)
   - [x] Step 7: Android emulator verification on `emulator-5554` (API 36), font scale 1.3 tested with 0 overflows, 0 unhandled exceptions
-- [ ] **M5: Document Viewers & Multi-Page Manager**
+- [x] **M5: Document Viewers & Multi-Page Manager** (tagged `m5-document-viewer`)
+  - [x] Step 1: Models & state: `ViewerToolTier`, `ViewerPage`, `SavedDocument`, `mockSavedDocuments`, `savedDocumentsProvider`, `activeDocumentIdProvider`, `viewerToolTierProvider` (`ae3dbb8`)
+  - [x] Step 2: Post-scan viewer screen: `PostScanViewerScreen`, 3 tool tiers (main bar, 2nd-tier edit sub-toolbar with "Editing Page X/Y" banner, 3rd-tier elevated crop bar with `CropOverlay`), OCR preview panel (`8905cd4`)
+  - [x] Step 3: Sheets & dialogs: `PostScanMoreOptionsSheet`, `DocumentDetailsSheet`, `EditVersionDialog`, `MorePdfOptionsSheet` (`f8399f2`)
+  - [x] Step 4: Saved document viewer: `SavedDocumentViewerScreen`, light canvas, 5-page document, PDF sub-toolbar + More PDF options sheet (`ba1b047`)
+  - [x] Step 5: Multi-page manager: `PageManagerScreen`, 2-column page grid, `PageManagerGridCard`, `LabelledDualPillFab`, `PageManagerActionDrawer` (3x2 grid), `PageManagerSearchView` (`7178984`)
+  - [x] Step 6: Navigation updates: Home document card tap navigates to `PageManagerScreen`, Review check button opens `PostScanViewerScreen` (`fcc769c`)
+  - [x] Step 7: Tests: 9 comprehensive widget tests in `test/document_viewer_test.dart`, 35 total project tests green (`8cc14d8`)
+  - [x] Step 8: Refinement: Fixed search view flex constraints, custom `_ThumbnailPreview`, search dismiss navigation (`0b4f9c8`)
+  - [x] Step 9: Android emulator verification on `emulator-5554` (API 36), font scale 1.3 tested with 0 overflows, 0 unhandled exceptions
 - [ ] **M6: PDF Tools & Viewer**
 - [ ] **M7: OCR Result**
 - [ ] **M8: Trash**
@@ -88,3 +97,6 @@ Every task must tick:
 | M4 | `flutter analyze` | 0 issues found | Clean static analysis across scan review domain, application, presentation, sheets, dialogs, and router |
 | M4 | `flutter test` | All 26 tests passed | 7 new tests in `test/scan_review_test.dart`, 26/26 project tests green |
 | M4 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); tested all 11 gallery states (Adjust default, Dragging corner + 2.5x loupe, Filter bottom sheet, Doc Name dialog, Crop Shape sheet, Review default, Crop open, Color open, Arrange pages grid, Delete page dialog, Discard scan dialog), font scale 1.3 tested with 0 overflows and 0 unhandled exceptions |
+| M5 | `flutter analyze` | 0 issues found | Clean static analysis across viewer domain, application, presentation, sheets, and widgets |
+| M5 | `flutter test` | All 35 tests passed | 9 new tests in `test/document_viewer_test.dart`, 35/35 project tests green |
+| M5 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); tested Post-Scan Viewer (main, edit, crop tiers, OCR preview panel, More Options sheet), Saved Document Viewer (Edit version dialog, edit sub-toolbar, PDF sub-toolbar, More PDF options sheet), Multi-Page Manager (2-column page grid, Action drawer, search view with OCR highlights and instant PDF banner), font scale 1.3 tested with 0 overflows and 0 unhandled exceptions |

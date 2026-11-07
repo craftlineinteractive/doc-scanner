@@ -109,15 +109,22 @@ Goal: Build the complete UI of the Flutter "Doc Scanner" app with realistic dumm
 - `lib/features/scan_review/presentation/dialogs/discard_scan_dialog.dart`
 - `test/scan_review_test.dart`
 
-### M5: Document Viewers & Multi-Page Manager (`lib/features/document_viewer/`)
-- `lib/features/document_viewer/domain/document_viewer_repository.dart`
-- `lib/features/document_viewer/data/mock_document_viewer_repository.dart`
+### [x] M5: Document Viewers & Multi-Page Manager (`lib/features/document_viewer/`)
+- `lib/features/document_viewer/domain/viewer_tool_tier.dart`
+- `lib/features/document_viewer/domain/viewer_page.dart`
+- `lib/features/document_viewer/domain/saved_document.dart`
+- `lib/features/document_viewer/data/mock_saved_documents.dart`
+- `lib/features/document_viewer/application/viewer_providers.dart`
 - `lib/features/document_viewer/presentation/screens/post_scan_viewer_screen.dart`
 - `lib/features/document_viewer/presentation/screens/saved_document_viewer_screen.dart`
-- `lib/features/document_viewer/presentation/screens/multi_page_manager_screen.dart`
-- `lib/features/document_viewer/presentation/sheets/more_options_sheet.dart`
-- `lib/features/document_viewer/presentation/sheets/action_drawer_sheet.dart`
+- `lib/features/document_viewer/presentation/screens/page_manager_screen.dart`
+- `lib/features/document_viewer/presentation/sheets/post_scan_more_options_sheet.dart`
+- `lib/features/document_viewer/presentation/sheets/document_details_sheet.dart`
+- `lib/features/document_viewer/presentation/sheets/more_pdf_options_sheet.dart`
+- `lib/features/document_viewer/presentation/sheets/page_manager_action_drawer.dart`
 - `lib/features/document_viewer/presentation/dialogs/edit_version_dialog.dart`
+- `lib/features/document_viewer/presentation/widgets/page_manager_search_view.dart`
+- `test/document_viewer_test.dart`
 
 ### M6: PDF Tools & Viewer (`lib/features/pdf_tools/`)
 - `lib/features/pdf_tools/domain/pdf_tools_repository.dart`
