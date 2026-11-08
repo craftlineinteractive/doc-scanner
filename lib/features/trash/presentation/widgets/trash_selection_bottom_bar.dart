@@ -20,7 +20,6 @@ class TrashSelectionBottomBar extends StatelessWidget {
     final bool hasSelection = selectedCount > 0;
 
     return Container(
-      height: 64,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -34,8 +33,10 @@ class TrashSelectionBottomBar extends StatelessWidget {
       ),
       child: SafeArea(
         top: false,
-        child: Row(
-          children: <Widget>[
+        child: SizedBox(
+          height: 64,
+          child: Row(
+            children: <Widget>[
             Expanded(
               child: InkWell(
                 onTap: hasSelection ? onRestore : null,
@@ -104,7 +105,8 @@ class TrashSelectionBottomBar extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }
 
