@@ -149,13 +149,21 @@ Goal: Build the complete UI of the Flutter "Doc Scanner" app with realistic dumm
 - `lib/features/ocr/presentation/widgets/ocr_content_card.dart`
 - `test/pdf_tools_and_ocr_test.dart`
 
-### M8: Trash (`lib/features/trash/`)
+### [x] M7: Trash (tagged `m7-trash`)
+- `lib/features/trash/domain/trash_item.dart`
 - `lib/features/trash/domain/trash_repository.dart`
+- `lib/features/trash/data/mock_trash.dart`
 - `lib/features/trash/data/mock_trash_repository.dart`
+- `lib/features/trash/application/trash_providers.dart`
 - `lib/features/trash/presentation/screens/trash_screen.dart`
-- `lib/features/trash/presentation/dialogs/trash_confirm_dialog.dart`
+- `lib/features/trash/presentation/widgets/trash_card.dart`
+- `lib/features/trash/presentation/widgets/trash_empty_state.dart`
+- `lib/features/trash/presentation/widgets/trash_info_banner.dart`
+- `lib/features/trash/presentation/widgets/trash_selection_bottom_bar.dart`
+- `lib/features/trash/presentation/sheets/trash_item_options_sheet.dart`
+- `test/trash_test.dart`
 
-### M9: Settings (`lib/features/settings/`)
+### M8: Settings (`lib/features/settings/`)
 - `lib/features/settings/domain/settings_repository.dart`
 - `lib/features/settings/data/mock_settings_repository.dart`
 - `lib/features/settings/presentation/screens/settings_screen.dart`

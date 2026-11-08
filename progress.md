@@ -11,8 +11,8 @@ Every task must tick:
 - [x] Committed with a Conventional Commit message (hash recorded)
 
 ## Session Status
-- **Current Milestone**: M6 (PDF Tools & OCR Result)
-- **Status**: Completed (ready for M8: Trash)
+- **Current Milestone**: M8 (Settings)
+- **Status**: M7 completed (ready for M8: Settings)
 
 ## Milestone Checklist
 - [x] **M0: Foundation & UI Gallery** (`4adb380`)
@@ -78,10 +78,15 @@ Every task must tick:
   - [x] Step 5: OCR Result screen: Extracted Text header, copy action, summary card with 99.4% badge and collapsible original document preview, recognized text editor card, copy & share bottom actions (`3fa8268`)
   - [x] Step 6: Navigation updates: Connected PDF Tools entry in drawer, OCR navigation from toolkit drawer and viewer (`b40bbb2`)
   - [x] Step 7: Tests & responsiveness: 8 widget tests in `test/pdf_tools_and_ocr_test.dart` (43 total passing tests), resolved all RenderFlex overflow constraints across cards and headers (`b9b07c7`)
-- [ ] **M8: Trash**
-- [ ] **M9: Settings**
-- [ ] **M10: Premium Paywall**
-- [ ] **M11: Late-Designed Screens**
+- [x] **M7: Trash** (tagged `m7-trash`)
+  - [x] Step 1: Models & mock data: `TrashItem`, `mockTrashItems` (1 folder, 6 docs), `TrashRepository`, `trashProvider` (`fe47a31`)
+  - [x] Step 2: Trash Screen & List: `TrashScreen`, `TrashCard`, `TrashInfoBanner`, `TrashEmptyState`, routing & UI Gallery (`3fb6ed1`)
+  - [x] Step 3: Selection mode & sheets: `TrashSelectionBottomBar`, `TrashItemOptionsSheet`, `ConfirmDialog` integration (`6a7494d`)
+  - [x] Step 4: Tests: 5 widget tests in `test/trash_test.dart` (48 total passing tests) (`126df4b`)
+  - [x] Step 5: Android emulator verification: verified List, Empty, Selection, Options sheet, Delete dialog, font scale 1.3, safe area gesture bar fix (`3366b9d`)
+- [ ] **M8: Settings**
+- [ ] **M9: Premium Paywall**
+- [ ] **M10: Late-Designed Screens**
 
 ## Verification Log
 | Date | Check | Result | Notes |
@@ -109,3 +114,6 @@ Every task must tick:
 | M6 | `flutter analyze` | 0 issues found | Clean static analysis across PDF tools and OCR domains, application, presentation, dialogs, sheets, and widgets |
 | M6 | `flutter test` | All 43 tests passed | 8 new tests in `test/pdf_tools_and_ocr_test.dart`, 43/43 project tests green |
 | M6 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); PDF Viewer resting/dock/tools drawer/search/help modal, OCR Result default/edit/expand preview, font scale 1.3 verified clean with 0 overflows |
+| M7 | `flutter analyze` | 0 issues found | Clean static analysis across trash domain, application, presentation, dialogs, sheets, and widgets |
+| M7 | `flutter test` | All 48 tests passed | 5 new tests in `test/trash_test.dart`, 48/48 project tests green |
+| M7 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); Trash list with 1 folder and 6 docs, empty state, selection mode, item options sheet, delete dialog, font scale 1.3 tested clean with 0 overflows |
