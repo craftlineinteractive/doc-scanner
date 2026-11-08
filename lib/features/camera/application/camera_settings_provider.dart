@@ -10,6 +10,10 @@ class CameraSettingsNotifier extends Notifier<CameraSettings> {
     state = state.copyWith(captureSound: !state.captureSound);
   }
 
+  void setCaptureSound(bool value) {
+    state = state.copyWith(captureSound: value);
+  }
+
   void toggleFocusSound() {
     state = state.copyWith(focusSound: !state.focusSound);
   }

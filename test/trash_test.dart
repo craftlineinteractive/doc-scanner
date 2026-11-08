@@ -1,5 +1,3 @@
-import 'package:docscanner/app/app.dart';
-import 'package:docscanner/app/routes.dart';
 import 'package:docscanner/core/theme/app_theme.dart';
 import 'package:docscanner/core/widgets/chips/days_left_chip.dart';
 import 'package:docscanner/core/widgets/dialogs/confirm_dialog.dart';
@@ -12,7 +10,6 @@ import 'package:docscanner/features/trash/presentation/widgets/trash_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:material_symbols_icons/symbols.dart';
 
 Widget _buildTrashApp({
   String initialState = 'list',
