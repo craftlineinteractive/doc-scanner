@@ -16,6 +16,7 @@ import '../features/home/presentation/screens/home_screen.dart';
 import '../features/scan_review/presentation/screens/adjust_screen.dart';
 import '../features/scan_review/presentation/screens/arrange_pages_screen.dart';
 import '../features/scan_review/presentation/screens/review_scan_screen.dart';
+import '../features/trash/presentation/screens/trash_screen.dart';
 import 'routes.dart';
 
 /// Provider for application GoRouter instance.
@@ -243,10 +244,10 @@ GoRouter createRouter({String? initialLocation}) {
       // 08 Trash
       GoRoute(
         path: AppRoutes.trash,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Trash Screen',
-          subtitle: '01_trash_suite with 30-day retention',
-        ),
+        builder: (context, state) {
+          final String st = state.uri.queryParameters['state'] ?? 'list';
+          return TrashScreen(initialState: st);
+        },
       ),
 
       // 09 Settings
