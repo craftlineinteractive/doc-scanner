@@ -13,6 +13,8 @@ class RadioDialog<T> extends StatefulWidget {
     required this.initialValue,
     this.optionLabels,
     this.optionSubtitles,
+    this.confirmLabel = 'OK',
+    this.cancelLabel = AppStrings.cancel,
   });
 
   final String title;
@@ -20,6 +22,8 @@ class RadioDialog<T> extends StatefulWidget {
   final T initialValue;
   final Map<T, String>? optionLabels;
   final Map<T, String>? optionSubtitles;
+  final String confirmLabel;
+  final String cancelLabel;
 
   static Future<T?> show<T>({
     required BuildContext context,
@@ -28,6 +32,8 @@ class RadioDialog<T> extends StatefulWidget {
     required T initialValue,
     Map<T, String>? optionLabels,
     Map<T, String>? optionSubtitles,
+    String confirmLabel = 'OK',
+    String cancelLabel = AppStrings.cancel,
   }) {
     return showDialog<T>(
       context: context,
@@ -37,6 +43,8 @@ class RadioDialog<T> extends StatefulWidget {
         initialValue: initialValue,
         optionLabels: optionLabels,
         optionSubtitles: optionSubtitles,
+        confirmLabel: confirmLabel,
+        cancelLabel: cancelLabel,
       ),
     );
   }
@@ -80,11 +88,11 @@ class _RadioDialogState<T> extends State<RadioDialog<T>> {
       ),
       actions: <Widget>[
         TextActionButton(
-          label: AppStrings.cancel,
+          label: widget.cancelLabel,
           onPressed: () => Navigator.of(context).pop(),
         ),
         TextActionButton(
-          label: AppStrings.done,
+          label: widget.confirmLabel,
           onPressed: () => Navigator.of(context).pop(_selected),
         ),
       ],
