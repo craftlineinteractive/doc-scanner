@@ -15,7 +15,7 @@ class DaysLeftChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DocColors docColors = context.docColors;
-    final bool isCritical = daysRemaining < 3;
+    final bool isCritical = daysRemaining <= 3;
 
     final Color bg =
         isCritical ? docColors.destructiveTint : docColors.goldTint;
