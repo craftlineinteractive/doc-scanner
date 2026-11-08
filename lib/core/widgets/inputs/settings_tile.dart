@@ -16,6 +16,8 @@ class SettingsTile extends StatelessWidget {
     this.trailing,
     this.valueText,
     this.isEnabled = true,
+    this.onDisabledTap,
+    this.isDestructive = false,
   });
 
   final String title;
@@ -25,20 +27,34 @@ class SettingsTile extends StatelessWidget {
   final Widget? trailing;
   final String? valueText;
   final bool isEnabled;
+  final VoidCallback? onDisabledTap;
+  final bool isDestructive;
 
   @override
   Widget build(BuildContext context) {
     final DocColors docColors = context.docColors;
-    final Color textColor = isEnabled
-        ? Theme.of(context).colorScheme.onSurface
-        : AppColors.textMuted.withValues(alpha: 0.6);
+    final Color textColor = isDestructive
+        ? AppColors.destructive
+        : (isEnabled
+            ? Theme.of(context).colorScheme.onSurface
+            : AppColors.textMuted.withValues(alpha: 0.6));
+
+    final Color iconBg = isDestructive
+        ? AppColors.destructiveTint
+        : (isEnabled
+            ? docColors.primaryTint
+            : docColors.surfaceSubdued);
+
+    final Color iconColor = isDestructive
+        ? AppColors.destructive
+        : (isEnabled ? AppColors.primary : AppColors.textMuted);
 
     return Opacity(
       opacity: isEnabled ? 1.0 : 0.6,
       child: ConstrainedBox(
         constraints: const BoxConstraints(minHeight: 64),
         child: InkWell(
-          onTap: isEnabled ? onTap : null,
+          onTap: isEnabled ? onTap : onDisabledTap,
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: AppSpacing.lg,
@@ -51,15 +67,13 @@ class SettingsTile extends StatelessWidget {
                     width: 36,
                     height: 36,
                     decoration: BoxDecoration(
-                      color: isEnabled
-                          ? docColors.primaryTint
-                          : docColors.surfaceSubdued,
+                      color: iconBg,
                       shape: BoxShape.circle,
                     ),
                     alignment: Alignment.center,
                     child: IconTheme(
                       data: IconThemeData(
-                        color: isEnabled ? AppColors.primary : AppColors.textMuted,
+                        color: iconColor,
                         size: 20,
                       ),
                       child: icon!,

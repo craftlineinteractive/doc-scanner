@@ -16,6 +16,7 @@ import '../features/home/presentation/screens/home_screen.dart';
 import '../features/scan_review/presentation/screens/adjust_screen.dart';
 import '../features/scan_review/presentation/screens/arrange_pages_screen.dart';
 import '../features/scan_review/presentation/screens/review_scan_screen.dart';
+import '../features/settings/presentation/screens/settings_screen.dart';
 import '../features/trash/presentation/screens/trash_screen.dart';
 import 'routes.dart';
 
@@ -253,10 +254,16 @@ GoRouter createRouter({String? initialLocation}) {
       // 09 Settings
       GoRoute(
         path: AppRoutes.settings,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Settings Screen',
-          subtitle: '01_settings_suite (6 interaction states)',
-        ),
+        builder: (context, state) {
+          final scroll = state.uri.queryParameters['scroll'];
+          final dialog = state.uri.queryParameters['dialog'];
+          final hint = state.uri.queryParameters['hint'] == 'true';
+          return SettingsScreen(
+            initialScroll: scroll,
+            initialDialog: dialog,
+            showHintOnStart: hint,
+          );
+        },
       ),
 
       // 10 Premium
