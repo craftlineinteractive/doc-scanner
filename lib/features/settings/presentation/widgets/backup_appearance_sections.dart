@@ -120,13 +120,15 @@ class BackupAppearanceSections extends ConsumerWidget {
                         !settings.favouriteDocuments,
                       )
                   : onShowHintToast,
-              trailing: Switch.adaptive(
-                value: settings.favouriteDocuments,
-                activeThumbColor: Colors.white,
-                activeTrackColor: AppColors.primary,
-                onChanged: settings.tags
-                    ? notifier.setFavouriteDocuments
-                    : (_) => onShowHintToast(),
+              trailing: IgnorePointer(
+                ignoring: !settings.tags,
+                child: Switch.adaptive(
+                  value: settings.favouriteDocuments,
+                  activeThumbColor: Colors.white,
+                  activeTrackColor: AppColors.primary,
+                  onChanged:
+                      settings.tags ? notifier.setFavouriteDocuments : null,
+                ),
               ),
             ),
             SettingsTile(

@@ -45,12 +45,20 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   }
 
   @override
+  void didUpdateWidget(SettingsScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.showHintOnStart && !oldWidget.showHintOnStart) {
+      _showHintToast();
+    }
+  }
+
+  @override
   void dispose() {
     _scrollController.dispose();
     super.dispose();
   }
 
-  void _handleInitialState() {
+  Future<void> _handleInitialState() async {
     if (widget.initialScroll == 'middle') {
       _scrollController.animateTo(
         420,
@@ -59,14 +67,15 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       );
     } else if (widget.initialScroll == 'bottom') {
       _scrollController.animateTo(
-        950,
+        1800,
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeOut,
       );
     }
 
     if (widget.showHintOnStart) {
-      _showHintToast();
+      await Future<void>.delayed(const Duration(milliseconds: 250));
+      if (mounted) _showHintToast();
     }
 
     switch (widget.initialDialog) {
