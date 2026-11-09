@@ -89,6 +89,7 @@ class BackupAppearanceSections extends ConsumerWidget {
               title: 'Tools Shortcut',
               subtitle: 'Show tools on home screen',
               icon: const Icon(Symbols.widgets_rounded),
+              onTap: () => notifier.setToolsShortcut(!settings.toolsShortcut),
               trailing: Switch.adaptive(
                 value: settings.toolsShortcut,
                 activeThumbColor: Colors.white,
@@ -100,6 +101,7 @@ class BackupAppearanceSections extends ConsumerWidget {
               title: 'Tags',
               subtitle: 'Show tags on home screen',
               icon: const Icon(Symbols.label_rounded),
+              onTap: () => notifier.setTags(!settings.tags),
               trailing: Switch.adaptive(
                 value: settings.tags,
                 activeThumbColor: Colors.white,
@@ -131,6 +133,7 @@ class BackupAppearanceSections extends ConsumerWidget {
               title: 'Recent Documents',
               subtitle: 'Show recent documents on home screen',
               icon: const Icon(Symbols.history_rounded),
+              onTap: () => notifier.setRecentDocuments(!settings.recentDocuments),
               trailing: Switch.adaptive(
                 value: settings.recentDocuments,
                 activeThumbColor: Colors.white,

@@ -107,6 +107,7 @@ class DocumentCameraSections extends ConsumerWidget {
               title: 'Auto Save to Gallery',
               subtitle: 'Save new scans into your gallery',
               icon: const Icon(Symbols.image_rounded),
+              onTap: () => notifier.setAutoSaveToGallery(!settings.autoSaveToGallery),
               trailing: Switch.adaptive(
                 value: settings.autoSaveToGallery,
                 activeThumbColor: Colors.white,
@@ -138,6 +139,7 @@ class DocumentCameraSections extends ConsumerWidget {
               title: 'System Camera',
               subtitle: 'Capture a single document only',
               icon: const Icon(Symbols.photo_camera_rounded),
+              onTap: () => notifier.setSystemCamera(!settings.systemCamera),
               trailing: Switch.adaptive(
                 value: settings.systemCamera,
                 activeThumbColor: Colors.white,
@@ -149,6 +151,7 @@ class DocumentCameraSections extends ConsumerWidget {
               title: 'Set Camera as Home',
               subtitle: 'Open the camera on launch',
               icon: const Icon(Symbols.home_rounded),
+              onTap: () => notifier.setCameraAsHome(!settings.cameraAsHome),
               trailing: Switch.adaptive(
                 value: settings.cameraAsHome,
                 activeThumbColor: Colors.white,
@@ -160,6 +163,7 @@ class DocumentCameraSections extends ConsumerWidget {
               title: 'Capture Sound',
               subtitle: 'Play a sound when capturing',
               icon: const Icon(Symbols.volume_up_rounded),
+              onTap: () => notifier.setCaptureSound(!settings.captureSound),
               trailing: Switch.adaptive(
                 value: settings.captureSound,
                 activeThumbColor: Colors.white,
@@ -171,6 +175,7 @@ class DocumentCameraSections extends ConsumerWidget {
               title: 'Volume Buttons to Capture',
               subtitle: 'Use volume keys as the shutter',
               icon: const Icon(Symbols.camera_rounded),
+              onTap: () => notifier.setVolumeButtonsCapture(!settings.volumeButtonsCapture),
               trailing: Switch.adaptive(
                 value: settings.volumeButtonsCapture,
                 activeThumbColor: Colors.white,

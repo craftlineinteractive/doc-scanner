@@ -107,14 +107,22 @@ class SettingsTile extends StatelessWidget {
                     ],
                   ),
                 ),
-                if (valueText != null)
-                  Text(
-                    valueText!,
-                    style: AppTypography.labelMd.copyWith(
-                      color: AppColors.primary,
-                      fontWeight: FontWeight.w600,
+                if (valueText != null) ...<Widget>[
+                  const SizedBox(width: AppSpacing.sm),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 130),
+                    child: Text(
+                      valueText!,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.end,
+                      style: AppTypography.labelMd.copyWith(
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
+                ],
                 if (trailing != null) ...<Widget>[
                   const SizedBox(width: AppSpacing.sm),
                   trailing!,
