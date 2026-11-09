@@ -117,3 +117,6 @@ Every task must tick:
 | M7 | `flutter analyze` | 0 issues found | Clean static analysis across trash domain, application, presentation, dialogs, sheets, and widgets |
 | M7 | `flutter test` | All 48 tests passed | 5 new tests in `test/trash_test.dart`, 48/48 project tests green |
 | M7 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); Trash list with 1 folder and 6 docs, empty state, selection mode, item options sheet, delete dialog, font scale 1.3 tested clean with 0 overflows |
+| M8 | `flutter analyze` | 0 issues found | Clean static analysis across settings domain, application, presentation, dialogs, and sections |
+| M8 | `flutter test` | All 54 tests passed | 6 new tests in `test/settings_test.dart`, 54/54 project tests green |
+| M8 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); Verified Settings Top, Middle, Bottom, Theme Dialog, Scan Quality Dialog, Count Picker, Date & Time Format Picker, Reset Confirmation, Hint Toast, font scale 1.3 tested clean with 0 overflows |

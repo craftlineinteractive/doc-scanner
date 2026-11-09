@@ -163,15 +163,22 @@ Goal: Build the complete UI of the Flutter "Doc Scanner" app with realistic dumm
 - `lib/features/trash/presentation/sheets/trash_item_options_sheet.dart`
 - `test/trash_test.dart`
 
-### M8: Settings (`lib/features/settings/`)
+### [x] M8: Settings (tagged `m8-settings`)
+- `lib/features/settings/domain/app_settings.dart`
 - `lib/features/settings/domain/settings_repository.dart`
 - `lib/features/settings/data/mock_settings_repository.dart`
+- `lib/features/settings/application/settings_provider.dart`
 - `lib/features/settings/presentation/screens/settings_screen.dart`
+- `lib/features/settings/presentation/widgets/backup_appearance_sections.dart`
+- `lib/features/settings/presentation/widgets/document_camera_sections.dart`
+- `lib/features/settings/presentation/widgets/app_about_sections.dart`
 - `lib/features/settings/presentation/dialogs/theme_select_dialog.dart`
 - `lib/features/settings/presentation/dialogs/scan_quality_dialog.dart`
 - `lib/features/settings/presentation/dialogs/recent_count_dialog.dart`
 - `lib/features/settings/presentation/dialogs/date_format_dialog.dart`
-- `lib/features/settings/presentation/dialogs/reset_confirm_dialog.dart`
+- `lib/features/settings/presentation/dialogs/name_format_dialog.dart`
+- `lib/features/settings/presentation/dialogs/color_filter_dialog.dart`
+- `test/settings_test.dart`
 
 ### M10: Premium Paywall (`lib/features/premium/`)
 - `lib/features/premium/domain/premium_repository.dart`
