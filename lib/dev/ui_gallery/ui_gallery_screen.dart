@@ -519,9 +519,22 @@ class UiGalleryScreen extends StatelessWidget {
       title: '10_premium',
       items: <_GalleryItem>[
         _GalleryItem(
-          title: '01 Premium Paywall',
-          subtitle: 'Crown hero, 8-feature checklist, plan picker, 3-day trial',
+          title: '01 Premium Paywall (Yearly - Default)',
+          subtitle: 'Hero crown, 8-feature grid, yearly access (\$2.50/mo, \$29.99/yr), trial CTA',
           route: AppRoutes.premium,
+          badge: 'Default',
+        ),
+        _GalleryItem(
+          title: '02 Premium Paywall (Monthly Selected)',
+          subtitle: 'Monthly plan active (\$6.99/mo), Subscribe Monthly CTA',
+          route: '${AppRoutes.premium}?plan=monthly',
+          badge: 'Monthly',
+        ),
+        _GalleryItem(
+          title: '03 Premium Paywall (Weekly Selected)',
+          subtitle: 'Weekly plan active (\$2.99/wk), Subscribe Weekly CTA',
+          route: '${AppRoutes.premium}?plan=weekly',
+          badge: 'Weekly',
         ),
       ],
     ),

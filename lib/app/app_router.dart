@@ -16,6 +16,7 @@ import '../features/home/presentation/screens/home_screen.dart';
 import '../features/scan_review/presentation/screens/adjust_screen.dart';
 import '../features/scan_review/presentation/screens/arrange_pages_screen.dart';
 import '../features/scan_review/presentation/screens/review_scan_screen.dart';
+import '../features/premium/presentation/screens/premium_screen.dart';
 import '../features/settings/presentation/screens/settings_screen.dart';
 import '../features/trash/presentation/screens/trash_screen.dart';
 import 'routes.dart';
@@ -31,6 +32,12 @@ GoRouter createRouter({String? initialLocation}) {
     initialLocation: initialLocation ??
         (kDebugMode ? AppRoutes.gallery : AppRoutes.home),
     routes: <RouteBase>[
+      // Root redirect
+      GoRoute(
+        path: '/',
+        redirect: (_, __) => kDebugMode ? AppRoutes.gallery : AppRoutes.home,
+      ),
+
       // Dev routes
       GoRoute(
         path: AppRoutes.gallery,
@@ -269,10 +276,10 @@ GoRouter createRouter({String? initialLocation}) {
       // 10 Premium
       GoRoute(
         path: AppRoutes.premium,
-        builder: (context, state) => const PlaceholderScreen(
-          title: 'Premium Paywall Screen',
-          subtitle: '01_premium_paywall with plan picker and trial',
-        ),
+        builder: (context, state) {
+          final String? plan = state.uri.queryParameters['plan'];
+          return PremiumScreen(initialPlan: plan);
+        },
       ),
     ],
   );
