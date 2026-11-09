@@ -11,8 +11,8 @@ Every task must tick:
 - [x] Committed with a Conventional Commit message (hash recorded)
 
 ## Session Status
-- **Current Milestone**: M8 (Settings)
-- **Status**: M7 completed (ready for M8: Settings)
+- **Current Milestone**: M9 (Premium Paywall) Complete
+- **Status**: M7 (Trash), M8 (Settings), and M9 (Premium) fully completed and verified on emulator
 
 ## Milestone Checklist
 - [x] **M0: Foundation & UI Gallery** (`4adb380`)
@@ -84,8 +84,18 @@ Every task must tick:
   - [x] Step 3: Selection mode & sheets: `TrashSelectionBottomBar`, `TrashItemOptionsSheet`, `ConfirmDialog` integration (`6a7494d`)
   - [x] Step 4: Tests: 5 widget tests in `test/trash_test.dart` (48 total passing tests) (`126df4b`)
   - [x] Step 5: Android emulator verification: verified List, Empty, Selection, Options sheet, Delete dialog, font scale 1.3, safe area gesture bar fix (`3366b9d`)
-- [ ] **M8: Settings**
-- [ ] **M9: Premium Paywall**
+- [x] **M8: Settings** (tagged `m8-settings`)
+  - [x] Step 1: State & data: `AppSettings`, `SettingsRepository`, `settingsProvider` synced with theme and capture sound (`bb34495`)
+  - [x] Step 2: Screen & sections: `SettingsScreen`, `BackupAppearanceSections`, `DocumentCameraSections`, `AppAboutSections` (`6198ff2`)
+  - [x] Step 3: Dialogs & toast: Theme, Scan Quality, Count, Date/Name formats, Color filter dialogs, hint toast (`f788e1a`)
+  - [x] Step 4: Tests: 6 widget tests in `test/settings_test.dart` (54 total passing tests) (`26fe199`)
+  - [x] Step 5: Android emulator verification: verified Top, Middle, Bottom, Dialogs, Hint toast, font scale 1.3 (`42ec87d`)
+- [x] **M9: Premium Paywall** (tagged `m9-premium`)
+  - [x] Step 1: State & data: `PremiumPlan` enum, `mockPremiumPlans`, `mockPremiumFeatures`, `premiumPlanProvider` (`be9e206`)
+  - [x] Step 2: Paywall Screen & widgets: `PremiumScreen`, `PremiumHeroMedallion`, `PremiumFeaturesCard`, `PremiumPlanCard`, router & gallery entries (`0f93af8`)
+  - [x] Step 3: Navigation wiring: Home `ProPill` and Drawer `PremiumUpsellCard` connected to `/premium`
+  - [x] Step 4: Tests: 5 widget tests in `test/premium_test.dart` (59 total passing tests) (`643be9b`)
+  - [x] Step 5: Android emulator verification: verified resting state, plan selection, CTA & fine print changes, snackbar feedback, Home & Drawer entries, font scale 1.3 tested with 0 overflows
 - [ ] **M10: Late-Designed Screens**
 
 ## Verification Log
@@ -120,3 +130,6 @@ Every task must tick:
 | M8 | `flutter analyze` | 0 issues found | Clean static analysis across settings domain, application, presentation, dialogs, and sections |
 | M8 | `flutter test` | All 54 tests passed | 6 new tests in `test/settings_test.dart`, 54/54 project tests green |
 | M8 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); Verified Settings Top, Middle, Bottom, Theme Dialog, Scan Quality Dialog, Count Picker, Date & Time Format Picker, Reset Confirmation, Hint Toast, font scale 1.3 tested clean with 0 overflows |
+| M9 | `flutter analyze` | 0 issues found | Clean static analysis across premium domain, application, presentation, widgets, and tests |
+| M9 | `flutter test` | All 59 tests passed | 5 new tests in `test/premium_test.dart`, 59/59 project tests green |
+| M9 | Android Emulator verification | Passed (`emulator-5554`) | Android 16 (API 36); Hero medallion, 8-feature checklist, 3 plans (Yearly, Monthly, Weekly), dynamic CTA & fine print, toast feedback, Home ProPill & Drawer entry points, font scale 1.3 tested clean with 0 overflows |

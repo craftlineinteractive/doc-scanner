@@ -17,3 +17,4 @@ final NotifierProvider<PremiumPlanNotifier, PremiumPlan> premiumPlanProvider =
     NotifierProvider<PremiumPlanNotifier, PremiumPlan>(
   PremiumPlanNotifier.new,
 );
+

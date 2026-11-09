@@ -180,12 +180,16 @@ Goal: Build the complete UI of the Flutter "Doc Scanner" app with realistic dumm
 - `lib/features/settings/presentation/dialogs/color_filter_dialog.dart`
 - `test/settings_test.dart`
 
-### M10: Premium Paywall (`lib/features/premium/`)
-- `lib/features/premium/domain/premium_repository.dart`
-- `lib/features/premium/data/mock_premium_repository.dart`
-- `lib/features/premium/presentation/screens/premium_paywall_screen.dart`
-- `lib/features/premium/presentation/widgets/plan_card.dart`
+### [x] M9: Premium Paywall (tagged `m9-premium`)
+- `lib/features/premium/domain/premium_plan.dart`
+- `lib/features/premium/data/mock_plans.dart`
+- `lib/features/premium/application/premium_provider.dart`
+- `lib/features/premium/presentation/screens/premium_screen.dart`
+- `lib/features/premium/presentation/widgets/premium_hero_medallion.dart`
+- `lib/features/premium/presentation/widgets/premium_features_card.dart`
+- `lib/features/premium/presentation/widgets/premium_plan_card.dart`
+- `test/premium_test.dart`
 
-### M11: Late-Designed Screens (Pending Design Specs)
+### M10: Late-Designed Screens (Pending Design Specs)
 - Onboarding, Sign-in, Global search results, New folder sheet, Export sheet, Backup sync, OCR language manager.
 
