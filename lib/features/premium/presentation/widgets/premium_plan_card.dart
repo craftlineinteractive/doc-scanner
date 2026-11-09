@@ -130,26 +130,29 @@ class PremiumPlanCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    RichText(
-                      text: TextSpan(
-                        text: plan.price,
-                        style: const TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.textPrimary,
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: <Widget>[
+                        Text(
+                          plan.price,
+                          style: const TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.textPrimary,
+                          ),
                         ),
-                        children: <TextSpan>[
-                          if (plan.periodLabel.isNotEmpty)
-                            TextSpan(
-                              text: plan.periodLabel,
-                              style: const TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.textMuted,
-                              ),
+                        if (plan.periodLabel.isNotEmpty)
+                          Text(
+                            plan.periodLabel,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.textMuted,
                             ),
-                        ],
-                      ),
+                          ),
+                      ],
                     ),
                     Text(
                       plan.subtext,
@@ -210,3 +213,4 @@ class PremiumPlanCard extends StatelessWidget {
     );
   }
 }
+

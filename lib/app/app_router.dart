@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import '../core/widgets/feedback/placeholder_screen.dart';
 import '../dev/ui_gallery/components_page.dart';
 import '../dev/ui_gallery/ui_gallery_screen.dart';
 import '../features/camera/presentation/screens/camera_screen.dart';
@@ -35,7 +34,8 @@ GoRouter createRouter({String? initialLocation}) {
       // Root redirect
       GoRoute(
         path: '/',
-        redirect: (_, __) => kDebugMode ? AppRoutes.gallery : AppRoutes.home,
+        redirect: (context, state) =>
+            kDebugMode ? AppRoutes.gallery : AppRoutes.home,
       ),
 
       // Dev routes

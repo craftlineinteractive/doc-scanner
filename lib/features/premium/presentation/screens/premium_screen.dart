@@ -163,18 +163,23 @@ class _PremiumScreenState extends ConsumerState<PremiumScreen> {
                     backgroundColor: AppColors.primary,
                     foregroundColor: Colors.white,
                     elevation: 2,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Text(
-                        activePlan.ctaLabel,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
+                      Flexible(
+                        child: Text(
+                          activePlan.ctaLabel,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -265,3 +270,4 @@ class _PremiumScreenState extends ConsumerState<PremiumScreen> {
     );
   }
 }
+
