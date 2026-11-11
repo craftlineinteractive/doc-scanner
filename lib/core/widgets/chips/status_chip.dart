@@ -37,7 +37,7 @@ class StatusChip extends StatelessWidget {
         break;
       case StatusChipVariant.warning:
         bg = docColors.goldTint;
-        fg = const Color(0xFF783200);
+        fg = AppColors.goldDark;
         break;
       case StatusChipVariant.primary:
         bg = docColors.primaryTint;

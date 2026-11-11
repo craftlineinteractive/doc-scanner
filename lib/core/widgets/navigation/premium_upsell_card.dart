@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import '../../constants/app_strings.dart';
+import '../../theme/app_colors.dart';
 import '../../theme/app_radii.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_typography.dart';
@@ -62,7 +63,7 @@ class PremiumUpsellCard extends StatelessWidget {
                       Text(
                         AppStrings.upgradeToPremium,
                         style: AppTypography.headlineSm.copyWith(
-                          color: const Color(0xFF783200),
+                          color: AppColors.goldDark,
                           fontWeight: FontWeight.w700,
                           fontSize: 15,
                         ),
@@ -71,15 +72,15 @@ class PremiumUpsellCard extends StatelessWidget {
                       Text(
                         AppStrings.unlockAllFeatures,
                         style: AppTypography.bodySm.copyWith(
-                          color: const Color(0xFF9A5B15),
+                          color: AppColors.goldMuted,
                         ),
                       ),
                     ],
                   ),
                 ),
-                const Icon(
+                Icon(
                   Symbols.chevron_right_rounded,
-                  color: Color(0xFF9A5B15),
+                  color: AppColors.goldMuted,
                   size: 20,
                 ),
               ],

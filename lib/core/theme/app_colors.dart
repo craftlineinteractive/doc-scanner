@@ -37,6 +37,8 @@ class AppColors {
   static const Color destructive = Color(0xFFE5484D);
   static const Color destructiveTint = Color(0xFFFEE2E2);
   static const Color gold = Color(0xFFF5B301);
+  static const Color goldDark = Color(0xFF783200);
+  static const Color goldMuted = Color(0xFF9A5B15);
   static const Color goldTint = Color(0xFFFFF6DD);
   static const Color success = Color(0xFF10B981);
   static const Color successTint = Color(0xFFECFDF5);

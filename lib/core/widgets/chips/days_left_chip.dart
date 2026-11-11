@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../theme/app_colors.dart';
 import '../../theme/app_radii.dart';
 import '../../theme/app_typography.dart';
 import '../../theme/doc_colors.dart';
@@ -20,7 +21,7 @@ class DaysLeftChip extends StatelessWidget {
     final Color bg =
         isCritical ? docColors.destructiveTint : docColors.goldTint;
     final Color fg =
-        isCritical ? docColors.destructive : const Color(0xFF783200);
+        isCritical ? docColors.destructive : AppColors.goldDark;
 
     final String label = daysRemaining == 1
         ? '1 day left'
