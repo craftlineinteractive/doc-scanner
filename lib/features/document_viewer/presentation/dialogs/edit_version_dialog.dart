@@ -77,8 +77,11 @@ class _EditVersionDialogState extends State<EditVersionDialog> {
             const SizedBox(height: 24),
 
             // Footer action buttons
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+            Wrap(
+              alignment: WrapAlignment.end,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 8,
+              runSpacing: 8,
               children: <Widget>[
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(),
@@ -90,7 +93,6 @@ class _EditVersionDialogState extends State<EditVersionDialog> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 12),
                 ElevatedButton(
                   onPressed: () => widget.onContinue(_selected),
                   style: ElevatedButton.styleFrom(
@@ -99,7 +101,7 @@ class _EditVersionDialogState extends State<EditVersionDialog> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                     elevation: 2,
                   ),
                   child: const Text(

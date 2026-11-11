@@ -15,6 +15,7 @@ class AppRoutes {
   static const String postScanViewer = '/viewer/post-scan';
   static const String savedViewer = '/viewer/saved';
   static const String pageManager = '/viewer/pages';
+  static const String pageManagerShort = '/page-manager';
   static const String pdfViewer = '/pdf/viewer';
   static const String ocrResult = '/ocr/result';
   static const String trash = '/trash';

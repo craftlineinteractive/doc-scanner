@@ -119,14 +119,18 @@ class PdfPageCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text(
-                        content.growthLabel ?? 'Revenue Growth',
-                        style: const TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.textMuted,
+                      Expanded(
+                        child: Text(
+                          content.growthLabel ?? 'Revenue Growth',
+                          style: const TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.textMuted,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
+                      const SizedBox(width: 8),
                       Text(
                         content.growthValue ?? '+28.4%',
                         style: const TextStyle(

@@ -40,6 +40,9 @@ GoRouter createRouter({String? initialLocation}) {
                 ? '/'
                 : (uri.path.startsWith('/') ? uri.path : '/${uri.path}'));
         final String query = uri.hasQuery ? '?${uri.query}' : '';
+        if (rawPath == AppRoutes.pageManagerShort) {
+          return '${AppRoutes.pageManager}$query';
+        }
         return '$rawPath$query';
       }
       return null;
@@ -236,6 +239,11 @@ GoRouter createRouter({String? initialLocation}) {
             initialQuery: q,
           );
         },
+      ),
+      GoRoute(
+        path: AppRoutes.pageManagerShort,
+        redirect: (context, state) =>
+            '${AppRoutes.pageManager}?${state.uri.query}',
       ),
 
       // 06 PDF Tools

@@ -42,7 +42,7 @@ class AppTopBar extends StatelessWidget implements PreferredSizeWidget {
         bottom: false,
         child: Container(
           height: 60,
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xs),
           child: Row(
             children: <Widget>[
               if (onMenuTap != null)

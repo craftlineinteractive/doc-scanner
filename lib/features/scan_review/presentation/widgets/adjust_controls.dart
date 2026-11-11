@@ -132,24 +132,30 @@ class AdjustControls extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              const Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.settings_outlined,
-                    size: 16,
-                    color: Color(0xFF8A90A6),
-                  ),
-                  SizedBox(width: 8),
-                  Text(
-                    'Show crop screen after every capture',
-                    style: TextStyle(
-                      fontSize: 12,
+              const Expanded(
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.settings_outlined,
+                      size: 16,
                       color: Color(0xFF8A90A6),
-                      fontWeight: FontWeight.w400,
                     ),
-                  ),
-                ],
+                    SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        'Show crop screen after every capture',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF8A90A6),
+                          fontWeight: FontWeight.w400,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
               ),
+              const SizedBox(width: 8),
               Transform.scale(
                 scale: 0.8,
                 child: Switch(

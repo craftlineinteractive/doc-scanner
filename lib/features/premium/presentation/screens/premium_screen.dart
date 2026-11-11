@@ -82,24 +82,29 @@ class _PremiumScreenState extends ConsumerState<PremiumScreen> {
                 ),
 
                 // Center title
-                const Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Icon(
-                      Symbols.workspace_premium_rounded,
-                      size: 20,
-                      color: AppColors.primary,
-                    ),
-                    SizedBox(width: 6),
-                    Text(
-                      'Premium Paywall',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.textPrimary,
+                const Flexible(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(
+                        Symbols.workspace_premium_rounded,
+                        size: 20,
+                        color: AppColors.primary,
                       ),
-                    ),
-                  ],
+                      SizedBox(width: 6),
+                      Flexible(
+                        child: Text(
+                          'Premium Paywall',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.textPrimary,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
 
                 // Trailing profile avatar
@@ -224,8 +229,11 @@ class _PremiumScreenState extends ConsumerState<PremiumScreen> {
               ),
 
               // Terms & Privacy Links
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Wrap(
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 6,
+                runSpacing: 4,
                 children: <Widget>[
                   InkWell(
                     onTap: () => showAppSnackbar(
@@ -240,12 +248,9 @@ class _PremiumScreenState extends ConsumerState<PremiumScreen> {
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 6),
-                    child: Text(
-                      '•',
-                      style: TextStyle(fontSize: 11, color: AppColors.textMuted),
-                    ),
+                  const Text(
+                    '•',
+                    style: TextStyle(fontSize: 11, color: AppColors.textMuted),
                   ),
                   InkWell(
                     onTap: () => showAppSnackbar(

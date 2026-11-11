@@ -57,7 +57,7 @@ class _LabelledDualPillFabState extends State<LabelledDualPillFab> {
                 onTapCancel: () => setState(() => _isPressedScan = false),
                 onTap: widget.onScanPageTap,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 18, right: 14),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -66,14 +66,17 @@ class _LabelledDualPillFabState extends State<LabelledDualPillFab> {
                         color: Colors.white,
                         size: 20,
                       ),
-                      const SizedBox(width: 8),
-                      Text(
-                        widget.scanLabel,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 0.2,
+                      const SizedBox(width: 6),
+                      Flexible(
+                        child: Text(
+                          widget.scanLabel,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 0.2,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
@@ -95,7 +98,7 @@ class _LabelledDualPillFabState extends State<LabelledDualPillFab> {
                 onTapCancel: () => setState(() => _isPressedImport = false),
                 onTap: widget.onImportTap,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 14, right: 18),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -104,14 +107,17 @@ class _LabelledDualPillFabState extends State<LabelledDualPillFab> {
                         color: Colors.white,
                         size: 20,
                       ),
-                      const SizedBox(width: 8),
-                      Text(
-                        widget.importLabel,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 0.2,
+                      const SizedBox(width: 6),
+                      Flexible(
+                        child: Text(
+                          widget.importLabel,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 0.2,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],

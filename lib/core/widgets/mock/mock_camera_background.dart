@@ -226,7 +226,7 @@ class MockCameraBackground extends StatelessWidget {
 
   Widget _buildSignaturePaper() {
     return Container(
-      width: 320,
+      constraints: const BoxConstraints(maxWidth: 320),
       height: 210,
       decoration: BoxDecoration(
         color: const Color(0xFFFAFBFD),
@@ -250,14 +250,18 @@ class MockCameraBackground extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
-                'SIGNATURE PAPER',
-                style: AppTypography.labelSm.copyWith(
-                  color: const Color(0xFF8A90A6),
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 1.2,
+              Flexible(
+                child: Text(
+                  'SIGNATURE PAPER',
+                  style: AppTypography.labelSm.copyWith(
+                    color: const Color(0xFF8A90A6),
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 1.2,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
+              const SizedBox(width: AppSpacing.xs),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(

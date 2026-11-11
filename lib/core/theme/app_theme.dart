@@ -155,7 +155,7 @@ class AppTheme {
       // Buttons (Height: 52px, Radius: 12px)
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          minimumSize: const Size.fromHeight(52),
+          minimumSize: const Size(0, 52),
           elevation: 0,
           backgroundColor: colorScheme.primary,
           foregroundColor: colorScheme.onPrimary,
@@ -173,7 +173,7 @@ class AppTheme {
 
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
-          minimumSize: const Size.fromHeight(52),
+          minimumSize: const Size(0, 52),
           backgroundColor: colorScheme.primary,
           foregroundColor: colorScheme.onPrimary,
           shape: const RoundedRectangleBorder(
@@ -188,7 +188,7 @@ class AppTheme {
 
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          minimumSize: const Size.fromHeight(52),
+          minimumSize: const Size(0, 52),
           foregroundColor: textColor,
           side: BorderSide(color: borderColor),
           shape: const RoundedRectangleBorder(

@@ -43,6 +43,19 @@ class _PageManagerScreenState extends ConsumerState<PageManagerScreen> {
     }
   }
 
+  @override
+  void didUpdateWidget(covariant PageManagerScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.initialState != oldWidget.initialState) {
+      setState(() {
+        _isSearchActive = widget.initialState == 'search';
+      });
+      if (widget.initialState == 'drawer') {
+        WidgetsBinding.instance.addPostFrameCallback((_) => _showActionDrawer());
+      }
+    }
+  }
+
   void _showActionDrawer() {
     final SavedDocument doc = ref
         .read(savedDocumentsProvider.notifier)
@@ -126,6 +139,7 @@ class _PageManagerScreenState extends ConsumerState<PageManagerScreen> {
               titleSpacing: 0,
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
                     doc.title,
@@ -135,8 +149,10 @@ class _PageManagerScreenState extends ConsumerState<PageManagerScreen> {
                       color: AppColors.textPrimary,
                     ),
                     overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
                   ),
                   Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Container(
                         width: 6,
@@ -147,12 +163,15 @@ class _PageManagerScreenState extends ConsumerState<PageManagerScreen> {
                         ),
                       ),
                       const SizedBox(width: 4),
-                      Text(
-                        doc.isSynced ? 'Cloud Synced' : 'Local Only',
-                        style: const TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.success,
+                      Flexible(
+                        child: Text(
+                          doc.isSynced ? 'Cloud Synced' : 'Local Only',
+                          style: const TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.success,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],

@@ -101,6 +101,7 @@ class EmptyState extends StatelessWidget {
               const SizedBox(height: AppSpacing.xl),
               Row(
                 mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   const Icon(
                     Symbols.lock_rounded,
@@ -108,11 +109,14 @@ class EmptyState extends StatelessWidget {
                     color: AppColors.textMuted,
                   ),
                   const SizedBox(width: AppSpacing.xs),
-                  Text(
-                    footerText!,
-                    style: AppTypography.labelSm.copyWith(
-                      color: AppColors.textMuted,
-                      letterSpacing: 0.8,
+                  Flexible(
+                    child: Text(
+                      footerText!,
+                      style: AppTypography.labelSm.copyWith(
+                        color: AppColors.textMuted,
+                        letterSpacing: 0.8,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ],

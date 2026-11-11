@@ -37,13 +37,17 @@ class ArrangePagesScreen extends ConsumerWidget {
                       icon: const Icon(Icons.close_rounded, color: Color(0xFF1E2340)),
                       onPressed: () => context.pop(),
                     ),
-                    const Text(
-                      'Arrange pages',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF1E2340),
-                        letterSpacing: -0.2,
+                    const Expanded(
+                      child: Text(
+                        'Arrange pages',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF1E2340),
+                          letterSpacing: -0.2,
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     TextButton(
@@ -81,12 +85,15 @@ class ArrangePagesScreen extends ConsumerWidget {
                       color: AppColors.primary,
                     ),
                     SizedBox(width: 6),
-                    Text(
-                      'Long press, then drag to reorder',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFF1E2340),
+                    Flexible(
+                      child: Text(
+                        'Long press, then drag to reorder',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF1E2340),
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ],

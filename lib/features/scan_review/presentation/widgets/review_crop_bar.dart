@@ -22,7 +22,7 @@ class ReviewCropBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 64,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: const BoxDecoration(
         color: Colors.white,
         border: Border(
@@ -32,30 +32,35 @@ class ReviewCropBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              _SubToolItem(
-                icon: Icons.crop_rounded,
-                label: 'Free',
-                isSelected: true,
-                onTap: onFreeCrop,
-              ),
-              const SizedBox(width: 24),
-              _SubToolItem(
-                icon: Icons.auto_awesome_rounded,
-                label: 'Auto Detect',
-                isSelected: false,
-                onTap: onAutoDetect,
-              ),
-              const SizedBox(width: 24),
-              _SubToolItem(
-                icon: Icons.flip_rounded,
-                label: 'Flip',
-                isSelected: false,
-                onTap: onFlip,
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                _SubToolItem(
+                  icon: Icons.crop_rounded,
+                  label: 'Free',
+                  isSelected: true,
+                  onTap: onFreeCrop,
+                ),
+                const SizedBox(width: 8),
+                Flexible(
+                  child: _SubToolItem(
+                    icon: Icons.auto_awesome_rounded,
+                    label: 'Auto Detect',
+                    isSelected: false,
+                    onTap: onAutoDetect,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                _SubToolItem(
+                  icon: Icons.flip_rounded,
+                  label: 'Flip',
+                  isSelected: false,
+                  onTap: onFlip,
+                ),
+              ],
+            ),
           ),
+          const SizedBox(width: 4),
           Row(
             children: <Widget>[
               InkWell(
@@ -135,6 +140,8 @@ class _SubToolItem extends StatelessWidget {
                 fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
                 color: color,
               ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),

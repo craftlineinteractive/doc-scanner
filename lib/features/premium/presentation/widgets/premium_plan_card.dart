@@ -74,21 +74,20 @@ class PremiumPlanCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Row(
+                      Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        spacing: 6,
+                        runSpacing: 2,
                         children: <Widget>[
-                          Flexible(
-                            child: Text(
-                              plan.title,
-                              style: const TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.textPrimary,
-                              ),
-                              overflow: TextOverflow.ellipsis,
+                          Text(
+                            plan.title,
+                            style: const TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.textPrimary,
                             ),
                           ),
-                          if (plan.trialChip != null) ...<Widget>[
-                            const SizedBox(width: 6),
+                          if (plan.trialChip != null)
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 6,
@@ -107,7 +106,6 @@ class PremiumPlanCard extends StatelessWidget {
                                 ),
                               ),
                             ),
-                          ],
                         ],
                       ),
                       const SizedBox(height: 2),

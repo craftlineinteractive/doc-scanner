@@ -72,8 +72,11 @@ class AppDialog extends StatelessWidget {
             content,
             if (actions != null && actions!.isNotEmpty) ...<Widget>[
               const SizedBox(height: AppSpacing.lg),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+              Wrap(
+                alignment: WrapAlignment.end,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: AppSpacing.sm,
+                runSpacing: AppSpacing.sm,
                 children: actions!,
               ),
             ],

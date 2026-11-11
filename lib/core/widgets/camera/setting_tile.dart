@@ -35,27 +35,29 @@ class SettingTile extends StatelessWidget {
           minHeight: 64,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Icon(
                 icon,
-                size: 26,
+                size: 24,
                 color: iconColor,
               ),
-              const SizedBox(height: 4),
-              Text(
-                label,
-                style: AppTypography.labelSm.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
+              const SizedBox(height: 2),
+              Flexible(
+                child: Text(
+                  label,
+                  style: AppTypography.labelSm.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                  ),
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 2),
               Text(
@@ -69,6 +71,7 @@ class SettingTile extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
                 maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),

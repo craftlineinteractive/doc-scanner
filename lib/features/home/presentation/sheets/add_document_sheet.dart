@@ -83,23 +83,29 @@ class AddDocumentSheet extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  const Icon(
-                    Symbols.auto_awesome_rounded,
-                    color: AppColors.primary,
-                    size: 16,
-                  ),
-                  const SizedBox(width: AppSpacing.xs),
-                  Text(
-                    'AI auto-cropping active for all imports',
-                    style: AppTypography.bodySm.copyWith(
-                      color: AppColors.textMuted,
-                      fontSize: 12,
+              Expanded(
+                child: Row(
+                  children: <Widget>[
+                    const Icon(
+                      Symbols.auto_awesome_rounded,
+                      color: AppColors.primary,
+                      size: 16,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: AppSpacing.xs),
+                    Expanded(
+                      child: Text(
+                        'AI auto-cropping active for all imports',
+                        style: AppTypography.bodySm.copyWith(
+                          color: AppColors.textMuted,
+                          fontSize: 12,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
               ),
+              const SizedBox(width: AppSpacing.sm),
               TextActionButton(
                 label: AppStrings.cancel,
                 onPressed: () => Navigator.of(context).pop(),

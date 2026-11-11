@@ -177,11 +177,15 @@ class _AdjustScreenState extends ConsumerState<AdjustScreen> {
                       color: Color(0xFF8A90A6),
                     ),
                     SizedBox(width: 6),
-                    Text(
-                      'Drag the points to adjust the borders.',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xFF8A90A6),
+                    Flexible(
+                      child: Text(
+                        'Drag the points to adjust the borders.',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF8A90A6),
+                        ),
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ],

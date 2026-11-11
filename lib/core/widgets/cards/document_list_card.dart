@@ -107,11 +107,14 @@ class DocumentListCard extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: AppSpacing.xs),
-                          Text(
-                            '· $dateText',
-                            style: AppTypography.bodySm.copyWith(
-                              color: AppColors.textMuted,
-                              fontSize: 12,
+                          Flexible(
+                            child: Text(
+                              '· $dateText',
+                              style: AppTypography.bodySm.copyWith(
+                                color: AppColors.textMuted,
+                                fontSize: 12,
+                              ),
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                           if (isFavorite) ...<Widget>[

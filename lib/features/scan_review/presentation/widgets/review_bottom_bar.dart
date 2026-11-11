@@ -45,38 +45,50 @@ class ReviewBottomBar extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                _ReviewToolButton(
-                  icon: Icons.crop_rounded,
-                  label: 'Crop',
-                  isSelected: activeMode == ReviewToolbarMode.crop,
-                  onTap: onTapCrop,
+                Expanded(
+                  child: _ReviewToolButton(
+                    icon: Icons.crop_rounded,
+                    label: 'Crop',
+                    isSelected: activeMode == ReviewToolbarMode.crop,
+                    onTap: onTapCrop,
+                  ),
                 ),
-                _ReviewToolButton(
-                  icon: Icons.palette_outlined,
-                  label: 'Color',
-                  isSelected: activeMode == ReviewToolbarMode.color,
-                  onTap: onTapColor,
+                Expanded(
+                  child: _ReviewToolButton(
+                    icon: Icons.palette_outlined,
+                    label: 'Color',
+                    isSelected: activeMode == ReviewToolbarMode.color,
+                    onTap: onTapColor,
+                  ),
                 ),
-                _ReviewToolButton(
-                  icon: Icons.rotate_right_rounded,
-                  label: 'Rotate',
-                  onTap: onTapRotate,
+                Expanded(
+                  child: _ReviewToolButton(
+                    icon: Icons.rotate_right_rounded,
+                    label: 'Rotate',
+                    onTap: onTapRotate,
+                  ),
                 ),
-                _ReviewToolButton(
-                  icon: Icons.grid_view_rounded,
-                  label: 'Arrange',
-                  onTap: onTapArrange,
+                Expanded(
+                  child: _ReviewToolButton(
+                    icon: Icons.grid_view_rounded,
+                    label: 'Arrange',
+                    onTap: onTapArrange,
+                  ),
                 ),
-                _ReviewToolButton(
-                  icon: Icons.camera_alt_outlined,
-                  label: 'Retake',
-                  onTap: onTapRetake,
+                Expanded(
+                  child: _ReviewToolButton(
+                    icon: Icons.camera_alt_outlined,
+                    label: 'Retake',
+                    onTap: onTapRetake,
+                  ),
                 ),
-                _ReviewToolButton(
-                  icon: Icons.delete_outline_rounded,
-                  label: 'Delete',
-                  isDestructive: true,
-                  onTap: onTapDelete,
+                Expanded(
+                  child: _ReviewToolButton(
+                    icon: Icons.delete_outline_rounded,
+                    label: 'Delete',
+                    isDestructive: true,
+                    onTap: onTapDelete,
+                  ),
                 ),
               ],
             ),
@@ -151,7 +163,7 @@ class _ReviewToolButton extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(12),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 6),
         decoration: BoxDecoration(
           color: isSelected ? const Color(0xFFEEF0FF) : Colors.transparent,
           borderRadius: BorderRadius.circular(12),
@@ -168,6 +180,9 @@ class _ReviewToolButton extends StatelessWidget {
                 fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
                 color: textColor,
               ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
             ),
           ],
         ),

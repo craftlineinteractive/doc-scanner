@@ -51,7 +51,7 @@ class _CameraBottomControlsState extends State<CameraBottomControls> {
             // Controls row
             Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: AppSpacing.xl,
+                horizontal: AppSpacing.md,
                 vertical: AppSpacing.sm,
               ),
               child: SizedBox(
@@ -123,7 +123,7 @@ class _CameraBottomControlsState extends State<CameraBottomControls> {
   Widget _buildCenterAction() {
     if (widget.selectedMode == CameraMode.qrScanner) {
       return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
           color: Colors.white.withValues(alpha: 0.12),
           borderRadius: AppRadii.roundedPill,

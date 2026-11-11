@@ -107,38 +107,38 @@ class _PageManagerSearchViewState extends State<PageManagerSearchView> {
                   const SizedBox(height: 8),
 
                   // Filter row
-                  Row(
-                    children: <Widget>[
-                      const Expanded(
-                        child: Text(
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: <Widget>[
+                        const Text(
                           '2 occurrences in 2 pages',
                           style: TextStyle(
                             fontSize: 11,
                             color: AppColors.textMuted,
                             fontWeight: FontWeight.w500,
                           ),
-                          overflow: TextOverflow.ellipsis,
                         ),
-                      ),
-                      const SizedBox(width: 8),
-                      _SearchChip(
-                        label: 'All (2)',
-                        isSelected: _selectedFilter == 0,
-                        onTap: () => setState(() => _selectedFilter = 0),
-                      ),
-                      const SizedBox(width: 6),
-                      _SearchChip(
-                        label: 'Pg 1 (1)',
-                        isSelected: _selectedFilter == 1,
-                        onTap: () => setState(() => _selectedFilter = 1),
-                      ),
-                      const SizedBox(width: 6),
-                      _SearchChip(
-                        label: 'Pg 3 (1)',
-                        isSelected: _selectedFilter == 2,
-                        onTap: () => setState(() => _selectedFilter = 2),
-                      ),
-                    ],
+                        const SizedBox(width: 12),
+                        _SearchChip(
+                          label: 'All (2)',
+                          isSelected: _selectedFilter == 0,
+                          onTap: () => setState(() => _selectedFilter = 0),
+                        ),
+                        const SizedBox(width: 6),
+                        _SearchChip(
+                          label: 'Pg 1 (1)',
+                          isSelected: _selectedFilter == 1,
+                          onTap: () => setState(() => _selectedFilter = 1),
+                        ),
+                        const SizedBox(width: 6),
+                        _SearchChip(
+                          label: 'Pg 3 (1)',
+                          isSelected: _selectedFilter == 2,
+                          onTap: () => setState(() => _selectedFilter = 2),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -450,26 +450,31 @@ class _SearchResultCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    InkWell(
-                      onTap: onJump,
-                      child: const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Text(
-                            'Jump to line',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
+                    Flexible(
+                      child: InkWell(
+                        onTap: onJump,
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Flexible(
+                              child: Text(
+                                'Jump to line',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.primary,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            SizedBox(width: 4),
+                            Icon(
+                              Symbols.arrow_forward_rounded,
+                              size: 14,
                               color: AppColors.primary,
                             ),
-                          ),
-                          SizedBox(width: 4),
-                          Icon(
-                            Symbols.arrow_forward_rounded,
-                            size: 14,
-                            color: AppColors.primary,
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     IconButton(

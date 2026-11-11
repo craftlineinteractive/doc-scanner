@@ -175,8 +175,11 @@ class _PhotoSizeDialogState extends State<PhotoSizeDialog> {
               const SizedBox(height: AppSpacing.md),
 
               // Footer Action Buttons
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+              Wrap(
+                alignment: WrapAlignment.end,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: AppSpacing.xs,
+                runSpacing: AppSpacing.xs,
                 children: <Widget>[
                   TextButton(
                     onPressed: () => Navigator.of(context).pop(),
@@ -197,7 +200,7 @@ class _PhotoSizeDialogState extends State<PhotoSizeDialog> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
+                        horizontal: 8,
                         vertical: 8,
                       ),
                       minimumSize: const Size(0, 36),
@@ -220,7 +223,7 @@ class _PhotoSizeDialogState extends State<PhotoSizeDialog> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
+                        horizontal: 10,
                         vertical: 8,
                       ),
                       minimumSize: const Size(0, 36),

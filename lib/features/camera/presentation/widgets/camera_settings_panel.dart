@@ -46,7 +46,7 @@ class CameraSettingsPanel extends ConsumerWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       mainAxisSpacing: 14,
                       crossAxisSpacing: 8,
-                      childAspectRatio: 1.15,
+                      childAspectRatio: 0.95,
                       children: <Widget>[
                         // Tile 1: Capture Sound
                         SettingTile(

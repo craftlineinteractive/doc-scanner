@@ -322,13 +322,17 @@ class PageManagerActionDrawer extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                const Text(
-                  'Storage Location: Device Internal / Scans',
-                  style: TextStyle(
-                    fontSize: 11,
-                    color: AppColors.textMuted,
+                const Expanded(
+                  child: Text(
+                    'Storage Location: Device Internal / Scans',
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: AppColors.textMuted,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
+                const SizedBox(width: 8),
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(),
                   style: TextButton.styleFrom(
