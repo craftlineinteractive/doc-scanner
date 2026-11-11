@@ -190,6 +190,11 @@ Goal: Build the complete UI of the Flutter "Doc Scanner" app with realistic dumm
 - `lib/features/premium/presentation/widgets/premium_plan_card.dart`
 - `test/premium_test.dart`
 
-### M10: Late-Designed Screens (Pending Design Specs)
-- Onboarding, Sign-in, Global search results, New folder sheet, Export sheet, Backup sync, OCR language manager.
+### [x] M10: UI Quality Pass & Polish (tagged `m10-ui-polish`)
+- `lib/dev/ui_gallery/gallery_entries.dart` (single source of truth registry for 72 screens)
+- `test/gallery_smoke_test.dart` (table-driven smoke test across 4 viewport & scale configurations)
+- `docs/UI_AUDIT.md` (mockup verification matrix and WCAG AA dark mode contrast check)
+- `docs/COMING_LATER_INVENTORY.md` (complete inventory of simulated & dummy actions)
+- `README.md` (project documentation and test instructions)
+
 

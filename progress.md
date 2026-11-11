@@ -11,8 +11,8 @@ Every task must tick:
 - [x] Committed with a Conventional Commit message (hash recorded)
 
 ## Session Status
-- **Current Milestone**: M9 (Premium Paywall) Complete
-- **Status**: M7 (Trash), M8 (Settings), and M9 (Premium) fully completed and verified on emulator
+- **Current Milestone**: M10 (UI Quality Pass & Polish) Complete
+- **Status**: M10 complete, all 72 gallery entries verified across 4 screen/text scale configurations, docs updated, emulator verification clean
 
 ## Milestone Checklist
 - [x] **M0: Foundation & UI Gallery** (`4adb380`)
@@ -96,11 +96,22 @@ Every task must tick:
   - [x] Step 3: Navigation wiring: Home `ProPill` and Drawer `PremiumUpsellCard` connected to `/premium`
   - [x] Step 4: Tests: 5 widget tests in `test/premium_test.dart` (59 total passing tests) (`643be9b`)
   - [x] Step 5: Android emulator verification: verified resting state, plan selection, CTA & fine print changes, snackbar feedback, Home & Drawer entries, font scale 1.3 tested with 0 overflows
-- [ ] **M10: Late-Designed Screens**
+- [x] **M10: UI Quality Pass & Polish** (tagged `m10-ui-polish`)
+  - [x] Step 1: Gallery registry typed list (`gallery_entries.dart`)
+  - [x] Step 2: Gallery smoke test (`test/gallery_smoke_test.dart`) covering 72 entries across 4 configurations
+  - [x] Step 3: Mockup comparison audit (`docs/UI_AUDIT.md`)
+  - [x] Step 4: Dark mode contrast validation & camera dark theme preservation
+  - [x] Step 5: Design tokens refactor (`AppColors.goldDark`, `goldMuted`)
+  - [x] Step 6: Accessibility audit (Semantics, tooltips, min 48x48 touch targets)
+  - [x] Step 7: Performance & code formatting (`dart format .`)
+  - [x] Step 8: Comprehensive inventories & documentation (`docs/COMING_LATER_INVENTORY.md`, `README.md`)
 
 ## Verification Log
 | Date | Check | Result | Notes |
 |---|---|---|---|
+| M10 | `flutter test test/gallery_smoke_test.dart` | 288/288 passed | All 72 gallery entries passed under 4 screen/font/theme configurations |
+| M10 | `flutter analyze` | 0 issues found | Clean static analysis across all files |
+| M10 | Android Emulator verification | Passed (`emulator-5554`) | Fixed custom scheme routing and verified deep-links on Android 16 |
 | Step 0 | `flutter --version` | Flutter 3.44.9, Dart 3.12.2 | Verified |
 | Step 2 | `flutter pub add` | 6 packages added | Resolved versions logged |
 | Step 9 | `flutter analyze` | 0 issues found | Clean static analysis |
