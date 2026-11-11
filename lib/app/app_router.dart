@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../dev/ui_gallery/components_page.dart';
@@ -30,6 +31,19 @@ GoRouter createRouter({String? initialLocation}) {
   return GoRouter(
     initialLocation: initialLocation ??
         (kDebugMode ? AppRoutes.gallery : AppRoutes.home),
+    redirect: (BuildContext context, GoRouterState state) {
+      final Uri uri = state.uri;
+      if (uri.scheme == 'docscanner') {
+        final String rawPath = uri.host.isNotEmpty
+            ? '/${uri.host}${uri.path}'
+            : (uri.path.isEmpty
+                ? '/'
+                : (uri.path.startsWith('/') ? uri.path : '/${uri.path}'));
+        final String query = uri.hasQuery ? '?${uri.query}' : '';
+        return '$rawPath$query';
+      }
+      return null;
+    },
     routes: <RouteBase>[
       // Root redirect
       GoRoute(
