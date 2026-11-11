@@ -18,19 +18,19 @@ class ScanLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 2.5,
-      decoration: BoxDecoration(
-        color: color,
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: color.withValues(alpha: 0.8),
-            offset: const Offset(0, 0),
-            blurRadius: 10,
-            spreadRadius: 2,
+          height: 2.5,
+          decoration: BoxDecoration(
+            color: color,
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: color.withValues(alpha: 0.8),
+                offset: const Offset(0, 0),
+                blurRadius: 10,
+                spreadRadius: 2,
+              ),
+            ],
           ),
-        ],
-      ),
-    )
+        )
         .animate(onPlay: (controller) => controller.repeat(reverse: true))
         .moveY(
           begin: 0,
@@ -40,4 +40,3 @@ class ScanLine extends StatelessWidget {
         );
   }
 }
-

@@ -45,7 +45,8 @@ class FilterPresetThumb extends StatelessWidget {
                   ),
                 ),
                 clipBehavior: Clip.antiAlias,
-                child: preview ??
+                child:
+                    preview ??
                     const MockDocumentPage(
                       variant: MockDocumentVariant.receipt,
                       showBorder: false,
@@ -93,4 +94,3 @@ class FilterPresetThumb extends StatelessWidget {
     );
   }
 }
-

@@ -10,10 +10,7 @@ import '../../domain/app_settings.dart';
 
 /// Modal dialog allowing users to pick the system date and time display format.
 class DateFormatDialog extends StatefulWidget {
-  const DateFormatDialog({
-    super.key,
-    required this.initialValue,
-  });
+  const DateFormatDialog({super.key, required this.initialValue});
 
   final SettingsDateTimeFormat initialValue;
 
@@ -70,7 +67,9 @@ class _DateFormatDialogState extends State<DateFormatDialog> {
       ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
-        children: SettingsDateTimeFormat.values.map((SettingsDateTimeFormat format) {
+        children: SettingsDateTimeFormat.values.map((
+          SettingsDateTimeFormat format,
+        ) {
           return RadioTile<SettingsDateTimeFormat>(
             value: format,
             groupValue: _selected,

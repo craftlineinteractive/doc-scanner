@@ -61,4 +61,3 @@ class AppStrings {
   static const String signInWithGoogle = 'Sign in with Google';
   static const String signInSubtitle = 'Sign in to sync with Google Drive';
 }
-

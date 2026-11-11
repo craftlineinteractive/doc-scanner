@@ -13,7 +13,4 @@ class IdScanSidesNotifier extends Notifier<IdScanSides> {
 
 /// Provider exposing current [IdScanSides].
 final NotifierProvider<IdScanSidesNotifier, IdScanSides> idScanSidesProvider =
-    NotifierProvider<IdScanSidesNotifier, IdScanSides>(
-  IdScanSidesNotifier.new,
-);
-
+    NotifierProvider<IdScanSidesNotifier, IdScanSides>(IdScanSidesNotifier.new);

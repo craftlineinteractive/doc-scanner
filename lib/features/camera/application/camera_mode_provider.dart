@@ -15,4 +15,3 @@ class CameraModeNotifier extends Notifier<CameraMode> {
 /// Provider exposing the current [CameraMode].
 final NotifierProvider<CameraModeNotifier, CameraMode> cameraModeProvider =
     NotifierProvider<CameraModeNotifier, CameraMode>(CameraModeNotifier.new);
-

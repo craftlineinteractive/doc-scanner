@@ -51,8 +51,7 @@ class _PageManagerSearchViewState extends State<PageManagerSearchView> {
           children: <Widget>[
             // Top search bar
             Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               color: Colors.white,
               child: Column(
                 children: <Widget>[
@@ -232,8 +231,7 @@ class _PageManagerSearchViewState extends State<PageManagerSearchView> {
                     ),
                   ),
 
-                  if (_selectedFilter == 0 ||
-                      _selectedFilter == 1) ...<Widget>[
+                  if (_selectedFilter == 0 || _selectedFilter == 1) ...<Widget>[
                     _SearchResultCard(
                       pageLabel: 'Page 1 Match',
                       matchBadge: '100% OCR Match',
@@ -248,8 +246,7 @@ class _PageManagerSearchViewState extends State<PageManagerSearchView> {
                     ),
                     const SizedBox(height: 12),
                   ],
-                  if (_selectedFilter == 0 ||
-                      _selectedFilter == 2) ...<Widget>[
+                  if (_selectedFilter == 0 || _selectedFilter == 2) ...<Widget>[
                     _SearchResultCard(
                       pageLabel: 'Page 3 Match',
                       matchBadge: 'Table Line 4',

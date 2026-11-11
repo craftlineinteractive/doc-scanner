@@ -7,10 +7,7 @@ class CameraGridOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IgnorePointer(
-      child: CustomPaint(
-        size: Size.infinite,
-        painter: _GridPainter(),
-      ),
+      child: CustomPaint(size: Size.infinite, painter: _GridPainter()),
     );
   }
 }
@@ -44,4 +41,3 @@ class _GridPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
-

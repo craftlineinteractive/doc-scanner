@@ -45,10 +45,9 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (widget.initialState == 'search') {
-        ref.read(pdfViewerProvider.notifier).setSearchActive(
-              true,
-              defaultQuery: widget.initialQuery,
-            );
+        ref
+            .read(pdfViewerProvider.notifier)
+            .setSearchActive(true, defaultQuery: widget.initialQuery);
       } else if (widget.initialState == 'toolkit') {
         _openToolkitDrawer();
       } else if (widget.initialState == 'password') {
@@ -85,10 +84,7 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
     PdfToolkitDrawer.show(
       context,
       onToolSelected: (String tool) {
-        showAppSnackbar(
-          context: context,
-          message: '$tool is coming later',
-        );
+        showAppSnackbar(context: context, message: '$tool is coming later');
       },
       onNavigateToOcr: () {
         context.push(AppRoutes.ocrResult);
@@ -103,7 +99,10 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
     if (!_scrollController.hasClients) return;
     final double offset = _scrollController.offset;
     // Estimated average card height + margins ~ 640px
-    final int page = (offset / 640).floor().clamp(0, MockPdfDocument.pages.length - 1);
+    final int page = (offset / 640).floor().clamp(
+      0,
+      MockPdfDocument.pages.length - 1,
+    );
     if (page != _visiblePage) {
       setState(() => _visiblePage = page);
       ref.read(pdfViewerProvider.notifier).setCurrentPage(page);
@@ -230,13 +229,13 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
               bottom: state.searchActive ? 16 : 0,
               child: state.searchActive
                   ? (state.currentMatch != null
-                      ? PdfSearchJumpCard(
-                          match: state.currentMatch!,
-                          totalMatches: state.matches.length,
-                          onJump: () =>
-                              _scrollToPage(state.currentMatch!.pageIndex),
-                        )
-                      : const SizedBox.shrink())
+                        ? PdfSearchJumpCard(
+                            match: state.currentMatch!,
+                            totalMatches: state.matches.length,
+                            onJump: () =>
+                                _scrollToPage(state.currentMatch!.pageIndex),
+                          )
+                        : const SizedBox.shrink())
                   : PdfBottomDock(
                       onToolkitTap: _openToolkitDrawer,
                       onToolTap: (String tool) {
@@ -253,4 +252,3 @@ class _PdfViewerScreenState extends ConsumerState<PdfViewerScreen> {
     );
   }
 }
-

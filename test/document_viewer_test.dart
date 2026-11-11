@@ -23,11 +23,7 @@ void main() {
 
   Widget buildApp(String initialLocation) {
     final router = createRouter(initialLocation: initialLocation);
-    return ProviderScope(
-      child: MaterialApp.router(
-        routerConfig: router,
-      ),
-    );
+    return ProviderScope(child: MaterialApp.router(routerConfig: router));
   }
 
   void setTestViewport(WidgetTester tester) {
@@ -184,9 +180,7 @@ void main() {
       '6. saved_viewer_renders_and_shows_edit_dialog with radio choices',
       (WidgetTester tester) async {
         setTestViewport(tester);
-        await tester.pumpWidget(
-          buildApp('${AppRoutes.savedViewer}?frame=2'),
-        );
+        await tester.pumpWidget(buildApp('${AppRoutes.savedViewer}?frame=2'));
         await tester.pumpAndSettle();
 
         expect(find.byType(SavedDocumentViewerScreen), findsOneWidget);
@@ -209,9 +203,7 @@ void main() {
       '7. saved_viewer_pdf_sub_row_and_sheet toggles PDF tools and sheet',
       (WidgetTester tester) async {
         setTestViewport(tester);
-        await tester.pumpWidget(
-          buildApp('${AppRoutes.savedViewer}?frame=5'),
-        );
+        await tester.pumpWidget(buildApp('${AppRoutes.savedViewer}?frame=5'));
         await tester.pumpAndSettle();
 
         expect(find.byType(PdfMoreOptionsSheet), findsOneWidget);
@@ -265,20 +257,19 @@ void main() {
       },
     );
 
-    testWidgets(
-      '9. page_manager_search_direct_route_renders_results',
-      (WidgetTester tester) async {
-        setTestViewport(tester);
-        await tester.pumpWidget(
-          buildApp('${AppRoutes.pageManager}?state=search&q=Invoice'),
-        );
-        await tester.pumpAndSettle();
+    testWidgets('9. page_manager_search_direct_route_renders_results', (
+      WidgetTester tester,
+    ) async {
+      setTestViewport(tester);
+      await tester.pumpWidget(
+        buildApp('${AppRoutes.pageManager}?state=search&q=Invoice'),
+      );
+      await tester.pumpAndSettle();
 
-        expect(find.byType(PageManagerSearchView), findsOneWidget);
-        expect(find.text('PDF Ready (1.8 MB)'), findsOneWidget);
-        expect(find.text('Page 1 Match'), findsOneWidget);
-        expect(find.text('Page 3 Match'), findsOneWidget);
-      },
-    );
+      expect(find.byType(PageManagerSearchView), findsOneWidget);
+      expect(find.text('PDF Ready (1.8 MB)'), findsOneWidget);
+      expect(find.text('Page 1 Match'), findsOneWidget);
+      expect(find.text('Page 3 Match'), findsOneWidget);
+    });
   });
 }

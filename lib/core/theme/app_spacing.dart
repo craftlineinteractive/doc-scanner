@@ -24,8 +24,9 @@ class AppSpacing {
   static const double bottomListPadding = 100.0;
 
   // EdgeInsets presets
-  static const EdgeInsets screenPadding =
-      EdgeInsets.symmetric(horizontal: screenMargin);
+  static const EdgeInsets screenPadding = EdgeInsets.symmetric(
+    horizontal: screenMargin,
+  );
   static const EdgeInsets screenListPadding = EdgeInsets.fromLTRB(
     screenMargin,
     lg,
@@ -35,4 +36,3 @@ class AppSpacing {
   static const EdgeInsets cardPadding = EdgeInsets.all(md);
   static const EdgeInsets cardPaddingLg = EdgeInsets.all(lg);
 }
-

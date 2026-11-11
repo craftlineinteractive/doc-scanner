@@ -16,7 +16,8 @@ class ThemeSelectDialog {
       options: ThemeChoice.values,
       initialValue: initialValue,
       optionLabels: <ThemeChoice, String>{
-        for (final ThemeChoice choice in ThemeChoice.values) choice: choice.label,
+        for (final ThemeChoice choice in ThemeChoice.values)
+          choice: choice.label,
       },
       confirmLabel: 'OK',
       cancelLabel: 'Cancel',

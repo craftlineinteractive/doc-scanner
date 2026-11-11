@@ -25,9 +25,7 @@ class ReviewCropBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: const BoxDecoration(
         color: Colors.white,
-        border: Border(
-          top: BorderSide(color: Color(0xFFE2E5EE)),
-        ),
+        border: Border(top: BorderSide(color: Color(0xFFE2E5EE))),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,7 +119,9 @@ class _SubToolItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color color = isSelected ? AppColors.primary : const Color(0xFF1E2340);
+    final Color color = isSelected
+        ? AppColors.primary
+        : const Color(0xFF1E2340);
 
     return InkWell(
       onTap: onTap,
@@ -149,4 +149,3 @@ class _SubToolItem extends StatelessWidget {
     );
   }
 }
-

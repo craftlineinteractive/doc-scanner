@@ -109,7 +109,10 @@ class _AdjustScreenState extends ConsumerState<AdjustScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       IconButton(
-                        icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
+                        icon: const Icon(
+                          Icons.arrow_back_rounded,
+                          color: Colors.white,
+                        ),
                         onPressed: () {
                           if (context.canPop()) {
                             context.pop();

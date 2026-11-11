@@ -45,10 +45,7 @@ class DrawerItem extends StatelessWidget {
               Container(
                 width: 36,
                 height: 36,
-                decoration: BoxDecoration(
-                  color: bg,
-                  shape: BoxShape.circle,
-                ),
+                decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
                 alignment: Alignment.center,
                 child: IconTheme(
                   data: IconThemeData(color: fg, size: 20),

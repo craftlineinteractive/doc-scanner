@@ -24,4 +24,3 @@ class PdfTool {
   final IconData icon;
   final PdfToolGroup group;
 }
-

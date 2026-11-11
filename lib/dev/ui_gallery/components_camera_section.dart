@@ -44,8 +44,9 @@ class _ComponentsCameraSectionState extends State<ComponentsCameraSection> {
           flashMode: _flashMode,
           onFlashCycle: () {
             setState(() {
-              _flashMode = CameraFlashMode.values[
-                  (_flashMode.index + 1) % CameraFlashMode.values.length];
+              _flashMode =
+                  CameraFlashMode.values[(_flashMode.index + 1) %
+                      CameraFlashMode.values.length];
             });
           },
           isGridEnabled: _grid,
@@ -58,8 +59,10 @@ class _ComponentsCameraSectionState extends State<ComponentsCameraSection> {
           onModeSelected: (mode) => setState(() => _selectedMode = mode),
         ),
         const SizedBox(height: AppSpacing.md),
-        Text('Viewfinder & Interactive Crop Preview',
-            style: AppTypography.labelMd),
+        Text(
+          'Viewfinder & Interactive Crop Preview',
+          style: AppTypography.labelMd,
+        ),
         const SizedBox(height: AppSpacing.sm),
         Container(
           height: 280,
@@ -86,11 +89,7 @@ class _ComponentsCameraSectionState extends State<ComponentsCameraSection> {
                 },
               ),
               if (_isDraggingCrop)
-                const Positioned(
-                  top: 16,
-                  right: 16,
-                  child: CropMagnifier(),
-                ),
+                const Positioned(top: 16, right: 16, child: CropMagnifier()),
             ],
           ),
         ),
@@ -198,4 +197,3 @@ class _ComponentsCameraSectionState extends State<ComponentsCameraSection> {
     );
   }
 }
-

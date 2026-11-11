@@ -60,7 +60,9 @@ class AppAboutSections extends ConsumerWidget {
               title: 'Enable System Gallery',
               subtitle: 'Use the system gallery as default picker',
               icon: const Icon(Symbols.photo_library_rounded),
-              onTap: () => notifier.setEnableSystemGallery(!settings.enableSystemGallery),
+              onTap: () => notifier.setEnableSystemGallery(
+                !settings.enableSystemGallery,
+              ),
               trailing: Switch.adaptive(
                 value: settings.enableSystemGallery,
                 activeThumbColor: Colors.white,
@@ -72,7 +74,9 @@ class AppAboutSections extends ConsumerWidget {
               title: 'Folder Navigation Path',
               subtitle: 'Show the folder path in the app',
               icon: const Icon(Symbols.folder_open_rounded),
-              onTap: () => notifier.setFolderNavigationPath(!settings.folderNavigationPath),
+              onTap: () => notifier.setFolderNavigationPath(
+                !settings.folderNavigationPath,
+              ),
               trailing: Switch.adaptive(
                 value: settings.folderNavigationPath,
                 activeThumbColor: Colors.white,

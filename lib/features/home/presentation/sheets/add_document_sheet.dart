@@ -68,8 +68,7 @@ class AddDocumentSheet extends StatelessWidget {
           // Option 3: Import Documents
           OptionCard(
             title: 'Import Documents',
-            subtitle:
-                'Browse files, cloud storage, Google Drive, or Word docs',
+            subtitle: 'Browse files, cloud storage, Google Drive, or Word docs',
             tag: 'PDF, Word',
             tagColor: docColors.categoryOrange,
             icon: const Icon(Symbols.cloud_upload_rounded),
@@ -117,4 +116,3 @@ class AddDocumentSheet extends StatelessWidget {
     );
   }
 }
-

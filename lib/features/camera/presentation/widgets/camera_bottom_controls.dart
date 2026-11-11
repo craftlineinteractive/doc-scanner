@@ -156,10 +156,7 @@ class _CameraBottomControlsState extends State<CameraBottomControls> {
       );
     }
 
-    return ShutterButton(
-      size: 72,
-      onTap: widget.onShutterTap,
-    );
+    return ShutterButton(size: 72, onTap: widget.onShutterTap);
   }
 
   Widget _buildRightAction() {
@@ -193,11 +190,7 @@ class _CameraBottomControlsState extends State<CameraBottomControls> {
         child: SizedBox(
           width: 44,
           height: 44,
-          child: Icon(
-            icon,
-            size: 22,
-            color: Colors.white,
-          ),
+          child: Icon(icon, size: 22, color: Colors.white),
         ),
       ),
     );

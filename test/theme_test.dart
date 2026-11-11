@@ -14,10 +14,7 @@ void main() {
       final ThemeData lightTheme = AppTheme.light;
 
       expect(lightTheme.colorScheme.primary, equals(AppColors.primary));
-      expect(
-        lightTheme.scaffoldBackgroundColor,
-        equals(AppColors.canvas),
-      );
+      expect(lightTheme.scaffoldBackgroundColor, equals(AppColors.canvas));
 
       final DocColors? docColors = lightTheme.extension<DocColors>();
       expect(docColors, isNotNull);
@@ -27,21 +24,23 @@ void main() {
 
       // Component themes verification
       expect(
-        lightTheme.elevatedButtonTheme.style?.minimumSize?.resolve(<WidgetState>{}),
+        lightTheme.elevatedButtonTheme.style?.minimumSize?.resolve(
+          <WidgetState>{},
+        ),
         equals(const Size.fromHeight(52)),
       );
       expect(lightTheme.bottomSheetTheme.showDragHandle, isTrue);
-      expect(lightTheme.snackBarTheme.behavior, equals(SnackBarBehavior.floating));
+      expect(
+        lightTheme.snackBarTheme.behavior,
+        equals(SnackBarBehavior.floating),
+      );
     });
 
     test('Dark theme builds correctly with derived camera tokens', () {
       final ThemeData darkTheme = AppTheme.dark;
 
       expect(darkTheme.colorScheme.primary, equals(AppColors.cameraAccent));
-      expect(
-        darkTheme.scaffoldBackgroundColor,
-        equals(AppColors.darkCanvas),
-      );
+      expect(darkTheme.scaffoldBackgroundColor, equals(AppColors.darkCanvas));
 
       final DocColors? docColors = darkTheme.extension<DocColors>();
       expect(docColors, isNotNull);
@@ -57,10 +56,7 @@ void main() {
         cameraTheme.scaffoldBackgroundColor,
         equals(AppColors.cameraBackground),
       );
-      expect(
-        cameraTheme.extension<DocColors>(),
-        isNotNull,
-      );
+      expect(cameraTheme.extension<DocColors>(), isNotNull);
     });
   });
 }

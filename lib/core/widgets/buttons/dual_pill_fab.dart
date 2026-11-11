@@ -97,4 +97,3 @@ class _DualPillFabState extends State<DualPillFab> {
     );
   }
 }
-

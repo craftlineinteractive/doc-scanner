@@ -9,10 +9,7 @@ import '../../../../core/widgets/inputs/radio_tile.dart';
 
 /// Modal dialog allowing users to pick how many recent documents are displayed on Home.
 class RecentCountDialog extends StatefulWidget {
-  const RecentCountDialog({
-    super.key,
-    required this.initialValue,
-  });
+  const RecentCountDialog({super.key, required this.initialValue});
 
   final int initialValue;
 

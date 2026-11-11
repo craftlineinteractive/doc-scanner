@@ -9,10 +9,7 @@ import '../../theme/doc_colors.dart';
 
 /// Gold card affordance promoting PRO membership upgrades with crown iconography.
 class PremiumUpsellCard extends StatelessWidget {
-  const PremiumUpsellCard({
-    super.key,
-    this.onTap,
-  });
+  const PremiumUpsellCard({super.key, this.onTap});
 
   final VoidCallback? onTap;
 
@@ -91,4 +88,3 @@ class PremiumUpsellCard extends StatelessWidget {
     );
   }
 }
-

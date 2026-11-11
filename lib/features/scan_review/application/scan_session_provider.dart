@@ -21,8 +21,8 @@ class ScanSessionState {
 
   ScanPage? get currentPage =>
       (currentIndex >= 0 && currentIndex < pages.length)
-          ? pages[currentIndex]
-          : null;
+      ? pages[currentIndex]
+      : null;
 
   int get pageCount => pages.length;
 
@@ -141,8 +141,9 @@ class ScanSessionNotifier extends Notifier<ScanSessionState> {
   void flip(int index) {
     if (index < 0 || index >= state.pages.length) return;
     final updated = List<ScanPage>.from(state.pages);
-    updated[index] =
-        updated[index].copyWith(isFlipped: !updated[index].isFlipped);
+    updated[index] = updated[index].copyWith(
+      isFlipped: !updated[index].isFlipped,
+    );
     state = state.copyWith(pages: updated);
   }
 
@@ -176,7 +177,9 @@ class ScanSessionNotifier extends Notifier<ScanSessionState> {
       filter: ScanFilter.vividLight,
       crop: CropQuad.mockAdjust(),
     );
-    state = state.copyWith(pages: List<ScanPage>.from(state.pages)..add(newPage));
+    state = state.copyWith(
+      pages: List<ScanPage>.from(state.pages)..add(newPage),
+    );
   }
 
   void rename(String name) {
@@ -204,7 +207,6 @@ class ScanSessionNotifier extends Notifier<ScanSessionState> {
 
 /// Provider exposing [ScanSessionState].
 final NotifierProvider<ScanSessionNotifier, ScanSessionState>
-    scanSessionProvider =
-    NotifierProvider<ScanSessionNotifier, ScanSessionState>(
-        ScanSessionNotifier.new);
-
+scanSessionProvider = NotifierProvider<ScanSessionNotifier, ScanSessionState>(
+  ScanSessionNotifier.new,
+);

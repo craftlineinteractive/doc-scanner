@@ -91,8 +91,10 @@ class _OcrContentCardState extends State<OcrContentCard> {
                 },
                 borderRadius: BorderRadius.circular(8),
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 6,
+                    vertical: 3,
+                  ),
                   child: Row(
                     children: <Widget>[
                       Icon(
@@ -157,7 +159,9 @@ class _OcrContentCardState extends State<OcrContentCard> {
                               ),
                             ),
                           ),
-                        ...paragraphs.skip(1).map(
+                        ...paragraphs
+                            .skip(1)
+                            .map(
                               (String p) => Padding(
                                 padding: const EdgeInsets.only(bottom: 12),
                                 child: Text(
@@ -179,4 +183,3 @@ class _OcrContentCardState extends State<OcrContentCard> {
     );
   }
 }
-

@@ -4,10 +4,7 @@ import '../data/mock_home_repository.dart';
 import '../domain/home_repository.dart';
 
 /// Available presentation modes for document collection on the Home screen.
-enum HomeViewMode {
-  list,
-  grid,
-}
+enum HomeViewMode { list, grid }
 
 /// Notifier managing the current HomeRepository instance.
 class HomeRepositoryNotifier extends Notifier<HomeRepository> {
@@ -27,10 +24,10 @@ class EmptyHomeRepositoryNotifier extends HomeRepositoryNotifier {
 
 /// Provider exposing the current [HomeRepository].
 final NotifierProvider<HomeRepositoryNotifier, HomeRepository>
-    homeRepositoryProvider =
+homeRepositoryProvider =
     NotifierProvider<HomeRepositoryNotifier, HomeRepository>(
-  HomeRepositoryNotifier.new,
-);
+      HomeRepositoryNotifier.new,
+    );
 
 /// Notifier managing list vs grid layout toggle.
 class HomeViewModeNotifier extends Notifier<HomeViewMode> {
@@ -54,7 +51,6 @@ class GridHomeViewModeNotifier extends HomeViewModeNotifier {
 
 /// Provider exposing the current [HomeViewMode].
 final NotifierProvider<HomeViewModeNotifier, HomeViewMode>
-    homeViewModeProvider =
-    NotifierProvider<HomeViewModeNotifier, HomeViewMode>(
+homeViewModeProvider = NotifierProvider<HomeViewModeNotifier, HomeViewMode>(
   HomeViewModeNotifier.new,
 );

@@ -19,11 +19,7 @@ import '../widgets/review_top_bar.dart';
 
 /// Fullscreen multi-page review screen for inspecting, reordering, filtering, and cropping scans.
 class ReviewScanScreen extends ConsumerStatefulWidget {
-  const ReviewScanScreen({
-    super.key,
-    this.initialMode,
-    this.initialDialog,
-  });
+  const ReviewScanScreen({super.key, this.initialMode, this.initialDialog});
 
   final String? initialMode;
   final String? initialDialog;
@@ -173,7 +169,9 @@ class _ReviewScanScreenState extends ConsumerState<ReviewScanScreen> {
                         height: 28,
                         padding: const EdgeInsets.symmetric(horizontal: 14),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF1E2340).withValues(alpha: 0.75),
+                          color: const Color(
+                            0xFF1E2340,
+                          ).withValues(alpha: 0.75),
                           borderRadius: BorderRadius.circular(14),
                           boxShadow: const <BoxShadow>[
                             BoxShadow(
@@ -235,7 +233,8 @@ class _ReviewScanScreenState extends ConsumerState<ReviewScanScreen> {
               // Sub-toolbar if Color is open
               if (isColorOpen)
                 ReviewColorBar(
-                  selectedFilter: (session.currentPage ?? session.pages.first).filter,
+                  selectedFilter:
+                      (session.currentPage ?? session.pages.first).filter,
                   applyToAll: uiState.applyToAll,
                   onSelectFilter: (filter) {
                     if (uiState.applyToAll) {
@@ -342,10 +341,7 @@ class _ReviewPageCard extends StatelessWidget {
         children: <Widget>[
           RotatedBox(
             quarterTurns: page.rotationQuarterTurns,
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: document,
-            ),
+            child: Padding(padding: const EdgeInsets.all(12), child: document),
           ),
           if (showCrop)
             CropOverlay(

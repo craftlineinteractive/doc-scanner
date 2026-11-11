@@ -51,7 +51,9 @@ class _PageManagerScreenState extends ConsumerState<PageManagerScreen> {
         _isSearchActive = widget.initialState == 'search';
       });
       if (widget.initialState == 'drawer') {
-        WidgetsBinding.instance.addPostFrameCallback((_) => _showActionDrawer());
+        WidgetsBinding.instance.addPostFrameCallback(
+          (_) => _showActionDrawer(),
+        );
       }
     }
   }
@@ -124,216 +126,225 @@ class _PageManagerScreenState extends ConsumerState<PageManagerScreen> {
     return Scaffold(
       backgroundColor: AppColors.canvas,
       appBar: AppBar(
-              backgroundColor: Colors.white,
-              elevation: 1,
-              scrolledUnderElevation: 1,
-              leading: IconButton(
-                icon: const Icon(
-                  Symbols.arrow_back_rounded,
-                  color: AppColors.textPrimary,
-                ),
-                onPressed: () => context.canPop()
-                    ? context.pop()
-                    : context.go(AppRoutes.home),
+        backgroundColor: Colors.white,
+        elevation: 1,
+        scrolledUnderElevation: 1,
+        leading: IconButton(
+          icon: const Icon(
+            Symbols.arrow_back_rounded,
+            color: AppColors.textPrimary,
+          ),
+          onPressed: () =>
+              context.canPop() ? context.pop() : context.go(AppRoutes.home),
+        ),
+        titleSpacing: 0,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              doc.title,
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+                color: AppColors.textPrimary,
               ),
-              titleSpacing: 0,
-              title: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text(
-                    doc.title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Container(
+                  width: 6,
+                  height: 6,
+                  decoration: const BoxDecoration(
+                    color: AppColors.success,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                const SizedBox(width: 4),
+                Flexible(
+                  child: Text(
+                    doc.isSynced ? 'Cloud Synced' : 'Local Only',
                     style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.textPrimary,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.success,
                     ),
                     overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Container(
-                        width: 6,
-                        height: 6,
-                        decoration: const BoxDecoration(
-                          color: AppColors.success,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      const SizedBox(width: 4),
-                      Flexible(
-                        child: Text(
-                          doc.isSynced ? 'Cloud Synced' : 'Local Only',
-                          style: const TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.success,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              actions: <Widget>[
-                IconButton(
-                  icon: const Icon(Symbols.search_rounded,
-                      color: AppColors.textPrimary),
-                  onPressed: () => setState(() => _isSearchActive = true),
-                  tooltip: 'Search document',
-                ),
-                InkWell(
-                  onTap: () => context.push(
-                    '${AppRoutes.savedViewer}?id=${widget.initialDocId}&frame=5',
-                  ),
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryTint,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: const Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Icon(Symbols.picture_as_pdf_rounded,
-                            size: 16, color: AppColors.primary),
-                        SizedBox(width: 4),
-                        Text(
-                          'PDF',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.primary,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                IconButton(
-                  icon: const Icon(Symbols.more_vert_rounded,
-                      color: AppColors.textPrimary),
-                  onPressed: _showActionDrawer,
-                  tooltip: 'More options',
                 ),
               ],
             ),
+          ],
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Symbols.search_rounded,
+              color: AppColors.textPrimary,
+            ),
+            onPressed: () => setState(() => _isSearchActive = true),
+            tooltip: 'Search document',
+          ),
+          InkWell(
+            onTap: () => context.push(
+              '${AppRoutes.savedViewer}?id=${widget.initialDocId}&frame=5',
+            ),
+            borderRadius: BorderRadius.circular(8),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: AppColors.primaryTint,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Icon(
+                    Symbols.picture_as_pdf_rounded,
+                    size: 16,
+                    color: AppColors.primary,
+                  ),
+                  SizedBox(width: 4),
+                  Text(
+                    'PDF',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.primary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          IconButton(
+            icon: const Icon(
+              Symbols.more_vert_rounded,
+              color: AppColors.textPrimary,
+            ),
+            onPressed: _showActionDrawer,
+            tooltip: 'More options',
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Stack(
           children: <Widget>[
-                  Column(
+            Column(
+              children: <Widget>[
+                // Sub-metadata bar
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  color: AppColors.surfaceSubdued,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      // Sub-metadata bar
-                      Container(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        color: AppColors.surfaceSubdued,
+                      Expanded(
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Expanded(
-                              child: Row(
-                                children: <Widget>[
-                                  const Icon(
-                                    Symbols.folder_open_rounded,
-                                    size: 16,
-                                    color: AppColors.primary,
-                                  ),
-                                  const SizedBox(width: 6),
-                                  Flexible(
-                                    child: Text(
-                                      '${doc.pageCount} Pages • ${doc.sizeMb.toStringAsFixed(1)} MB • ${doc.scannedLabel}',
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        color: AppColors.textMuted,
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            const Icon(
+                              Symbols.folder_open_rounded,
+                              size: 16,
+                              color: AppColors.primary,
                             ),
-                            const SizedBox(width: 8),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 3),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(color: AppColors.hairline),
-                              ),
+                            const SizedBox(width: 6),
+                            Flexible(
                               child: Text(
-                                'Pg 1-${doc.pageCount}',
+                                '${doc.pageCount} Pages • ${doc.sizeMb.toStringAsFixed(1)} MB • ${doc.scannedLabel}',
                                 style: const TextStyle(
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w600,
-                                  color: AppColors.textPrimary,
+                                  fontSize: 12,
+                                  color: AppColors.textMuted,
                                 ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
                         ),
                       ),
-
-                      // 2-Column Grid
-                      Expanded(
-                        child: GridView.builder(
-                          padding: const EdgeInsets.fromLTRB(16, 12, 16, 96),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 12,
-                            mainAxisSpacing: 12,
-                            childAspectRatio: 0.68,
+                      const SizedBox(width: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 3,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: AppColors.hairline),
+                        ),
+                        child: Text(
+                          'Pg 1-${doc.pageCount}',
+                          style: const TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.textPrimary,
                           ),
-                          itemCount: doc.pages.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return PageManagerGridCard(
-                              page: doc.pages[index],
-                              pageNumber: index + 1,
-                              onTap: () {
-                                context.push(
-                                  '${AppRoutes.savedViewer}?id=${widget.initialDocId}&page=$index',
-                                );
-                              },
-                              onMoreTap: () {
-                                ref
-                                    .read(savedDocumentsProvider.notifier)
-                                    .rotatePage(widget.initialDocId, index);
-                                showAppSnackbar(
-                                  context: context,
-                                  message: 'Rotated Page ${index + 1}',
-                                );
-                              },
-                            );
-                          },
                         ),
                       ),
                     ],
                   ),
+                ),
 
-                  // Persistent Floating Dual Pill Capsule
-                  Positioned(
-                    bottom: 24,
-                    left: 0,
-                    right: 0,
-                    child: Center(
-                      child: LabelledDualPillFab(
-                        onScanPageTap: () => context.push(AppRoutes.camera),
-                        onImportTap: () => showAppSnackbar(
-                          context: context,
-                          message: 'Select image or document to import',
+                // 2-Column Grid
+                Expanded(
+                  child: GridView.builder(
+                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 96),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 12,
+                          mainAxisSpacing: 12,
+                          childAspectRatio: 0.68,
                         ),
-                      ),
-                    ),
+                    itemCount: doc.pages.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return PageManagerGridCard(
+                        page: doc.pages[index],
+                        pageNumber: index + 1,
+                        onTap: () {
+                          context.push(
+                            '${AppRoutes.savedViewer}?id=${widget.initialDocId}&page=$index',
+                          );
+                        },
+                        onMoreTap: () {
+                          ref
+                              .read(savedDocumentsProvider.notifier)
+                              .rotatePage(widget.initialDocId, index);
+                          showAppSnackbar(
+                            context: context,
+                            message: 'Rotated Page ${index + 1}',
+                          );
+                        },
+                      );
+                    },
                   ),
-                ],
+                ),
+              ],
+            ),
+
+            // Persistent Floating Dual Pill Capsule
+            Positioned(
+              bottom: 24,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: LabelledDualPillFab(
+                  onScanPageTap: () => context.push(AppRoutes.camera),
+                  onImportTap: () => showAppSnackbar(
+                    context: context,
+                    message: 'Select image or document to import',
+                  ),
+                ),
               ),
+            ),
+          ],
+        ),
       ),
     );
   }

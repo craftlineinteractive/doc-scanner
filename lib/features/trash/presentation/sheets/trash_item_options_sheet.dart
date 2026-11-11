@@ -102,4 +102,3 @@ class TrashItemOptionsSheet extends StatelessWidget {
     );
   }
 }
-

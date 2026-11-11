@@ -31,9 +31,7 @@ class _ComponentsInputsSectionState extends State<ComponentsInputsSection> {
       children: <Widget>[
         Text('Inputs & Controls', style: AppTypography.headlineSm),
         const SizedBox(height: AppSpacing.md),
-        AppSearchField(
-          onFilterTap: () {},
-        ),
+        AppSearchField(onFilterTap: () {}),
         const SizedBox(height: AppSpacing.md),
         const AppTextField(
           label: 'Document Title',

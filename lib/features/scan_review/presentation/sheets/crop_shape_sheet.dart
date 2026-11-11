@@ -175,4 +175,3 @@ class CropShapeSheet extends StatelessWidget {
     );
   }
 }
-

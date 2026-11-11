@@ -6,11 +6,7 @@ import '../../theme/app_typography.dart';
 
 /// Translucent modal blocking overlay displaying an active progress spinner and status text.
 class ProcessingOverlay extends StatelessWidget {
-  const ProcessingOverlay({
-    super.key,
-    required this.message,
-    this.subMessage,
-  });
+  const ProcessingOverlay({super.key, required this.message, this.subMessage});
 
   final String message;
   final String? subMessage;
@@ -42,7 +38,9 @@ class ProcessingOverlay extends StatelessWidget {
                 height: 36,
                 child: CircularProgressIndicator(
                   strokeWidth: 3,
-                  valueColor: AlwaysStoppedAnimation<Color>(AppColors.cameraAccent),
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    AppColors.cameraAccent,
+                  ),
                 ),
               ),
               const SizedBox(height: AppSpacing.lg),
@@ -71,4 +69,3 @@ class ProcessingOverlay extends StatelessWidget {
     );
   }
 }
-

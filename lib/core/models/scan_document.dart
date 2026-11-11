@@ -69,4 +69,3 @@ class ScanDocument {
     return '$day $month $year';
   }
 }
-

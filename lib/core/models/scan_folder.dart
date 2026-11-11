@@ -40,4 +40,3 @@ class ScanFolder {
     return '$itemCount $countUnit · $day $month';
   }
 }
-

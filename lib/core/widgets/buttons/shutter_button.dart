@@ -3,11 +3,7 @@ import '../../constants/app_durations.dart';
 
 /// Camera shutter button featuring an outer concentric ring and an animated tactile press scale.
 class ShutterButton extends StatefulWidget {
-  const ShutterButton({
-    super.key,
-    required this.onTap,
-    this.size = 76.0,
-  });
+  const ShutterButton({super.key, required this.onTap, this.size = 76.0});
 
   final VoidCallback onTap;
   final double size;
@@ -61,4 +57,3 @@ class _ShutterButtonState extends State<ShutterButton> {
     );
   }
 }
-

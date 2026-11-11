@@ -11,4 +11,3 @@ class AppLimits {
   static const double maxViewportWidth = 430.0;
   static const double maxTextScaleFactor = 1.3;
 }
-

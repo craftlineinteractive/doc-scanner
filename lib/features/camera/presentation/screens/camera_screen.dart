@@ -140,7 +140,9 @@ class _CameraScreenState extends ConsumerState<CameraScreen> {
     final mode = ref.read(cameraModeProvider);
     final idSides = ref.read(idScanSidesProvider);
 
-    if (mode == CameraMode.idCard && idSides == IdScanSides.both && !_idCardFlipped) {
+    if (mode == CameraMode.idCard &&
+        idSides == IdScanSides.both &&
+        !_idCardFlipped) {
       setState(() => _idCardFlipped = true);
       return;
     }
@@ -216,7 +218,8 @@ class _CameraScreenState extends ConsumerState<CameraScreen> {
                   onFlipCamera: () {
                     showAppSnackbar(
                       context: context,
-                      message: 'Camera switch is not available in the UI preview',
+                      message:
+                          'Camera switch is not available in the UI preview',
                     );
                   },
                   onSettingsTap: () {

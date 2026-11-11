@@ -3,12 +3,7 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_radii.dart';
 
 /// Preset variants for simulated document mockups.
-enum MockDocumentVariant {
-  invoice,
-  idCard,
-  contract,
-  receipt,
-}
+enum MockDocumentVariant { invoice, idCard, contract, receipt }
 
 /// Custom-painted vector mock document representing a paper document without raster assets.
 class MockDocumentPage extends StatelessWidget {
@@ -50,9 +45,7 @@ class MockDocumentPage extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: <Widget>[
-            CustomPaint(
-              painter: _DocumentPagePainter(variant: variant),
-            ),
+            CustomPaint(painter: _DocumentPagePainter(variant: variant)),
             if (showPdfBadge)
               Positioned(
                 bottom: 2,
@@ -133,8 +126,12 @@ class _DocumentPagePainter extends CustomPainter {
 
   void _paintIdCard(Canvas c, Paint l, Paint a, double w, double h) {
     // Avatar box
-    final Rect avatarRect =
-        Rect.fromLTWH(w * 0.1, h * 0.18, w * 0.28, h * 0.35);
+    final Rect avatarRect = Rect.fromLTWH(
+      w * 0.1,
+      h * 0.18,
+      w * 0.28,
+      h * 0.35,
+    );
     c.drawRRect(
       RRect.fromRectAndRadius(avatarRect, const Radius.circular(4)),
       l,
@@ -185,4 +182,3 @@ class _DocumentPagePainter extends CustomPainter {
   bool shouldRepaint(covariant _DocumentPagePainter oldDelegate) =>
       oldDelegate.variant != variant;
 }
-

@@ -24,10 +24,8 @@ class BookModeDialog extends StatelessWidget {
     return showDialog<BookScanType>(
       context: context,
       barrierColor: Colors.black.withValues(alpha: 0.6),
-      builder: (context) => BookModeDialog(
-        currentType: currentType,
-        onSelected: onSelected,
-      ),
+      builder: (context) =>
+          BookModeDialog(currentType: currentType, onSelected: onSelected),
     );
   }
 
@@ -35,9 +33,7 @@ class BookModeDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       insetPadding: const EdgeInsets.symmetric(horizontal: 24),
       child: Container(
         width: 340,
@@ -79,10 +75,7 @@ class BookModeDialog extends StatelessWidget {
     );
   }
 
-  Widget _buildOptionRow(
-    BuildContext context, {
-    required BookScanType type,
-  }) {
+  Widget _buildOptionRow(BuildContext context, {required BookScanType type}) {
     final isSelected = type == currentType;
     final borderColor = isSelected
         ? AppColors.primary
@@ -162,8 +155,9 @@ class BookModeDialog extends StatelessWidget {
                         color: isSelected
                             ? AppColors.primary
                             : const Color(0xFF8A90A6),
-                        fontWeight:
-                            isSelected ? FontWeight.w500 : FontWeight.w400,
+                        fontWeight: isSelected
+                            ? FontWeight.w500
+                            : FontWeight.w400,
                         fontSize: 11,
                       ),
                     ),

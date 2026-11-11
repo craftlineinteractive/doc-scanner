@@ -53,4 +53,3 @@ class AppColors {
   static const Color categoryRose = Color(0xFFF43F5E);
   static const Color categoryRoseTint = Color(0xFFFFF1F2);
 }
-

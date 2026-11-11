@@ -3,11 +3,7 @@ import '../domain/crop_quad.dart';
 import '../domain/scan_filter.dart';
 
 /// Active bottom sub-mode in Review screen.
-enum ReviewToolbarMode {
-  none,
-  crop,
-  color,
-}
+enum ReviewToolbarMode { none, crop, color }
 
 /// In-memory UI state for Review screen sub-modes and draft edits.
 class ReviewUiState {
@@ -74,4 +70,3 @@ class ReviewUiNotifier extends Notifier<ReviewUiState> {
 /// Provider for [ReviewUiState].
 final NotifierProvider<ReviewUiNotifier, ReviewUiState> reviewUiProvider =
     NotifierProvider<ReviewUiNotifier, ReviewUiState>(ReviewUiNotifier.new);
-

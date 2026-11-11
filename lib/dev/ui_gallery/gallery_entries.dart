@@ -268,7 +268,8 @@ const List<GallerySection> kGallerySections = <GallerySection>[
         title: '01 Adjust Crop Default',
         subtitle: 'Dark adjust screen, quadrilateral 4-point crop handles',
         route: AppRoutes.adjust,
-        mockupFolder: 'mockups/DocScanner/04_scan_review/01_adjust_crop_default',
+        mockupFolder:
+            'mockups/DocScanner/04_scan_review/01_adjust_crop_default',
         mockupFrame: '01 (Adjust Default)',
         badge: 'Default',
       ),
@@ -736,8 +737,7 @@ const List<GallerySection> kGallerySections = <GallerySection>[
       GalleryEntry(
         group: '09_settings',
         title: '07 Date and Time Format Picker',
-        subtitle:
-            'Date format picker with 4 standard presentation patterns',
+        subtitle: 'Date format picker with 4 standard presentation patterns',
         route: '${AppRoutes.settings}?dialog=format',
         mockupFolder:
             'mockups/DocScanner/09_settings/01_settings_suite_6_frames',
@@ -757,8 +757,7 @@ const List<GallerySection> kGallerySections = <GallerySection>[
       GalleryEntry(
         group: '09_settings',
         title: '09 Hint Toast Notification',
-        subtitle:
-            'Capsule toast: "Turn on Tags to use Favourite Documents"',
+        subtitle: 'Capsule toast: "Turn on Tags to use Favourite Documents"',
         route: '${AppRoutes.settings}?hint=true',
         mockupFolder:
             'mockups/DocScanner/09_settings/01_settings_suite_6_frames',

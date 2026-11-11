@@ -4,18 +4,12 @@ import '../domain/photo_size.dart';
 
 /// Immutable state holding the active photo size selection and the presets list.
 class PhotoSizeState {
-  const PhotoSizeState({
-    required this.selectedSize,
-    required this.sizes,
-  });
+  const PhotoSizeState({required this.selectedSize, required this.sizes});
 
   final PhotoSize selectedSize;
   final List<PhotoSize> sizes;
 
-  PhotoSizeState copyWith({
-    PhotoSize? selectedSize,
-    List<PhotoSize>? sizes,
-  }) {
+  PhotoSizeState copyWith({PhotoSize? selectedSize, List<PhotoSize>? sizes}) {
     return PhotoSizeState(
       selectedSize: selectedSize ?? this.selectedSize,
       sizes: sizes ?? this.sizes,
@@ -79,4 +73,3 @@ class PhotoSizeNotifier extends Notifier<PhotoSizeState> {
 /// Provider exposing [PhotoSizeState].
 final NotifierProvider<PhotoSizeNotifier, PhotoSizeState> photoSizeProvider =
     NotifierProvider<PhotoSizeNotifier, PhotoSizeState>(PhotoSizeNotifier.new);
-

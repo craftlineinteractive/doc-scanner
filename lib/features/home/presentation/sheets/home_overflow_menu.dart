@@ -16,10 +16,7 @@ import '../../application/home_providers.dart';
 
 /// Floating overflow menu anchored from the top-right more actions button.
 class HomeOverflowMenu extends ConsumerStatefulWidget {
-  const HomeOverflowMenu({
-    super.key,
-    this.initialImportExpanded = false,
-  });
+  const HomeOverflowMenu({super.key, this.initialImportExpanded = false});
 
   final bool initialImportExpanded;
 
@@ -358,10 +355,7 @@ class _HomeOverflowMenuState extends ConsumerState<HomeOverflowMenu> {
 
   Widget _buildDivider() {
     return const Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSpacing.md,
-        vertical: 3,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: 3),
       child: Divider(color: AppColors.hairline, height: 1),
     );
   }

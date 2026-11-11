@@ -121,13 +121,11 @@ class AppSettings {
       systemCamera: systemCamera ?? this.systemCamera,
       cameraAsHome: cameraAsHome ?? this.cameraAsHome,
       captureSound: captureSound ?? this.captureSound,
-      volumeButtonsCapture:
-          volumeButtonsCapture ?? this.volumeButtonsCapture,
+      volumeButtonsCapture: volumeButtonsCapture ?? this.volumeButtonsCapture,
       appLanguage: appLanguage ?? this.appLanguage,
       analytics: analytics ?? this.analytics,
       enableSystemGallery: enableSystemGallery ?? this.enableSystemGallery,
-      folderNavigationPath:
-          folderNavigationPath ?? this.folderNavigationPath,
+      folderNavigationPath: folderNavigationPath ?? this.folderNavigationPath,
       ocrLanguage: ocrLanguage ?? this.ocrLanguage,
     );
   }

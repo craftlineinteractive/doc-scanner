@@ -36,14 +36,12 @@ class SettingsTile extends StatelessWidget {
     final Color textColor = isDestructive
         ? AppColors.destructive
         : (isEnabled
-            ? Theme.of(context).colorScheme.onSurface
-            : AppColors.textMuted.withValues(alpha: 0.6));
+              ? Theme.of(context).colorScheme.onSurface
+              : AppColors.textMuted.withValues(alpha: 0.6));
 
     final Color iconBg = isDestructive
         ? AppColors.destructiveTint
-        : (isEnabled
-            ? docColors.primaryTint
-            : docColors.surfaceSubdued);
+        : (isEnabled ? docColors.primaryTint : docColors.surfaceSubdued);
 
     final Color iconColor = isDestructive
         ? AppColors.destructive
@@ -72,10 +70,7 @@ class SettingsTile extends StatelessWidget {
                     ),
                     alignment: Alignment.center,
                     child: IconTheme(
-                      data: IconThemeData(
-                        color: iconColor,
-                        size: 20,
-                      ),
+                      data: IconThemeData(color: iconColor, size: 20),
                       child: icon!,
                     ),
                   ),

@@ -147,10 +147,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 ),
                 child: const Text(
                   'Done',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                 ),
               ),
             ),
@@ -160,4 +157,3 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
     );
   }
 }
-

@@ -20,10 +20,8 @@ class DocNameDialog extends StatefulWidget {
     return showDialog<String>(
       context: context,
       barrierColor: Colors.black.withValues(alpha: 0.5),
-      builder: (BuildContext ctx) => DocNameDialog(
-        initialName: initialName,
-        onSave: onSave,
-      ),
+      builder: (BuildContext ctx) =>
+          DocNameDialog(initialName: initialName, onSave: onSave),
     );
   }
 
@@ -144,7 +142,9 @@ class _DocNameDialogState extends State<DocNameDialog> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       foregroundColor: Colors.white,
-                      disabledBackgroundColor: AppColors.primary.withValues(alpha: 0.5),
+                      disabledBackgroundColor: AppColors.primary.withValues(
+                        alpha: 0.5,
+                      ),
                       disabledForegroundColor: Colors.white70,
                       elevation: 2,
                       padding: const EdgeInsets.symmetric(
@@ -172,4 +172,3 @@ class _DocNameDialogState extends State<DocNameDialog> {
     );
   }
 }
-

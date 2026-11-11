@@ -11,9 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Widget _buildTrashApp({
-  String initialState = 'list',
-}) {
+Widget _buildTrashApp({String initialState = 'list'}) {
   return ProviderScope(
     overrides: [
       trashRepositoryProvider.overrideWithValue(
@@ -29,8 +27,9 @@ Widget _buildTrashApp({
 
 void main() {
   group('M7: Trash Suite Tests', () {
-    testWidgets('1. trash_renders_folders_and_documents_sections',
-        (tester) async {
+    testWidgets('1. trash_renders_folders_and_documents_sections', (
+      tester,
+    ) async {
       await tester.binding.setSurfaceSize(const Size(390, 844));
       addTearDown(() => tester.binding.setSurfaceSize(null));
 
@@ -65,11 +64,15 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      final Finder twoDaysFinder = find.widgetWithText(DaysLeftChip, '2 days left');
+      final Finder twoDaysFinder = find.widgetWithText(
+        DaysLeftChip,
+        '2 days left',
+      );
       expect(twoDaysFinder, findsOneWidget);
 
-      final Finder twentyNineFinder =
-          find.widgetWithText(DaysLeftChip, '29 days left').first;
+      final Finder twentyNineFinder = find
+          .widgetWithText(DaysLeftChip, '29 days left')
+          .first;
       expect(twentyNineFinder, findsOneWidget);
     });
 

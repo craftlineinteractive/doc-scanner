@@ -43,7 +43,10 @@ class PostScanCanvas extends StatelessWidget {
               final ViewerPage page = pages[index];
               return Center(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 20,
+                  ),
                   child: InteractiveViewer(
                     minScale: 0.8,
                     maxScale: 3.5,
@@ -53,7 +56,8 @@ class PostScanCanvas extends StatelessWidget {
                         RotatedBox(
                           quarterTurns: page.rotationQuarterTurns,
                           child: ColorFiltered(
-                            colorFilter: page.filter.colorFilter ??
+                            colorFilter:
+                                page.filter.colorFilter ??
                                 const ColorFilter.mode(
                                   Colors.transparent,
                                   BlendMode.dst,
@@ -76,7 +80,9 @@ class PostScanCanvas extends StatelessWidget {
                               margin: const EdgeInsets.all(16),
                               decoration: BoxDecoration(
                                 border: Border.all(
-                                  color: AppColors.primary.withValues(alpha: 0.4),
+                                  color: AppColors.primary.withValues(
+                                    alpha: 0.4,
+                                  ),
                                   width: 1.5,
                                 ),
                                 borderRadius: BorderRadius.circular(4),
@@ -85,21 +91,43 @@ class PostScanCanvas extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Container(
-                                    margin: const EdgeInsets.only(top: 24, left: 16),
-                                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                                    color: AppColors.gold.withValues(alpha: 0.35),
+                                    margin: const EdgeInsets.only(
+                                      top: 24,
+                                      left: 16,
+                                    ),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 4,
+                                      vertical: 2,
+                                    ),
+                                    color: AppColors.gold.withValues(
+                                      alpha: 0.35,
+                                    ),
                                     child: const Text(
                                       'GLOBAL LOGISTICS LLC #INV-2026-091',
-                                      style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                        fontSize: 8,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                   Container(
-                                    margin: const EdgeInsets.only(top: 8, left: 16),
-                                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                                    color: AppColors.gold.withValues(alpha: 0.35),
+                                    margin: const EdgeInsets.only(
+                                      top: 8,
+                                      left: 16,
+                                    ),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 4,
+                                      vertical: 2,
+                                    ),
+                                    color: AppColors.gold.withValues(
+                                      alpha: 0.35,
+                                    ),
                                     child: const Text(
                                       'TOTAL DUE \$165.00',
-                                      style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                        fontSize: 8,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -108,7 +136,8 @@ class PostScanCanvas extends StatelessWidget {
                           ),
 
                         // Active interactive crop overlay
-                        if (toolTier == ViewerToolTier.crop && index == currentIndex)
+                        if (toolTier == ViewerToolTier.crop &&
+                            index == currentIndex)
                           Positioned.fill(
                             child: CropOverlay(
                               initialTopLeft: page.crop.topLeft,
@@ -142,7 +171,10 @@ class PostScanCanvas extends StatelessWidget {
               left: 0,
               right: 0,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 8,
+                ),
                 color: AppColors.primary,
                 child: const Row(
                   children: <Widget>[
@@ -171,7 +203,10 @@ class PostScanCanvas extends StatelessWidget {
               right: 0,
               child: Center(
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 5,
+                  ),
                   decoration: BoxDecoration(
                     color: AppColors.textPrimary.withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(16),

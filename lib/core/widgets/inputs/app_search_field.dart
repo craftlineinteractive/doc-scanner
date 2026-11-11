@@ -90,4 +90,3 @@ class AppSearchField extends StatelessWidget {
     );
   }
 }
-

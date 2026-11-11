@@ -13,4 +13,3 @@ class MockTrashRepository implements TrashRepository {
     return items ?? List<TrashItem>.from(mockTrashItems);
   }
 }
-

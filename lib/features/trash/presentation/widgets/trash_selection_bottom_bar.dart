@@ -37,76 +37,71 @@ class TrashSelectionBottomBar extends StatelessWidget {
           height: 64,
           child: Row(
             children: <Widget>[
-            Expanded(
-              child: InkWell(
-                onTap: hasSelection ? onRestore : null,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(
-                        Symbols.restore_from_trash_rounded,
-                        color: hasSelection
-                            ? AppColors.primary
-                            : AppColors.textMuted.withValues(alpha: 0.5),
-                        size: 20,
-                      ),
-                      const SizedBox(height: 3),
-                      Text(
-                        'Restore',
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w600,
+              Expanded(
+                child: InkWell(
+                  onTap: hasSelection ? onRestore : null,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Symbols.restore_from_trash_rounded,
                           color: hasSelection
                               ? AppColors.primary
                               : AppColors.textMuted.withValues(alpha: 0.5),
+                          size: 20,
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 3),
+                        Text(
+                          'Restore',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                            color: hasSelection
+                                ? AppColors.primary
+                                : AppColors.textMuted.withValues(alpha: 0.5),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            Container(
-              width: 1,
-              height: 32,
-              color: AppColors.hairline,
-            ),
-            Expanded(
-              child: InkWell(
-                onTap: hasSelection ? onDeleteForever : null,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(
-                        Symbols.delete_forever_rounded,
-                        color: hasSelection
-                            ? AppColors.destructive
-                            : AppColors.textMuted.withValues(alpha: 0.5),
-                        size: 20,
-                      ),
-                      const SizedBox(height: 3),
-                      Text(
-                        'Delete forever',
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w600,
+              Container(width: 1, height: 32, color: AppColors.hairline),
+              Expanded(
+                child: InkWell(
+                  onTap: hasSelection ? onDeleteForever : null,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Symbols.delete_forever_rounded,
                           color: hasSelection
                               ? AppColors.destructive
                               : AppColors.textMuted.withValues(alpha: 0.5),
+                          size: 20,
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 3),
+                        Text(
+                          'Delete forever',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                            color: hasSelection
+                                ? AppColors.destructive
+                                : AppColors.textMuted.withValues(alpha: 0.5),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
-}
-

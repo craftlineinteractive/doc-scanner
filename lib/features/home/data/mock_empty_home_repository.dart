@@ -12,4 +12,3 @@ class MockEmptyHomeRepository implements HomeRepository {
   @override
   List<ScanDocument> documents() => const <ScanDocument>[];
 }
-

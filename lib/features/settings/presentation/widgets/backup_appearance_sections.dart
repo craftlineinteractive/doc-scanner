@@ -13,10 +13,7 @@ import '../dialogs/theme_select_dialog.dart';
 
 /// Renders BACKUP & SYNC and APPEARANCE & HOME settings sections.
 class BackupAppearanceSections extends ConsumerWidget {
-  const BackupAppearanceSections({
-    super.key,
-    required this.onShowHintToast,
-  });
+  const BackupAppearanceSections({super.key, required this.onShowHintToast});
 
   final VoidCallback onShowHintToast;
 
@@ -77,9 +74,9 @@ class BackupAppearanceSections extends ConsumerWidget {
               onTap: () async {
                 final SettingsDateTimeFormat? format =
                     await DateFormatDialog.show(
-                  context,
-                  settings.dateTimeFormat,
-                );
+                      context,
+                      settings.dateTimeFormat,
+                    );
                 if (format != null) {
                   notifier.setDateTimeFormat(format);
                 }
@@ -117,8 +114,8 @@ class BackupAppearanceSections extends ConsumerWidget {
               onDisabledTap: onShowHintToast,
               onTap: settings.tags
                   ? () => notifier.setFavouriteDocuments(
-                        !settings.favouriteDocuments,
-                      )
+                      !settings.favouriteDocuments,
+                    )
                   : onShowHintToast,
               trailing: IgnorePointer(
                 ignoring: !settings.tags,
@@ -126,8 +123,9 @@ class BackupAppearanceSections extends ConsumerWidget {
                   value: settings.favouriteDocuments,
                   activeThumbColor: Colors.white,
                   activeTrackColor: AppColors.primary,
-                  onChanged:
-                      settings.tags ? notifier.setFavouriteDocuments : null,
+                  onChanged: settings.tags
+                      ? notifier.setFavouriteDocuments
+                      : null,
                 ),
               ),
             ),
@@ -135,7 +133,8 @@ class BackupAppearanceSections extends ConsumerWidget {
               title: 'Recent Documents',
               subtitle: 'Show recent documents on home screen',
               icon: const Icon(Symbols.history_rounded),
-              onTap: () => notifier.setRecentDocuments(!settings.recentDocuments),
+              onTap: () =>
+                  notifier.setRecentDocuments(!settings.recentDocuments),
               trailing: Switch.adaptive(
                 value: settings.recentDocuments,
                 activeThumbColor: Colors.white,

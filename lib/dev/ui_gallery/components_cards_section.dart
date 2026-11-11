@@ -23,8 +23,7 @@ class ComponentsCardsSection extends StatefulWidget {
   const ComponentsCardsSection({super.key});
 
   @override
-  State<ComponentsCardsSection> createState() =>
-      _ComponentsCardsSectionState();
+  State<ComponentsCardsSection> createState() => _ComponentsCardsSectionState();
 }
 
 class _ComponentsCardsSectionState extends State<ComponentsCardsSection> {
@@ -45,7 +44,10 @@ class _ComponentsCardsSectionState extends State<ComponentsCardsSection> {
           children: <Widget>[
             ProPill(),
             StatusChip(label: 'Synced', variant: StatusChipVariant.success),
-            StatusChip(label: '100% On-Device', variant: StatusChipVariant.primary),
+            StatusChip(
+              label: '100% On-Device',
+              variant: StatusChipVariant.primary,
+            ),
             StatusChip(label: 'Expiring', variant: StatusChipVariant.warning),
             CountBadge(count: 7),
             DaysLeftChip(daysRemaining: 18),
@@ -58,16 +60,25 @@ class _ComponentsCardsSectionState extends State<ComponentsCardsSection> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: <String>['Original', 'Auto Enhance', 'Vivid Light', 'Grayscale', 'B&W']
-                .map((name) => Padding(
-                      padding: const EdgeInsets.only(right: AppSpacing.md),
-                      child: FilterPresetThumb(
-                        name: name,
-                        isSelected: _selectedFilter == name,
-                        onTap: () => setState(() => _selectedFilter = name),
+            children:
+                <String>[
+                      'Original',
+                      'Auto Enhance',
+                      'Vivid Light',
+                      'Grayscale',
+                      'B&W',
+                    ]
+                    .map(
+                      (name) => Padding(
+                        padding: const EdgeInsets.only(right: AppSpacing.md),
+                        child: FilterPresetThumb(
+                          name: name,
+                          isSelected: _selectedFilter == name,
+                          onTap: () => setState(() => _selectedFilter = name),
+                        ),
                       ),
-                    ))
-                .toList(),
+                    )
+                    .toList(),
           ),
         ),
         const SizedBox(height: AppSpacing.lg),
@@ -166,4 +177,3 @@ class _ComponentsCardsSectionState extends State<ComponentsCardsSection> {
     );
   }
 }
-

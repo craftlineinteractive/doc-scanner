@@ -31,8 +31,9 @@ Widget _buildSettingsApp({
 
 void main() {
   group('M8 Settings Tests', () {
-    testWidgets('All section labels render and version caption reads 1.0.0',
-        (WidgetTester tester) async {
+    testWidgets('All section labels render and version caption reads 1.0.0', (
+      WidgetTester tester,
+    ) async {
       tester.view.physicalSize = const Size(1080, 2400);
       tester.view.devicePixelRatio = 2.5;
       addTearDown(tester.view.resetPhysicalSize);
@@ -63,52 +64,56 @@ void main() {
     });
 
     testWidgets(
-        'Tags off disables Favourite Documents and shows hint; turning Tags on enables it',
-        (WidgetTester tester) async {
-      tester.view.physicalSize = const Size(1080, 2400);
-      tester.view.devicePixelRatio = 2.5;
-      addTearDown(tester.view.resetPhysicalSize);
-      addTearDown(tester.view.resetDevicePixelRatio);
+      'Tags off disables Favourite Documents and shows hint; turning Tags on enables it',
+      (WidgetTester tester) async {
+        tester.view.physicalSize = const Size(1080, 2400);
+        tester.view.devicePixelRatio = 2.5;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
 
-      await tester.pumpWidget(_buildSettingsApp());
-      await tester.pumpAndSettle();
+        await tester.pumpWidget(_buildSettingsApp());
+        await tester.pumpAndSettle();
 
-      // Tap Favourite Documents while Tags is off
-      await tester.tap(find.text('Favourite Documents'));
-      await tester.pumpAndSettle();
+        // Tap Favourite Documents while Tags is off
+        await tester.tap(find.text('Favourite Documents'));
+        await tester.pumpAndSettle();
 
-      expect(
-        find.text('Turn on Tags to use Favourite Documents'),
-        findsOneWidget,
-      );
+        expect(
+          find.text('Turn on Tags to use Favourite Documents'),
+          findsOneWidget,
+        );
 
-      // Now toggle Tags switch on
-      await tester.tap(find.text('Tags'));
-      await tester.pumpAndSettle();
+        // Now toggle Tags switch on
+        await tester.tap(find.text('Tags'));
+        await tester.pumpAndSettle();
 
-      // Tapping Favourite Documents now toggles it without showing error hint
-      await tester.tap(find.text('Favourite Documents'));
-      await tester.pumpAndSettle();
+        // Tapping Favourite Documents now toggles it without showing error hint
+        await tester.tap(find.text('Favourite Documents'));
+        await tester.pumpAndSettle();
 
-      // Verify Favourite Documents switch state changed
-      final Finder favSwitch = find.descendant(
-        of: find.ancestor(
-          of: find.text('Favourite Documents'),
-          matching: find.byType(Row),
-        ).first,
-        matching: find.byType(Switch),
-      );
-      expect((tester.widget(favSwitch) as Switch).value, isTrue);
+        // Verify Favourite Documents switch state changed
+        final Finder favSwitch = find.descendant(
+          of: find
+              .ancestor(
+                of: find.text('Favourite Documents'),
+                matching: find.byType(Row),
+              )
+              .first,
+          matching: find.byType(Switch),
+        );
+        expect((tester.widget(favSwitch) as Switch).value, isTrue);
 
-      // Turning Tags back off automatically resets Favourite Documents
-      await tester.tap(find.text('Tags'));
-      await tester.pumpAndSettle();
+        // Turning Tags back off automatically resets Favourite Documents
+        await tester.tap(find.text('Tags'));
+        await tester.pumpAndSettle();
 
-      expect((tester.widget(favSwitch) as Switch).value, isFalse);
-    });
+        expect((tester.widget(favSwitch) as Switch).value, isFalse);
+      },
+    );
 
-    testWidgets('Theme dialog: choosing Dark and OK changes app theme mode',
-        (WidgetTester tester) async {
+    testWidgets('Theme dialog: choosing Dark and OK changes app theme mode', (
+      WidgetTester tester,
+    ) async {
       tester.view.physicalSize = const Size(1080, 2400);
       tester.view.devicePixelRatio = 2.5;
       addTearDown(tester.view.resetPhysicalSize);
@@ -133,8 +138,9 @@ void main() {
       expect(find.text('Dark'), findsOneWidget);
     });
 
-    testWidgets('Scan quality dialog: choosing Original updates tile value',
-        (WidgetTester tester) async {
+    testWidgets('Scan quality dialog: choosing Original updates tile value', (
+      WidgetTester tester,
+    ) async {
       tester.view.physicalSize = const Size(1080, 2400);
       tester.view.devicePixelRatio = 2.5;
       addTearDown(tester.view.resetPhysicalSize);
@@ -166,8 +172,9 @@ void main() {
       expect(find.text('Original'), findsOneWidget);
     });
 
-    testWidgets('Recent documents count picker: choosing 25 updates tile',
-        (WidgetTester tester) async {
+    testWidgets('Recent documents count picker: choosing 25 updates tile', (
+      WidgetTester tester,
+    ) async {
       tester.view.physicalSize = const Size(1080, 2400);
       tester.view.devicePixelRatio = 2.5;
       addTearDown(tester.view.resetPhysicalSize);
@@ -199,8 +206,9 @@ void main() {
       expect(find.text('25'), findsOneWidget);
     });
 
-    testWidgets('Reset dialog Cancel keeps values; Reset restores defaults',
-        (WidgetTester tester) async {
+    testWidgets('Reset dialog Cancel keeps values; Reset restores defaults', (
+      WidgetTester tester,
+    ) async {
       tester.view.physicalSize = const Size(1080, 2400);
       tester.view.devicePixelRatio = 2.5;
       addTearDown(tester.view.resetPhysicalSize);

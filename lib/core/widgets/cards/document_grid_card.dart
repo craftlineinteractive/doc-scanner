@@ -57,11 +57,9 @@ class DocumentGridCard extends StatelessWidget {
                   color: docColors.surfaceSubdued,
                   padding: const EdgeInsets.all(AppSpacing.sm),
                   child: Center(
-                    child: thumbnail ??
-                        MockDocumentPage(
-                          variant: variant,
-                          showBorder: true,
-                        ),
+                    child:
+                        thumbnail ??
+                        MockDocumentPage(variant: variant, showBorder: true),
                   ),
                 ),
               ),
@@ -115,4 +113,3 @@ class DocumentGridCard extends StatelessWidget {
     );
   }
 }
-

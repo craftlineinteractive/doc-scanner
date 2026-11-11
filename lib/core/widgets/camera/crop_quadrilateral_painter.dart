@@ -73,4 +73,3 @@ class CropQuadrilateralPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CropQuadrilateralPainter oldDelegate) => true;
 }
-

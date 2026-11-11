@@ -120,9 +120,8 @@ class MockPdfTools {
 
   /// All 14 actionable conversion and document tools.
   static List<PdfTool> get all14Tools => <PdfTool>[
-        ...documentTools,
-        ...toOtherFormat,
-        ...formatToPdf,
-      ];
+    ...documentTools,
+    ...toOtherFormat,
+    ...formatToPdf,
+  ];
 }
-

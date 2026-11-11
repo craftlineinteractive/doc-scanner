@@ -70,10 +70,7 @@ class DocumentCameraSections extends ConsumerWidget {
               valueText: settings.scanQuality.label,
               onTap: () async {
                 final SettingsScanQuality? quality =
-                    await ScanQualityDialog.show(
-                  context,
-                  settings.scanQuality,
-                );
+                    await ScanQualityDialog.show(context, settings.scanQuality);
                 if (quality != null) {
                   notifier.setScanQuality(quality);
                 }
@@ -107,7 +104,8 @@ class DocumentCameraSections extends ConsumerWidget {
               title: 'Auto Save to Gallery',
               subtitle: 'Save new scans into your gallery',
               icon: const Icon(Symbols.image_rounded),
-              onTap: () => notifier.setAutoSaveToGallery(!settings.autoSaveToGallery),
+              onTap: () =>
+                  notifier.setAutoSaveToGallery(!settings.autoSaveToGallery),
               trailing: Switch.adaptive(
                 value: settings.autoSaveToGallery,
                 activeThumbColor: Colors.white,
@@ -175,7 +173,9 @@ class DocumentCameraSections extends ConsumerWidget {
               title: 'Volume Buttons to Capture',
               subtitle: 'Use volume keys as the shutter',
               icon: const Icon(Symbols.camera_rounded),
-              onTap: () => notifier.setVolumeButtonsCapture(!settings.volumeButtonsCapture),
+              onTap: () => notifier.setVolumeButtonsCapture(
+                !settings.volumeButtonsCapture,
+              ),
               trailing: Switch.adaptive(
                 value: settings.volumeButtonsCapture,
                 activeThumbColor: Colors.white,

@@ -4,4 +4,3 @@ import 'trash_item.dart';
 abstract class TrashRepository {
   List<TrashItem> getTrashItems();
 }
-

@@ -15,10 +15,7 @@ import '../widgets/trash_selection_bottom_bar.dart';
 
 /// Screen presenting deleted documents and folders with batch restore and cleanup.
 class TrashScreen extends ConsumerStatefulWidget {
-  const TrashScreen({
-    super.key,
-    this.initialState = 'list',
-  });
+  const TrashScreen({super.key, this.initialState = 'list'});
 
   final String initialState;
 
@@ -52,7 +49,9 @@ class _TrashScreenState extends ConsumerState<TrashScreen> {
       case 'options':
         final List<TrashItem> items = ref.read(trashProvider).items;
         if (items.isNotEmpty) {
-          _showItemOptions(items.firstWhere((i) => !i.isFolder, orElse: () => items.first));
+          _showItemOptions(
+            items.firstWhere((i) => !i.isFolder, orElse: () => items.first),
+          );
         }
         break;
       case 'deleteDialog':
@@ -86,7 +85,9 @@ class _TrashScreenState extends ConsumerState<TrashScreen> {
   }
 
   void _restoreSingleItem(TrashItem item) {
-    final TrashItem? restored = ref.read(trashProvider.notifier).restore(item.id);
+    final TrashItem? restored = ref
+        .read(trashProvider.notifier)
+        .restore(item.id);
     if (restored != null) {
       _showRestoredToast(hasMissingFolder: restored.originalFolderMissing);
     }
@@ -107,8 +108,12 @@ class _TrashScreenState extends ConsumerState<TrashScreen> {
   }
 
   void _restoreAll() {
-    final List<TrashItem> restored = ref.read(trashProvider.notifier).restoreAll();
-    final bool missingFolder = restored.any((item) => item.originalFolderMissing);
+    final List<TrashItem> restored = ref
+        .read(trashProvider.notifier)
+        .restoreAll();
+    final bool missingFolder = restored.any(
+      (item) => item.originalFolderMissing,
+    );
     _showRestoredToast(hasMissingFolder: missingFolder);
   }
 
@@ -221,7 +226,11 @@ class _TrashScreenState extends ConsumerState<TrashScreen> {
                 value: 'select',
                 child: Row(
                   children: <Widget>[
-                    Icon(Symbols.checklist_rounded, size: 18, color: AppColors.textMuted),
+                    Icon(
+                      Symbols.checklist_rounded,
+                      size: 18,
+                      color: AppColors.textMuted,
+                    ),
                     SizedBox(width: 12),
                     Text('Select', style: TextStyle(fontSize: 14)),
                   ],
@@ -232,7 +241,11 @@ class _TrashScreenState extends ConsumerState<TrashScreen> {
                 value: 'restore_all',
                 child: Row(
                   children: <Widget>[
-                    Icon(Symbols.restore_from_trash_rounded, size: 18, color: AppColors.textMuted),
+                    Icon(
+                      Symbols.restore_from_trash_rounded,
+                      size: 18,
+                      color: AppColors.textMuted,
+                    ),
                     SizedBox(width: 12),
                     Text('Restore all', style: TextStyle(fontSize: 14)),
                   ],
@@ -243,7 +256,11 @@ class _TrashScreenState extends ConsumerState<TrashScreen> {
                 value: 'empty_trash',
                 child: Row(
                   children: <Widget>[
-                    Icon(Symbols.delete_forever_rounded, size: 18, color: AppColors.destructive),
+                    Icon(
+                      Symbols.delete_forever_rounded,
+                      size: 18,
+                      color: AppColors.destructive,
+                    ),
                     SizedBox(width: 12),
                     Text(
                       'Empty trash',
@@ -295,10 +312,10 @@ class _TrashScreenState extends ConsumerState<TrashScreen> {
   }
 
   Widget _buildTrashList(TrashState state, TrashNotifier notifier) {
-    final List<TrashItem> folders =
-        state.items.where((i) => i.isFolder).toList();
-    final List<TrashItem> docs =
-        state.items.where((i) => !i.isFolder).toList();
+    final List<TrashItem> folders = state.items
+        .where((i) => i.isFolder)
+        .toList();
+    final List<TrashItem> docs = state.items.where((i) => !i.isFolder).toList();
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
@@ -378,4 +395,3 @@ class _TrashScreenState extends ConsumerState<TrashScreen> {
     );
   }
 }
-

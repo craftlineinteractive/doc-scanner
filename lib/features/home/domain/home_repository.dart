@@ -6,4 +6,3 @@ abstract class HomeRepository {
   List<ScanFolder> folders();
   List<ScanDocument> documents();
 }
-

@@ -22,9 +22,7 @@ class PremiumFeaturesCard extends StatelessWidget {
             if (i > 0) const SizedBox(height: 10),
             Row(
               children: <Widget>[
-                Expanded(
-                  child: _FeatureItem(label: mockPremiumFeatures[i]),
-                ),
+                Expanded(child: _FeatureItem(label: mockPremiumFeatures[i])),
                 const SizedBox(width: 12),
                 if (i + 1 < mockPremiumFeatures.length)
                   Expanded(
@@ -83,4 +81,3 @@ class _FeatureItem extends StatelessWidget {
     );
   }
 }
-

@@ -61,7 +61,9 @@ class PremiumPlanCard extends StatelessWidget {
                     child: Icon(
                       Symbols.check_rounded,
                       size: 15,
-                      color: isSelected ? Colors.white : const Color(0xFFEFF4FF),
+                      color: isSelected
+                          ? Colors.white
+                          : const Color(0xFFEFF4FF),
                       weight: 700,
                     ),
                   ),
@@ -211,4 +213,3 @@ class PremiumPlanCard extends StatelessWidget {
     );
   }
 }
-

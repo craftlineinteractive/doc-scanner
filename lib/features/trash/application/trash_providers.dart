@@ -110,8 +110,9 @@ class TrashNotifier extends Notifier<TrashState> {
 
   /// Permanently removes the items with the provided IDs.
   void deleteForever(Set<String> ids) {
-    final List<TrashItem> remaining =
-        state.items.where((item) => !ids.contains(item.id)).toList();
+    final List<TrashItem> remaining = state.items
+        .where((item) => !ids.contains(item.id))
+        .toList();
     final Set<String> nextSelected = Set<String>.from(state.selectedIds)
       ..removeAll(ids);
 
@@ -148,31 +149,21 @@ class TrashNotifier extends Notifier<TrashState> {
 
   /// Enters selection mode with the target item selected.
   void startSelect(String id) {
-    state = state.copyWith(
-      selectedIds: <String>{id},
-      isSelecting: true,
-    );
+    state = state.copyWith(selectedIds: <String>{id}, isSelecting: true);
   }
 
   /// Selects all available items in the trash.
   void selectAll() {
     final Set<String> allIds = state.items.map((e) => e.id).toSet();
-    state = state.copyWith(
-      selectedIds: allIds,
-      isSelecting: true,
-    );
+    state = state.copyWith(selectedIds: allIds, isSelecting: true);
   }
 
   /// Clears active selection and leaves selection mode.
   void clearSelection() {
-    state = state.copyWith(
-      selectedIds: const <String>{},
-      isSelecting: false,
-    );
+    state = state.copyWith(selectedIds: const <String>{}, isSelecting: false);
   }
 }
 
 /// Provider for trash state and mutations.
 final NotifierProvider<TrashNotifier, TrashState> trashProvider =
     NotifierProvider<TrashNotifier, TrashState>(TrashNotifier.new);
-

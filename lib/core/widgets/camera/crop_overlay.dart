@@ -23,7 +23,8 @@ class CropOverlay extends StatefulWidget {
   final Color strokeColor;
   final Color handleColor;
   final void Function(Offset position, bool isDragging)? onDragStateChanged;
-  final void Function(Offset tl, Offset tr, Offset br, Offset bl)? onQuadChanged;
+  final void Function(Offset tl, Offset tr, Offset br, Offset bl)?
+  onQuadChanged;
 
   @override
   State<CropOverlay> createState() => _CropOverlayState();
@@ -64,8 +65,10 @@ class _CropOverlayState extends State<CropOverlay> {
     if (_activeHandleIndex == null) return;
 
     final double nx = (details.localPosition.dx / size.width).clamp(0.05, 0.95);
-    final double ny =
-        (details.localPosition.dy / size.height).clamp(0.05, 0.95);
+    final double ny = (details.localPosition.dy / size.height).clamp(
+      0.05,
+      0.95,
+    );
     final Offset updated = Offset(nx, ny);
 
     setState(() {

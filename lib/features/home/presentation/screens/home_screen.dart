@@ -53,7 +53,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       if (widget.initialShowAddSheet) {
         _openAddDocumentSheet();
       } else if (widget.initialShowOverflowMenu) {
-        _openOverflowMenu(initialImportExpanded: widget.initialShowImportExpanded);
+        _openOverflowMenu(
+          initialImportExpanded: widget.initialShowImportExpanded,
+        );
       }
     });
   }

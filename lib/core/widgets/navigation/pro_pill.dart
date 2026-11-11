@@ -7,11 +7,7 @@ import '../../theme/doc_colors.dart';
 
 /// Gold-accented PRO status pill for headers and subscription upsells.
 class ProPill extends StatelessWidget {
-  const ProPill({
-    super.key,
-    this.onTap,
-    this.label = 'PRO',
-  });
+  const ProPill({super.key, this.onTap, this.label = 'PRO'});
 
   final VoidCallback? onTap;
   final String label;

@@ -88,8 +88,9 @@ class OptionCard extends StatelessWidget {
                               vertical: 1.5,
                             ),
                             decoration: BoxDecoration(
-                              color: (tagColor ?? docColors.success)
-                                  .withValues(alpha: 0.15),
+                              color: (tagColor ?? docColors.success).withValues(
+                                alpha: 0.15,
+                              ),
                               borderRadius: AppRadii.roundedPill,
                             ),
                             child: Text(

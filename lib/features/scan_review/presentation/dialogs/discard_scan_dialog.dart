@@ -142,4 +142,3 @@ class DiscardScanDialog extends StatelessWidget {
     );
   }
 }
-

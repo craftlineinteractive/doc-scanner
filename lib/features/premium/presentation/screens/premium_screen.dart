@@ -14,10 +14,7 @@ import '../widgets/premium_plan_card.dart';
 
 /// Premium Paywall Screen matching mockup 10_premium/01_premium_paywall.
 class PremiumScreen extends ConsumerStatefulWidget {
-  const PremiumScreen({
-    super.key,
-    this.initialPlan = 'yearly',
-  });
+  const PremiumScreen({super.key, this.initialPlan = 'yearly'});
 
   /// Optional initial plan name ('yearly', 'monthly', 'weekly').
   final String? initialPlan;
@@ -275,4 +272,3 @@ class _PremiumScreenState extends ConsumerState<PremiumScreen> {
     );
   }
 }
-

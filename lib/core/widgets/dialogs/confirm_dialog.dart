@@ -67,4 +67,3 @@ class ConfirmDialog extends StatelessWidget {
     );
   }
 }
-

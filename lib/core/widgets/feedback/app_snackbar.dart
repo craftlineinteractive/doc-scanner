@@ -25,9 +25,7 @@ void showAppSnackbar({
       ),
       behavior: SnackBarBehavior.floating,
       backgroundColor: AppColors.textPrimary,
-      shape: const RoundedRectangleBorder(
-        borderRadius: AppRadii.roundedInput,
-      ),
+      shape: const RoundedRectangleBorder(borderRadius: AppRadii.roundedInput),
       duration: duration,
       action: onUndo != null
           ? SnackBarAction(
@@ -39,4 +37,3 @@ void showAppSnackbar({
     ),
   );
 }
-

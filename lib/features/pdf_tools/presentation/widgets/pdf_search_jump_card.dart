@@ -82,4 +82,3 @@ class PdfSearchJumpCard extends StatelessWidget {
     );
   }
 }
-

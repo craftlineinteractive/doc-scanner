@@ -9,4 +9,3 @@ class AppDurations {
   static const Duration toastDuration = Duration(seconds: 3);
   static const Duration snackbarDuration = Duration(seconds: 4);
 }
-

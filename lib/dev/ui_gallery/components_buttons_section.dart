@@ -40,10 +40,7 @@ class _ComponentsButtonsSectionState extends State<ComponentsButtonsSection> {
           ),
         ),
         const SizedBox(height: AppSpacing.sm),
-        const PrimaryButton(
-          label: 'Loading...',
-          isLoading: true,
-        ),
+        const PrimaryButton(label: 'Loading...', isLoading: true),
         const SizedBox(height: AppSpacing.sm),
         SecondaryButton(
           label: 'Secondary Outlined',
@@ -79,15 +76,13 @@ class _ComponentsButtonsSectionState extends State<ComponentsButtonsSection> {
               icon: const Icon(Symbols.crop_rounded),
               label: 'Crop',
               isSelected: _toolSelected,
-              onPressed: () =>
-                  setState(() => _toolSelected = !_toolSelected),
+              onPressed: () => setState(() => _toolSelected = !_toolSelected),
             ),
             ToolButton(
               icon: const Icon(Symbols.palette_rounded),
               label: 'Filter',
               isSelected: !_toolSelected,
-              onPressed: () =>
-                  setState(() => _toolSelected = !_toolSelected),
+              onPressed: () => setState(() => _toolSelected = !_toolSelected),
             ),
           ],
         ),
@@ -118,14 +113,10 @@ class _ComponentsButtonsSectionState extends State<ComponentsButtonsSection> {
         const SizedBox(height: AppSpacing.md),
         Center(
           child: LabelledDualPillFab(
-            onScanPageTap: () => showAppSnackbar(
-              context: context,
-              message: 'Scan Page tapped!',
-            ),
-            onImportTap: () => showAppSnackbar(
-              context: context,
-              message: 'Import tapped!',
-            ),
+            onScanPageTap: () =>
+                showAppSnackbar(context: context, message: 'Scan Page tapped!'),
+            onImportTap: () =>
+                showAppSnackbar(context: context, message: 'Import tapped!'),
           ),
         ),
       ],

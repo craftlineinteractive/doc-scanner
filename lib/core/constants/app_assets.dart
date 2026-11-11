@@ -10,4 +10,3 @@ class AppAssets {
   // Empty list for now until physical assets are placed
   static const List<String> allAssets = <String>[];
 }
-

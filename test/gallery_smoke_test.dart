@@ -67,11 +67,13 @@ void main() {
 
   group('M10 Gallery Smoke Test Suite', () {
     for (final GalleryEntry entry in kGalleryEntries) {
-      testWidgets('Smoke test: [${entry.group}] ${entry.title}',
-          (WidgetTester tester) async {
+      testWidgets('Smoke test: [${entry.group}] ${entry.title}', (
+        WidgetTester tester,
+      ) async {
         for (final _SmokeConfig config in _kConfigs) {
           FlutterErrorDetails? caughtDetails;
-          final void Function(FlutterErrorDetails)? originalOnError = FlutterError.onError;
+          final void Function(FlutterErrorDetails)? originalOnError =
+              FlutterError.onError;
           FlutterError.onError = (FlutterErrorDetails details) {
             caughtDetails = details;
             originalOnError?.call(details);
@@ -86,8 +88,9 @@ void main() {
           final router = createRouter(initialLocation: entry.route);
           final container = ProviderContainer(
             overrides: [
-              themeModeProvider
-                  .overrideWith(() => _MockThemeModeNotifier(config.themeMode)),
+              themeModeProvider.overrideWith(
+                () => _MockThemeModeNotifier(config.themeMode),
+              ),
               routerProvider.overrideWithValue(router),
             ],
           );
@@ -118,7 +121,9 @@ void main() {
             debugPrint('>>> ERROR IN ${entry.title} (${config.name}):');
             if (caughtDetails != null) {
               debugPrint('DETAILS: ${caughtDetails!.summary}');
-              for (final diag in caughtDetails!.informationCollector?.call() ?? <DiagnosticsNode>[]) {
+              for (final diag
+                  in caughtDetails!.informationCollector?.call() ??
+                      <DiagnosticsNode>[]) {
                 debugPrint(diag.toStringDeep());
               }
             }

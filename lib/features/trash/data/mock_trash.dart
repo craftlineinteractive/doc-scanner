@@ -84,4 +84,3 @@ final List<TrashItem> mockTrashItems = <TrashItem>[
     variant: MockDocumentVariant.receipt,
   ),
 ];
-

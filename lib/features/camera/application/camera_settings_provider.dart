@@ -57,8 +57,7 @@ class CameraSettingsNotifier extends Notifier<CameraSettings> {
 
 /// Provider exposing current [CameraSettings].
 final NotifierProvider<CameraSettingsNotifier, CameraSettings>
-    cameraSettingsProvider =
+cameraSettingsProvider =
     NotifierProvider<CameraSettingsNotifier, CameraSettings>(
-  CameraSettingsNotifier.new,
-);
-
+      CameraSettingsNotifier.new,
+    );

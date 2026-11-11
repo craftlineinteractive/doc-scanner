@@ -46,7 +46,9 @@ class RadioTile<T> extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: _isSelected ? AppColors.primary : AppColors.textMuted,
+                    color: _isSelected
+                        ? AppColors.primary
+                        : AppColors.textMuted,
                     width: 2.0,
                   ),
                 ),
@@ -72,8 +74,9 @@ class RadioTile<T> extends StatelessWidget {
                       title,
                       style: AppTypography.labelMd.copyWith(
                         color: Theme.of(context).colorScheme.onSurface,
-                        fontWeight:
-                            _isSelected ? FontWeight.w600 : FontWeight.w400,
+                        fontWeight: _isSelected
+                            ? FontWeight.w600
+                            : FontWeight.w400,
                       ),
                     ),
                     if (subtitle != null) ...<Widget>[

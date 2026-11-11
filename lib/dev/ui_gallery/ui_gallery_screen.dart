@@ -103,10 +103,8 @@ class UiGalleryScreen extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: section.items.length,
-                  separatorBuilder: (BuildContext context, int i) => Divider(
-                    color: docColors.hairline,
-                    height: 1,
-                  ),
+                  separatorBuilder: (BuildContext context, int i) =>
+                      Divider(color: docColors.hairline, height: 1),
                   itemBuilder: (BuildContext context, int itemIndex) {
                     final GalleryEntry item = section.items[itemIndex];
                     return ListTile(

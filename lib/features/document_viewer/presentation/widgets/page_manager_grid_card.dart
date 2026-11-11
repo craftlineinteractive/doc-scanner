@@ -59,7 +59,8 @@ class PageManagerGridCard extends StatelessWidget {
                         child: RotatedBox(
                           quarterTurns: page.rotationQuarterTurns,
                           child: ColorFiltered(
-                            colorFilter: page.filter.colorFilter ??
+                            colorFilter:
+                                page.filter.colorFilter ??
                                 const ColorFilter.mode(
                                   Colors.transparent,
                                   BlendMode.dst,
@@ -85,7 +86,9 @@ class PageManagerGridCard extends StatelessWidget {
                             width: 20,
                             height: 20,
                             decoration: BoxDecoration(
-                              color: AppColors.textPrimary.withValues(alpha: 0.8),
+                              color: AppColors.textPrimary.withValues(
+                                alpha: 0.8,
+                              ),
                               shape: BoxShape.circle,
                             ),
                             child: Center(
@@ -184,4 +187,3 @@ class PageManagerGridCard extends StatelessWidget {
     );
   }
 }
-

@@ -10,10 +10,7 @@ import '../buttons/primary_button.dart';
 
 /// Navigation drawer header displayed when the user is signed out.
 class DrawerHeaderSignedOut extends StatelessWidget {
-  const DrawerHeaderSignedOut({
-    super.key,
-    this.onSignInTap,
-  });
+  const DrawerHeaderSignedOut({super.key, this.onSignInTap});
 
   final VoidCallback? onSignInTap;
 

@@ -36,10 +36,7 @@ class CameraViewfinder extends StatelessWidget {
       fit: StackFit.expand,
       children: <Widget>[
         // 1. Mock viewfinder subject
-        MockCameraBackground(
-          mode: mode,
-          bookScanType: bookScanType,
-        ),
+        MockCameraBackground(mode: mode, bookScanType: bookScanType),
 
         // 2. Alignment grid
         if (gridEnabled) const CameraGridOverlay(),
@@ -72,15 +69,13 @@ class CameraViewfinder extends StatelessWidget {
   }
 
   Widget _buildDocumentOverlay(BuildContext context) {
-    final disableAnimations = MediaQuery.maybeDisableAnimationsOf(context) ?? false;
+    final disableAnimations =
+        MediaQuery.maybeDisableAnimationsOf(context) ?? false;
     final outlineWidget = Container(
       width: 270,
       height: 380,
       decoration: BoxDecoration(
-        border: Border.all(
-          color: AppColors.cameraDetection,
-          width: 2.2,
-        ),
+        border: Border.all(color: AppColors.cameraDetection, width: 2.2),
         borderRadius: BorderRadius.circular(4),
       ),
     );
@@ -122,10 +117,7 @@ class CameraViewfinder extends StatelessWidget {
             width: 292,
             height: 188,
             decoration: BoxDecoration(
-              border: Border.all(
-                color: AppColors.cameraAccent,
-                width: 2.5,
-              ),
+              border: Border.all(color: AppColors.cameraAccent, width: 2.5),
               borderRadius: BorderRadius.circular(18),
             ),
           ),
@@ -161,11 +153,7 @@ class CameraViewfinder extends StatelessWidget {
             ),
           ),
           if (bookScanType == BookScanType.twoPages)
-            Container(
-              height: 230,
-              width: 2,
-              color: AppColors.cameraAccent,
-            ),
+            Container(height: 230, width: 2, color: AppColors.cameraAccent),
           Positioned(
             bottom: 35,
             child: _buildHintPill(
@@ -198,7 +186,8 @@ class CameraViewfinder extends StatelessWidget {
   }
 
   Widget _buildQrOverlay(BuildContext context) {
-    final disableAnimations = MediaQuery.maybeDisableAnimationsOf(context) ?? false;
+    final disableAnimations =
+        MediaQuery.maybeDisableAnimationsOf(context) ?? false;
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,

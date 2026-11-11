@@ -54,7 +54,9 @@ class _SavedDocumentViewerScreenState
     switch (widget.initialFrame) {
       case 2:
         _toolTier = ViewerToolTier.main;
-        WidgetsBinding.instance.addPostFrameCallback((_) => _showEditChoiceDialog());
+        WidgetsBinding.instance.addPostFrameCallback(
+          (_) => _showEditChoiceDialog(),
+        );
         break;
       case 3:
         _toolTier = ViewerToolTier.edit;
@@ -64,7 +66,9 @@ class _SavedDocumentViewerScreenState
         break;
       case 5:
         _toolTier = ViewerToolTier.pdf;
-        WidgetsBinding.instance.addPostFrameCallback((_) => PdfMoreOptionsSheet.show(context));
+        WidgetsBinding.instance.addPostFrameCallback(
+          (_) => PdfMoreOptionsSheet.show(context),
+        );
         break;
       default:
         _toolTier = ViewerToolTier.main;
@@ -102,8 +106,12 @@ class _SavedDocumentViewerScreenState
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
-          icon: const Icon(Symbols.arrow_back_rounded, color: AppColors.textPrimary),
-          onPressed: () => context.canPop() ? context.pop() : context.go(AppRoutes.home),
+          icon: const Icon(
+            Symbols.arrow_back_rounded,
+            color: AppColors.textPrimary,
+          ),
+          onPressed: () =>
+              context.canPop() ? context.pop() : context.go(AppRoutes.home),
         ),
         title: Text(
           doc.title,
@@ -187,7 +195,11 @@ class _SavedDocumentViewerScreenState
                   onFilterChanged: (ScanFilter filter) {
                     ref
                         .read(savedDocumentsProvider.notifier)
-                        .setPageFilter(widget.initialDocId, _currentPage, filter);
+                        .setPageFilter(
+                          widget.initialDocId,
+                          _currentPage,
+                          filter,
+                        );
                   },
                 );
               },
@@ -243,4 +255,3 @@ class _SavedDocumentViewerScreenState
     );
   }
 }
-

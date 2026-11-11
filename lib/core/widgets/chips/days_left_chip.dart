@@ -6,10 +6,7 @@ import '../../theme/doc_colors.dart';
 
 /// Trash retention chip indicating remaining days, dynamically alerting red when under 3 days.
 class DaysLeftChip extends StatelessWidget {
-  const DaysLeftChip({
-    super.key,
-    required this.daysRemaining,
-  });
+  const DaysLeftChip({super.key, required this.daysRemaining});
 
   final int daysRemaining;
 
@@ -18,10 +15,10 @@ class DaysLeftChip extends StatelessWidget {
     final DocColors docColors = context.docColors;
     final bool isCritical = daysRemaining <= 3;
 
-    final Color bg =
-        isCritical ? docColors.destructiveTint : docColors.goldTint;
-    final Color fg =
-        isCritical ? docColors.destructive : AppColors.goldDark;
+    final Color bg = isCritical
+        ? docColors.destructiveTint
+        : docColors.goldTint;
+    final Color fg = isCritical ? docColors.destructive : AppColors.goldDark;
 
     final String label = daysRemaining == 1
         ? '1 day left'
@@ -29,10 +26,7 @@ class DaysLeftChip extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-      decoration: BoxDecoration(
-        color: bg,
-        borderRadius: AppRadii.roundedPill,
-      ),
+      decoration: BoxDecoration(color: bg, borderRadius: AppRadii.roundedPill),
       child: Text(
         label,
         style: AppTypography.labelSm.copyWith(
@@ -44,4 +38,3 @@ class DaysLeftChip extends StatelessWidget {
     );
   }
 }
-

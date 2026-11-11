@@ -13,9 +13,7 @@ class TrashInfoBanner extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.primaryTint,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: AppColors.primary.withValues(alpha: 0.15),
-        ),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.15)),
       ),
       child: const Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,4 +44,3 @@ class TrashInfoBanner extends StatelessWidget {
     );
   }
 }
-

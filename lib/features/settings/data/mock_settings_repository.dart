@@ -4,7 +4,7 @@ import '../domain/settings_repository.dart';
 /// In-memory mock repository implementing [SettingsRepository].
 class MockSettingsRepository implements SettingsRepository {
   MockSettingsRepository({AppSettings? initialSettings})
-      : _settings = initialSettings ?? AppSettings.defaults();
+    : _settings = initialSettings ?? AppSettings.defaults();
 
   AppSettings _settings;
 

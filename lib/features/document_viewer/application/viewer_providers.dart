@@ -7,11 +7,10 @@ import '../domain/viewer_page.dart';
 import '../domain/viewer_tool_tier.dart';
 
 /// Provider for current page index in the viewer.
-final NotifierProvider<CurrentPageIndexNotifier, int>
-    currentPageIndexProvider =
+final NotifierProvider<CurrentPageIndexNotifier, int> currentPageIndexProvider =
     NotifierProvider<CurrentPageIndexNotifier, int>(
-  CurrentPageIndexNotifier.new,
-);
+      CurrentPageIndexNotifier.new,
+    );
 
 class CurrentPageIndexNotifier extends Notifier<int> {
   @override
@@ -22,10 +21,10 @@ class CurrentPageIndexNotifier extends Notifier<int> {
 
 /// Provider for currently active tool tier in the viewer.
 final NotifierProvider<ViewerToolTierNotifier, ViewerToolTier>
-    viewerToolTierProvider =
+viewerToolTierProvider =
     NotifierProvider<ViewerToolTierNotifier, ViewerToolTier>(
-  ViewerToolTierNotifier.new,
-);
+      ViewerToolTierNotifier.new,
+    );
 
 class ViewerToolTierNotifier extends Notifier<ViewerToolTier> {
   @override
@@ -35,11 +34,8 @@ class ViewerToolTierNotifier extends Notifier<ViewerToolTier> {
 }
 
 /// Provider for OCR panel visibility in Post-Scan Viewer.
-final NotifierProvider<OcrPanelOpenNotifier, bool>
-    ocrPanelOpenProvider =
-    NotifierProvider<OcrPanelOpenNotifier, bool>(
-  OcrPanelOpenNotifier.new,
-);
+final NotifierProvider<OcrPanelOpenNotifier, bool> ocrPanelOpenProvider =
+    NotifierProvider<OcrPanelOpenNotifier, bool>(OcrPanelOpenNotifier.new);
 
 class OcrPanelOpenNotifier extends Notifier<bool> {
   @override
@@ -51,10 +47,10 @@ class OcrPanelOpenNotifier extends Notifier<bool> {
 
 /// Provider managing the repository of saved documents.
 final NotifierProvider<SavedDocumentsNotifier, Map<String, SavedDocument>>
-    savedDocumentsProvider =
+savedDocumentsProvider =
     NotifierProvider<SavedDocumentsNotifier, Map<String, SavedDocument>>(
-  SavedDocumentsNotifier.new,
-);
+      SavedDocumentsNotifier.new,
+    );
 
 class SavedDocumentsNotifier extends Notifier<Map<String, SavedDocument>> {
   @override
@@ -95,10 +91,7 @@ class SavedDocumentsNotifier extends Notifier<Map<String, SavedDocument>> {
     updated[pageIndex] = target.copyWith(
       rotationQuarterTurns: (target.rotationQuarterTurns + 1) % 4,
     );
-    state = <String, SavedDocument>{
-      ...state,
-      id: doc.copyWith(pages: updated),
-    };
+    state = <String, SavedDocument>{...state, id: doc.copyWith(pages: updated)};
   }
 
   void flipPage(String id, int pageIndex) {
@@ -107,10 +100,7 @@ class SavedDocumentsNotifier extends Notifier<Map<String, SavedDocument>> {
     final List<ViewerPage> updated = List<ViewerPage>.from(doc.pages);
     final ViewerPage target = updated[pageIndex];
     updated[pageIndex] = target.copyWith(isFlipped: !target.isFlipped);
-    state = <String, SavedDocument>{
-      ...state,
-      id: doc.copyWith(pages: updated),
-    };
+    state = <String, SavedDocument>{...state, id: doc.copyWith(pages: updated)};
   }
 
   void setPageCrop(String id, int pageIndex, CropQuad crop) {
@@ -118,10 +108,7 @@ class SavedDocumentsNotifier extends Notifier<Map<String, SavedDocument>> {
     if (pageIndex < 0 || pageIndex >= doc.pages.length) return;
     final List<ViewerPage> updated = List<ViewerPage>.from(doc.pages);
     updated[pageIndex] = updated[pageIndex].copyWith(crop: crop);
-    state = <String, SavedDocument>{
-      ...state,
-      id: doc.copyWith(pages: updated),
-    };
+    state = <String, SavedDocument>{...state, id: doc.copyWith(pages: updated)};
   }
 
   void setPageFilter(String id, int pageIndex, ScanFilter filter) {
@@ -132,23 +119,19 @@ class SavedDocumentsNotifier extends Notifier<Map<String, SavedDocument>> {
       filter: filter,
       filterLabel: filter.label,
     );
-    state = <String, SavedDocument>{
-      ...state,
-      id: doc.copyWith(pages: updated),
-    };
+    state = <String, SavedDocument>{...state, id: doc.copyWith(pages: updated)};
   }
 
   void deletePage(String id, int pageIndex) {
     final SavedDocument doc = getDocument(id);
-    if (pageIndex < 0 || pageIndex >= doc.pages.length || doc.pages.length <= 1) {
+    if (pageIndex < 0 ||
+        pageIndex >= doc.pages.length ||
+        doc.pages.length <= 1) {
       return;
     }
     final List<ViewerPage> updated = List<ViewerPage>.from(doc.pages)
       ..removeAt(pageIndex);
-    state = <String, SavedDocument>{
-      ...state,
-      id: doc.copyWith(pages: updated),
-    };
+    state = <String, SavedDocument>{...state, id: doc.copyWith(pages: updated)};
   }
 
   void reorderPages(String id, int oldIndex, int newIndex) {
@@ -158,9 +141,6 @@ class SavedDocumentsNotifier extends Notifier<Map<String, SavedDocument>> {
     final List<ViewerPage> updated = List<ViewerPage>.from(doc.pages);
     final ViewerPage page = updated.removeAt(oldIndex);
     updated.insert(newIndex, page);
-    state = <String, SavedDocument>{
-      ...state,
-      id: doc.copyWith(pages: updated),
-    };
+    state = <String, SavedDocument>{...state, id: doc.copyWith(pages: updated)};
   }
 }

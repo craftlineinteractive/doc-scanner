@@ -27,7 +27,8 @@ class BackTitleBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final Color fg = foregroundColor ?? Theme.of(context).colorScheme.onSurface;
-    final Color bg = backgroundColor ??
+    final Color bg =
+        backgroundColor ??
         Theme.of(context).cardTheme.color ??
         Theme.of(context).colorScheme.surface;
 

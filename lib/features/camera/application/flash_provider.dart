@@ -30,4 +30,3 @@ class FlashModeNotifier extends Notifier<FlashMode> {
 /// Provider exposing the current [FlashMode].
 final NotifierProvider<FlashModeNotifier, FlashMode> flashModeProvider =
     NotifierProvider<FlashModeNotifier, FlashMode>(FlashModeNotifier.new);
-

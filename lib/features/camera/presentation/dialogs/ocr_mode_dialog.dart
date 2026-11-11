@@ -7,17 +7,11 @@ import '../../../../core/widgets/feedback/app_snackbar.dart';
 
 /// Modal dialog introducing OCR text recognition mode.
 class OcrModeDialog extends StatelessWidget {
-  const OcrModeDialog({
-    super.key,
-    this.onContinue,
-  });
+  const OcrModeDialog({super.key, this.onContinue});
 
   final VoidCallback? onContinue;
 
-  static Future<void> show(
-    BuildContext context, {
-    VoidCallback? onContinue,
-  }) {
+  static Future<void> show(BuildContext context, {VoidCallback? onContinue}) {
     return showDialog<void>(
       context: context,
       barrierColor: Colors.black.withValues(alpha: 0.6),
@@ -29,9 +23,7 @@ class OcrModeDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       insetPadding: const EdgeInsets.symmetric(horizontal: 24),
       child: Container(
         width: 340,
@@ -119,10 +111,7 @@ class OcrModeDialog extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: const Color(0xFFF4F6FA),
                   borderRadius: BorderRadius.circular(14),
-                  border: Border.all(
-                    color: const Color(0xFFE5E7EB),
-                    width: 1,
-                  ),
+                  border: Border.all(color: const Color(0xFFE5E7EB), width: 1),
                 ),
                 child: Row(
                   children: <Widget>[

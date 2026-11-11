@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 
 /// CustomPainter rendering the financial performance line chart from Frame 1 & 3.
 class PdfChartPainter extends CustomPainter {
-  const PdfChartPainter({
-    required this.lineColor,
-    required this.fillColor,
-  });
+  const PdfChartPainter({required this.lineColor, required this.fillColor});
 
   final Color lineColor;
   final Color fillColor;
@@ -78,4 +75,3 @@ class PdfChartPainter extends CustomPainter {
         oldDelegate.fillColor != fillColor;
   }
 }
-

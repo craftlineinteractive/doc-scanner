@@ -157,9 +157,7 @@ class _PdfOptionRow extends StatelessWidget {
                 color: iconBg,
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Center(
-                child: Icon(icon, size: 18, color: iconColor),
-              ),
+              child: Center(child: Icon(icon, size: 18, color: iconColor)),
             ),
             const SizedBox(width: 14),
             Expanded(
@@ -183,4 +181,3 @@ class _PdfOptionRow extends StatelessWidget {
     );
   }
 }
-

@@ -54,10 +54,7 @@ class _ScanQualitySheetState extends State<ScanQualitySheet> {
         color: sheetColor,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         border: Border(
-          top: BorderSide(
-            color: Colors.white.withValues(alpha: 0.1),
-            width: 1,
-          ),
+          top: BorderSide(color: Colors.white.withValues(alpha: 0.1), width: 1),
         ),
       ),
       padding: const EdgeInsets.fromLTRB(
@@ -162,8 +159,7 @@ class _ScanQualitySheetState extends State<ScanQualitySheet> {
                   quality.label,
                   style: AppTypography.bodyMd.copyWith(
                     color: Colors.white,
-                    fontWeight:
-                        isSelected ? FontWeight.w600 : FontWeight.w500,
+                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
                   ),
                 ),
                 Text(

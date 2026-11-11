@@ -6,18 +6,16 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('ComponentsPage renders all primitive sections in light theme',
-      (WidgetTester tester) async {
+  testWidgets('ComponentsPage renders all primitive sections in light theme', (
+    WidgetTester tester,
+  ) async {
     tester.view.physicalSize = const Size(1080, 2400);
     tester.view.devicePixelRatio = 2.75;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await tester.pumpWidget(
-      MaterialApp(
-        theme: AppTheme.light,
-        home: const ComponentsPage(),
-      ),
+      MaterialApp(theme: AppTheme.light, home: const ComponentsPage()),
     );
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
@@ -34,18 +32,16 @@ void main() {
     expect(find.text('Inputs & Controls'), findsOneWidget);
   });
 
-  testWidgets('ComponentsPage switches to Dark and Camera themes cleanly',
-      (WidgetTester tester) async {
+  testWidgets('ComponentsPage switches to Dark and Camera themes cleanly', (
+    WidgetTester tester,
+  ) async {
     tester.view.physicalSize = const Size(1080, 2400);
     tester.view.devicePixelRatio = 2.75;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await tester.pumpWidget(
-      MaterialApp(
-        theme: AppTheme.light,
-        home: const ComponentsPage(),
-      ),
+      MaterialApp(theme: AppTheme.light, home: const ComponentsPage()),
     );
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));

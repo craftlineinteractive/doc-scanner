@@ -29,7 +29,9 @@ class ToolButton extends StatelessWidget {
     final Color inactiveColor = Theme.of(context).colorScheme.onSurface;
 
     final Color fgColor = isSelected ? activeColor : inactiveColor;
-    final Color bgTile = isSelected ? docColors.primaryTint : Colors.transparent;
+    final Color bgTile = isSelected
+        ? docColors.primaryTint
+        : Colors.transparent;
 
     return ConstrainedBox(
       constraints: const BoxConstraints(minWidth: 54, minHeight: 52),
@@ -76,4 +78,3 @@ class ToolButton extends StatelessWidget {
     );
   }
 }
-

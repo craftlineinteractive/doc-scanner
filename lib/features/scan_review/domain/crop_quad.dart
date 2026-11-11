@@ -16,10 +16,10 @@ class CropQuad {
 
   /// Standard inset crop box suitable for const initialization.
   const CropQuad.standard()
-      : topLeft = const Offset(0.06, 0.06),
-        topRight = const Offset(0.94, 0.06),
-        bottomRight = const Offset(0.94, 0.94),
-        bottomLeft = const Offset(0.06, 0.94);
+    : topLeft = const Offset(0.06, 0.06),
+      topRight = const Offset(0.94, 0.06),
+      bottomRight = const Offset(0.94, 0.94),
+      bottomLeft = const Offset(0.06, 0.94);
 
   static const double minSize = 0.15;
 
@@ -101,7 +101,10 @@ class CropQuad {
   CropQuad copyWithEdge(int edgeIndex, Offset delta) {
     switch (edgeIndex) {
       case 0: // Top edge
-        final newY = (topLeft.dy + delta.dy).clamp(0.0, bottomLeft.dy - minSize);
+        final newY = (topLeft.dy + delta.dy).clamp(
+          0.0,
+          bottomLeft.dy - minSize,
+        );
         return copyWith(
           topLeft: Offset(topLeft.dx, newY),
           topRight: Offset(topRight.dx, newY),
@@ -113,7 +116,10 @@ class CropQuad {
           bottomRight: Offset(newX, bottomRight.dy),
         );
       case 2: // Bottom edge
-        final newY = (bottomRight.dy + delta.dy).clamp(topRight.dy + minSize, 1.0);
+        final newY = (bottomRight.dy + delta.dy).clamp(
+          topRight.dy + minSize,
+          1.0,
+        );
         return copyWith(
           bottomRight: Offset(bottomRight.dx, newY),
           bottomLeft: Offset(bottomLeft.dx, newY),
@@ -147,4 +153,3 @@ class CropQuad {
     );
   }
 }
-

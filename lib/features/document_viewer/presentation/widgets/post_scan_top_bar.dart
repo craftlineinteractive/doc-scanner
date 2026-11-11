@@ -99,7 +99,10 @@ class PostScanTopBar extends StatelessWidget implements PreferredSizeWidget {
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
-          icon: const Icon(Symbols.arrow_back_rounded, color: AppColors.textPrimary),
+          icon: const Icon(
+            Symbols.arrow_back_rounded,
+            color: AppColors.textPrimary,
+          ),
           onPressed: onBack,
         ),
         centerTitle: true,
@@ -112,7 +115,11 @@ class PostScanTopBar extends StatelessWidget implements PreferredSizeWidget {
           child: const Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Icon(Symbols.verified_rounded, size: 16, color: AppColors.success),
+              Icon(
+                Symbols.verified_rounded,
+                size: 16,
+                color: AppColors.success,
+              ),
               SizedBox(width: 4),
               Flexible(
                 child: Text(
@@ -132,7 +139,10 @@ class PostScanTopBar extends StatelessWidget implements PreferredSizeWidget {
         actions: <Widget>[
           IconButton(
             tooltip: 'More options',
-            icon: const Icon(Symbols.more_vert_rounded, color: AppColors.textPrimary),
+            icon: const Icon(
+              Symbols.more_vert_rounded,
+              color: AppColors.textPrimary,
+            ),
             onPressed: onMoreTap,
           ),
         ],
@@ -144,7 +154,10 @@ class PostScanTopBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       scrolledUnderElevation: 0,
       leading: IconButton(
-        icon: const Icon(Symbols.arrow_back_rounded, color: AppColors.textPrimary),
+        icon: const Icon(
+          Symbols.arrow_back_rounded,
+          color: AppColors.textPrimary,
+        ),
         onPressed: onBack,
       ),
       titleSpacing: 0,
@@ -203,11 +216,13 @@ class PostScanTopBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         IconButton(
           tooltip: 'More options',
-          icon: const Icon(Symbols.more_vert_rounded, color: AppColors.textPrimary),
+          icon: const Icon(
+            Symbols.more_vert_rounded,
+            color: AppColors.textPrimary,
+          ),
           onPressed: onMoreTap,
         ),
       ],
     );
   }
 }
-

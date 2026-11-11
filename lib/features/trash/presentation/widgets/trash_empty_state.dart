@@ -106,4 +106,3 @@ class TrashEmptyState extends StatelessWidget {
     );
   }
 }
-

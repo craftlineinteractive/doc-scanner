@@ -63,4 +63,3 @@ class PdfTopBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
-

@@ -152,19 +152,34 @@ class DocColors extends ThemeExtension<DocColors> {
       destructive: Color.lerp(destructive, other.destructive, t)!,
       destructiveTint: Color.lerp(destructiveTint, other.destructiveTint, t)!,
       categoryIndigo: Color.lerp(categoryIndigo, other.categoryIndigo, t)!,
-      categoryIndigoTint:
-          Color.lerp(categoryIndigoTint, other.categoryIndigoTint, t)!,
+      categoryIndigoTint: Color.lerp(
+        categoryIndigoTint,
+        other.categoryIndigoTint,
+        t,
+      )!,
       categoryOrange: Color.lerp(categoryOrange, other.categoryOrange, t)!,
-      categoryOrangeTint:
-          Color.lerp(categoryOrangeTint, other.categoryOrangeTint, t)!,
+      categoryOrangeTint: Color.lerp(
+        categoryOrangeTint,
+        other.categoryOrangeTint,
+        t,
+      )!,
       categoryEmerald: Color.lerp(categoryEmerald, other.categoryEmerald, t)!,
-      categoryEmeraldTint:
-          Color.lerp(categoryEmeraldTint, other.categoryEmeraldTint, t)!,
+      categoryEmeraldTint: Color.lerp(
+        categoryEmeraldTint,
+        other.categoryEmeraldTint,
+        t,
+      )!,
       categoryRose: Color.lerp(categoryRose, other.categoryRose, t)!,
-      categoryRoseTint:
-          Color.lerp(categoryRoseTint, other.categoryRoseTint, t)!,
-      cameraBackground:
-          Color.lerp(cameraBackground, other.cameraBackground, t)!,
+      categoryRoseTint: Color.lerp(
+        categoryRoseTint,
+        other.categoryRoseTint,
+        t,
+      )!,
+      cameraBackground: Color.lerp(
+        cameraBackground,
+        other.cameraBackground,
+        t,
+      )!,
       cameraSheet: Color.lerp(cameraSheet, other.cameraSheet, t)!,
       cameraAccent: Color.lerp(cameraAccent, other.cameraAccent, t)!,
       hairline: Color.lerp(hairline, other.hairline, t)!,
@@ -177,4 +192,3 @@ extension DocColorsExtension on BuildContext {
   DocColors get docColors =>
       Theme.of(this).extension<DocColors>() ?? DocColors.light;
 }
-

@@ -24,4 +24,3 @@ class MockOcrResult {
     text: fullDefaultText,
   );
 }
-

@@ -108,8 +108,9 @@ class _ToolbarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color foreground =
-        isActive ? AppColors.primary : AppColors.textPrimary;
+    final Color foreground = isActive
+        ? AppColors.primary
+        : AppColors.textPrimary;
     final Color? background = isActive ? AppColors.primaryTint : null;
 
     return Padding(
@@ -132,8 +133,7 @@ class _ToolbarItem extends StatelessWidget {
                   label,
                   style: TextStyle(
                     fontSize: 11,
-                    fontWeight:
-                        isActive ? FontWeight.w700 : FontWeight.w500,
+                    fontWeight: isActive ? FontWeight.w700 : FontWeight.w500,
                     color: foreground,
                   ),
                   maxLines: 1,
@@ -147,4 +147,3 @@ class _ToolbarItem extends StatelessWidget {
     );
   }
 }
-

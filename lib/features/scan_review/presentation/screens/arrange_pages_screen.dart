@@ -34,7 +34,10 @@ class ArrangePagesScreen extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     IconButton(
-                      icon: const Icon(Icons.close_rounded, color: Color(0xFF1E2340)),
+                      icon: const Icon(
+                        Icons.close_rounded,
+                        color: Color(0xFF1E2340),
+                      ),
                       onPressed: () => context.pop(),
                     ),
                     const Expanded(
@@ -268,4 +271,3 @@ class _ArrangeThumbnailCard extends StatelessWidget {
     );
   }
 }
-

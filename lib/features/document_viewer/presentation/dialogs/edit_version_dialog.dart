@@ -2,17 +2,11 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 
 /// Enum representing version selection when editing a saved document.
-enum EditDocumentVersion {
-  original,
-  lastEdited,
-}
+enum EditDocumentVersion { original, lastEdited }
 
 /// Dialog asking user which version to edit matching Frame 2.
 class EditVersionDialog extends StatefulWidget {
-  const EditVersionDialog({
-    super.key,
-    required this.onContinue,
-  });
+  const EditVersionDialog({super.key, required this.onContinue});
 
   final ValueChanged<EditDocumentVersion> onContinue;
 
@@ -63,7 +57,8 @@ class _EditVersionDialogState extends State<EditVersionDialog> {
               title: 'Original document',
               subtitle: 'Start again from the first scan',
               isSelected: _selected == EditDocumentVersion.original,
-              onTap: () => setState(() => _selected = EditDocumentVersion.original),
+              onTap: () =>
+                  setState(() => _selected = EditDocumentVersion.original),
             ),
             const SizedBox(height: 12),
 
@@ -72,7 +67,8 @@ class _EditVersionDialogState extends State<EditVersionDialog> {
               title: 'Last edited document',
               subtitle: 'Continue from your latest changes',
               isSelected: _selected == EditDocumentVersion.lastEdited,
-              onTap: () => setState(() => _selected = EditDocumentVersion.lastEdited),
+              onTap: () =>
+                  setState(() => _selected = EditDocumentVersion.lastEdited),
             ),
             const SizedBox(height: 24),
 
@@ -101,7 +97,10 @@ class _EditVersionDialogState extends State<EditVersionDialog> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 10,
+                    ),
                     elevation: 2,
                   ),
                   child: const Text(
@@ -139,7 +138,9 @@ class _VersionCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.primaryTint.withValues(alpha: 0.5) : Colors.white,
+          color: isSelected
+              ? AppColors.primaryTint.withValues(alpha: 0.5)
+              : Colors.white,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: isSelected ? AppColors.primary : AppColors.hairline,
@@ -182,7 +183,9 @@ class _VersionCard extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,
-                      color: isSelected ? AppColors.primary : AppColors.textPrimary,
+                      color: isSelected
+                          ? AppColors.primary
+                          : AppColors.textPrimary,
                     ),
                   ),
                   const SizedBox(height: 2),

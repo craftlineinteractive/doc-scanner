@@ -82,4 +82,3 @@ class _ExpandableSectionState extends State<ExpandableSection> {
     );
   }
 }
-

@@ -4,11 +4,7 @@ import '../../theme/app_colors.dart';
 import '../buttons/icon_circle_button.dart';
 
 /// Flash states available for camera capture.
-enum CameraFlashMode {
-  off,
-  on,
-  auto,
-}
+enum CameraFlashMode { off, on, auto }
 
 /// Translucent camera header bar offering flash cycling, grid alignment, camera flip, and settings actions.
 class CameraTopBar extends StatelessWidget implements PreferredSizeWidget {
@@ -90,8 +86,9 @@ class CameraTopBar extends StatelessWidget implements PreferredSizeWidget {
                           ? Symbols.grid_on_rounded
                           : Symbols.grid_off_rounded,
                     ),
-                    iconColor:
-                        isGridEnabled ? AppColors.cameraAccent : Colors.white60,
+                    iconColor: isGridEnabled
+                        ? AppColors.cameraAccent
+                        : Colors.white60,
                     onPressed: onGridToggle,
                     tooltip: 'Grid',
                   ),
@@ -118,4 +115,3 @@ class CameraTopBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
-

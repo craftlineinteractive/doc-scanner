@@ -115,7 +115,10 @@ class PageManagerActionDrawer extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Symbols.edit_rounded, color: AppColors.primary),
+                  icon: const Icon(
+                    Symbols.edit_rounded,
+                    color: AppColors.primary,
+                  ),
                   onPressed: onRenameTap,
                   tooltip: 'Quick Rename',
                 ),
@@ -160,7 +163,10 @@ class PageManagerActionDrawer extends StatelessWidget {
                         iconBg: AppColors.primaryTint,
                         onTap: () {
                           Navigator.of(context).pop();
-                          showAppSnackbar(context: context, message: 'PDF format active');
+                          showAppSnackbar(
+                            context: context,
+                            message: 'PDF format active',
+                          );
                         },
                       ),
                       _ActionTile(
@@ -168,7 +174,10 @@ class PageManagerActionDrawer extends StatelessWidget {
                         label: 'Share',
                         onTap: () {
                           Navigator.of(context).pop();
-                          showAppSnackbar(context: context, message: 'Preparing share...');
+                          showAppSnackbar(
+                            context: context,
+                            message: 'Preparing share...',
+                          );
                         },
                       ),
                       _ActionTile(
@@ -176,7 +185,10 @@ class PageManagerActionDrawer extends StatelessWidget {
                         label: 'To Email',
                         onTap: () {
                           Navigator.of(context).pop();
-                          showAppSnackbar(context: context, message: 'Attached to new email draft');
+                          showAppSnackbar(
+                            context: context,
+                            message: 'Attached to new email draft',
+                          );
                         },
                       ),
                       _ActionTile(
@@ -184,7 +196,10 @@ class PageManagerActionDrawer extends StatelessWidget {
                         label: 'Compress',
                         onTap: () {
                           Navigator.of(context).pop();
-                          showAppSnackbar(context: context, message: 'Compressed by 35%');
+                          showAppSnackbar(
+                            context: context,
+                            message: 'Compressed by 35%',
+                          );
                         },
                       ),
                       _ActionTile(
@@ -192,7 +207,10 @@ class PageManagerActionDrawer extends StatelessWidget {
                         label: 'Save Gallery',
                         onTap: () {
                           Navigator.of(context).pop();
-                          showAppSnackbar(context: context, message: 'Saved pages to photo gallery');
+                          showAppSnackbar(
+                            context: context,
+                            message: 'Saved pages to photo gallery',
+                          );
                         },
                       ),
                       _ActionTile(
@@ -227,7 +245,10 @@ class PageManagerActionDrawer extends StatelessWidget {
                     label: 'Move to Folder',
                     onTap: () {
                       Navigator.of(context).pop();
-                      showAppSnackbar(context: context, message: 'Moved to Folder: Scans');
+                      showAppSnackbar(
+                        context: context,
+                        message: 'Moved to Folder: Scans',
+                      );
                     },
                   ),
                   _DrawerListTile(
@@ -235,14 +256,20 @@ class PageManagerActionDrawer extends StatelessWidget {
                     label: 'Make a Copy',
                     onTap: () {
                       Navigator.of(context).pop();
-                      showAppSnackbar(context: context, message: 'Created duplicate copy');
+                      showAppSnackbar(
+                        context: context,
+                        message: 'Created duplicate copy',
+                      );
                     },
                   ),
                   _DrawerListTile(
                     icon: Symbols.dashboard_rounded,
                     label: 'MultiSide Doc / Collage',
                     trailing: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6,
+                        vertical: 2,
+                      ),
                       decoration: BoxDecoration(
                         color: AppColors.goldTint,
                         borderRadius: BorderRadius.circular(4),
@@ -258,7 +285,10 @@ class PageManagerActionDrawer extends StatelessWidget {
                     ),
                     onTap: () {
                       Navigator.of(context).pop();
-                      showAppSnackbar(context: context, message: 'Collage tool available with Pro');
+                      showAppSnackbar(
+                        context: context,
+                        message: 'Collage tool available with Pro',
+                      );
                     },
                   ),
                   _DrawerListTile(
@@ -272,7 +302,9 @@ class PageManagerActionDrawer extends StatelessWidget {
                           ? Symbols.check_box_rounded
                           : Symbols.check_box_outline_blank_rounded,
                       size: 20,
-                      color: document.isFavorite ? AppColors.primary : AppColors.textMuted,
+                      color: document.isFavorite
+                          ? AppColors.primary
+                          : AppColors.textMuted,
                     ),
                     onTap: onFavoriteToggle,
                   ),
@@ -325,10 +357,7 @@ class PageManagerActionDrawer extends StatelessWidget {
                 const Expanded(
                   child: Text(
                     'Storage Location: Device Internal / Scans',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: AppColors.textMuted,
-                    ),
+                    style: TextStyle(fontSize: 11, color: AppColors.textMuted),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -341,7 +370,10 @@ class PageManagerActionDrawer extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                       side: const BorderSide(color: AppColors.hairline),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 14,
+                      vertical: 6,
+                    ),
                   ),
                   child: const Text(
                     'Done',
@@ -450,11 +482,7 @@ class _DrawerListTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
         child: Row(
           children: <Widget>[
-            Icon(
-              icon,
-              size: 20,
-              color: iconColor ?? AppColors.textPrimary,
-            ),
+            Icon(icon, size: 20, color: iconColor ?? AppColors.textPrimary),
             const SizedBox(width: 14),
             Expanded(
               child: Text(
@@ -480,4 +508,3 @@ class _DrawerListTile extends StatelessWidget {
     );
   }
 }
-

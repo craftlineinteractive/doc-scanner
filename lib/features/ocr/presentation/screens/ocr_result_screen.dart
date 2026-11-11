@@ -11,10 +11,7 @@ import '../widgets/ocr_summary_card.dart';
 
 /// Extracted OCR text view with editing and copy/share capabilities matching Frame 11.
 class OcrResultScreen extends ConsumerStatefulWidget {
-  const OcrResultScreen({
-    super.key,
-    this.initialState = 'default',
-  });
+  const OcrResultScreen({super.key, this.initialState = 'default'});
 
   final String initialState;
 
@@ -36,10 +33,7 @@ class _OcrResultScreenState extends ConsumerState<OcrResultScreen> {
   }
 
   void _copyToClipboard() {
-    showAppSnackbar(
-      context: context,
-      message: 'Copied to Clipboard!',
-    );
+    showAppSnackbar(context: context, message: 'Copied to Clipboard!');
   }
 
   @override
@@ -144,10 +138,7 @@ class _OcrResultScreenState extends ConsumerState<OcrResultScreen> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      icon: const Icon(
-                        Symbols.content_copy_rounded,
-                        size: 16,
-                      ),
+                      icon: const Icon(Symbols.content_copy_rounded, size: 16),
                       label: const Text(
                         'Copy',
                         style: TextStyle(
@@ -177,10 +168,7 @@ class _OcrResultScreenState extends ConsumerState<OcrResultScreen> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      icon: const Icon(
-                        Symbols.share_rounded,
-                        size: 16,
-                      ),
+                      icon: const Icon(Symbols.share_rounded, size: 16),
                       label: const Text(
                         'Share',
                         style: TextStyle(
@@ -199,4 +187,3 @@ class _OcrResultScreenState extends ConsumerState<OcrResultScreen> {
     );
   }
 }
-

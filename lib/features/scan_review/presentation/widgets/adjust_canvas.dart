@@ -37,10 +37,7 @@ class _AdjustCanvasState extends State<AdjustCanvas> {
     );
 
     if (filter != null) {
-      pagePreview = ColorFiltered(
-        colorFilter: filter,
-        child: pagePreview,
-      );
+      pagePreview = ColorFiltered(colorFilter: filter, child: pagePreview);
     }
 
     return Container(

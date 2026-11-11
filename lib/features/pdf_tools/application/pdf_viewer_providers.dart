@@ -24,8 +24,8 @@ class PdfViewerState {
 
   PdfSearchMatch? get currentMatch =>
       matches.isNotEmpty && matchIndex < matches.length
-          ? matches[matchIndex]
-          : null;
+      ? matches[matchIndex]
+      : null;
 
   PdfViewerState copyWith({
     int? currentPage,
@@ -97,11 +97,7 @@ class PdfViewerNotifier extends Notifier<PdfViewerState> {
       MockPdfDocument.pages,
       query,
     );
-    state = state.copyWith(
-      searchQuery: query,
-      matchIndex: 0,
-      matches: found,
-    );
+    state = state.copyWith(searchQuery: query, matchIndex: 0, matches: found);
   }
 
   void nextMatch() {
@@ -124,7 +120,4 @@ class PdfViewerNotifier extends Notifier<PdfViewerState> {
 }
 
 final NotifierProvider<PdfViewerNotifier, PdfViewerState> pdfViewerProvider =
-    NotifierProvider<PdfViewerNotifier, PdfViewerState>(
-  PdfViewerNotifier.new,
-);
-
+    NotifierProvider<PdfViewerNotifier, PdfViewerState>(PdfViewerNotifier.new);

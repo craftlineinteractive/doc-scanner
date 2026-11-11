@@ -58,7 +58,10 @@ class PostScanOcrPanel extends StatelessWidget {
                     ),
                     Text(
                       '84 words • 98% accuracy',
-                      style: TextStyle(fontSize: 11, color: AppColors.textMuted),
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: AppColors.textMuted,
+                      ),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],

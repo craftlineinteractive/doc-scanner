@@ -13,8 +13,6 @@ class BookScanTypeNotifier extends Notifier<BookScanType> {
 
 /// Provider exposing current [BookScanType].
 final NotifierProvider<BookScanTypeNotifier, BookScanType>
-    bookScanTypeProvider =
-    NotifierProvider<BookScanTypeNotifier, BookScanType>(
+bookScanTypeProvider = NotifierProvider<BookScanTypeNotifier, BookScanType>(
   BookScanTypeNotifier.new,
 );
-

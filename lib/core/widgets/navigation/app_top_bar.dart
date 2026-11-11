@@ -98,10 +98,10 @@ class AppTopBar extends StatelessWidget implements PreferredSizeWidget {
                             fit: BoxFit.cover,
                             errorBuilder: (context, error, stackTrace) =>
                                 const Icon(
-                              Symbols.person_rounded,
-                              color: Colors.white,
-                              size: 18,
-                            ),
+                                  Symbols.person_rounded,
+                                  color: Colors.white,
+                                  size: 18,
+                                ),
                           )
                         : const Icon(
                             Symbols.person_rounded,
@@ -118,4 +118,3 @@ class AppTopBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
-

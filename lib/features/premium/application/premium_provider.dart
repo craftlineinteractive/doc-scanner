@@ -14,7 +14,4 @@ class PremiumPlanNotifier extends Notifier<PremiumPlan> {
 
 /// Provider for the active subscription plan on the paywall screen.
 final NotifierProvider<PremiumPlanNotifier, PremiumPlan> premiumPlanProvider =
-    NotifierProvider<PremiumPlanNotifier, PremiumPlan>(
-  PremiumPlanNotifier.new,
-);
-
+    NotifierProvider<PremiumPlanNotifier, PremiumPlan>(PremiumPlanNotifier.new);

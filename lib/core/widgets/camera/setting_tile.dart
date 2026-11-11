@@ -30,21 +30,14 @@ class SettingTile extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(12),
       child: ConstrainedBox(
-        constraints: const BoxConstraints(
-          minWidth: 80,
-          minHeight: 64,
-        ),
+        constraints: const BoxConstraints(minWidth: 80, minHeight: 64),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Icon(
-                icon,
-                size: 24,
-                color: iconColor,
-              ),
+              Icon(icon, size: 24, color: iconColor),
               const SizedBox(height: 2),
               Flexible(
                 child: Text(

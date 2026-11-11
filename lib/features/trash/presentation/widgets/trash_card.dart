@@ -123,10 +123,7 @@ class TrashCard extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          MockDocumentPage(
-            variant: item.variant,
-            showBorder: false,
-          ),
+          MockDocumentPage(variant: item.variant, showBorder: false),
           Positioned(
             bottom: 0,
             left: 0,
@@ -172,10 +169,7 @@ class TrashCard extends StatelessWidget {
           item.isFolder
               ? 'Folder, ${item.itemCount ?? 0} items'
               : item.deletedLabel,
-          style: const TextStyle(
-            fontSize: 12,
-            color: AppColors.textMuted,
-          ),
+          style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
@@ -237,10 +231,7 @@ class TrashCard extends StatelessWidget {
           item.isFolder
               ? 'Folder, ${item.itemCount ?? 0} items'
               : '${item.shortDeletedLabel}${item.pageCount != null ? " • ${item.pageCount} ${item.pageCount == 1 ? "page" : "pages"}" : ""}',
-          style: const TextStyle(
-            fontSize: 12,
-            color: AppColors.textMuted,
-          ),
+          style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
@@ -267,11 +258,7 @@ class _SelectionIndicator extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         child: const Center(
-          child: Icon(
-            Symbols.check_rounded,
-            size: 14,
-            color: Colors.white,
-          ),
+          child: Icon(Symbols.check_rounded, size: 14, color: Colors.white),
         ),
       );
     }
@@ -286,4 +273,3 @@ class _SelectionIndicator extends StatelessWidget {
     );
   }
 }
-

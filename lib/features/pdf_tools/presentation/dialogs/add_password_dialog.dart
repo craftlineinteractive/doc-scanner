@@ -41,10 +41,7 @@ class _AddPasswordDialogState extends State<AddPasswordDialog> {
         children: <Widget>[
           const Text(
             'Protect proprietary contracts with AES-256 encryption.',
-            style: TextStyle(
-              fontSize: 12,
-              color: AppColors.textMuted,
-            ),
+            style: TextStyle(fontSize: 12, color: AppColors.textMuted),
           ),
           const SizedBox(height: 14),
           TextField(
@@ -88,4 +85,3 @@ class _AddPasswordDialogState extends State<AddPasswordDialog> {
     );
   }
 }
-

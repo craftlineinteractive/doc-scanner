@@ -28,36 +28,40 @@ void main() {
 
   Widget buildCameraScreen() {
     return ProviderScope(
-      child: MaterialApp(
-        theme: AppTheme.light,
-        home: const CameraScreen(),
-      ),
+      child: MaterialApp(theme: AppTheme.light, home: const CameraScreen()),
     );
   }
 
-  testWidgets('Tapping a mode chip in camera mode selector changes the selected mode',
-      (WidgetTester tester) async {
+  testWidgets(
+    'Tapping a mode chip in camera mode selector changes the selected mode',
+    (WidgetTester tester) async {
+      await tester.pumpWidget(buildCameraScreen());
+      await tester.pumpAndSettle();
+
+      final container = ProviderScope.containerOf(
+        tester.element(find.byType(CameraScreen)),
+      );
+      expect(container.read(cameraModeProvider), CameraMode.document);
+
+      // Find and tap Photo mode chip
+      final photoChip = find.text('Photo');
+      expect(photoChip, findsOneWidget);
+      await tester.tap(photoChip);
+      await tester.pumpAndSettle();
+
+      expect(container.read(cameraModeProvider), CameraMode.photo);
+    },
+  );
+
+  testWidgets('Flash button cycles Off -> On -> Auto -> Off', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(buildCameraScreen());
     await tester.pumpAndSettle();
 
-    final container = ProviderScope.containerOf(tester.element(find.byType(CameraScreen)));
-    expect(container.read(cameraModeProvider), CameraMode.document);
-
-    // Find and tap Photo mode chip
-    final photoChip = find.text('Photo');
-    expect(photoChip, findsOneWidget);
-    await tester.tap(photoChip);
-    await tester.pumpAndSettle();
-
-    expect(container.read(cameraModeProvider), CameraMode.photo);
-  });
-
-  testWidgets('Flash button cycles Off -> On -> Auto -> Off',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(buildCameraScreen());
-    await tester.pumpAndSettle();
-
-    final container = ProviderScope.containerOf(tester.element(find.byType(CameraScreen)));
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(CameraScreen)),
+    );
 
     // Default flash is off
     expect(container.read(flashModeProvider), FlashMode.off);
@@ -82,12 +86,15 @@ void main() {
     expect(find.byIcon(Symbols.flash_off_rounded), findsOneWidget);
   });
 
-  testWidgets('Settings panel: tapping Capture Sound toggles On / Off',
-      (WidgetTester tester) async {
+  testWidgets('Settings panel: tapping Capture Sound toggles On / Off', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(buildCameraScreen());
     await tester.pumpAndSettle();
 
-    final container = ProviderScope.containerOf(tester.element(find.byType(CameraScreen)));
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(CameraScreen)),
+    );
 
     // Open settings panel via gear icon
     await tester.tap(find.byIcon(Symbols.settings_rounded));
@@ -103,95 +110,99 @@ void main() {
     expect(container.read(cameraSettingsProvider).captureSound, isFalse);
   });
 
-  testWidgets('Scan Quality sheet: selecting Max and pressing Done updates the quality tile value',
-      (WidgetTester tester) async {
-    ScanQuality selected = ScanQuality.high;
+  testWidgets(
+    'Scan Quality sheet: selecting Max and pressing Done updates the quality tile value',
+    (WidgetTester tester) async {
+      ScanQuality selected = ScanQuality.high;
 
-    await tester.pumpWidget(
-      MaterialApp(
-        theme: AppTheme.light,
-        home: Scaffold(
-          body: Builder(
-            builder: (context) {
-              return ElevatedButton(
-                onPressed: () {
-                  ScanQualitySheet.show(
-                    context,
-                    initialQuality: selected,
-                    onSelected: (quality) {
-                      selected = quality;
-                    },
-                  );
-                },
-                child: const Text('Open Quality Sheet'),
-              );
-            },
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          home: Scaffold(
+            body: Builder(
+              builder: (context) {
+                return ElevatedButton(
+                  onPressed: () {
+                    ScanQualitySheet.show(
+                      context,
+                      initialQuality: selected,
+                      onSelected: (quality) {
+                        selected = quality;
+                      },
+                    );
+                  },
+                  child: const Text('Open Quality Sheet'),
+                );
+              },
+            ),
           ),
         ),
-      ),
-    );
-    await tester.pumpAndSettle();
+      );
+      await tester.pumpAndSettle();
 
-    // Open bottom sheet
-    await tester.tap(find.text('Open Quality Sheet'));
-    await tester.pumpAndSettle();
+      // Open bottom sheet
+      await tester.tap(find.text('Open Quality Sheet'));
+      await tester.pumpAndSettle();
 
-    expect(find.text('Scan Quality'), findsOneWidget);
-    expect(find.text('Max'), findsOneWidget);
+      expect(find.text('Scan Quality'), findsOneWidget);
+      expect(find.text('Max'), findsOneWidget);
 
-    // Select Max
-    await tester.tap(find.text('Max'));
-    await tester.pumpAndSettle();
+      // Select Max
+      await tester.tap(find.text('Max'));
+      await tester.pumpAndSettle();
 
-    // Tap Done
-    await tester.tap(find.text('Done'));
-    await tester.pumpAndSettle();
+      // Tap Done
+      await tester.tap(find.text('Done'));
+      await tester.pumpAndSettle();
 
-    expect(selected, ScanQuality.max);
-  });
+      expect(selected, ScanQuality.max);
+    },
+  );
 
-  testWidgets('Photo size dialog: selecting a chip updates the selected size in provider; tapping x removes the chip',
-      (WidgetTester tester) async {
-    PhotoSize currentSelected = MockPhotoSizes.defaultSelected;
-    List<PhotoSize> currentSizes = List<PhotoSize>.from(MockPhotoSizes.defaultSizes);
+  testWidgets(
+    'Photo size dialog: selecting a chip updates the selected size in provider; tapping x removes the chip',
+    (WidgetTester tester) async {
+      PhotoSize currentSelected = MockPhotoSizes.defaultSelected;
+      List<PhotoSize> currentSizes = List<PhotoSize>.from(
+        MockPhotoSizes.defaultSizes,
+      );
 
-    await tester.pumpWidget(
-      MaterialApp(
-        theme: AppTheme.light,
-        home: Scaffold(
-          body: PhotoSizeDialog(
-            initialSelectedSize: currentSelected,
-            initialSizes: currentSizes,
-            onSizeSelected: (size) => currentSelected = size,
-            onSizesUpdated: (sizes) => currentSizes = sizes,
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          home: Scaffold(
+            body: PhotoSizeDialog(
+              initialSelectedSize: currentSelected,
+              initialSizes: currentSizes,
+              onSizeSelected: (size) => currentSelected = size,
+              onSizesUpdated: (sizes) => currentSizes = sizes,
+            ),
           ),
         ),
-      ),
-    );
-    await tester.pumpAndSettle();
+      );
+      await tester.pumpAndSettle();
 
-    expect(find.text('ID Photo Editor'), findsOneWidget);
-    expect(find.text('35 x 45 MM'), findsOneWidget);
+      expect(find.text('ID Photo Editor'), findsOneWidget);
+      expect(find.text('35 x 45 MM'), findsOneWidget);
 
-    // Tap 35 x 45 MM card and press Select
-    await tester.tap(find.text('35 x 45 MM'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Select'));
-    await tester.pumpAndSettle();
+      // Tap 35 x 45 MM card and press Select
+      await tester.tap(find.text('35 x 45 MM'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Select'));
+      await tester.pumpAndSettle();
 
-    expect(currentSelected.label, '35 x 45 MM');
-  });
+      expect(currentSelected.label, '35 x 45 MM');
+    },
+  );
 
-  testWidgets('Shutter press in Document mode navigates to adjust route',
-      (WidgetTester tester) async {
+  testWidgets('Shutter press in Document mode navigates to adjust route', (
+    WidgetTester tester,
+  ) async {
     final router = createRouter(initialLocation: AppRoutes.camera);
 
     await tester.pumpWidget(
       ProviderScope(
-        child: MaterialApp.router(
-          theme: AppTheme.light,
-          routerConfig: router,
-        ),
+        child: MaterialApp.router(theme: AppTheme.light, routerConfig: router),
       ),
     );
     await tester.pumpAndSettle();
@@ -206,16 +217,16 @@ void main() {
     expect(find.text('Adjust'), findsAtLeastNWidgets(1));
   });
 
-  testWidgets('In QR mode, there is no shutter button',
-      (WidgetTester tester) async {
-    final router = createRouter(initialLocation: '${AppRoutes.camera}?mode=qrScanner');
+  testWidgets('In QR mode, there is no shutter button', (
+    WidgetTester tester,
+  ) async {
+    final router = createRouter(
+      initialLocation: '${AppRoutes.camera}?mode=qrScanner',
+    );
 
     await tester.pumpWidget(
       ProviderScope(
-        child: MaterialApp.router(
-          theme: AppTheme.light,
-          routerConfig: router,
-        ),
+        child: MaterialApp.router(theme: AppTheme.light, routerConfig: router),
       ),
     );
     await tester.pump();

@@ -69,10 +69,10 @@ class DrawerHeaderSignedIn extends StatelessWidget {
                             fit: BoxFit.cover,
                             errorBuilder: (context, error, stackTrace) =>
                                 const Icon(
-                              Symbols.person_rounded,
-                              color: Colors.white,
-                              size: 32,
-                            ),
+                                  Symbols.person_rounded,
+                                  color: Colors.white,
+                                  size: 32,
+                                ),
                           )
                         : const Icon(
                             Symbols.person_rounded,
@@ -164,8 +164,10 @@ class DrawerHeaderSignedIn extends StatelessWidget {
               ),
               if (isSynced)
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 2,
+                  ),
                   decoration: BoxDecoration(
                     color: docColors.successTint,
                     borderRadius: AppRadii.roundedPill,

@@ -15,14 +15,18 @@ class AppRadii {
   // BorderRadius instances
   static const BorderRadius roundedSm = BorderRadius.all(Radius.circular(sm));
   static const BorderRadius roundedMd = BorderRadius.all(Radius.circular(md));
-  static const BorderRadius roundedInput =
-      BorderRadius.all(Radius.circular(input));
-  static const BorderRadius roundedCard =
-      BorderRadius.all(Radius.circular(card));
-  static const BorderRadius roundedCardLarge =
-      BorderRadius.all(Radius.circular(cardLarge));
-  static const BorderRadius roundedPill =
-      BorderRadius.all(Radius.circular(pill));
+  static const BorderRadius roundedInput = BorderRadius.all(
+    Radius.circular(input),
+  );
+  static const BorderRadius roundedCard = BorderRadius.all(
+    Radius.circular(card),
+  );
+  static const BorderRadius roundedCardLarge = BorderRadius.all(
+    Radius.circular(cardLarge),
+  );
+  static const BorderRadius roundedPill = BorderRadius.all(
+    Radius.circular(pill),
+  );
 
   // Bottom sheet top-only radius
   static const BorderRadius sheetRadius = BorderRadius.vertical(
@@ -39,4 +43,3 @@ class AppRadii {
     bottom: Radius.circular(cardLarge),
   );
 }
-

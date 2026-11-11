@@ -87,8 +87,10 @@ class PdfPageCard extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 2.5),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 2.5,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.successTint,
                   borderRadius: BorderRadius.circular(12),
@@ -252,13 +254,16 @@ class PdfPageCard extends StatelessWidget {
       }
 
       if (index > start) {
-        spans.add(TextSpan(text: text.substring(start, index), style: baseStyle));
+        spans.add(
+          TextSpan(text: text.substring(start, index), style: baseStyle),
+        );
       }
 
       final int end = index + query.length;
       final String matchText = text.substring(index, end);
 
-      final bool isCurrentMatch = currentMatch != null &&
+      final bool isCurrentMatch =
+          currentMatch != null &&
           currentMatch!.pageIndex == (content.pageNumber - 1) &&
           currentMatch!.term.toLowerCase() == query;
 
@@ -283,4 +288,3 @@ class PdfPageCard extends StatelessWidget {
     return Text.rich(TextSpan(children: spans));
   }
 }
-

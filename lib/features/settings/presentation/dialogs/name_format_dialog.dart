@@ -9,10 +9,7 @@ import '../../../../core/widgets/inputs/app_text_field.dart';
 
 /// Modal dialog for editing the automated document naming template.
 class NameFormatDialog extends StatefulWidget {
-  const NameFormatDialog({
-    super.key,
-    required this.initialValue,
-  });
+  const NameFormatDialog({super.key, required this.initialValue});
 
   final String initialValue;
 

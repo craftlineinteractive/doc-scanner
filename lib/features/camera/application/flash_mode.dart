@@ -12,4 +12,3 @@ enum FlashMode {
   /// Short symbol/letter for the top bar badge e.g. "Off", "On", "A".
   final String badge;
 }
-

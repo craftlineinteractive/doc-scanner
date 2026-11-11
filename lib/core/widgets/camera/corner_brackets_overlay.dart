@@ -83,4 +83,3 @@ class _CornerBracketsPainter extends CustomPainter {
       oldDelegate.strokeWidth != strokeWidth ||
       oldDelegate.length != length;
 }
-

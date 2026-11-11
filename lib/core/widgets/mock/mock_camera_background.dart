@@ -37,9 +37,7 @@ class MockCameraBackground extends StatelessWidget {
           ],
         ),
       ),
-      child: Center(
-        child: _buildSubject(context),
-      ),
+      child: Center(child: _buildSubject(context)),
     );
   }
 
@@ -75,10 +73,7 @@ class MockCameraBackground extends StatelessWidget {
           ],
           borderRadius: AppRadii.roundedSm,
         ),
-        child: MockDocumentPage(
-          variant: variant,
-          showBorder: false,
-        ),
+        child: MockDocumentPage(variant: variant, showBorder: false),
       ),
     );
   }
@@ -198,10 +193,7 @@ class MockCameraBackground extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            width: 2,
-            color: Colors.grey.shade400,
-          ),
+          Container(width: 2, color: Colors.grey.shade400),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
@@ -278,10 +270,7 @@ class MockCameraBackground extends StatelessWidget {
               ),
             ],
           ),
-          CustomPaint(
-            size: const Size(220, 70),
-            painter: _SignaturePainter(),
-          ),
+          CustomPaint(size: const Size(220, 70), painter: _SignaturePainter()),
           Text(
             'Place signature inside box',
             style: AppTypography.bodySm.copyWith(

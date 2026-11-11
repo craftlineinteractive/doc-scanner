@@ -19,4 +19,3 @@ class OcrResult {
   String get summarySubtitle =>
       '$pageCount page • $language • Tap to preview original';
 }
-

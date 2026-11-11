@@ -64,7 +64,4 @@ class OcrNotifier extends Notifier<OcrState> {
 }
 
 final NotifierProvider<OcrNotifier, OcrState> ocrProvider =
-    NotifierProvider<OcrNotifier, OcrState>(
-  OcrNotifier.new,
-);
-
+    NotifierProvider<OcrNotifier, OcrState>(OcrNotifier.new);

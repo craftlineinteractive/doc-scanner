@@ -9,11 +9,7 @@ import '../../theme/doc_colors.dart';
 
 /// Reusable placeholder screen displayed for routes pending implementation.
 class PlaceholderScreen extends StatelessWidget {
-  const PlaceholderScreen({
-    super.key,
-    required this.title,
-    this.subtitle,
-  });
+  const PlaceholderScreen({super.key, required this.title, this.subtitle});
 
   final String title;
   final String? subtitle;
@@ -40,9 +36,7 @@ class PlaceholderScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: Theme.of(context).cardTheme.color,
               borderRadius: AppRadii.roundedCard,
-              border: Border.all(
-                color: context.docColors.hairline,
-              ),
+              border: Border.all(color: context.docColors.hairline),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -92,4 +86,3 @@ class PlaceholderScreen extends StatelessWidget {
     );
   }
 }
-

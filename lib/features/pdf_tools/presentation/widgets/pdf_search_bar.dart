@@ -147,8 +147,7 @@ class _PdfSearchBarState extends State<PdfSearchBar> {
             icon: const Icon(Symbols.keyboard_arrow_up_rounded, size: 20),
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
-            onPressed:
-                widget.totalMatches > 0 ? widget.onPreviousMatch : null,
+            onPressed: widget.totalMatches > 0 ? widget.onPreviousMatch : null,
             tooltip: 'Previous match',
           ),
           IconButton(
@@ -163,4 +162,3 @@ class _PdfSearchBarState extends State<PdfSearchBar> {
     );
   }
 }
-

@@ -182,10 +182,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     if (confirmed == true) {
       ref.read(settingsProvider.notifier).resetSettings();
       if (mounted) {
-        showAppSnackbar(
-          context: context,
-          message: 'Settings reset',
-        );
+        showAppSnackbar(context: context, message: 'Settings reset');
       }
     }
   }
@@ -193,16 +190,12 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const BackTitleBar(
-        title: 'Settings',
-      ),
+      appBar: const BackTitleBar(title: 'Settings'),
       body: ListView(
         controller: _scrollController,
         padding: const EdgeInsets.only(top: 8, bottom: 24),
         children: <Widget>[
-          BackupAppearanceSections(
-            onShowHintToast: _showHintToast,
-          ),
+          BackupAppearanceSections(onShowHintToast: _showHintToast),
           const DocumentCameraSections(),
           const AppAboutSections(),
         ],

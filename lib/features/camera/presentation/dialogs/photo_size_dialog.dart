@@ -90,9 +90,7 @@ class _PhotoSizeDialogState extends State<PhotoSizeDialog> {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       insetPadding: const EdgeInsets.symmetric(horizontal: 20),
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 350, maxHeight: 520),
@@ -138,8 +136,10 @@ class _PhotoSizeDialogState extends State<PhotoSizeDialog> {
                     children: List.generate(_sizes.length, (index) {
                       final size = _sizes[index];
                       return DragTarget<int>(
-                        onWillAcceptWithDetails: (details) => details.data != index,
-                        onAcceptWithDetails: (details) => _reorder(details.data, index),
+                        onWillAcceptWithDetails: (details) =>
+                            details.data != index,
+                        onAcceptWithDetails: (details) =>
+                            _reorder(details.data, index),
                         builder: (context, candidateData, rejectedData) {
                           return LongPressDraggable<int>(
                             data: index,
@@ -299,8 +299,9 @@ class _PhotoSizeDialogState extends State<PhotoSizeDialog> {
                     size.label,
                     style: AppTypography.labelSm.copyWith(
                       color: const Color(0xFF1E2340),
-                      fontWeight:
-                          isSelected ? FontWeight.w700 : FontWeight.w600,
+                      fontWeight: isSelected
+                          ? FontWeight.w700
+                          : FontWeight.w600,
                       fontSize: 11,
                     ),
                     maxLines: 1,
@@ -328,9 +329,7 @@ class _PhotoSizeDialogState extends State<PhotoSizeDialog> {
               child: Icon(
                 Symbols.person_rounded,
                 size: 16,
-                color: isSelected
-                    ? AppColors.primary
-                    : const Color(0xFF8A90A6),
+                color: isSelected ? AppColors.primary : const Color(0xFF8A90A6),
               ),
             ),
           ],

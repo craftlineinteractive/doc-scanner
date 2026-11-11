@@ -135,7 +135,8 @@ class _PostScanViewerScreenState extends ConsumerState<PostScanViewerScreen> {
         isCropMode: _toolTier == ViewerToolTier.crop,
         isOcrActive: _isOcrActive,
         isFavorite: doc.isFavorite,
-        onBack: () => context.canPop() ? context.pop() : context.go(AppRoutes.home),
+        onBack: () =>
+            context.canPop() ? context.pop() : context.go(AppRoutes.home),
         onTitleTap: () => _showRenameDialog(doc),
         onFavoriteToggle: () => ref
             .read(savedDocumentsProvider.notifier)
@@ -143,7 +144,10 @@ class _PostScanViewerScreenState extends ConsumerState<PostScanViewerScreen> {
         onMoreTap: _showMoreOptionsSheet,
         onCropApply: () {
           setState(() => _toolTier = ViewerToolTier.edit);
-          showAppSnackbar(context: context, message: 'Crop applied successfully');
+          showAppSnackbar(
+            context: context,
+            message: 'Crop applied successfully',
+          );
         },
         onCropCancel: () {
           setState(() => _toolTier = ViewerToolTier.edit);
@@ -229,7 +233,11 @@ class _PostScanViewerScreenState extends ConsumerState<PostScanViewerScreen> {
                   onFilterChanged: (ScanFilter filter) {
                     ref
                         .read(savedDocumentsProvider.notifier)
-                        .setPageFilter(widget.initialDocId, _currentPage, filter);
+                        .setPageFilter(
+                          widget.initialDocId,
+                          _currentPage,
+                          filter,
+                        );
                   },
                 );
               },
@@ -250,8 +258,7 @@ class _PostScanViewerScreenState extends ConsumerState<PostScanViewerScreen> {
                 context: context,
                 message: 'Watermark applied: CONFIDENTIAL',
               ),
-              onCloseTap: () =>
-                  setState(() => _toolTier = ViewerToolTier.main),
+              onCloseTap: () => setState(() => _toolTier = ViewerToolTier.main),
             ),
 
           // 1st-tier Main Toolbar
@@ -278,8 +285,7 @@ class _PostScanViewerScreenState extends ConsumerState<PostScanViewerScreen> {
                 context: context,
                 message: 'Connecting to printer...',
               ),
-              onCopyTextTap: () =>
-                  setState(() => _isOcrActive = !_isOcrActive),
+              onCopyTextTap: () => setState(() => _isOcrActive = !_isOcrActive),
               onImageToTap: () => showAppSnackbar(
                 context: context,
                 message: 'Exporting as JPEG...',

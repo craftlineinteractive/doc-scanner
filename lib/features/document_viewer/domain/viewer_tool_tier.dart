@@ -12,4 +12,3 @@ enum ViewerToolTier {
   /// PDF sub-toolbar opened by tapping Open PDF (Compress, Watermark, Fit Type, Page Size, Orientation)
   pdf,
 }
-

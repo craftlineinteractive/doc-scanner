@@ -80,4 +80,3 @@ class ReviewTopBar extends StatelessWidget {
     );
   }
 }
-

@@ -29,16 +29,16 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
 /// Factory function to construct GoRouter configuration.
 GoRouter createRouter({String? initialLocation}) {
   return GoRouter(
-    initialLocation: initialLocation ??
-        (kDebugMode ? AppRoutes.gallery : AppRoutes.home),
+    initialLocation:
+        initialLocation ?? (kDebugMode ? AppRoutes.gallery : AppRoutes.home),
     redirect: (BuildContext context, GoRouterState state) {
       final Uri uri = state.uri;
       if (uri.scheme == 'docscanner') {
         final String rawPath = uri.host.isNotEmpty
             ? '/${uri.host}${uri.path}'
             : (uri.path.isEmpty
-                ? '/'
-                : (uri.path.startsWith('/') ? uri.path : '/${uri.path}'));
+                  ? '/'
+                  : (uri.path.startsWith('/') ? uri.path : '/${uri.path}'));
         final String query = uri.hasQuery ? '?${uri.query}' : '';
         if (rawPath == AppRoutes.pageManagerShort) {
           return '${AppRoutes.pageManager}$query';
@@ -70,16 +70,17 @@ GoRouter createRouter({String? initialLocation}) {
         path: AppRoutes.home,
         builder: (context, state) {
           final String? mode = state.uri.queryParameters['mode'];
-          final bool showOverflow = state.uri.queryParameters['overflow'] == 'true';
-          final bool importExpanded = state.uri.queryParameters['importExpanded'] == 'true';
-          final bool showAddSheet = state.uri.queryParameters['addSheet'] == 'true';
+          final bool showOverflow =
+              state.uri.queryParameters['overflow'] == 'true';
+          final bool importExpanded =
+              state.uri.queryParameters['importExpanded'] == 'true';
+          final bool showAddSheet =
+              state.uri.queryParameters['addSheet'] == 'true';
 
           return ProviderScope(
             overrides: [
               if (mode == 'grid')
-                homeViewModeProvider.overrideWith(
-                  GridHomeViewModeNotifier.new,
-                ),
+                homeViewModeProvider.overrideWith(GridHomeViewModeNotifier.new),
             ],
             child: HomeScreen(
               initialShowOverflowMenu: showOverflow,
@@ -166,10 +167,7 @@ GoRouter createRouter({String? initialLocation}) {
         builder: (context, state) {
           final mode = state.uri.queryParameters['mode'];
           final dialog = state.uri.queryParameters['dialog'];
-          return ReviewScanScreen(
-            initialMode: mode,
-            initialDialog: dialog,
-          );
+          return ReviewScanScreen(initialMode: mode, initialDialog: dialog);
         },
       ),
       GoRoute(
@@ -177,10 +175,7 @@ GoRouter createRouter({String? initialLocation}) {
         builder: (context, state) {
           final mode = state.uri.queryParameters['mode'];
           final dialog = state.uri.queryParameters['dialog'];
-          return ReviewScanScreen(
-            initialMode: mode,
-            initialDialog: dialog,
-          );
+          return ReviewScanScreen(initialMode: mode, initialDialog: dialog);
         },
       ),
       GoRoute(
@@ -213,10 +208,10 @@ GoRouter createRouter({String? initialLocation}) {
       GoRoute(
         path: AppRoutes.savedViewer,
         builder: (context, state) {
-          final String docId =
-              state.uri.queryParameters['id'] ?? 'doc_saved_5';
-          final int? frame =
-              int.tryParse(state.uri.queryParameters['frame'] ?? '');
+          final String docId = state.uri.queryParameters['id'] ?? 'doc_saved_5';
+          final int? frame = int.tryParse(
+            state.uri.queryParameters['frame'] ?? '',
+          );
           final int page =
               int.tryParse(state.uri.queryParameters['page'] ?? '0') ?? 0;
           return SavedDocumentViewerScreen(
@@ -229,8 +224,7 @@ GoRouter createRouter({String? initialLocation}) {
       GoRoute(
         path: AppRoutes.pageManager,
         builder: (context, state) {
-          final String docId =
-              state.uri.queryParameters['id'] ?? 'doc_multi_4';
+          final String docId = state.uri.queryParameters['id'] ?? 'doc_multi_4';
           final String st = state.uri.queryParameters['state'] ?? 'grid';
           final String q = state.uri.queryParameters['q'] ?? 'Invoice';
           return PageManagerScreen(
@@ -306,4 +300,3 @@ GoRouter createRouter({String? initialLocation}) {
     ],
   );
 }
-

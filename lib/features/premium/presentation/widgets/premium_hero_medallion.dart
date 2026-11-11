@@ -87,4 +87,3 @@ class PremiumHeroMedallion extends StatelessWidget {
     );
   }
 }
-

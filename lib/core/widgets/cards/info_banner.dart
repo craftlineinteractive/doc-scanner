@@ -30,9 +30,7 @@ class InfoBanner extends StatelessWidget {
       color: docColors.primaryTint.withValues(alpha: 0.6),
       shape: RoundedRectangleBorder(
         borderRadius: AppRadii.roundedCard,
-        side: BorderSide(
-          color: AppColors.primary.withValues(alpha: 0.12),
-        ),
+        side: BorderSide(color: AppColors.primary.withValues(alpha: 0.12)),
       ),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
@@ -90,4 +88,3 @@ class InfoBanner extends StatelessWidget {
     );
   }
 }
-

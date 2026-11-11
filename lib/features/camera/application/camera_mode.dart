@@ -13,4 +13,3 @@ enum CameraMode {
   /// Human-readable label displayed in the camera mode strip.
   final String label;
 }
-

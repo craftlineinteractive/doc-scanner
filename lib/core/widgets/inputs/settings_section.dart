@@ -43,7 +43,9 @@ class SettingsSection extends StatelessWidget {
           ),
         ),
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: AppSpacing.screenMargin),
+          margin: const EdgeInsets.symmetric(
+            horizontal: AppSpacing.screenMargin,
+          ),
           decoration: BoxDecoration(
             color: Theme.of(context).cardTheme.color,
             borderRadius: AppRadii.roundedCard,
@@ -55,10 +57,8 @@ class SettingsSection extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
             itemCount: children.length,
-            separatorBuilder: (BuildContext context, int index) => Divider(
-              color: docColors.hairline,
-              height: 1,
-            ),
+            separatorBuilder: (BuildContext context, int index) =>
+                Divider(color: docColors.hairline, height: 1),
             itemBuilder: (BuildContext context, int index) => children[index],
           ),
         ),
@@ -66,4 +66,3 @@ class SettingsSection extends StatelessWidget {
     );
   }
 }
-

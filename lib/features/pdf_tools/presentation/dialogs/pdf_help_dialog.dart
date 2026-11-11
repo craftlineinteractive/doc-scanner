@@ -4,10 +4,7 @@ import '../../../../core/theme/app_colors.dart';
 
 /// Contextual Help Modal explaining key PDF tool operations matching Frame 4.
 class PdfHelpDialog extends StatelessWidget {
-  const PdfHelpDialog({
-    super.key,
-    required this.onGotIt,
-  });
+  const PdfHelpDialog({super.key, required this.onGotIt});
 
   final VoidCallback onGotIt;
 
@@ -69,10 +66,7 @@ class PdfHelpDialog extends StatelessWidget {
               const SizedBox(height: 4),
               const Text(
                 'Master key operations in your Doc Scanner mobile suite',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: AppColors.textMuted,
-                ),
+                style: TextStyle(fontSize: 12, color: AppColors.textMuted),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
@@ -133,10 +127,7 @@ class PdfHelpDialog extends StatelessWidget {
                   ),
                   child: const Text(
                     'Got It, Let’s Start',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                   ),
                 ),
               ),
@@ -215,4 +206,3 @@ class _HelpItem extends StatelessWidget {
     );
   }
 }
-

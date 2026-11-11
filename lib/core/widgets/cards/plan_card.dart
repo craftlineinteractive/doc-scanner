@@ -34,7 +34,9 @@ class PlanCard extends StatelessWidget {
       clipBehavior: Clip.none,
       children: <Widget>[
         Material(
-          color: isSelected ? docColors.primaryTint : Theme.of(context).cardTheme.color,
+          color: isSelected
+              ? docColors.primaryTint
+              : Theme.of(context).cardTheme.color,
           shape: RoundedRectangleBorder(
             borderRadius: AppRadii.roundedCard,
             side: BorderSide(
@@ -150,4 +152,3 @@ class PlanCard extends StatelessWidget {
     );
   }
 }
-

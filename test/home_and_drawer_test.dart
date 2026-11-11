@@ -19,14 +19,12 @@ void main() {
     GoogleFonts.config.allowRuntimeFetching = false;
   });
 
-  testWidgets('Home shows 3 folder tiles and 7 document cards with mock data',
-      (WidgetTester tester) async {
+  testWidgets('Home shows 3 folder tiles and 7 document cards with mock data', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       ProviderScope(
-        child: MaterialApp(
-          theme: AppTheme.light,
-          home: const HomeScreen(),
-        ),
+        child: MaterialApp(theme: AppTheme.light, home: const HomeScreen()),
       ),
     );
     await tester.pump();
@@ -40,14 +38,12 @@ void main() {
     expect(find.text('sunilkumar_prajapati'), findsOneWidget);
   });
 
-  testWidgets('Tapping the plus half of DualPillFab opens Add Document sheet',
-      (WidgetTester tester) async {
+  testWidgets('Tapping the plus half of DualPillFab opens Add Document sheet', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       ProviderScope(
-        child: MaterialApp(
-          theme: AppTheme.light,
-          home: const HomeScreen(),
-        ),
+        child: MaterialApp(theme: AppTheme.light, home: const HomeScreen()),
       ),
     );
     await tester.pump();
@@ -62,14 +58,12 @@ void main() {
     expect(find.text('Import Documents'), findsOneWidget);
   });
 
-  testWidgets('View Mode toggle switches the list to a grid',
-      (WidgetTester tester) async {
+  testWidgets('View Mode toggle switches the list to a grid', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       ProviderScope(
-        child: MaterialApp(
-          theme: AppTheme.light,
-          home: const HomeScreen(),
-        ),
+        child: MaterialApp(theme: AppTheme.light, home: const HomeScreen()),
       ),
     );
     await tester.pump();
@@ -93,8 +87,9 @@ void main() {
     expect(find.byType(DocumentListCard), findsNothing);
   });
 
-  testWidgets('Drawer shows user name and sync status when signed in',
-      (WidgetTester tester) async {
+  testWidgets('Drawer shows user name and sync status when signed in', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       ProviderScope(
         child: MaterialApp(
@@ -121,14 +116,13 @@ void main() {
     expect(find.text('Synced'), findsOneWidget);
   });
 
-  testWidgets('Drawer shows Sign in with Google when signed out',
-      (WidgetTester tester) async {
+  testWidgets('Drawer shows Sign in with Google when signed out', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          drawerUserProvider.overrideWith(
-            SignedOutDrawerUserNotifier.new,
-          ),
+          drawerUserProvider.overrideWith(SignedOutDrawerUserNotifier.new),
         ],
         child: MaterialApp(
           theme: AppTheme.light,
@@ -153,27 +147,26 @@ void main() {
     expect(find.text(AppStrings.signInWithGoogle), findsOneWidget);
   });
 
-  testWidgets('Empty repository shows Scan your first document onboarding view',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          homeRepositoryProvider.overrideWith(
-            EmptyHomeRepositoryNotifier.new,
-          ),
-        ],
-        child: MaterialApp(
-          theme: AppTheme.light,
-          home: const HomeScreen(),
+  testWidgets(
+    'Empty repository shows Scan your first document onboarding view',
+    (WidgetTester tester) async {
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            homeRepositoryProvider.overrideWith(
+              EmptyHomeRepositoryNotifier.new,
+            ),
+          ],
+          child: MaterialApp(theme: AppTheme.light, home: const HomeScreen()),
         ),
-      ),
-    );
-    await tester.pumpAndSettle();
+      );
+      await tester.pumpAndSettle();
 
-    expect(find.text(AppStrings.scanFirstDoc), findsOneWidget);
-    expect(find.text('Tap camera to scan'), findsOneWidget);
-    expect(find.text('Tap + to import files'), findsOneWidget);
-    expect(find.byType(DocumentListCard), findsNothing);
-    expect(find.byType(FolderTile), findsNothing);
-  });
+      expect(find.text(AppStrings.scanFirstDoc), findsOneWidget);
+      expect(find.text('Tap camera to scan'), findsOneWidget);
+      expect(find.text('Tap + to import files'), findsOneWidget);
+      expect(find.byType(DocumentListCard), findsNothing);
+      expect(find.byType(FolderTile), findsNothing);
+    },
+  );
 }

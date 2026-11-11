@@ -29,4 +29,3 @@ class AppRoutes {
   static const String drawerSignedOut = '/drawer/signed-out';
   static const String drawerToolsOther = '/drawer/tools-other';
 }
-

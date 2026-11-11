@@ -61,7 +61,8 @@ class DocumentListCard extends StatelessWidget {
                 SizedBox(
                   width: 44,
                   height: 56,
-                  child: thumbnail ??
+                  child:
+                      thumbnail ??
                       MockDocumentPage(
                         variant: documentVariant,
                         showBorder: true,
@@ -164,4 +165,3 @@ class DocumentListCard extends StatelessWidget {
     );
   }
 }
-

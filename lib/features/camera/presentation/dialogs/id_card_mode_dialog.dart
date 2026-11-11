@@ -24,10 +24,8 @@ class IdCardModeDialog extends StatelessWidget {
     return showDialog<IdScanSides>(
       context: context,
       barrierColor: Colors.black.withValues(alpha: 0.6),
-      builder: (context) => IdCardModeDialog(
-        currentSides: currentSides,
-        onSelected: onSelected,
-      ),
+      builder: (context) =>
+          IdCardModeDialog(currentSides: currentSides, onSelected: onSelected),
     );
   }
 
@@ -35,9 +33,7 @@ class IdCardModeDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       insetPadding: const EdgeInsets.symmetric(horizontal: 24),
       child: Container(
         width: 340,
@@ -117,10 +113,7 @@ class IdCardModeDialog extends StatelessWidget {
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: borderColor,
-            width: isSelected ? 2.0 : 1.0,
-          ),
+          border: Border.all(color: borderColor, width: isSelected ? 2.0 : 1.0),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -234,10 +227,7 @@ class IdCardModeDialog extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xFFF9FAFB),
                 borderRadius: BorderRadius.circular(6),
-                border: Border.all(
-                  color: const Color(0xFFD1D5DB),
-                  width: 1,
-                ),
+                border: Border.all(color: const Color(0xFFD1D5DB), width: 1),
               ),
             ),
           ),

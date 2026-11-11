@@ -25,4 +25,3 @@ class PdfPageContent {
   /// Full concatenated text for lexical searching.
   String get fullText => '$title ${paragraphs.join(' ')}';
 }
-

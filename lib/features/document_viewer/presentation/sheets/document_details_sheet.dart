@@ -5,10 +5,7 @@ import '../../domain/saved_document.dart';
 
 /// Modal bottom sheet showing complete document metadata and file properties.
 class DocumentDetailsSheet extends StatelessWidget {
-  const DocumentDetailsSheet({
-    super.key,
-    required this.document,
-  });
+  const DocumentDetailsSheet({super.key, required this.document});
 
   final SavedDocument document;
 
@@ -153,4 +150,3 @@ class _DetailTile extends StatelessWidget {
     );
   }
 }
-

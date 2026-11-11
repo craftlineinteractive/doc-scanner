@@ -49,9 +49,7 @@ class CropMagnifier extends StatelessWidget {
           ),
 
           // Hairline crosshairs with center ring
-          CustomPaint(
-            painter: _CrosshairsPainter(color: strokeColor),
-          ),
+          CustomPaint(painter: _CrosshairsPainter(color: strokeColor)),
 
           // Zoom badge in bottom right
           Positioned(

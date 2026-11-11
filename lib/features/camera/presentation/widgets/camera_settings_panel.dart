@@ -12,10 +12,7 @@ import '../sheets/scan_quality_sheet.dart';
 
 /// Overlay settings panel displaying 10 camera configuration tiles in a 3-column grid.
 class CameraSettingsPanel extends ConsumerWidget {
-  const CameraSettingsPanel({
-    super.key,
-    required this.onClose,
-  });
+  const CameraSettingsPanel({super.key, required this.onClose});
 
   final VoidCallback onClose;
 
@@ -84,8 +81,7 @@ class CameraSettingsPanel extends ConsumerWidget {
                           onTap: () {
                             showAppSnackbar(
                               context: context,
-                              message:
-                                  'Color filters are chosen in the editor',
+                              message: 'Color filters are chosen in the editor',
                             );
                           },
                         ),
@@ -120,8 +116,7 @@ class CameraSettingsPanel extends ConsumerWidget {
                           onTap: () {
                             showAppSnackbar(
                               context: context,
-                              message:
-                                  'Set camera as home is coming later',
+                              message: 'Set camera as home is coming later',
                             );
                           },
                         ),

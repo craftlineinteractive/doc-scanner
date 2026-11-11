@@ -180,4 +180,3 @@ class _DockItem extends StatelessWidget {
     );
   }
 }
-

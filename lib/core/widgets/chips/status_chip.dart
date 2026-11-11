@@ -5,12 +5,7 @@ import '../../theme/app_typography.dart';
 import '../../theme/doc_colors.dart';
 
 /// Semantic status variant defining the visual tone of a StatusChip.
-enum StatusChipVariant {
-  success,
-  warning,
-  neutral,
-  primary,
-}
+enum StatusChipVariant { success, warning, neutral, primary }
 
 /// Compact pill status badge used for sync status, on-device tags, and feature flags.
 class StatusChip extends StatelessWidget {
@@ -51,10 +46,7 @@ class StatusChip extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: bg,
-        borderRadius: AppRadii.roundedPill,
-      ),
+      decoration: BoxDecoration(color: bg, borderRadius: AppRadii.roundedPill),
       child: Text(
         label,
         style: AppTypography.labelSm.copyWith(
@@ -66,4 +58,3 @@ class StatusChip extends StatelessWidget {
     );
   }
 }
-

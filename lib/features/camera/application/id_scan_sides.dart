@@ -8,4 +8,3 @@ enum IdScanSides {
   final String title;
   final String subtitle;
 }
-

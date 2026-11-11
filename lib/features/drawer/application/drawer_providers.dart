@@ -27,6 +27,4 @@ class SignedOutDrawerUserNotifier extends DrawerUserNotifier {
 
 /// Provider exposing the current [DrawerUser] or null if signed out.
 final NotifierProvider<DrawerUserNotifier, DrawerUser?> drawerUserProvider =
-    NotifierProvider<DrawerUserNotifier, DrawerUser?>(
-  DrawerUserNotifier.new,
-);
+    NotifierProvider<DrawerUserNotifier, DrawerUser?>(DrawerUserNotifier.new);

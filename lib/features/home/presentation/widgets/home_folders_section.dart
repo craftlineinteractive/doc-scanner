@@ -12,10 +12,7 @@ import '../../../../core/widgets/feedback/app_snackbar.dart';
 
 /// Folders section displaying folder count and category tiles on the Home screen.
 class HomeFoldersSection extends StatelessWidget {
-  const HomeFoldersSection({
-    super.key,
-    required this.folders,
-  });
+  const HomeFoldersSection({super.key, required this.folders});
 
   final List<ScanFolder> folders;
 
@@ -63,8 +60,10 @@ class HomeFoldersSection extends StatelessWidget {
           children: folders.asMap().entries.map((entry) {
             final int index = entry.key;
             final ScanFolder folder = entry.value;
-            final (Color accent, Color pastel) =
-                _resolveCategoryColors(folder.categoryColorKey, docColors);
+            final (Color accent, Color pastel) = _resolveCategoryColors(
+              folder.categoryColorKey,
+              docColors,
+            );
 
             return Expanded(
               child: Padding(
@@ -104,4 +103,3 @@ class HomeFoldersSection extends StatelessWidget {
     }
   }
 }
-

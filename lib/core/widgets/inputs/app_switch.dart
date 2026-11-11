@@ -62,10 +62,7 @@ class AppSwitch extends StatelessWidget {
                   ],
                 ),
               ),
-              Switch(
-                value: value,
-                onChanged: isEnabled ? onChanged : null,
-              ),
+              Switch(value: value, onChanged: isEnabled ? onChanged : null),
             ],
           ),
         ),
@@ -73,4 +70,3 @@ class AppSwitch extends StatelessWidget {
     );
   }
 }
-

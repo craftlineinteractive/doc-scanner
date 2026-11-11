@@ -91,7 +91,9 @@ class ReviewColorBar extends StatelessWidget {
                             : const Color(0xFF8A90A6),
                         width: 1.5,
                       ),
-                      color: applyToAll ? AppColors.primary : Colors.transparent,
+                      color: applyToAll
+                          ? AppColors.primary
+                          : Colors.transparent,
                     ),
                     alignment: Alignment.center,
                     child: applyToAll
@@ -122,4 +124,3 @@ class ReviewColorBar extends StatelessWidget {
     );
   }
 }
-

@@ -257,9 +257,7 @@ class AppTheme {
         backgroundColor: surfaceColor,
         modalBackgroundColor: surfaceColor,
         elevation: 8,
-        shape: const RoundedRectangleBorder(
-          borderRadius: AppRadii.sheetRadius,
-        ),
+        shape: const RoundedRectangleBorder(borderRadius: AppRadii.sheetRadius),
         dragHandleColor: mutedTextColor.withValues(alpha: 0.5),
         dragHandleSize: const Size(36, 4),
         showDragHandle: true,
@@ -313,4 +311,3 @@ class AppTheme {
     );
   }
 }
-

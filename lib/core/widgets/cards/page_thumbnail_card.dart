@@ -59,10 +59,7 @@ class PageThumbnailCard extends StatelessWidget {
                 fit: StackFit.expand,
                 children: <Widget>[
                   thumbnail ??
-                      MockDocumentPage(
-                        variant: variant,
-                        showBorder: false,
-                      ),
+                      MockDocumentPage(variant: variant, showBorder: false),
 
                   // Page index badge top-left
                   Positioned(
@@ -139,4 +136,3 @@ class PageThumbnailCard extends StatelessWidget {
     );
   }
 }
-

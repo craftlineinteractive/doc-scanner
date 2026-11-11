@@ -3,13 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('App boots and renders initial screen smoke test',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(
-      const ProviderScope(
-        child: DocScannerApp(),
-      ),
-    );
+  testWidgets('App boots and renders initial screen smoke test', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const ProviderScope(child: DocScannerApp()));
 
     await tester.pumpAndSettle();
 
