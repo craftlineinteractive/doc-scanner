@@ -51,35 +51,39 @@ class _LabelledDualPillFabState extends State<LabelledDualPillFab> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               // Left: Scan Page
-              InkWell(
-                onTapDown: (_) => setState(() => _isPressedScan = true),
-                onTapUp: (_) => setState(() => _isPressedScan = false),
-                onTapCancel: () => setState(() => _isPressedScan = false),
-                onTap: widget.onScanPageTap,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      const Icon(
-                        Symbols.photo_camera_rounded,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      const SizedBox(width: 6),
-                      Flexible(
-                        child: Text(
-                          widget.scanLabel,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 0.2,
-                          ),
-                          overflow: TextOverflow.ellipsis,
+              Semantics(
+                button: true,
+                label: widget.scanLabel,
+                child: InkWell(
+                  onTapDown: (_) => setState(() => _isPressedScan = true),
+                  onTapUp: (_) => setState(() => _isPressedScan = false),
+                  onTapCancel: () => setState(() => _isPressedScan = false),
+                  onTap: widget.onScanPageTap,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        const Icon(
+                          Symbols.photo_camera_rounded,
+                          color: Colors.white,
+                          size: 20,
                         ),
-                      ),
-                    ],
+                        const SizedBox(width: 6),
+                        Flexible(
+                          child: Text(
+                            widget.scanLabel,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 0.2,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -92,35 +96,39 @@ class _LabelledDualPillFabState extends State<LabelledDualPillFab> {
               ),
 
               // Right: Import
-              InkWell(
-                onTapDown: (_) => setState(() => _isPressedImport = true),
-                onTapUp: (_) => setState(() => _isPressedImport = false),
-                onTapCancel: () => setState(() => _isPressedImport = false),
-                onTap: widget.onImportTap,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      const Icon(
-                        Symbols.add_photo_alternate_rounded,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      const SizedBox(width: 6),
-                      Flexible(
-                        child: Text(
-                          widget.importLabel,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 0.2,
-                          ),
-                          overflow: TextOverflow.ellipsis,
+              Semantics(
+                button: true,
+                label: widget.importLabel,
+                child: InkWell(
+                  onTapDown: (_) => setState(() => _isPressedImport = true),
+                  onTapUp: (_) => setState(() => _isPressedImport = false),
+                  onTapCancel: () => setState(() => _isPressedImport = false),
+                  onTap: widget.onImportTap,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        const Icon(
+                          Symbols.add_photo_alternate_rounded,
+                          color: Colors.white,
+                          size: 20,
                         ),
-                      ),
-                    ],
+                        const SizedBox(width: 6),
+                        Flexible(
+                          child: Text(
+                            widget.importLabel,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 0.2,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

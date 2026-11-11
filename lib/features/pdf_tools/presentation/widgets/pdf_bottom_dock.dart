@@ -32,35 +32,42 @@ class PdfBottomDock extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: <Widget>[
           // 1. PDF Toolkit (Special highlighted pill)
-          InkWell(
-            onTap: onToolkitTap,
-            borderRadius: BorderRadius.circular(12),
-            child: Container(
-              constraints: const BoxConstraints(minWidth: 66),
-              height: 56,
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              decoration: BoxDecoration(
-                color: AppColors.primaryTint,
+          Semantics(
+            button: true,
+            label: 'PDF Toolkit',
+            child: Tooltip(
+              message: 'PDF Toolkit',
+              child: InkWell(
+                onTap: onToolkitTap,
                 borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Icon(
-                    Symbols.home_repair_service_rounded,
-                    size: 20,
-                    color: AppColors.primary,
+                child: Container(
+                  constraints: const BoxConstraints(minWidth: 66),
+                  height: 56,
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryTint,
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  SizedBox(height: 2),
-                  Text(
-                    'Toolkit',
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.primary,
-                    ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        Symbols.home_repair_service_rounded,
+                        size: 20,
+                        color: AppColors.primary,
+                      ),
+                      SizedBox(height: 2),
+                      Text(
+                        'Toolkit',
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           ),
@@ -140,27 +147,34 @@ class _DockItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
-      child: Container(
-        constraints: const BoxConstraints(minWidth: 58),
-        height: 56,
-        padding: const EdgeInsets.symmetric(horizontal: 4),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(icon, size: 20, color: AppColors.textMuted),
-            const SizedBox(height: 2),
-            Text(
-              label,
-              style: const TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.w500,
-                color: AppColors.textMuted,
-              ),
+    return Semantics(
+      button: true,
+      label: label,
+      child: Tooltip(
+        message: label,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(12),
+          child: Container(
+            constraints: const BoxConstraints(minWidth: 58),
+            height: 56,
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(icon, size: 20, color: AppColors.textMuted),
+                const SizedBox(height: 2),
+                Text(
+                  label,
+                  style: const TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.textMuted,
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
