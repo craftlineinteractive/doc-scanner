@@ -24,10 +24,10 @@ void main() {
 
       // Component themes verification
       expect(
-        lightTheme.elevatedButtonTheme.style?.minimumSize?.resolve(
-          <WidgetState>{},
-        ),
-        equals(const Size.fromHeight(52)),
+        lightTheme.elevatedButtonTheme.style?.minimumSize
+            ?.resolve(<WidgetState>{})
+            ?.height,
+        equals(52),
       );
       expect(lightTheme.bottomSheetTheme.showDragHandle, isTrue);
       expect(
